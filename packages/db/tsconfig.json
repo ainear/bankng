@@ -1,0 +1,9 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "paths": {
+      "@prisma/client": ["./src/generated/client"]
+    }
+  },
+  "include": ["src/**/*.ts", "seed.ts"]
+}

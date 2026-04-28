@@ -1,0 +1,19 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: bankng
+      POSTGRES_PASSWORD: bankng
+      POSTGRES_DB: bankng
+    ports:
+      - "5432:5432"
+    volumes:
+      - bankng_postgres:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U bankng -d bankng"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  bankng_postgres:

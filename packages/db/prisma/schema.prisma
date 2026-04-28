@@ -1,0 +1,355 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+enum UserStatus {
+  invited
+  active
+  suspended
+  deleted
+}
+
+enum PublishStatus {
+  draft
+  active
+  archived
+}
+
+enum RateStatus {
+  pending
+  verified
+  rejected
+  expired
+}
+
+model User {
+  id              String     @id @default(uuid()) @db.Uuid
+  email           String     @unique
+  phone           String?    @unique
+  passwordHash    String?
+  status          UserStatus @default(active)
+  emailVerifiedAt DateTime?
+  createdAt       DateTime   @default(now())
+  updatedAt       DateTime   @updatedAt
+
+  profile UserProfile?
+  roles   UserRole[]
+  audits  AuditLog[]    @relation("AuditActor")
+  rates   InterestRateSnapshot[]
+  rateVerifications RateVerification[]
+  assignedLeads Lead[] @relation("LeadAssignee")
+  leadStatusEvents LeadStatusHistory[] @relation("LeadStatusActor")
+  reviewedStagingRates CrawlStagingRate[] @relation("CrawlStagingReviewer")
+}
+
+model UserProfile {
+  userId       String   @id @db.Uuid
+  fullName     String
+  avatarUrl    String?
+  provinceCode String?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model Role {
+  id          String           @id @default(uuid()) @db.Uuid
+  code        String           @unique
+  name        String
+  permissions RolePermission[]
+  users       UserRole[]
+}
+
+model Permission {
+  id    String @id @default(uuid()) @db.Uuid
+  code  String @unique
+  name  String
+  roles RolePermission[]
+}
+
+model RolePermission {
+  roleId       String @db.Uuid
+  permissionId String @db.Uuid
+
+  role       Role       @relation(fields: [roleId], references: [id], onDelete: Cascade)
+  permission Permission @relation(fields: [permissionId], references: [id], onDelete: Cascade)
+
+  @@id([roleId, permissionId])
+}
+
+model UserRole {
+  userId String @db.Uuid
+  roleId String @db.Uuid
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  role Role @relation(fields: [roleId], references: [id], onDelete: Cascade)
+
+  @@id([userId, roleId])
+}
+
+model Bank {
+  id          String   @id @default(uuid()) @db.Uuid
+  slug        String   @unique
+  name        String
+  shortName   String?
+  websiteUrl  String?
+  hotline     String?
+  description String?
+  logoUrl     String?
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  branches BankBranch[]
+  products FinancialProduct[]
+}
+
+model BankBranch {
+  id           String   @id @default(uuid()) @db.Uuid
+  bankId       String   @db.Uuid
+  provinceCode String
+  districtCode String?
+  branchName   String
+  address      String?
+  phone        String?
+  isActive     Boolean  @default(true)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  bank  Bank @relation(fields: [bankId], references: [id], onDelete: Cascade)
+  rates InterestRateSnapshot[]
+
+  @@index([bankId])
+  @@index([provinceCode])
+}
+
+model ProductCategory {
+  id             String   @id @default(uuid()) @db.Uuid
+  slug           String   @unique
+  name           String
+  description    String?
+  compareEnabled Boolean  @default(true)
+  isActive       Boolean  @default(true)
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  products FinancialProduct[]
+}
+
+model FinancialProduct {
+  id               String        @id @default(uuid()) @db.Uuid
+  bankId           String        @db.Uuid
+  categoryId       String        @db.Uuid
+  slug             String        @unique
+  name             String
+  shortDescription String?
+  longDescription  String?
+  status           PublishStatus @default(draft)
+  rankingScore     Decimal?
+  featuredRank     Int?
+  isPublic         Boolean       @default(false)
+  createdAt        DateTime      @default(now())
+  updatedAt        DateTime      @updatedAt
+
+  bank     Bank            @relation(fields: [bankId], references: [id])
+  category ProductCategory @relation(fields: [categoryId], references: [id])
+  variants ProductVariant[]
+
+  @@index([bankId])
+  @@index([categoryId])
+  @@index([status, isPublic])
+}
+
+model ProductVariant {
+  id                 String        @id @default(uuid()) @db.Uuid
+  productId          String        @db.Uuid
+  slug               String        @unique
+  variantName        String
+  targetSegment      String?
+  minAmount          Decimal?
+  maxAmount          Decimal?
+  minTermMonth       Int?
+  maxTermMonth       Int?
+  collateralRequired Boolean?
+  incomeRequirement  String?
+  note               String?
+  status             PublishStatus @default(active)
+  createdAt          DateTime      @default(now())
+  updatedAt          DateTime      @updatedAt
+
+  product FinancialProduct @relation(fields: [productId], references: [id], onDelete: Cascade)
+  rates   InterestRateSnapshot[]
+
+  @@index([productId])
+}
+
+model RateSource {
+  id               String   @id @default(uuid()) @db.Uuid
+  sourceType       String
+  sourceName       String
+  sourceUrl        String?
+  reliabilityScore Int      @default(50)
+  createdAt        DateTime @default(now())
+
+  rates InterestRateSnapshot[]
+}
+
+model InterestRateSnapshot {
+  id               String     @id @default(uuid()) @db.Uuid
+  productVariantId String     @db.Uuid
+  branchId         String?    @db.Uuid
+  provinceCode     String?
+  rateType         String
+  termValue        Int?
+  termUnit         String?
+  rateValue        Decimal
+  rateUnit         String     @default("percent_per_year")
+  minAmount        Decimal?
+  maxAmount        Decimal?
+  effectiveFrom    DateTime
+  effectiveTo      DateTime?
+  sourceId         String     @db.Uuid
+  status           RateStatus @default(pending)
+  createdById      String     @db.Uuid
+  createdAt        DateTime   @default(now())
+  updatedAt        DateTime   @updatedAt
+
+  productVariant ProductVariant @relation(fields: [productVariantId], references: [id], onDelete: Cascade)
+  branch         BankBranch?    @relation(fields: [branchId], references: [id])
+  source         RateSource     @relation(fields: [sourceId], references: [id])
+  createdBy      User           @relation(fields: [createdById], references: [id])
+  verifications  RateVerification[]
+
+  @@index([productVariantId])
+  @@index([rateType, status])
+  @@index([effectiveFrom, effectiveTo])
+  @@unique([productVariantId, rateType, termValue, termUnit, effectiveFrom, sourceId], name: "unique_rate_snapshot")
+}
+
+model RateVerification {
+  id         String   @id @default(uuid()) @db.Uuid
+  rateId      String   @db.Uuid
+  verifierId  String   @db.Uuid
+  verdict     RateStatus
+  note        String?
+  createdAt   DateTime @default(now())
+
+  rate      InterestRateSnapshot @relation(fields: [rateId], references: [id], onDelete: Cascade)
+  verifier  User                 @relation(fields: [verifierId], references: [id])
+
+  @@index([rateId, createdAt])
+  @@index([verifierId])
+}
+
+model AuditLog {
+  id         String   @id @default(uuid()) @db.Uuid
+  actorId    String?  @db.Uuid
+  entityType String
+  entityId   String
+  action     String
+  metadata   Json?
+  createdAt  DateTime @default(now())
+
+  actor User? @relation("AuditActor", fields: [actorId], references: [id])
+
+  @@index([entityType, entityId])
+  @@index([actorId])
+}
+
+model Lead {
+  id          String   @id @default(uuid()) @db.Uuid
+  name        String
+  phone       String
+  phoneNormalized String?
+  email       String?
+  message     String?
+  sourcePage  String
+  contextType String
+  contextSlug String
+  status      String   @default("new")
+  assignedToId String? @db.Uuid
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  assignedTo User? @relation("LeadAssignee", fields: [assignedToId], references: [id])
+  history   LeadStatusHistory[]
+
+  @@index([contextType, contextSlug])
+  @@index([status, createdAt])
+  @@index([phoneNormalized, contextType, contextSlug])
+}
+
+model LeadStatusHistory {
+  id         String   @id @default(uuid()) @db.Uuid
+  leadId     String   @db.Uuid
+  actorId    String?  @db.Uuid
+  fromStatus String?
+  toStatus   String
+  note       String?
+  createdAt  DateTime @default(now())
+
+  lead  Lead  @relation(fields: [leadId], references: [id], onDelete: Cascade)
+  actor User? @relation("LeadStatusActor", fields: [actorId], references: [id])
+
+  @@index([leadId, createdAt])
+  @@index([actorId])
+}
+
+enum CrawlStatus {
+  running
+  completed
+  failed
+  cancelled
+}
+
+model CrawlJob {
+  id          String     @id @default(uuid()) @db.Uuid
+  sourceUrl   String
+  status      CrawlStatus @default(running)
+  pagesCrawled Int        @default(0)
+  itemsFound  Int         @default(0)
+  errorMsg    String?
+  startedAt   DateTime   @default(now())
+  finishedAt  DateTime?
+
+  stagingRates CrawlStagingRate[]
+}
+
+model CrawlStagingRate {
+  id               String    @id @default(uuid()) @db.Uuid
+  crawlJobId       String    @db.Uuid
+  bankSlug         String
+  bankName         String
+  productName      String
+  variantName      String
+  rateType         String
+  termValue        Int?
+  termUnit         String?
+  rateValue        Decimal
+  rateUnit         String    @default("percent_per_year")
+  minAmount        Decimal?
+  maxAmount        Decimal?
+  effectiveFrom    DateTime
+  effectiveTo      DateTime?
+  provinceCode     String?
+  rawData          Json?
+  status           RateStatus @default(pending)
+  reviewedById     String?    @db.Uuid
+  reviewedAt       DateTime?
+  publishedAt      DateTime?
+  createdAt        DateTime  @default(now())
+
+  crawlJob CrawlJob @relation(fields: [crawlJobId], references: [id], onDelete: Cascade)
+  reviewedBy User?   @relation("CrawlStagingReviewer", fields: [reviewedById], references: [id])
+
+  @@index([crawlJobId])
+  @@index([status, createdAt])
+  @@index([bankSlug, rateType])
+}

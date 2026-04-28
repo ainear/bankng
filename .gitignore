@@ -1,0 +1,22 @@
+node_modules
+.next
+dist
+coverage
+playwright-report
+test-results
+.turbo
+.cache
+.env
+.env.local
+.env.*.local
+*.log
+packages/db/src/generated
+.omx/
+
+# Sensitive credentials — NEVER commit
+*.pem
+*.key
+*.crt
+credentials.json
+service-account.json
+.vercel

@@ -1,0 +1,23 @@
+{
+  "name": "@bankng/admin",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "dotenv -e ../../.env.local -- next dev --port 3001",
+    "build": "rm -rf .next && dotenv -e ../../.env.local -- next build",
+    "start": "dotenv -e ../../.env.local -- next start --port 3001",
+    "lint": "eslint .",
+    "typecheck": "tsc -p tsconfig.typecheck.json --noEmit",
+    "test": "vitest run --passWithNoTests"
+  },
+  "dependencies": {
+    "@bankng/auth": "workspace:*",
+    "@bankng/db": "workspace:*",
+    "@bankng/shared-utils": "workspace:*",
+    "@bankng/ui": "workspace:*",
+    "next": "^15.5.9",
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3",
+    "zod": "^3.24.1"
+  }
+}

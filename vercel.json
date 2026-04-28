@@ -1,0 +1,5 @@
+{
+  "buildCommand": "pnpm --filter @bankng/web build",
+  "installCommand": "pnpm install --prefer-offline",
+  "outputDirectory": "apps/web/.next"
+}

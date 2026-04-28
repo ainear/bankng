@@ -1,0 +1,20 @@
+# Render Blueprint — kích hoạt qua GitHub integration
+# Sau khi push lên GitHub:
+#   1. Vào Render.com → New → Blueprint
+#   2. Connect GitHub repo → chọn bankng
+#   3. File: packages/crawler/render.yaml
+
+services:
+  - type: cron
+    name: bankng-crawler
+    repo: https://github.com/<your-org>/bankng
+    branch: main
+    dockerfilePath: packages/crawler/Dockerfile
+    scheduleType: cron
+    # Chạy 1 lần/ngày lúc 3h sáng
+    schedule: "0 3 * * *"
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DATABASE_URL
+        sync: false  # Set trong Render dashboard (Supabase Postgres connection string)
