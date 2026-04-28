@@ -25,7 +25,7 @@ export function RateCard({ rate }: RateCardProps) {
     effectiveFrom: rate.effectiveFrom,
     updatedAt: rate.updatedAt,
     now: new Date(),
-    reliabilityScore: rate.source.reliabilityScore
+    reliabilityScore: rate.source?.reliabilityScore ?? null
   });
 
   const latestVerification = rate.verifications[0];

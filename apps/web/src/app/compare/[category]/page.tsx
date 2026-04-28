@@ -195,7 +195,7 @@ export default async function CompareCategoryPage({
                           effectiveFrom: topRate.effectiveFrom,
                           updatedAt: topRate.updatedAt,
                           now: new Date(),
-                          reliabilityScore: topRate.source.reliabilityScore
+                          reliabilityScore: topRate.source?.reliabilityScore ?? null
                         })
                       : null;
 

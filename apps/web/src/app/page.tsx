@@ -5,6 +5,9 @@ import { EmptyState } from "@/modules/public/components/empty-state";
 import { ProductCard } from "@/modules/public/components/product-card";
 import { PublicBadge } from "@/modules/public/components/public-badge";
 
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 export default async function HomePage() {
   const { categories, products } = await getPublicHomeData();
 

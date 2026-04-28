@@ -3,7 +3,7 @@ type PublicFreshnessInput = {
   effectiveFrom: Date;
   updatedAt: Date;
   now: Date;
-  reliabilityScore: number;
+  reliabilityScore: number | null;
 };
 
 export function getPublicFreshness(input: PublicFreshnessInput) {
@@ -23,11 +23,24 @@ export function getPublicFreshness(input: PublicFreshnessInput) {
     };
   }
 
+  const updatedAtMs = input.updatedAt?.getTime();
+  const nowMs = input.now?.getTime();
+
+  if (!Number.isFinite(updatedAtMs) || !Number.isFinite(nowMs)) {
+    return {
+      label: "Khong ro",
+      tone: "warning" as const,
+      description: "Khong the xac dinh do tuoi du lieu."
+    };
+  }
+
   const ageInDays = Math.floor(
-    (input.now.getTime() - input.updatedAt.getTime()) / (1000 * 60 * 60 * 24),
+    (nowMs - updatedAtMs) / (1000 * 60 * 60 * 24),
   );
 
-  if (ageInDays <= 7 && input.reliabilityScore >= 70) {
+  const score = input.reliabilityScore ?? 0;
+
+  if (ageInDays <= 7 && score >= 70) {
     return {
       label: "Moi cap nhat",
       tone: "success" as const,
@@ -35,7 +48,7 @@ export function getPublicFreshness(input: PublicFreshnessInput) {
     };
   }
 
-  if (ageInDays <= 30 && input.reliabilityScore >= 50) {
+  if (ageInDays <= 30 && score >= 50) {
     return {
       label: "Can xem lai som",
       tone: "warning" as const,

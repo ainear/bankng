@@ -9,6 +9,9 @@ export function isDuplicateLead(input: {
   existingCreatedAt: Date;
   lookbackHours: number;
 }) {
+  const subType = input.submittedContextType ?? "";
+  const exType = input.existingContextType ?? "";
+
   if (input.submittedPhone !== input.existingPhone) {
     return false;
   }
@@ -17,15 +20,16 @@ export function isDuplicateLead(input: {
     return false;
   }
 
-  if (
-    input.submittedContextType &&
-    input.existingContextType &&
-    input.submittedContextType !== input.existingContextType
-  ) {
+  if (subType && exType && subType !== exType) {
     return false;
   }
 
   const diffMs = input.submittedAt.getTime() - input.existingCreatedAt.getTime();
+
+  if (diffMs < 0) {
+    return false;
+  }
+
   const diffHours = diffMs / (1000 * 60 * 60);
 
   return diffHours <= input.lookbackHours;
