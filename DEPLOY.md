@@ -93,14 +93,15 @@ vercel deploy apps/api --yes --prod --token <Vercel token>
 ### Điều kiện: Repo phải có trên GitHub
 
 ```bash
-# Tạo repo GitHub (nếu chưa có)
+# Bankng repo đã có: https://github.com/ainear/bankng
+# Nếu chưa có:
 gh repo create bankng --public --source=. --push
 ```
 
 ### Deploy Cron Job
 
 1. Vào https://render.com → "New" → "Blueprint"
-2. Connect GitHub repo `bankng`
+2. Connect GitHub repo `ainear/bankng`
 3. Render tự động thấy `packages/crawler/render.yaml`
 4. Click "Apply" → nhập `DATABASE_URL` trong Render Dashboard
 5. **DATABASE_URL**: lấy từ Supabase Dashboard → Connection String

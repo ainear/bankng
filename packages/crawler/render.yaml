@@ -7,7 +7,7 @@
 services:
   - type: cron
     name: bankng-crawler
-    repo: https://github.com/<your-org>/bankng
+    repo: https://github.com/ainear/bankng
     branch: main
     dockerfilePath: packages/crawler/Dockerfile
     scheduleType: cron
