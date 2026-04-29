@@ -156,10 +156,24 @@ curl https://api.bankng.com/api/compare
 
 ---
 
+## Cấu hình Vercel Projects ( quan trọng )
+
+Mỗi project cần đặt `rootDirectory` đúng thư mục app để build hoạt động:
+
+| Project | rootDirectory | Build Command |
+|---------|--------------|---------------|
+| bankng-prod | `apps/web` | `cd ../.. && pnpm -F @bankng/db db:generate && pnpm -F @bankng/web build` |
+| bankng-admin | `apps/admin` | `cd ../.. && pnpm -F @bankng/db db:generate && pnpm -F @bankng/admin build` |
+| bankng-api | `apps/api` | `cd ../.. && pnpm -F @bankng/db db:generate && pnpm -F @bankng/api build` |
+| banker | `apps/banker` | `cd ../.. && pnpm -F @bankng/db db:generate && pnpm -F @bankng/banker build` |
+
+`outputDirectory` để null (Next.js default `.next`).
+
+---
+
 ## Files đã tạo cho deploy
 
 ```
-vercel.json                          # Vercel multi-app config
 packages/crawler/Dockerfile           # Playwright + Node Alpine
 packages/crawler/render.yaml          # Render cron blueprint
 .env.production.example               # Checklist env vars
