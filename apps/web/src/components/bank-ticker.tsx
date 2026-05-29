@@ -26,11 +26,35 @@ const BANKS = [
   { name: "PVcomBank", short: "PVC", color: "#0067B1", slug: "pvcombank" },
 ];
 
+const VIETQR_LOGO_MAP: Record<string, string> = {
+  vietcombank: "VCB",
+  vietinbank: "CTG",
+  bidv: "BIDV",
+  agribank: "VBA",
+  techcombank: "TCB",
+  mbbank: "MB",
+  acb: "ACB",
+  vpbank: "VPB",
+  tpbank: "TPB",
+  sacombank: "STB",
+  hdbank: "HDB",
+  vib: "VIB",
+  shb: "SHB",
+  eximbank: "EIB",
+  msb: "MSB",
+  seabank: "SEAB",
+  ocb: "OCB",
+  lpbank: "LPB",
+  namabank: "NAB",
+  pvcombank: "PVCOMBANK",
+};
+
 // Duplicate list for seamless loop
 const TICKER_BANKS = [...BANKS, ...BANKS];
 
 function BankLogo({ name, short, color, slug }: { name: string; short: string; color: string; slug: string }) {
-  const logoUrl = `https://raw.githubusercontent.com/vinhjaxt/vietnam-banks-logo/master/${slug}.png`;
+  const code = VIETQR_LOGO_MAP[slug] ?? short;
+  const logoUrl = `https://cdn.vietqr.io/img/${code}.png`;
   
   return (
     <div className="flex shrink-0 items-center gap-2.5 rounded-lg border border-[var(--bankng-border)] bg-white px-4 py-2.5 shadow-sm transition-shadow hover:shadow-md">
