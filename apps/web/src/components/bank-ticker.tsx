@@ -4,37 +4,54 @@
 // Sử dụng CSS animation, không cần thư viện ngoài
 
 const BANKS = [
-  { name: "Vietcombank", short: "VCB", color: "#006633" },
-  { name: "VietinBank", short: "CTG", color: "#C00000" },
-  { name: "BIDV", short: "BID", color: "#1A5276" },
-  { name: "Agribank", short: "AGR", color: "#006633" },
-  { name: "Techcombank", short: "TCB", color: "#EF3124" },
-  { name: "MB Bank", short: "MBB", color: "#004B87" },
-  { name: "ACB", short: "ACB", color: "#0047AA" },
-  { name: "VPBank", short: "VPB", color: "#23A047" },
-  { name: "TPBank", short: "TPB", color: "#E2001A" },
-  { name: "Sacombank", short: "STB", color: "#1D6DB5" },
-  { name: "HDBank", short: "HDB", color: "#003C8F" },
-  { name: "VIB", short: "VIB", color: "#0063B0" },
-  { name: "SHB", short: "SHB", color: "#C10000" },
-  { name: "Eximbank", short: "EIB", color: "#004A97" },
-  { name: "MSB", short: "MSB", color: "#E31F26" },
-  { name: "SeABank", short: "SSB", color: "#F26522" },
-  { name: "OCB", short: "OCB", color: "#007DC5" },
-  { name: "LPBank", short: "LPB", color: "#005BAA" },
-  { name: "NamABank", short: "NAB", color: "#E52629" },
-  { name: "PVcomBank", short: "PVC", color: "#0067B1" },
+  { name: "Vietcombank", short: "VCB", color: "#006633", slug: "vietcombank" },
+  { name: "VietinBank", short: "CTG", color: "#C00000", slug: "vietinbank" },
+  { name: "BIDV", short: "BID", color: "#1A5276", slug: "bidv" },
+  { name: "Agribank", short: "AGR", color: "#006633", slug: "agribank" },
+  { name: "Techcombank", short: "TCB", color: "#EF3124", slug: "techcombank" },
+  { name: "MB Bank", short: "MBB", color: "#004B87", slug: "mbbank" },
+  { name: "ACB", short: "ACB", color: "#0047AA", slug: "acb" },
+  { name: "VPBank", short: "VPB", color: "#23A047", slug: "vpbank" },
+  { name: "TPBank", short: "TPB", color: "#E2001A", slug: "tpbank" },
+  { name: "Sacombank", short: "STB", color: "#1D6DB5", slug: "sacombank" },
+  { name: "HDBank", short: "HDB", color: "#003C8F", slug: "hdbank" },
+  { name: "VIB", short: "VIB", color: "#0063B0", slug: "vib" },
+  { name: "SHB", short: "SHB", color: "#C10000", slug: "shb" },
+  { name: "Eximbank", short: "EIB", color: "#004A97", slug: "eximbank" },
+  { name: "MSB", short: "MSB", color: "#E31F26", slug: "msb" },
+  { name: "SeABank", short: "SSB", color: "#F26522", slug: "seabank" },
+  { name: "OCB", short: "OCB", color: "#007DC5", slug: "ocb" },
+  { name: "LPBank", short: "LPB", color: "#005BAA", slug: "lpbank" },
+  { name: "NamABank", short: "NAB", color: "#E52629", slug: "namabank" },
+  { name: "PVcomBank", short: "PVC", color: "#0067B1", slug: "pvcombank" },
 ];
 
 // Duplicate list for seamless loop
 const TICKER_BANKS = [...BANKS, ...BANKS];
 
-function BankLogo({ name, short, color }: { name: string; short: string; color: string }) {
+function BankLogo({ name, short, color, slug }: { name: string; short: string; color: string; slug: string }) {
+  const logoUrl = `https://raw.githubusercontent.com/vinhjaxt/vietnam-banks-logo/master/${slug}.png`;
+  
   return (
     <div className="flex shrink-0 items-center gap-2.5 rounded-lg border border-[var(--bankng-border)] bg-white px-4 py-2.5 shadow-sm transition-shadow hover:shadow-md">
-      {/* Logo placeholder — circular badge with bank color */}
+      {/* Real image logo */}
+      <img
+        src={logoUrl}
+        alt={name}
+        className="h-8 w-8 shrink-0 object-contain"
+        onError={(e) => {
+          (e.target as HTMLElement).style.display = "none";
+          const sibling = (e.target as HTMLElement).nextElementSibling;
+          if (sibling) {
+            (sibling as HTMLElement).classList.remove("hidden");
+            (sibling as HTMLElement).classList.add("flex");
+          }
+        }}
+      />
+      
+      {/* Fallback circular badge if image fails to load */}
       <div
-        className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-[10px] font-bold text-white"
+        className="hidden h-8 w-8 shrink-0 items-center justify-center rounded-full text-[10px] font-bold text-white"
         style={{ backgroundColor: color }}
       >
         {short.slice(0, 3)}
