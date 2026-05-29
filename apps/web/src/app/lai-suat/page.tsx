@@ -1,51 +1,27 @@
 import Link from "next/link";
-import { notFound } from "next/navigation";
 import { prisma } from "@bankng/db";
-import { getProvinceBySlug } from "@/modules/public/province-map";
+import { PROVINCES } from "@/modules/public/province-map";
 import { LeadForm } from "@/modules/public/components/lead-form";
 
 export const revalidate = 3600; // Cache 1 hour for performance
 
-interface Props {
-  params: Promise<{ "tinh-thanh": string }>;
-}
+export const metadata = {
+  title: "Bảng lãi suất ngân hàng mới nhất 2026 | Bankng",
+  description: "So sánh lãi suất tiết kiệm, lãi suất vay mua nhà, vay tiêu dùng từ hơn 40 ngân hàng Việt Nam. Cập nhật mới nhất hôm nay.",
+  keywords: [
+    "lai suat ngan hang",
+    "lãi suất tiết kiệm mới nhất",
+    "lãi suất vay ngân hàng",
+    "so sánh lãi suất",
+  ],
+};
 
-export async function generateMetadata({ params }: Props) {
-  const { "tinh-thanh": slug } = await params;
-  const province = getProvinceBySlug(slug);
-
-  if (!province) {
-    return {
-      title: "Không tìm thấy tỉnh thành | Bankng",
-    };
-  }
-
-  return {
-    title: `Lãi suất ngân hàng tốt nhất tại ${province.name} | Bankng`,
-    description: `Bảng so sánh lãi suất tiết kiệm, lãi suất vay mua nhà/xe và danh sách nhân viên ngân hàng hỗ trợ trực tiếp tại ${province.name}. Cập nhật mới nhất.`,
-    keywords: [
-      `lai suat ${province.slug}`,
-      `lãi suất ngân hàng ${province.name}`,
-      `banker ${province.name}`,
-      `vay mua nhà ${province.name}`,
-      `tiết kiệm ${province.name}`,
-    ],
-  };
-}
-
-export default async function LocalProvincePage({ params }: Props) {
-  const { "tinh-thanh": slug } = await params;
-  const province = getProvinceBySlug(slug);
-
-  if (!province) {
-    notFound();
-  }
-
-  // 1. Fetch Bankers in this province
-  const localBankers = await prisma.banker.findMany({
+export default async function NationalRatesPage() {
+  // 1. Fetch Top 3 National Verified Bankers
+  const topBankers = await prisma.banker.findMany({
     where: {
-      provinceCode: province.code,
       isActive: true,
+      isVerified: true,
     },
     include: {
       user: {
@@ -61,35 +37,9 @@ export default async function LocalProvincePage({ params }: Props) {
     take: 6,
   });
 
-  // 2. Fetch default national bankers if no local bankers found to avoid empty state
-  const fallbackBankers = localBankers.length === 0 
-    ? await prisma.banker.findMany({
-        where: {
-          isActive: true,
-          isVerified: true,
-        },
-        include: {
-          user: {
-            include: {
-              profile: true,
-            },
-          },
-          bank: true,
-        },
-        orderBy: {
-          rating: "desc",
-        },
-        take: 3,
-      })
-    : [];
-
-  // 3. Fetch interest rates snapshots for this province (or national defaults)
+  // 2. Fetch Top 10 National Verified Interest Rates
   const rateSnapshots = await prisma.interestRateSnapshot.findMany({
     where: {
-      OR: [
-        { provinceCode: province.code },
-        { provinceCode: null },
-      ],
       status: "verified",
     },
     include: {
@@ -120,46 +70,45 @@ export default async function LocalProvincePage({ params }: Props) {
 
       <section className="mx-auto max-w-5xl px-6 py-12">
         {/* Breadcrumb */}
-        <div className="mb-6">
-          <Link
-            className="inline-flex items-center gap-1 text-sm font-semibold text-[var(--bankng-primary)] hover:underline"
-            href="/"
-          >
-            ← Trang chủ
+        <div className="mb-6 flex items-center gap-2 text-sm text-[var(--bankng-text-secondary)] font-medium">
+          <Link href="/" className="hover:text-[var(--bankng-primary)]">
+            Trang chủ
           </Link>
+          <span>/</span>
+          <span className="text-[var(--bankng-text-primary)] font-semibold">Lãi suất</span>
         </div>
 
-        {/* Hero Localized Title */}
+        {/* Hero banner */}
         <div className="mb-10 rounded-2xl border border-[var(--bankng-border)] bg-gradient-to-br from-emerald-800 to-emerald-950 p-8 text-white shadow-lg relative overflow-hidden">
           <div className="absolute right-0 top-0 h-48 w-48 rounded-full bg-white/5 blur-2xl" />
           <span className="rounded-full bg-emerald-500/20 px-3 py-1 text-xs font-bold text-emerald-200 uppercase tracking-wider">
-            📍 Thị Trường Khu Vực
+            📊 Toàn Quốc
           </span>
           <h1 className="mt-4 text-3xl md:text-4.5xl font-black tracking-tight leading-tight">
-            Lãi Suất Ngân Hàng Tại {province.name}
+            Bảng Lãi Suất Ngân Hàng Mới Nhất 2026
           </h1>
           <p className="mt-3 text-base text-emerald-100/90 max-w-2xl leading-relaxed">
-            Xem bảng so sánh lãi suất và kết nối trực tiếp với nhân viên tín dụng làm việc tại địa bàn **{province.name}** để nhận hỗ trợ giải ngân nhanh chóng.
+            Cập nhật và so sánh lãi suất tiết kiệm, lãi suất vay ưu đãi từ hơn 40 ngân hàng Việt Nam. Nhận hỗ trợ tư vấn từ các chuyên viên ngân hàng uy tín.
           </p>
         </div>
 
-        {/* Dynamic Grid Layout */}
+        {/* Layout Grid */}
         <div className="grid gap-8 lg:grid-cols-5">
-          {/* Main content area - Left 3 Columns */}
+          {/* Main content - Left 3 cols */}
           <div className="lg:col-span-3 space-y-8">
-            {/* Local Interest Rates section */}
+            
+            {/* Top Rates Table */}
             <div className="rounded-2xl border border-[var(--bankng-border)] bg-white p-6 shadow-sm">
               <h2 className="text-xl font-bold mb-4 flex items-center gap-2">
-                💵 Bảng lãi suất ưu đãi khu vực
+                💰 Top lãi suất ngân hàng nổi bật nhất
               </h2>
               <p className="text-xs text-[var(--bankng-text-secondary)] mb-6 font-semibold">
-                Danh sách lãi suất tiết kiệm & vay vốn áp dụng cho khách hàng tại {province.name} (Đã được kiểm duyệt).
+                Danh sách các chương trình lãi suất tiết kiệm & vay vốn tối ưu nhất trên toàn quốc đã được kiểm duyệt.
               </p>
 
               {rateSnapshots.length === 0 ? (
                 <div className="text-center py-8 border border-dashed border-[var(--bankng-border)] rounded-xl bg-slate-50">
-                  <span className="text-3xl">📊</span>
-                  <p className="mt-2 text-sm text-[var(--bankng-text-secondary)] font-bold">Chưa có bảng lãi suất đặc thù khu vực.</p>
+                  <p className="text-sm text-[var(--bankng-text-secondary)] font-bold">Chưa có bảng lãi suất nào được cập nhật.</p>
                 </div>
               ) : (
                 <div className="overflow-x-auto">
@@ -211,59 +160,46 @@ export default async function LocalProvincePage({ params }: Props) {
               )}
             </div>
 
-            {/* Local Bankers section */}
+            {/* Provinces Quick Selection Grid */}
             <div className="rounded-2xl border border-[var(--bankng-border)] bg-white p-6 shadow-sm">
               <h2 className="text-xl font-bold mb-2 flex items-center gap-2">
-                📌 Đội ngũ Banker hỗ trợ tại {province.name}
+                📍 Tra cứu lãi suất theo địa phương
               </h2>
+              <p className="text-xs text-[var(--bankng-text-secondary)] mb-6 font-semibold">
+                Xem bảng lãi suất đặc thù và kết nối với banker hỗ trợ tại địa bàn của bạn.
+              </p>
               
-              {localBankers.length === 0 ? (
-                /* Fallback State */
-                <div className="mt-6 space-y-6">
-                  <div className="rounded-xl bg-amber-50/50 border border-amber-100 p-4 text-xxs font-semibold leading-relaxed text-amber-800">
-                    ℹ️ Hiện tại chưa có nhân viên tín dụng nào đăng ký địa bàn công tác tại **{province.name}**. 
-                    Tuy nhiên, sếp vẫn có thể nhận tư vấn từ đội ngũ Banker Big4 hỗ trợ toàn quốc dưới đây:
-                  </div>
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-2.5 max-h-80 overflow-y-auto pr-1">
+                {PROVINCES.map((province) => (
+                  <Link
+                    key={province.code}
+                    href={`/lai-suat/${province.slug}`}
+                    className="flex items-center justify-between p-3 rounded-xl border border-slate-100 bg-slate-50 hover:bg-white hover:border-[var(--bankng-primary)] hover:shadow-xs transition-all text-xs font-bold text-slate-700 hover:text-[var(--bankng-primary)]"
+                  >
+                    <span>{province.name}</span>
+                    <span className="text-slate-400">→</span>
+                  </Link>
+                ))}
+              </div>
+            </div>
 
-                  <div className="grid gap-4 sm:grid-cols-2">
-                    {fallbackBankers.map((banker) => (
-                      <div
-                        key={banker.id}
-                        className="rounded-xl border border-slate-100 bg-white p-4 shadow-xs transition-shadow hover:shadow-md flex items-start gap-4"
-                      >
-                        <div className="h-12 w-12 shrink-0 rounded-full bg-slate-100 overflow-hidden border border-slate-200">
-                          {banker.user.profile?.avatarUrl ? (
-                            <img
-                              src={banker.user.profile.avatarUrl}
-                              alt={banker.user.profile.fullName}
-                              className="h-full w-full object-cover"
-                            />
-                          ) : (
-                            <span className="h-full w-full bg-slate-200 text-slate-500 font-bold flex items-center justify-center">
-                              {banker.user.profile?.fullName.slice(0, 2) || "BK"}
-                            </span>
-                          )}
-                        </div>
-                        <div>
-                          <h4 className="font-bold text-slate-800 text-sm">{banker.user.profile?.fullName}</h4>
-                          <span className="text-[10px] font-bold text-emerald-700 bg-emerald-50 px-1.5 py-0.5 rounded uppercase mt-1 inline-block">
-                            {banker.bank?.shortName || "Ngân hàng"}
-                          </span>
-                          <p className="mt-1 text-xxs text-[var(--bankng-text-secondary)] font-medium">
-                            Chức danh: {banker.title || "Chuyên viên Tín dụng"}
-                          </p>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
+            {/* National Bankers Team */}
+            <div className="rounded-2xl border border-[var(--bankng-border)] bg-white p-6 shadow-sm">
+              <h2 className="text-xl font-bold mb-2 flex items-center gap-2">
+                ⭐️ Đội ngũ Banker hỗ trợ toàn quốc
+              </h2>
+              <p className="text-xs text-[var(--bankng-text-secondary)] mb-6 font-semibold">
+                Kết nối trực tiếp với các chuyên viên tín dụng xuất sắc nhất để nhận tư vấn nhanh trong 24h.
+              </p>
+
+              {topBankers.length === 0 ? (
+                <p className="text-sm text-[var(--bankng-text-secondary)]">Hiện tại chưa có chuyên viên nào online.</p>
               ) : (
-                /* Local Bankers List */
-                <div className="mt-6 grid gap-4 sm:grid-cols-2">
-                  {localBankers.map((banker) => (
+                <div className="grid gap-4 sm:grid-cols-2">
+                  {topBankers.map((banker) => (
                     <div
                       key={banker.id}
-                      className="rounded-xl border border-[var(--bankng-border)] bg-white p-4 shadow-xs transition-all hover:shadow-md hover:border-[var(--bankng-primary)]/30 flex items-start gap-4"
+                      className="rounded-xl border border-[var(--bankng-border)] bg-white p-4 shadow-xs transition-all hover:shadow-md flex items-start gap-4"
                     >
                       <div className="h-12 w-12 shrink-0 rounded-full bg-slate-100 overflow-hidden border border-slate-200">
                         {banker.user.profile?.avatarUrl ? (
@@ -283,10 +219,10 @@ export default async function LocalProvincePage({ params }: Props) {
                         <span className="text-[10px] font-bold text-emerald-700 bg-emerald-50 px-1.5 py-0.5 rounded uppercase mt-1 inline-block">
                           {banker.bank?.shortName || "Ngân hàng"}
                         </span>
-                        <p className="mt-1.5 text-xxs text-[var(--bankng-text-secondary)] font-medium">
-                          💼 Chức danh: {banker.title || "Chuyên viên QHKH"}
+                        <p className="mt-1 text-xxs text-[var(--bankng-text-secondary)] font-medium">
+                          Chức danh: {banker.title || "Chuyên viên QHKH"}
                         </p>
-                        <div className="mt-2 flex items-center gap-1 text-[10px] text-amber-500 font-bold">
+                        <div className="mt-1.5 flex items-center gap-1 text-[10px] text-amber-500 font-bold">
                           ⭐ {Number(banker.rating).toFixed(1)} ({banker.reviewCount} đánh giá)
                         </div>
                       </div>
@@ -295,25 +231,26 @@ export default async function LocalProvincePage({ params }: Props) {
                 </div>
               )}
             </div>
+
           </div>
 
-          {/* Right Lead Form panel - 2 Columns */}
+          {/* Right Lead Form panel - 2 cols */}
           <div className="lg:col-span-2 space-y-6">
             <div className="rounded-2xl border border-[var(--bankng-border)] bg-white p-6 shadow-sm sticky top-6">
-              <h3 className="text-lg font-bold mb-2">📞 Đăng ký tư vấn khu vực</h3>
+              <h3 className="text-lg font-bold mb-2">📞 Đăng ký tư vấn miễn phí</h3>
               <p className="text-xxs text-[var(--bankng-text-secondary)] mb-6 font-semibold">
-                Hệ thống tự động khóa vùng **{province.name}** để ưu tiên chuyển hồ sơ của sếp cho Banker tại địa phương hỗ trợ.
+                Để lại thông tin liên hệ, hệ thống sẽ tự động gửi tới chuyên viên phù hợp nhất để hỗ trợ bạn lập tức.
               </p>
-
-              {/* Localized Lead Form calling submit lead */}
+              
               <LeadForm 
-                sourcePage={`Local Page: ${province.name}`}
-                contextType="province"
-                contextSlug={province.slug}
+                sourcePage="National Rates Index Page"
+                contextType="general"
+                contextSlug="national"
               />
             </div>
           </div>
         </div>
+
       </section>
     </main>
   );
