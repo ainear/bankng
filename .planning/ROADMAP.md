@@ -18,6 +18,7 @@ The remaining phases expand the public experience, banker workflows, leads, cont
 - [x] **Phase 8: Content & SEO Engine** - Add content, glossary, FAQ, and SEO landing infrastructure.
 - [x] **Phase 9: Moderation, Trust & Audit Expansion** - Extend moderation, trust controls, and operational review tooling.
 - [x] **Phase 10: Hardening & Release Readiness** - Tighten performance, security, deployment, and production readiness.
+- [ ] **Phase 11: Real Data Ingestion & UI Resemblance Alignment** - Connect real Supabase database and align UI/UX to match NganHang.com model.
 
 ## Phase Details
 
@@ -145,10 +146,21 @@ Plans:
 Plans:
 - [x] 10-01: Hardening, release checks, and readiness review
 
+### Phase 11: Real Data Ingestion & UI Resemblance Alignment
+**Goal**: Connect real Supabase database on production, integrate Instrument Sans Google Font, apply Emerald theme, and build filters to match NganHang.com.
+**Depends on**: Phase 10
+**Success Criteria** (what must be TRUE):
+  1. Production database URL is verified and successfully displays 28 banks and 134 rates.
+  2. Giao diện trang chủ và so sánh lãi suất đồng bộ 100% font Instrument Sans và màu Emerald sang trọng.
+**Plans**: 1 plan
+
+Plans:
+- [ ] 11-01: Real data connection and UI resemblance alignment
+
 ## Progress
 
 **Execution Order:**
-Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8 → 9 → 10
+Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8 → 9 → 10 → 11
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
@@ -162,3 +174,4 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8 →
 | 8. Content & SEO Engine | 2/2 | Complete | 2026-05-29 |
 | 9. Moderation, Trust & Audit Expansion | 1/1 | Complete | 2026-05-29 |
 | 10. Hardening & Release Readiness | 1/1 | Complete | 2026-05-29 |
+| 11. Real Data Ingestion & UI Alignment | 0/1 | In progress | - |
