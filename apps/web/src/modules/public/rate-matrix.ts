@@ -31,7 +31,7 @@ export async function getRateMatrix(opts?: {
   // Fetch all verified savings rates with bank info
   const rates = await prisma.interestRateSnapshot.findMany({
     where: {
-      rateType: "deposit",
+      rateType: { in: ["deposit", "savings"] },
       status: "verified",
     },
     orderBy: { effectiveFrom: "desc" },
