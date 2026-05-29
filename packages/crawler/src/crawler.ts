@@ -1,5 +1,5 @@
 import { chromium, type Page } from "playwright";
-import { crawlConfig, type CrawlPageResult, type StagingRateInput } from "./types";
+import { crawlConfig, type CrawlPageResult } from "./types";
 
 async function delay(ms: number) {
   return new Promise((resolve) => setTimeout(resolve, ms));

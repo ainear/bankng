@@ -11,7 +11,7 @@ describe("getPublicFreshness", () => {
       reliabilityScore: 80
     });
 
-    expect(result.label).toBe("Moi cap nhat");
+    expect(result.label).toBe("Mới cập nhật");
   });
 
   it("marks pending data as warning", () => {

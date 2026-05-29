@@ -1,5 +1,4 @@
 import { prisma } from "@bankng/db";
-import { PrismaClient } from "@prisma/client";
 import { launchBrowser, runCrawl } from "./crawler";
 import { stagingRateSchema, crawlConfig } from "./types";
 import { randomUUID } from "node:crypto";
@@ -10,7 +9,7 @@ async function main() {
 
   console.log(`[Job ${jobId}] Starting crawl of ${crawlConfig.pages.length} pages from ${crawlConfig.baseUrl}`);
 
-  const crawlJob = await prisma.crawlJob.create({
+  await prisma.crawlJob.create({
     data: {
       id: jobId,
       sourceUrl: crawlConfig.baseUrl,

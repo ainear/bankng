@@ -9,8 +9,8 @@ describe("admin feedback helpers", () => {
   it("resolves known feedback codes", () => {
     expect(resolveFeedback("branch_deleted")).toEqual({
       tone: "success",
-      title: "Da xoa branch",
-      description: "Branch da duoc go khoi catalog va audit log da duoc ghi."
+      title: "Đã xóa chi nhánh",
+      description: "Chi nhánh đã được gỡ khỏi danh mục và audit log đã được ghi."
     });
   });
 
