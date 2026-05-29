@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { prisma } from "@bankng/db";
+import { PROVINCES } from "@/modules/public/province-map";
 
 // Force dynamic — sitemap phụ thuộc vào DB, không thể prerender lúc build
 export const dynamic = "force-dynamic";
@@ -25,8 +26,16 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       prisma.article.findMany({ where: { status: "active" }, select: { slug: true, updatedAt: true } }),
     ]);
 
+    const localProvinceRoutes = PROVINCES.map((p) => ({
+      url: `${baseUrl}/lai-suat/${p.slug}`,
+      lastModified: new Date(),
+      changeFrequency: "daily" as const,
+      priority: 0.8,
+    }));
+
     return [
       ...staticRoutes,
+      ...localProvinceRoutes,
       ...categories.map((c) => ({ url: `${baseUrl}/compare/${c.slug}`, changeFrequency: "daily" as const, priority: 0.9 })),
       ...banks.map((b) => ({ url: `${baseUrl}/bank/${b.slug}`, lastModified: b.updatedAt, changeFrequency: "weekly" as const, priority: 0.8 })),
       ...products.map((p) => ({ url: `${baseUrl}/product/${p.slug}`, lastModified: p.updatedAt, changeFrequency: "weekly" as const, priority: 0.7 })),
