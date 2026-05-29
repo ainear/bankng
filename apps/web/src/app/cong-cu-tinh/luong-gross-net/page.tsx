@@ -57,19 +57,8 @@ export default function GrossNetCalculatorPage() {
 
   // Thuật toán tính PIT lũy tiến từng phần
   const calculatePIT = (taxableIncome: number) => {
-    const steps = [
-      { max: 5000000, rate: 0.05, subtract: 0 },
-      { max: 10000000, rate: 0.10, subtract: 250000 },
-      { max: 18000000, rate: 0.15, subtract: 750000 },
-      { max: 32000000, rate: 0.20, subtract: 1650000 },
-      { max: 52000000, rate: 0.25, subtract: 3250000 },
-      { max: 80000000, rate: 0.30, subtract: 5850000 },
-      { max: Infinity, rate: 0.35, subtract: 9850000 },
-    ];
-
     if (taxableIncome <= 0) return { totalTax: 0, stepsDetail: [] };
 
-    let remaining = taxableIncome;
     let totalTax = 0;
     const stepsDetail = [];
 
@@ -300,7 +289,7 @@ export default function GrossNetCalculatorPage() {
                   <select
                     id="zone-select"
                     value={zone}
-                    onChange={(e) => setZone(e.target.value as any)}
+                    onChange={(e) => setZone(e.target.value as "I" | "II" | "III" | "IV")}
                     className="w-full rounded-xl border border-[var(--bankng-border)] bg-white px-4 py-3 text-sm font-semibold shadow-sm focus:border-[var(--bankng-primary)] focus:outline-none"
                   >
                     <option value="I">Vùng I - Đô thị lớn ({formatVND(MIN_WAGE_BY_ZONE["I"])})</option>
