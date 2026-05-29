@@ -12,9 +12,9 @@ The remaining phases expand the public experience, banker workflows, leads, cont
 - [x] **Phase 2: Catalog & Rates CRUD** - Build core admin CRUD for banks, categories, products, variants, rate sources, and rates.
 - [x] **Phase 3: Admin Protection & Feedback** - Add admin login protection, guarded mutations, mutation feedback, and branch CRUD.
 - [x] **Phase 4: Rate Verification & Freshness** - Add rate verification workflow, verification history, and freshness indicators.
-- [ ] **Phase 5: Public Compare Experience** - Build public compare/category/product/bank flows from live catalog and rates.
-- [ ] **Phase 6: Banker Portal Core** - Expand banker-facing profile and workflow surfaces beyond the shell.
-- [ ] **Phase 7: Lead CRM & Routing** - Add lead capture lifecycle and admin/banker lead handling workflows.
+- [x] **Phase 5: Public Compare Experience** - Build public compare/category/product/bank flows from live catalog and rates.
+- [x] **Phase 6: Banker Portal Core** - Expand banker-facing profile and workflow surfaces beyond the shell.
+- [x] **Phase 7: Lead CRM & Routing** - Add lead capture lifecycle and admin/banker lead handling workflows.
 - [ ] **Phase 8: Content & SEO Engine** - Add content, glossary, FAQ, and SEO landing infrastructure.
 - [ ] **Phase 9: Moderation, Trust & Audit Expansion** - Extend moderation, trust controls, and operational review tooling.
 - [ ] **Phase 10: Hardening & Release Readiness** - Tighten performance, security, deployment, and production readiness.
@@ -79,8 +79,8 @@ Plans:
 **Plans**: TBD
 
 Plans:
-- [ ] 05-01: Build compare/category pages
-- [ ] 05-02: Build product and bank detail pages
+- [x] 05-01: Build compare/category pages
+- [x] 05-02: Build product and bank detail pages
 
 ### Phase 6: Banker Portal Core
 **Goal**: Expand banker-facing profile, verification, and workflow surfaces beyond the current shell.
@@ -92,8 +92,8 @@ Plans:
 **Plans**: TBD
 
 Plans:
-- [ ] 06-01: Build banker profile management
-- [ ] 06-02: Build banker workflow dashboard
+- [x] 06-01: Build banker profile management
+- [x] 06-02: Build banker workflow dashboard
 
 ### Phase 7: Lead CRM & Routing
 **Goal**: Add lead capture lifecycle and admin/banker lead handling workflows.
@@ -105,8 +105,8 @@ Plans:
 **Plans**: TBD
 
 Plans:
-- [ ] 07-01: Build lead capture and admin routing
-- [ ] 07-02: Build banker lead handling
+- [x] 07-01: Build lead capture and admin routing
+- [x] 07-02: Build banker lead handling
 
 ### Phase 8: Content & SEO Engine
 **Goal**: Add content, glossary, FAQ, and SEO landing infrastructure.
@@ -156,9 +156,9 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8 →
 | 2. Catalog & Rates CRUD | 1/1 | Complete | 2026-04-21 |
 | 3. Admin Protection & Feedback | 1/1 | Complete | 2026-04-21 |
 | 4. Rate Verification & Freshness | 1/1 | Complete | 2026-04-21 |
-| 5. Public Compare Experience | 0/2 | Not started | - |
-| 6. Banker Portal Core | 0/2 | Not started | - |
-| 7. Lead CRM & Routing | 0/2 | Not started | - |
+| 5. Public Compare Experience | 2/2 | Complete | 2026-05-29 |
+| 6. Banker Portal Core | 2/2 | Complete | 2026-05-29 |
+| 7. Lead CRM & Routing | 2/2 | Complete | 2026-05-29 |
 | 8. Content & SEO Engine | 0/2 | Not started | - |
 | 9. Moderation, Trust & Audit Expansion | 0/1 | Not started | - |
 | 10. Hardening & Release Readiness | 0/1 | Not started | - |
