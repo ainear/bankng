@@ -1,27 +1,83 @@
-node_modules
-.next
-dist
-coverage
-playwright-report
-test-results
-.turbo
-.cache
+# Dependency directories
+node_modules/
+/jspm_packages/
+
+# Build outputs
+.next/
+out/
+build/
+dist/
+/lib/
+/coverage/
+.turbo/
+.cache/
+/playwright-report/
+/test-results/
+packages/db/src/generated/
+
+# Environment and Local configuration files (NEVER commit credentials)
 .env
 .env.local
-.env.*.local
-*.log
-packages/db/src/generated
-.omx/
+.env.development.local
+.env.test.local
+.env.production.local
+.env.vercel
+.env.vercel.*
+.env.production
+.env.development
+.env.test
+.env.production.example.local
+.env.example.local
+# Note: Keep .env.example and .env.production.example as templates (handled by git tracking exclusion explicitly)
 
-# Sensitive credentials — NEVER commit
+# Secret keys and credentials
 *.pem
 *.key
 *.crt
+*.p12
+*.pfx
+*.der
 credentials.json
 service-account.json
-.vercel
-.gitnexus
+*service-key*.json
+*service-account*.json
+*firebase-key*.json
 
-# MemPalace per-project files (issue #185)
+# Local / Editor / IDE configuration
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+.DS_Store
+.obsidian/
+
+# Log files
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Agent, LLM & Workspace Cache directories
+.agent/
+.agents/
+.claude/
+.gemini/
+.omx/
+.planning/
+.playwright-mcp/
+.vercel/
+.gitnexus/
+
+# Mobile Apps & Heavy Media
+*.apk
+*.aab
+*.ipa
+*.mp4
+
+# Project specific exclusions
 mempalace.yaml
 entities.json
