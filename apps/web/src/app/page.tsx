@@ -46,26 +46,32 @@ export default async function HomePage() {
   return (
     <main className="min-h-screen bg-[var(--bankng-background)] text-[var(--bankng-text-primary)]">
       {/* Hero */}
-      <section className="bg-gradient-to-b from-[var(--bankng-primary)]/5 to-transparent">
-        <div className="mx-auto max-w-6xl px-6 py-12">
-          <h1 className="text-3xl font-bold leading-tight md:text-4xl">
-            So sánh lãi suất, chắp cánh tài chính
+      <section className="bg-gradient-to-b from-emerald-500/10 via-transparent to-transparent relative overflow-hidden">
+        <div className="absolute top-0 right-0 h-[300px] w-[300px] bg-emerald-500/5 rounded-full blur-3xl -z-10" />
+        <div className="mx-auto max-w-6xl px-6 py-16 text-center md:text-left">
+          <span className="rounded-full bg-emerald-100 text-emerald-800 px-3.5 py-1.5 text-xs font-black uppercase tracking-wider">
+            🚀 Nền tảng so sánh tài chính AI 2026
+          </span>
+          <h1 className="text-3.5xl font-black leading-tight md:text-5.5xl mt-5 tracking-tight">
+            So sánh lãi suất, <span className="bg-gradient-to-r from-emerald-600 to-emerald-800 bg-clip-text text-transparent">chắp cánh tài chính</span>
           </h1>
-          <p className="mt-3 max-w-2xl text-[var(--bankng-text-secondary)]">
-            Công cụ so sánh lãi suất tiết kiệm và vay ngân hàng tốt nhất Việt Nam.
-            Dữ liệu được cập nhật hàng ngày, nguồn chính thức, chi tiết.
+          <p className="mt-4 max-w-2xl text-slate-600 text-base md:text-lg font-semibold leading-relaxed mx-auto md:mx-0">
+            Công cụ so sánh lãi suất tiết kiệm và vay ngân hàng tối ưu nhất Việt Nam.
+            Dữ liệu được cào tự động hàng ngày, xác thực chính xác, bảo vệ quyền lợi người tiêu dùng.
           </p>
 
           {/* Category quick links */}
-          <div className="mt-8 grid grid-cols-3 gap-3 md:grid-cols-6">
+          <div className="mt-8 grid grid-cols-3 gap-4 md:grid-cols-6">
             {PRODUCT_CATEGORIES.map((cat) => (
               <Link
                 key={cat.href}
                 href={cat.href}
-                className="flex flex-col items-center gap-2 rounded-lg border border-[var(--bankng-border)] bg-white p-4 text-center shadow-sm transition-shadow hover:shadow-md"
+                className="group flex flex-col items-center gap-3 rounded-2xl border border-[var(--bankng-border)] bg-white p-5 text-center shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-emerald-500 hover:shadow-md hover:shadow-emerald-500/5"
               >
-                <span className="text-2xl">{cat.emoji}</span>
-                <span className="text-xs font-medium">{cat.label}</span>
+                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-emerald-50 text-2.5xl transition-colors group-hover:bg-emerald-100">
+                  {cat.emoji}
+                </div>
+                <span className="text-xs font-bold text-slate-700 transition-colors group-hover:text-emerald-700">{cat.label}</span>
               </Link>
             ))}
           </div>

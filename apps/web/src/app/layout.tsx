@@ -3,6 +3,13 @@ import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
+import { Instrument_Sans } from "next/font/google";
+
+const instrumentSans = Instrument_Sans({
+  subsets: ["latin", "latin-ext"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-instrument-sans",
+});
 
 export const metadata: Metadata = {
   title: {
@@ -34,8 +41,8 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="vi">
-      <body className="min-h-screen flex flex-col">
+    <html lang="vi" className={instrumentSans.variable}>
+      <body className={`${instrumentSans.className} min-h-screen flex flex-col`}>
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />

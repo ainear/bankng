@@ -1,2 +1,20 @@
 @import "tailwindcss";
 @import "@bankng/ui/styles.css";
+
+:root {
+  --bankng-primary: #059669; /* Emerald 600 (NganHang theme) */
+  --bankng-primary-hover: #047857; /* Emerald 700 */
+  --bankng-primary-light: #ecfdf5; /* Emerald 50 */
+  --bankng-background: #f8fafc; /* Slate 50 */
+  --bankng-surface: #ffffff;
+  --bankng-border: #e2e8f0; /* Slate 200 */
+  --bankng-text-primary: #0f172a; /* Slate 900 */
+  --bankng-text-secondary: #475569; /* Slate 600 */
+  --bankng-rate-highlight: #059669; /* Emerald 600 */
+}
+
+body {
+  font-family: var(--font-instrument-sans), system-ui, -apple-system, sans-serif;
+  background-color: var(--bankng-background);
+  color: var(--bankng-text-primary);
+}
