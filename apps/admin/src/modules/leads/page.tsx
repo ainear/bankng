@@ -50,7 +50,7 @@ export default async function LeadsPage({
   ]);
 
   const assigneeOptions = [
-    { label: "Chua gan", value: "" },
+    { label: "Chưa gán", value: "" },
     { label: "Unassigned only", value: "unassigned" },
     ...assignees.map((user) => ({
       label: user.email,
@@ -64,7 +64,7 @@ export default async function LeadsPage({
     { label: "closed", value: "closed" }
   ];
   const contextOptions = [
-    { label: "Tat ca context", value: "" },
+    { label: "Tất cả bối cảnh", value: "" },
     { label: "category", value: "category" },
     { label: "product", value: "product" },
     { label: "bank", value: "bank" }
@@ -93,7 +93,7 @@ export default async function LeadsPage({
   return (
     <AdminPage
       badge="CRM / Leads"
-      description="Quan ly lead tu public compare/product/bank funnels."
+      description="Quản lý lead từ các kênh compare/product/bank công khai."
       feedback={resolveFeedback(params?.feedback)}
       title="Leads CRM"
     >
@@ -111,13 +111,13 @@ export default async function LeadsPage({
         </div>
       </SectionCard>
 
-      <SectionCard title="Bo loc lead">
+      <SectionCard title="Bộ lọc lead">
         <form className="grid gap-4 md:grid-cols-4">
           <SelectField
             defaultValue={params?.status ?? ""}
             label="Filter status"
             name="status"
-            options={[{ label: "Tat ca status", value: "" }, ...statusOptions]}
+            options={[{ label: "Tất cả trạng thái", value: "" }, ...statusOptions]}
           />
           <SelectField
             defaultValue={params?.assignee ?? ""}
@@ -132,14 +132,14 @@ export default async function LeadsPage({
             options={contextOptions}
           />
           <div className="flex items-end gap-3">
-            <FormActions primaryLabel="Loc" />
+            <FormActions primaryLabel="Lọc" />
           </div>
         </form>
       </SectionCard>
 
-      <SectionCard title="Danh sach lead">
+      <SectionCard title="Danh sách lead">
         <DataTable
-          headers={["Lead", "Nguon", "Trang thai", "Gan cho", "Cap nhat"]}
+          headers={["Lead", "Nguồn", "Trạng thái", "Gán cho", "Cập nhật"]}
           rows={filteredLeads.map((lead) => (
             <tr key={lead.id}>
               <TableCell>
@@ -155,24 +155,24 @@ export default async function LeadsPage({
                 <div className="text-xs text-[var(--bankng-text-secondary)]">{lead.sourcePage}</div>
               </TableCell>
               <TableCell>{lead.status}</TableCell>
-              <TableCell>{lead.assignedTo?.email ?? "Chua gan"}</TableCell>
+              <TableCell>{lead.assignedTo?.email ?? "Chưa gán"}</TableCell>
               <TableCell>
                 <form action={updateLeadAction} className="grid gap-2">
                   <input name="id" type="hidden" value={lead.id} />
                   <SelectField
                     defaultValue={lead.status}
-                    label="Trang thai"
+                    label="Trạng thái"
                     name="status"
                     options={statusOptions}
                   />
                   <SelectField
                     defaultValue={lead.assignedToId ?? ""}
-                    label="Gan cho"
+                    label="Gán cho"
                     name="assignedToId"
                     options={assigneeOptions}
                   />
-                  <Input defaultValue={lead.message ?? ""} label="Ghi chu" name="note" />
-                  <FormActions primaryLabel="Luu lead" />
+                  <Input defaultValue={lead.message ?? ""} label="Ghi chú" name="note" />
+                  <FormActions primaryLabel="Lưu lead" />
                 </form>
                 <div className="mt-3 grid gap-1 text-xs text-[var(--bankng-text-secondary)]">
                   {lead.history.map((item) => (

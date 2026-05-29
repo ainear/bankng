@@ -16,18 +16,18 @@ export default async function DashboardPage() {
   return (
     <AdminPage
       badge="Admin / Dashboard"
-      description="M2 da mo banks, categories, products/variants, rates va audit logs."
-      title="Bang dieu khien van hanh"
+      description="Quản lý ngân hàng, sản phẩm, lãi suất, leads và audit logs."
+      title="Bảng điều khiển vận hành"
     >
       <div className="grid gap-4 md:grid-cols-3 xl:grid-cols-8">
-        <SummaryTile hint="Danh muc ngan hang" label="Banks" value={banks} />
-        <SummaryTile hint="Chi nhanh ngan hang" label="Branches" value={branches} />
-        <SummaryTile hint="Loai san pham" label="Categories" value={categories} />
-        <SummaryTile hint="Financial products" label="Products" value={products} />
-        <SummaryTile hint="Variants duoc gan rates" label="Variants" value={variants} />
-        <SummaryTile hint="Rate snapshots" label="Rates" value={rates} />
-        <SummaryTile hint="Lead tu funnel public" label="Leads" value={leads} />
-        <SummaryTile hint="Mutation nhay cam" label="Audit logs" value={logs} />
+        <SummaryTile hint="Danh mục ngân hàng" label="Ngân hàng" value={banks} />
+        <SummaryTile hint="Chi nhánh ngân hàng" label="Chi nhánh" value={branches} />
+        <SummaryTile hint="Loại sản phẩm" label="Danh mục" value={categories} />
+        <SummaryTile hint="Financial products" label="Sản phẩm" value={products} />
+        <SummaryTile hint="Variants được gắn rates" label="Biến thể" value={variants} />
+        <SummaryTile hint="Rate snapshots" label="Lãi suất" value={rates} />
+        <SummaryTile hint="Lead từ funnel public" label="Leads" value={leads} />
+        <SummaryTile hint="Mutation nhạy cảm" label="Audit logs" value={logs} />
       </div>
     </AdminPage>
   );

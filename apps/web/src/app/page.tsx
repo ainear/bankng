@@ -1,89 +1,121 @@
 import Link from "next/link";
-import { Button, Card } from "@bankng/ui";
-import { getPublicHomeData } from "@/modules/public/data";
-import { EmptyState } from "@/modules/public/components/empty-state";
-import { ProductCard } from "@/modules/public/components/product-card";
-import { PublicBadge } from "@/modules/public/components/public-badge";
+import { Button } from "@bankng/ui";
+import { getRateMatrix } from "@/modules/public/rate-matrix";
+import { RateTable } from "@/modules/public/components/rate-table";
+import { BankTicker } from "@/components/bank-ticker";
 
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
 
+const PRODUCT_CATEGORIES = [
+  {
+    label: "Vay mua nhà",
+    href: "/compare/vay-mua-nha",
+    emoji: "🏠"
+  },
+  {
+    label: "Vay mua xe",
+    href: "/compare/vay-mua-xe",
+    emoji: "🚗"
+  },
+  {
+    label: "Vay tín chấp",
+    href: "/compare/vay-tin-chap",
+    emoji: "💳"
+  },
+  {
+    label: "Vay kinh doanh",
+    href: "/compare/vay-kinh-doanh",
+    emoji: "🏢"
+  },
+  {
+    label: "Thẻ tín dụng",
+    href: "/compare/the-tin-dung",
+    emoji: "💳"
+  },
+  {
+    label: "Gửi tiết kiệm",
+    href: "/compare/tiet-kiem",
+    emoji: "💰"
+  }
+];
+
 export default async function HomePage() {
-  const { categories, products } = await getPublicHomeData();
+  const { rows, terms } = await getRateMatrix();
 
   return (
     <main className="min-h-screen bg-[var(--bankng-background)] text-[var(--bankng-text-primary)]">
-      <section className="mx-auto flex max-w-6xl flex-col gap-8 px-6 py-16">
-        <PublicBadge tone="success">Live catalog preview</PublicBadge>
-        <div className="max-w-3xl">
-          <h1 className="text-4xl font-semibold leading-tight md:text-5xl">
-            So sanh san pham ngan hang tren mot nen tang du lieu co kiem chung.
+      {/* Hero */}
+      <section className="bg-gradient-to-b from-[var(--bankng-primary)]/5 to-transparent">
+        <div className="mx-auto max-w-6xl px-6 py-12">
+          <h1 className="text-3xl font-bold leading-tight md:text-4xl">
+            So sánh lãi suất, chắp cánh tài chính
           </h1>
-          <p className="mt-5 text-lg text-[var(--bankng-text-secondary)]">
-            Bankng tap trung vao bang so sanh, cong cu tinh va lead tu van. M1 hien chi la
-            foundation shell, chua phai du lieu san pham that.
+          <p className="mt-3 max-w-2xl text-[var(--bankng-text-secondary)]">
+            Công cụ so sánh lãi suất tiết kiệm và vay ngân hàng tốt nhất Việt Nam.
+            Dữ liệu được cập nhật hàng ngày, nguồn chính thức, chi tiết.
           </p>
-        </div>
-        <div className="flex flex-wrap gap-3">
-          {categories[0] ? (
-            <Link href={`/compare/${categories[0].slug}`}>
-              <Button>So sanh san pham</Button>
+
+          {/* Category quick links */}
+          <div className="mt-8 grid grid-cols-3 gap-3 md:grid-cols-6">
+            {PRODUCT_CATEGORIES.map((cat) => (
+              <Link
+                key={cat.href}
+                href={cat.href}
+                className="flex flex-col items-center gap-2 rounded-lg border border-[var(--bankng-border)] bg-white p-4 text-center shadow-sm transition-shadow hover:shadow-md"
+              >
+                <span className="text-2xl">{cat.emoji}</span>
+                <span className="text-xs font-medium">{cat.label}</span>
+              </Link>
+            ))}
+          </div>
+
+          <div className="mt-4">
+            <Link
+              href="/compare"
+              className="text-sm font-medium text-[var(--bankng-primary)] hover:underline"
+            >
+              Xem tất cả danh mục so sánh →
             </Link>
-          ) : (
-            <Button disabled>So sanh san pham</Button>
-          )}
-          <Button variant="secondary">Tinh lai suat</Button>
-          <Button variant="ghost">Tim banker</Button>
+          </div>
         </div>
-        <div className="grid gap-4 md:grid-cols-3">
-          {categories.length === 0 ? (
-            <EmptyState
-              description="Chua co category public trong catalog."
-              title="Khong co du lieu compare"
-            />
-          ) : (
-            categories.map((category) => (
-              <Card key={category.id} title={category.name}>
-                <p className="text-sm text-[var(--bankng-text-secondary)]">
-                  {category.description ?? "Danh muc public san sang cho compare page."}
-                </p>
-                <div className="mt-4">
-                  <Link
-                    className="text-sm font-medium text-[var(--bankng-primary)]"
-                    href={`/compare/${category.slug}`}
-                  >
-                    Mo compare page
-                  </Link>
-                </div>
-              </Card>
-            ))
-          )}
+      </section>
+
+      {/* Bank ticker — logo ngân hàng scrolling */}
+      <BankTicker />
+
+      {/* Rate matrix */}
+      <section className="mx-auto max-w-6xl px-6 py-10">
+        <div className="mb-6 flex items-center justify-between">
+          <div>
+            <h2 className="text-xl font-semibold">Bảng lãi suất tiết kiệm</h2>
+            <p className="mt-1 text-sm text-[var(--bankng-text-secondary)]">
+              {rows.length} ngân hàng | Cập nhật hôm nay
+            </p>
+          </div>
+          <Link href="/compare/tiet-kiem">
+            <Button variant="secondary">Công cụ tính lãi</Button>
+          </Link>
         </div>
-        <div className="grid gap-4 md:grid-cols-2">
-          {products.length === 0 ? (
-            <EmptyState
-              description="Chua co san pham public de hien thi tren homepage."
-              title="Khong co san pham public"
-            />
-          ) : (
-            products.map((product) => (
-              <ProductCard
-                key={product.id}
-                product={{
-                  slug: product.slug,
-                  name: product.name,
-                  shortDescription: product.shortDescription,
-                  bank: {
-                    slug: product.bank.slug,
-                    name: product.bank.name
-                  },
-                  variants: product.variants.map((variant) => ({
-                    rates: variant.rates
-                  }))
-                }}
-              />
-            ))
-          )}
+
+        <RateTable rows={rows} terms={terms} />
+      </section>
+
+      {/* Bottom CTA */}
+      <section className="mx-auto max-w-6xl px-6 py-8">
+        <div className="rounded-lg border border-[var(--bankng-border)] bg-[var(--bankng-surface)] p-6 text-center">
+          <h3 className="text-lg font-semibold">Cần tư vấn nhanh?</h3>
+          <p className="mt-2 text-sm text-[var(--bankng-text-secondary)]">
+            Để lại thông tin, nhân viên ngân hàng sẽ liên hệ bạn trong 24 giờ.
+          </p>
+          <div className="mt-4 flex justify-center gap-3">
+            <Link href="/danh-sach-bankers">
+              <Button>Xem danh sách nhân viên</Button>
+            </Link>
+            <Link href="/tin-tuc">
+              <Button variant="ghost">Đọc bài viết</Button>
+            </Link>
+          </div>
         </div>
       </section>
     </main>

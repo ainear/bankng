@@ -62,17 +62,17 @@ export default async function ProductsPage({
   return (
     <AdminPage
       badge="Catalog / Products"
-      description="Quan ly products va variants. Product la lop public, variant la lop dung cho rates va dieu kien."
+      description="Quản lý sản phẩm và biến thể. Sản phẩm là lớp công khai, biến thể dùng cho lãi suất và điều kiện."
       feedback={resolveFeedback(params?.feedback)}
       title="Products & Variants CRUD"
     >
-      <SectionCard title="Tao product moi">
+      <SectionCard title="Tạo sản phẩm mới">
         <form action={createProductAction} className="grid gap-4">
           <FieldGrid>
             <SelectField label="Bank" name="bankId" options={bankOptions} />
             <SelectField label="Category" name="categoryId" options={categoryOptions} />
             <SelectField label="Status" name="status" options={statusOptions} />
-            <Input label="Ten product" name="name" required />
+            <Input label="Tên sản phẩm" name="name" required />
             <Input label="Slug (optional)" name="slug" />
             <Input label="Ranking score" name="rankingScore" type="number" />
             <Input label="Featured rank" name="featuredRank" type="number" />
@@ -80,15 +80,15 @@ export default async function ProductsPage({
           <TextAreaField label="Short description" name="shortDescription" rows={2} />
           <TextAreaField label="Long description" name="longDescription" />
           <CheckboxField label="Public" name="isPublic" />
-          <FormActions primaryLabel="Tao product" />
+          <FormActions primaryLabel="Tạo sản phẩm" />
         </form>
       </SectionCard>
 
-      <SectionCard title="Tao variant moi">
+      <SectionCard title="Tạo biến thể mới">
         <form action={createVariantAction} className="grid gap-4">
           <FieldGrid>
             <SelectField label="Product" name="productId" options={productOptions} />
-            <Input label="Ten variant" name="variantName" required />
+            <Input label="Tên biến thể" name="variantName" required />
             <Input label="Slug (optional)" name="slug" />
             <SelectField label="Status" name="status" options={statusOptions} />
             <Input label="Target segment" name="targetSegment" />
@@ -102,13 +102,13 @@ export default async function ProductsPage({
           </div>
           <TextAreaField label="Income requirement" name="incomeRequirement" rows={2} />
           <TextAreaField label="Note" name="note" rows={2} />
-          <FormActions primaryLabel="Tao variant" />
+          <FormActions primaryLabel="Tạo biến thể" />
         </form>
       </SectionCard>
 
-      <SectionCard title="Danh sach products">
+      <SectionCard title="Danh sách sản phẩm">
         <DataTable
-          headers={["Product", "Category / Bank", "Status", "Variants", "Thao tac"]}
+          headers={["Sản phẩm", "Danh mục / Ngân hàng", "Trạng thái", "Biến thể", "Thao tác"]}
           rows={products.map((product) => (
             <tr key={product.id}>
               <TableCell>
@@ -168,7 +168,7 @@ export default async function ProductsPage({
                       </div>
                       <div className="mt-3">
                         <FormActions
-                          primaryLabel="Luu variant"
+                          primaryLabel="Lưu biến thể"
                           secondary={
                             variant._count.rates === 0 ? (
                               <button
@@ -176,11 +176,11 @@ export default async function ProductsPage({
                                 formAction={deleteVariantAction}
                                 type="submit"
                               >
-                                Xoa variant
+                                Xóa biến thể
                               </button>
                             ) : (
                               <span className="text-xs text-[var(--bankng-text-secondary)]">
-                                Con rates lien ket.
+                                Còn rates liên kết.
                               </span>
                             )
                           }
@@ -201,7 +201,7 @@ export default async function ProductsPage({
                     options={categoryOptions}
                   />
                   <SelectField defaultValue={product.status} label="Status" name="status" options={statusOptions} />
-                  <Input defaultValue={product.name} label="Ten" name="name" required />
+                  <Input defaultValue={product.name} label="Tên" name="name" required />
                   <Input defaultValue={product.slug} label="Slug" name="slug" />
                   <Input defaultValue={product.rankingScore?.toString() ?? ""} label="Ranking score" name="rankingScore" type="number" />
                   <Input defaultValue={product.featuredRank?.toString() ?? ""} label="Featured rank" name="featuredRank" type="number" />
@@ -219,7 +219,7 @@ export default async function ProductsPage({
                     rows={3}
                   />
                   <FormActions
-                    primaryLabel="Luu product"
+                    primaryLabel="Lưu sản phẩm"
                     secondary={
                       product._count.variants === 0 ? (
                         <button
@@ -227,11 +227,11 @@ export default async function ProductsPage({
                           formAction={deleteProductAction}
                           type="submit"
                         >
-                          Xoa product
+                          Xóa sản phẩm
                         </button>
                       ) : (
                         <span className="text-xs text-[var(--bankng-text-secondary)]">
-                          Con variants lien ket.
+                          Còn biến thể liên kết.
                         </span>
                       )
                     }

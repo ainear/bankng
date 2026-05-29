@@ -1,0 +1,121 @@
+- generic [ref=e2]:
+  - banner [ref=e3]:
+    - generic [ref=e5]:
+      - link "logo" [ref=e7] [cursor=pointer]:
+        - /url: /
+        - img "logo" [ref=e8]
+      - navigation [ref=e9]:
+        - link "Trang chủ" [ref=e11] [cursor=pointer]:
+          - /url: /
+        - button "Cá nhân" [ref=e13]:
+          - text: Cá nhân
+          - img [ref=e14]
+        - button "Doanh nghiệp" [ref=e17]:
+          - text: Doanh nghiệp
+          - img [ref=e18]
+        - generic [ref=e21]:
+          - link "Công cụ" [ref=e22] [cursor=pointer]:
+            - /url: /cong-cu-tinh
+          - img [ref=e23]
+        - link "Tin tức" [ref=e26] [cursor=pointer]:
+          - /url: /tin-tuc
+        - generic [ref=e28]:
+          - link "Sản phẩm cộng đồng" [ref=e29] [cursor=pointer]:
+            - /url: /lai-suat-cong-dong
+          - img [ref=e30]
+        - link "Nhân viên Ngân hàng" [ref=e33] [cursor=pointer]:
+          - /url: /danh-sach-bankers
+      - button "🔐 Đăng nhập / Đăng ký" [ref=e36]:
+        - generic [ref=e37]: 🔐
+        - generic [ref=e38]: Đăng nhập / Đăng ký
+  - main [ref=e40]:
+    - generic [ref=e42]:
+      - generic [ref=e43]:
+        - heading "Tin tức & Cẩm nang" [level=1] [ref=e44]
+        - paragraph [ref=e45]: Cập nhật thông tin tài chính mới nhất, cẩm nang hướng dẫn và phân tích chuyên sâu về thị trường ngân hàng Việt Nam
+      - generic [ref=e65]:
+        - button " Tất cả 19" [ref=e66]:
+          - generic [ref=e67]: 
+          - generic [ref=e68]: Tất cả
+          - generic [ref=e69]: "19"
+        - button " Tin tức" [ref=e70]:
+          - generic [ref=e71]: 
+          - generic [ref=e72]: Tin tức
+        - button " Cẩm nang tài chính 13" [ref=e73]:
+          - generic [ref=e74]: 
+          - generic [ref=e75]: Cẩm nang tài chính
+          - generic [ref=e76]: "13"
+        - button " Sản phẩm dịch vụ 5" [ref=e77]:
+          - generic [ref=e78]: 
+          - generic [ref=e79]: Sản phẩm dịch vụ
+          - generic [ref=e80]: "5"
+        - button " Khuyến mãi" [ref=e81]:
+          - generic [ref=e82]: 
+          - generic [ref=e83]: Khuyến mãi
+        - button " Phân tích thị trường 1" [ref=e84]:
+          - generic [ref=e85]: 
+          - generic [ref=e86]: Phân tích thị trường
+          - generic [ref=e87]: "1"
+  - contentinfo [ref=e204]:
+    - generic [ref=e205]:
+      - generic [ref=e206]:
+        - generic [ref=e207]:
+          - img "logo" [ref=e209]
+          - paragraph [ref=e210]: Nền tảng so sánh sản phẩm ngân hàng, tư vấn tài chính ứng dụng AI phục vụ cộng đồng.
+          - generic [ref=e211]:
+            - paragraph [ref=e212]: CÔNG TY CỔ PHẦN TẬP ĐOÀN UB
+            - paragraph [ref=e213]: Thành viên Hiệp hội Ngân hàng Việt Nam
+            - paragraph [ref=e214]: Đăng ký kinh doanh số 0106080414 do Sở kế hoạch & Đầu tư TP. Hà Nội cấp ngày 09/01/2013.
+        - generic [ref=e215]:
+          - generic [ref=e216]:
+            - heading "Sản phẩm" [level=3] [ref=e217]
+            - generic [ref=e218]:
+              - link "Vay mua nhà" [ref=e219] [cursor=pointer]:
+                - /url: /danh-gia-nhanh/vay-mua-nha
+              - link "Vay mua xe" [ref=e220] [cursor=pointer]:
+                - /url: /danh-gia-nhanh/vay-mua-xe
+              - link "Vay tín chấp" [ref=e221] [cursor=pointer]:
+                - /url: /danh-gia-nhanh/vay-tin-chap
+              - link "Vay doanh nghiệp" [ref=e222] [cursor=pointer]:
+                - /url: /danh-gia-nhanh/vay-kinh-doanh
+              - link "Thẻ tín dụng" [ref=e223] [cursor=pointer]:
+                - /url: /danh-gia-nhanh/the-tin-dung
+              - link "Gửi tiết kiệm" [ref=e224] [cursor=pointer]:
+                - /url: /danh-gia-nhanh/tiet-kiem
+          - generic [ref=e225]:
+            - heading "Liên kết nhanh" [level=3] [ref=e226]
+            - generic [ref=e227]:
+              - link "Công cụ tính" [ref=e228] [cursor=pointer]:
+                - /url: /cong-cu-tinh
+              - link "Tin tức" [ref=e229] [cursor=pointer]:
+                - /url: /tin-tuc
+              - link "Sản phẩm cộng đồng" [ref=e230] [cursor=pointer]:
+                - /url: /lai-suat-cong-dong
+              - link "Thuật ngữ ngân hàng" [ref=e231] [cursor=pointer]:
+                - /url: /thuat-ngu
+              - link "Nhân viên Ngân hàng" [ref=e232] [cursor=pointer]:
+                - /url: /danh-sach-bankers
+              - link "📋 Khảo sát Banker" [ref=e233] [cursor=pointer]:
+                - /url: /banker/survey
+          - generic [ref=e234]:
+            - heading "Liên hệ" [level=3] [ref=e235]
+            - generic [ref=e236]:
+              - generic [ref=e237]:
+                - img [ref=e239]
+                - generic [ref=e241]: 16 Văn Cao, Phường Ngọc Hà, TP. Hà Nội
+              - generic [ref=e242]:
+                - img [ref=e244]
+                - generic [ref=e246]: 0988.291.512
+              - generic [ref=e247]:
+                - img [ref=e249]
+                - generic [ref=e251]: fintech@ubgroup.com
+              - generic [ref=e252]:
+                - img [ref=e254]
+                - link "https://www.ubgroup.com" [ref=e257] [cursor=pointer]:
+                  - /url: https://www.ubgroup.com
+      - generic [ref=e258]:
+        - paragraph [ref=e261]: Sản phẩm đang trong quá trình xây dựng, thử nghiệm, thông tin trên website chỉ mang tính chất tham khảo.
+        - paragraph [ref=e262]: Version 0.0.2 © 2025 nganhang.com. All Rights Reserved.
+  - button "Gửi góp ý" [ref=e263]:
+    - img [ref=e264]
+    - generic: Góp ý cho chúng tôi

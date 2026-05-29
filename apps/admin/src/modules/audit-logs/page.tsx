@@ -17,12 +17,12 @@ export default async function AuditLogsPage() {
   return (
     <AdminPage
       badge="Audit"
-      description="100 log mutation gan nhat cho catalog va rates."
-      title="Audit Logs"
+      description="100 bản ghi thay đổi gần nhất cho catalog và lãi suất."
+      title="Nhật ký hệ thống"
     >
-      <SectionCard title="Recent mutations">
+      <SectionCard title="Thay đổi gần đây">
         <DataTable
-          headers={["When", "Actor", "Entity", "Action", "Metadata"]}
+          headers={["Thời gian", "Người thực hiện", "Đối tượng", "Hành động", "Dữ liệu"]}
           rows={logs.map((log) => (
             <tr key={log.id}>
               <TableCell>{log.createdAt.toISOString()}</TableCell>

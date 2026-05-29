@@ -1,0 +1,147 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "Bankng" [ref=e4] [cursor=pointer]:
+        - /url: /
+        - img [ref=e5]:
+          - generic [ref=e7]: B
+        - text: Bankng
+      - navigation [ref=e8]:
+        - link "Trang chủ" [ref=e9] [cursor=pointer]:
+          - /url: /
+        - button "Cá nhân" [ref=e11]:
+          - text: Cá nhân
+          - img [ref=e12]
+        - button "Doanh nghiep" [ref=e15]:
+          - text: Doanh nghiep
+          - img [ref=e16]
+        - link "Cong cu" [ref=e18] [cursor=pointer]:
+          - /url: /cong-cu-tinh
+        - link "Tin tuc" [ref=e19] [cursor=pointer]:
+          - /url: /tin-tuc
+        - link "San pham cong dong" [ref=e20] [cursor=pointer]:
+          - /url: /san-pham-cong-dong
+        - link "Nhan vien Ngan hang" [ref=e21] [cursor=pointer]:
+          - /url: /danh-sach-bankers
+        - link "Dang ky NV" [ref=e22] [cursor=pointer]:
+          - /url: /banker/dang-ky
+      - link "Dang nhap / Dang ky" [ref=e24] [cursor=pointer]:
+        - /url: /auth/login
+  - main [ref=e25]:
+    - main [ref=e26]:
+      - generic [ref=e27]:
+        - generic [ref=e28]:
+          - heading "Tin tuc & Cam nang" [level=1] [ref=e29]
+          - paragraph [ref=e30]: Cap nhat tin tuc ngan hang, huong dan tai chinh, va khuyen mai moi nhat.
+        - generic [ref=e31]:
+          - link "Tat ca" [ref=e32] [cursor=pointer]:
+            - /url: /tin-tuc
+          - link "Tin tuc" [ref=e33] [cursor=pointer]:
+            - /url: /tin-tuc?category=tin-tuc
+          - link "Cam nang tai chinh" [ref=e34] [cursor=pointer]:
+            - /url: /tin-tuc?category=cam-nang
+          - link "San pham dich vu" [ref=e35] [cursor=pointer]:
+            - /url: /tin-tuc?category=san-pham
+          - link "Khuyen mai" [ref=e36] [cursor=pointer]:
+            - /url: /tin-tuc?category=khuyen-mai
+          - link "Phan tich thi truong" [ref=e37] [cursor=pointer]:
+            - /url: /tin-tuc?category=phan-tich
+        - link "Cam nang tai chinh•05/05/2026•8 phut doc Nen mua nha hay thue nha nam 2026? Phan tich chi tiet Quyet dinh mua nha hay thue nha phu thuoc vao nhieu yeu to tai chinh. Hay cung phan tich trong bai viet nay." [ref=e39] [cursor=pointer]:
+          - /url: /tin-tuc/nen-mua-nha-hay-thue-nha-2026
+          - generic [ref=e41]:
+            - generic [ref=e42]:
+              - text: Cam nang tai chinh•05/05/2026•
+              - generic [ref=e43]: 8 phut doc
+            - heading "Nen mua nha hay thue nha nam 2026? Phan tich chi tiet" [level=3] [ref=e44]
+            - paragraph [ref=e45]: Quyet dinh mua nha hay thue nha phu thuoc vao nhieu yeu to tai chinh. Hay cung phan tich trong bai viet nay.
+        - generic [ref=e46]:
+          - 'link "Khuyen mai•05/05/2026 Khuyen mai lai suat dip 30/4: Giam 0.5% cho khoan vay mua nha Nhieu ngan hang ra mat chuong trinh khuyen mai lai suat dac biet dip 30/4, giam den 0.5% cho khoan vay mua nha." [ref=e47] [cursor=pointer]':
+            - /url: /tin-tuc/khuyen-mai-lai-suat-mua-nha-dip-30-4
+            - generic [ref=e48]:
+              - generic [ref=e49]: Khuyen mai•05/05/2026
+              - 'heading "Khuyen mai lai suat dip 30/4: Giam 0.5% cho khoan vay mua nha" [level=3] [ref=e50]'
+              - paragraph [ref=e51]: Nhieu ngan hang ra mat chuong trinh khuyen mai lai suat dac biet dip 30/4, giam den 0.5% cho khoan vay mua nha.
+          - 'link "Phan tich thi truong•05/05/2026 Chinh sach lai suat moi nhat: Ngan hang lon cong bo giam lai Nhieu ngan hang lon vua cong bo giam lai suat cho vay nhung lai suat tiet kiem van duoc giữ ổn định." [ref=e52] [cursor=pointer]':
+            - /url: /tin-tuc/chinh-sach-lai-suat-moi-nhat-cac-ngan-hang
+            - generic [ref=e53]:
+              - generic [ref=e54]: Phan tich thi truong•05/05/2026
+              - 'heading "Chinh sach lai suat moi nhat: Ngan hang lon cong bo giam lai" [level=3] [ref=e55]'
+              - paragraph [ref=e56]: Nhieu ngan hang lon vua cong bo giam lai suat cho vay nhung lai suat tiet kiem van duoc giữ ổn định.
+          - 'link "Cam nang tai chinh•05/05/2026 Huong dan vay mua nha lan dau: Tat ca can biet Tu viec chuan bi ho so, lựa chon ngan hang, den cac phi phat sinh - tat ca deu trong bai viet nay." [ref=e57] [cursor=pointer]':
+            - /url: /tin-tuc/huong-dan-vay-mua-nha-lan-dau
+            - generic [ref=e58]:
+              - generic [ref=e59]: Cam nang tai chinh•05/05/2026
+              - 'heading "Huong dan vay mua nha lan dau: Tat ca can biet" [level=3] [ref=e60]'
+              - paragraph [ref=e61]: Tu viec chuan bi ho so, lựa chon ngan hang, den cac phi phat sinh - tat ca deu trong bai viet nay.
+          - link "Tin tuc•05/05/2026 Top 5 ngan hang co lai suat tiet kiem cao nhat thang 5/2026 Cap nhat danh sach 5 ngan hang tra lai suat tiet kiem cao nhat thang 5/2026 cho ky han 12 thang." [ref=e62] [cursor=pointer]:
+            - /url: /tin-tuc/top-5-ngan-hang-lai-suat-tiet-kiem-cao-thang-5-2026
+            - generic [ref=e63]:
+              - generic [ref=e64]: Tin tuc•05/05/2026
+              - heading "Top 5 ngan hang co lai suat tiet kiem cao nhat thang 5/2026" [level=3] [ref=e65]
+              - paragraph [ref=e66]: Cap nhat danh sach 5 ngan hang tra lai suat tiet kiem cao nhat thang 5/2026 cho ky han 12 thang.
+  - contentinfo [ref=e67]:
+    - generic [ref=e68]:
+      - generic [ref=e69]:
+        - generic [ref=e70]:
+          - generic [ref=e71]:
+            - img [ref=e72]:
+              - generic [ref=e74]: B
+            - text: Bankng
+          - paragraph [ref=e75]: Nen tang so sanh san pham ngan hang, tu van tai chinh ung dung AI phuc vu cong dong.
+          - paragraph [ref=e76]: Cong ty Cong nghe Tai chinh Bankng
+          - paragraph [ref=e77]: Thanh vien Hiep hoi Ngan hang Viet Nam
+        - generic [ref=e78]:
+          - heading "San pham" [level=3] [ref=e79]
+          - list [ref=e80]:
+            - listitem [ref=e81]:
+              - link "Vay mua nha" [ref=e82] [cursor=pointer]:
+                - /url: /danh-gia-nhanh/vay-mua-nha
+            - listitem [ref=e83]:
+              - link "Vay mua xe" [ref=e84] [cursor=pointer]:
+                - /url: /danh-gia-nhanh/vay-mua-xe
+            - listitem [ref=e85]:
+              - link "Vay tin chap" [ref=e86] [cursor=pointer]:
+                - /url: /danh-gia-nhanh/vay-tin-chap
+            - listitem [ref=e87]:
+              - link "Vay doanh nghiep" [ref=e88] [cursor=pointer]:
+                - /url: /danh-gia-nhanh/vay-kinh-doanh
+            - listitem [ref=e89]:
+              - link "The tin dung" [ref=e90] [cursor=pointer]:
+                - /url: /danh-gia-nhanh/the-tin-dung
+            - listitem [ref=e91]:
+              - link "Gui tiet kiem" [ref=e92] [cursor=pointer]:
+                - /url: /danh-gia-nhanh/tiet-kiem
+        - generic [ref=e93]:
+          - heading "Lien ket nhanh" [level=3] [ref=e94]
+          - list [ref=e95]:
+            - listitem [ref=e96]:
+              - link "Cong cu tinh" [ref=e97] [cursor=pointer]:
+                - /url: /cong-cu-tinh
+            - listitem [ref=e98]:
+              - link "Tin tuc" [ref=e99] [cursor=pointer]:
+                - /url: /tin-tuc
+            - listitem [ref=e100]:
+              - link "San pham cong dong" [ref=e101] [cursor=pointer]:
+                - /url: /san-pham-cong-dong
+            - listitem [ref=e102]:
+              - link "Thuật ngữ ngân hàng" [ref=e103] [cursor=pointer]:
+                - /url: /thuat-ngu
+            - listitem [ref=e104]:
+              - link "Nhan vien Ngan hang" [ref=e105] [cursor=pointer]:
+                - /url: /danh-sach-bankers
+            - listitem [ref=e106]:
+              - link "Khao sat Banker" [ref=e107] [cursor=pointer]:
+                - /url: /banker/survey
+        - generic [ref=e108]:
+          - heading "Lien he" [level=3] [ref=e109]
+          - list [ref=e110]:
+            - listitem [ref=e111]:
+              - img [ref=e112]
+              - text: 16 Van Cao, Phuong Ngoc Ha, TP. Ha Noi
+            - listitem [ref=e115]:
+              - img [ref=e116]
+              - text: 0988.291.512
+            - listitem [ref=e118]:
+              - img [ref=e119]
+              - text: fintech@bankng.com
+      - paragraph [ref=e123]: © 2025 Bankng. Thong tin chi mang tinh chat tham khao. Khong thay the tu van tai chinh ca nhan.

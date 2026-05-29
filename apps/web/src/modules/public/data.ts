@@ -1,5 +1,41 @@
 import { prisma } from "@bankng/db";
 
+export async function getCompareCategories() {
+  return prisma.productCategory.findMany({
+    where: {
+      isActive: true,
+      compareEnabled: true
+    },
+    orderBy: { name: "asc" },
+    include: {
+      _count: {
+        select: {
+          products: {
+            where: { isPublic: true, status: "active" }
+          }
+        }
+      }
+    }
+  });
+}
+
+export async function getPublicBankSlugs() {
+  const banks = await prisma.bank.findMany({
+    where: { isActive: true },
+    select: { slug: true }
+  });
+  return banks.map((bank) => ({ slug: bank.slug }));
+}
+
+export async function getPublicProductSlugs() {
+  const products = await prisma.financialProduct.findMany({
+    where: { isPublic: true, status: "active" },
+    select: { slug: true }
+  });
+  return products.map((product) => ({ slug: product.slug }));
+}
+
+
 export async function getPublicHomeData() {
   const [categories, products] = await Promise.all([
     prisma.productCategory.findMany({

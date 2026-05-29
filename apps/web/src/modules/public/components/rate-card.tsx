@@ -39,8 +39,8 @@ export function RateCard({ rate }: RateCardProps) {
         </PublicBadge>
       </div>
       <div className="mt-3 grid gap-1 text-sm text-[var(--bankng-text-secondary)]">
-        <div>Source: {rate.source.sourceName}</div>
-        <div>Reliability: {rate.source.reliabilityScore}</div>
+        <div>Source: {rate.source?.sourceName ?? "N/A"}</div>
+        <div>Reliability: {rate.source?.reliabilityScore ?? "N/A"}</div>
         <div>Effective from: {rate.effectiveFrom.toISOString().slice(0, 10)}</div>
         <div>Branch: {rate.branch?.branchName ?? "No branch"}</div>
         {latestVerification ? (

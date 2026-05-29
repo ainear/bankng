@@ -7,7 +7,7 @@ import { requireAdminSession } from "@/modules/auth/server/session";
 
 export const metadata: Metadata = {
   title: "Bankng Admin",
-  description: "Backoffice van hanh du lieu ngan hang, rates, leads va moderation."
+  description: "Backoffice vận hành dữ liệu ngân hàng, lãi suất, leads và kiểm duyệt.",
 };
 
 export default async function AdminProtectedLayout({ children }: { children: ReactNode }) {
@@ -15,13 +15,15 @@ export default async function AdminProtectedLayout({ children }: { children: Rea
 
   const navigation = [
     { href: "/", label: "Dashboard" },
-    { href: "/banks", label: "Banks" },
-    { href: "/branches", label: "Branches" },
-    { href: "/categories", label: "Categories" },
-    { href: "/products", label: "Products" },
-    { href: "/rates", label: "Rates" },
+    { href: "/banks", label: "Ngân hàng" },
+    { href: "/branches", label: "Chi nhánh" },
+    { href: "/categories", label: "Danh mục" },
+    { href: "/products", label: "Sản phẩm" },
+    { href: "/rates", label: "Lãi suất" },
     { href: "/leads", label: "Leads" },
-    { href: "/audit-logs", label: "Audit Logs" }
+    { href: "/banker-registrations", label: "Đăng ký Banker" },
+    { href: "/articles", label: "Bài viết" },
+    { href: "/audit-logs", label: "Audit Logs" },
   ];
 
   return (
@@ -49,7 +51,7 @@ export default async function AdminProtectedLayout({ children }: { children: Rea
             className="rounded-md border border-[var(--bankng-border)] px-3 py-2 text-sm hover:bg-[var(--bankng-surface-muted)]"
             type="submit"
           >
-            Dang xuat
+            Đăng xuất
           </button>
         </form>
       </aside>

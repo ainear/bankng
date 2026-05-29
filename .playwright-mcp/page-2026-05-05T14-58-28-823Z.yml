@@ -1,0 +1,579 @@
+- generic [ref=e2]:
+  - banner [ref=e3]:
+    - generic [ref=e5]:
+      - link "logo" [ref=e7] [cursor=pointer]:
+        - /url: /
+        - img "logo" [ref=e8]
+      - navigation [ref=e9]:
+        - link "Trang chủ" [ref=e11] [cursor=pointer]:
+          - /url: /
+        - button "Cá nhân" [ref=e13]:
+          - text: Cá nhân
+          - img [ref=e14]
+        - button "Doanh nghiệp" [ref=e17]:
+          - text: Doanh nghiệp
+          - img [ref=e18]
+        - generic [ref=e21]:
+          - link "Công cụ" [ref=e22] [cursor=pointer]:
+            - /url: /cong-cu-tinh
+          - img [ref=e23]
+        - link "Tin tức" [ref=e26] [cursor=pointer]:
+          - /url: /tin-tuc
+        - generic [ref=e28]:
+          - link "Sản phẩm cộng đồng" [ref=e29] [cursor=pointer]:
+            - /url: /lai-suat-cong-dong
+          - img [ref=e30]
+        - link "Nhân viên Ngân hàng" [ref=e33] [cursor=pointer]:
+          - /url: /danh-sach-bankers
+      - button "🔐 Đăng nhập / Đăng ký" [ref=e36]:
+        - generic [ref=e37]: 🔐
+        - generic [ref=e38]: Đăng nhập / Đăng ký
+  - main [ref=e40]:
+    - generic [ref=e41]:
+      - generic [ref=e42]:
+        - heading "Sản phẩm cộng đồng" [level=1] [ref=e43]
+        - paragraph [ref=e44]: Lãi suất ngân hàng cập nhật bởi cộng đồng banker trên toàn quốc. Tìm banker gần bạn với lãi suất tốt nhất.
+        - generic [ref=e45]:
+          - link "Bạn là Banker? Đăng sản phẩm ngay" [ref=e46] [cursor=pointer]:
+            - /url: /banker/rate-posts/create
+            - img [ref=e47]
+            - text: Bạn là Banker? Đăng sản phẩm ngay
+          - link "Bảng xếp hạng Banker" [ref=e49] [cursor=pointer]:
+            - /url: /san-pham-cong-dong/bang-xep-hang
+            - img [ref=e50]
+            - text: Bảng xếp hạng Banker
+          - link "🎰 Quay số may mắn" [ref=e52] [cursor=pointer]:
+            - /url: /san-pham-cong-dong/quay-so
+          - link "📝 Bài viết cộng đồng" [ref=e53] [cursor=pointer]:
+            - /url: /bai-viet-cong-dong
+        - generic [ref=e54]:
+          - link "An Giang6" [ref=e55] [cursor=pointer]:
+            - /url: /lai-suat/an-giang
+          - link "Bắc Ninh5" [ref=e56] [cursor=pointer]:
+            - /url: /lai-suat/bac-ninh
+          - link "Cà Mau4" [ref=e57] [cursor=pointer]:
+            - /url: /lai-suat/ca-mau
+          - link "Cần Thơ20" [ref=e58] [cursor=pointer]:
+            - /url: /lai-suat/can-tho
+          - link "Cao Bằng" [ref=e59] [cursor=pointer]:
+            - /url: /lai-suat/cao-bang
+          - link "Đà Nẵng12" [ref=e60] [cursor=pointer]:
+            - /url: /lai-suat/da-nang
+          - link "Đắk Lắk6" [ref=e61] [cursor=pointer]:
+            - /url: /lai-suat/dak-lak
+          - link "Điện Biên3" [ref=e62] [cursor=pointer]:
+            - /url: /lai-suat/dien-bien
+          - link "Đồng Nai6" [ref=e63] [cursor=pointer]:
+            - /url: /lai-suat/dong-nai
+          - link "Đồng Tháp2" [ref=e64] [cursor=pointer]:
+            - /url: /lai-suat/dong-thap
+          - link "Gia Lai3" [ref=e65] [cursor=pointer]:
+            - /url: /lai-suat/gia-lai
+          - link "Hà Nội75" [ref=e66] [cursor=pointer]:
+            - /url: /lai-suat/ha-noi
+          - link "Hà Tĩnh" [ref=e67] [cursor=pointer]:
+            - /url: /lai-suat/ha-tinh
+          - link "Hải Phòng31" [ref=e68] [cursor=pointer]:
+            - /url: /lai-suat/hai-phong
+          - link "Hồ Chí Minh106" [ref=e69] [cursor=pointer]:
+            - /url: /lai-suat/ho-chi-minh
+          - link "Huế1" [ref=e70] [cursor=pointer]:
+            - /url: /lai-suat/hue
+          - link "Hưng Yên7" [ref=e71] [cursor=pointer]:
+            - /url: /lai-suat/hung-yen
+          - link "Khánh Hòa7" [ref=e72] [cursor=pointer]:
+            - /url: /lai-suat/khanh-hoa
+          - link "Lai Châu" [ref=e73] [cursor=pointer]:
+            - /url: /lai-suat/lai-chau
+          - link "Lâm Đồng4" [ref=e74] [cursor=pointer]:
+            - /url: /lai-suat/lam-dong
+          - link "Lạng Sơn1" [ref=e75] [cursor=pointer]:
+            - /url: /lai-suat/lang-son
+          - link "Lào Cai3" [ref=e76] [cursor=pointer]:
+            - /url: /lai-suat/lao-cai
+          - link "Nghệ An2" [ref=e77] [cursor=pointer]:
+            - /url: /lai-suat/nghe-an
+          - link "Ninh Bình2" [ref=e78] [cursor=pointer]:
+            - /url: /lai-suat/ninh-binh
+          - link "Phú Thọ" [ref=e79] [cursor=pointer]:
+            - /url: /lai-suat/phu-tho
+          - link "Quảng Ngãi7" [ref=e80] [cursor=pointer]:
+            - /url: /lai-suat/quang-ngai
+          - link "Quảng Ninh2" [ref=e81] [cursor=pointer]:
+            - /url: /lai-suat/quang-ninh
+          - link "Quảng Trị" [ref=e82] [cursor=pointer]:
+            - /url: /lai-suat/quang-tri
+          - link "Sơn La" [ref=e83] [cursor=pointer]:
+            - /url: /lai-suat/son-la
+          - link "Tây Ninh16" [ref=e84] [cursor=pointer]:
+            - /url: /lai-suat/tay-ninh
+          - link "Thái Nguyên4" [ref=e85] [cursor=pointer]:
+            - /url: /lai-suat/thai-nguyen
+          - link "Thanh Hóa4" [ref=e86] [cursor=pointer]:
+            - /url: /lai-suat/thanh-hoa
+          - link "Tuyên Quang" [ref=e87] [cursor=pointer]:
+            - /url: /lai-suat/tuyen-quang
+          - link "Vĩnh Long" [ref=e88] [cursor=pointer]:
+            - /url: /lai-suat/vinh-long
+      - generic [ref=e90]:
+        - generic [ref=e91]:
+          - button "Tiết kiệm" [ref=e92]
+          - button "Vay vốn" [ref=e94]:
+            - text: Vay vốn
+            - img [ref=e95]
+          - button "Thẻ tín dụng" [ref=e97]
+        - generic [ref=e98]:
+          - img
+          - combobox [ref=e99]:
+            - option "Tất cả ngân hàng" [selected]
+            - option "ABBANK"
+            - option "ACB"
+            - option "Agribank"
+            - option "BacABank"
+            - option "BaoVietBank"
+            - option "BIDV"
+            - option "BVBank"
+            - option "CAKE"
+            - option "CIMB"
+            - option "COOPBANK"
+            - option "Eximbank"
+            - option "GPBank"
+            - option "HDBank"
+            - option "HongLeong"
+            - option "HSBC"
+            - option "IndovinaBank"
+            - option "KBank"
+            - option "KienLongBank"
+            - option "LPBank"
+            - option "MAFC"
+            - option "MBBank"
+            - option "MBV"
+            - option "MSB"
+            - option "NamABank"
+            - option "NCB"
+            - option "OCB"
+            - option "PGBank"
+            - option "PublicBank"
+            - option "PVcomBank"
+            - option "Sacombank"
+            - option "SaigonBank"
+            - option "SCB"
+            - option "SeABank"
+            - option "SHB"
+            - option "ShinhanBank"
+            - option "StandardChartered"
+            - option "Techcombank"
+            - option "Timo"
+            - option "TPBank"
+            - option "Ubank"
+            - option "UOB"
+            - option "VBSP"
+            - option "VCBNeo"
+            - option "VIB"
+            - option "VietABank"
+            - option "VietBank"
+            - option "Vietcombank"
+            - option "VietinBank"
+            - option "Vikki"
+            - option "VPBank"
+            - option "VRB"
+            - option "Woori"
+        - generic [ref=e100]:
+          - img
+          - combobox [ref=e101]:
+            - option "Tất cả tỉnh/TP" [selected]
+            - option "An Giang"
+            - option "Bắc Ninh"
+            - option "Cà Mau"
+            - option "Cần Thơ"
+            - option "Cao Bằng"
+            - option "Đà Nẵng"
+            - option "Đắk Lắk"
+            - option "Điện Biên"
+            - option "Đồng Nai"
+            - option "Đồng Tháp"
+            - option "Gia Lai"
+            - option "Hà Nội"
+            - option "Hà Tĩnh"
+            - option "Hải Phòng"
+            - option "Hồ Chí Minh"
+            - option "Huế"
+            - option "Hưng Yên"
+            - option "Khánh Hòa"
+            - option "Lai Châu"
+            - option "Lâm Đồng"
+            - option "Lạng Sơn"
+            - option "Lào Cai"
+            - option "Nghệ An"
+            - option "Ninh Bình"
+            - option "Phú Thọ"
+            - option "Quảng Ngãi"
+            - option "Quảng Ninh"
+            - option "Quảng Trị"
+            - option "Sơn La"
+            - option "Tây Ninh"
+            - option "Thái Nguyên"
+            - option "Thanh Hóa"
+            - option "Tuyên Quang"
+            - option "Vĩnh Long"
+        - generic [ref=e102]:
+          - img
+          - combobox [ref=e103]:
+            - option "Tất cả" [selected]
+            - option "Hôm nay"
+            - option "Hôm qua"
+            - option "Tuần này"
+            - option "Tháng này"
+        - generic [ref=e104]:
+          - button "Xem dạng thẻ" [ref=e105]:
+            - img [ref=e106]
+          - button "Xem dạng bảng" [ref=e108]:
+            - img [ref=e109]
+    - generic [ref=e111]:
+      - table [ref=e113]:
+        - rowgroup [ref=e114]:
+          - row "Ngân hàng Chi nhánh Tỉnh/TP Loại Lãi suất ⇅ Banker Lượt xem ⇅ Ngày đăng ▼" [ref=e115]:
+            - columnheader "Ngân hàng" [ref=e116]
+            - columnheader "Chi nhánh" [ref=e117]
+            - columnheader "Tỉnh/TP" [ref=e118]
+            - columnheader "Loại" [ref=e119]
+            - columnheader "Lãi suất ⇅" [ref=e120]:
+              - button "Lãi suất ⇅" [ref=e121]:
+                - text: Lãi suất
+                - generic [ref=e122]: ⇅
+            - columnheader "Banker" [ref=e123]
+            - columnheader "Lượt xem ⇅" [ref=e124]:
+              - button "Lượt xem ⇅" [ref=e125]:
+                - text: Lượt xem
+                - generic [ref=e126]: ⇅
+            - columnheader "Ngày đăng ▼" [ref=e127]:
+              - button "Ngày đăng ▼" [ref=e128]:
+                - text: Ngày đăng
+                - generic [ref=e129]: ▼
+        - rowgroup [ref=e130]:
+          - row "Woori Woori CN HCM Hồ Chí Minh Vay mua nhà 9.9% Huynh Trong Phu 6 29/4/2026" [ref=e131] [cursor=pointer]:
+            - cell "Woori Woori" [ref=e132]:
+              - generic [ref=e133]:
+                - img "Woori" [ref=e134]
+                - generic [ref=e135]: Woori
+            - cell "CN HCM" [ref=e136]
+            - cell "Hồ Chí Minh" [ref=e137]
+            - cell "Vay mua nhà" [ref=e138]
+            - cell "9.9%" [ref=e139]
+            - cell "Huynh Trong Phu" [ref=e140]
+            - cell "6" [ref=e141]
+            - cell "29/4/2026" [ref=e142]
+          - row "SaigonBank SaigonBank Chi nhánh Cần Thơ Cần Thơ Tiết kiệm 7% mailai 15 28/4/2026" [ref=e143] [cursor=pointer]:
+            - cell "SaigonBank SaigonBank" [ref=e144]:
+              - generic [ref=e145]:
+                - img "SaigonBank" [ref=e146]
+                - generic [ref=e147]: SaigonBank
+            - cell "Chi nhánh Cần Thơ" [ref=e148]
+            - cell "Cần Thơ" [ref=e149]
+            - cell "Tiết kiệm" [ref=e150]
+            - cell "7%" [ref=e151]
+            - cell "mailai" [ref=e152]
+            - cell "15" [ref=e153]
+            - cell "28/4/2026" [ref=e154]
+          - row "VietBank VietBank PGD Thăng Long Hà Nội Tiết kiệm 8.4% Nguyễn Tuấn Trung 47 24/4/2026" [ref=e155] [cursor=pointer]:
+            - cell "VietBank VietBank" [ref=e156]:
+              - generic [ref=e157]:
+                - img "VietBank" [ref=e158]
+                - generic [ref=e159]: VietBank
+            - cell "PGD Thăng Long" [ref=e160]
+            - cell "Hà Nội" [ref=e161]
+            - cell "Tiết kiệm" [ref=e162]
+            - cell "8.4%" [ref=e163]
+            - cell "Nguyễn Tuấn Trung" [ref=e164]
+            - cell "47" [ref=e165]
+            - cell "24/4/2026" [ref=e166]
+          - row "HDBank HDBank PGD Tây Sài Gòn Hồ Chí Minh Vay mua nhà 10.1% thanhktp1 12 21/4/2026" [ref=e167] [cursor=pointer]:
+            - cell "HDBank HDBank" [ref=e168]:
+              - generic [ref=e169]:
+                - img "HDBank" [ref=e170]
+                - generic [ref=e171]: HDBank
+            - cell "PGD Tây Sài Gòn" [ref=e172]
+            - cell "Hồ Chí Minh" [ref=e173]
+            - cell "Vay mua nhà" [ref=e174]
+            - cell "10.1%" [ref=e175]
+            - cell "thanhktp1" [ref=e176]
+            - cell "12" [ref=e177]
+            - cell "21/4/2026" [ref=e178]
+          - row "HDBank HDBank PGD Tây Sài Gòn Hồ Chí Minh Tiết kiệm 8.5% thanhktp1 51 21/4/2026" [ref=e179] [cursor=pointer]:
+            - cell "HDBank HDBank" [ref=e180]:
+              - generic [ref=e181]:
+                - img "HDBank" [ref=e182]
+                - generic [ref=e183]: HDBank
+            - cell "PGD Tây Sài Gòn" [ref=e184]
+            - cell "Hồ Chí Minh" [ref=e185]
+            - cell "Tiết kiệm" [ref=e186]
+            - cell "8.5%" [ref=e187]
+            - cell "thanhktp1" [ref=e188]
+            - cell "51" [ref=e189]
+            - cell "21/4/2026" [ref=e190]
+          - row "HDBank HDBank PGD Tây Sài Gòn Hồ Chí Minh Vay mua nhà 10.1% Hoàng bảo hân 11 20/4/2026" [ref=e191] [cursor=pointer]:
+            - cell "HDBank HDBank" [ref=e192]:
+              - generic [ref=e193]:
+                - img "HDBank" [ref=e194]
+                - generic [ref=e195]: HDBank
+            - cell "PGD Tây Sài Gòn" [ref=e196]
+            - cell "Hồ Chí Minh" [ref=e197]
+            - cell "Vay mua nhà" [ref=e198]
+            - cell "10.1%" [ref=e199]
+            - cell "Hoàng bảo hân" [ref=e200]
+            - cell "11" [ref=e201]
+            - cell "20/4/2026" [ref=e202]
+          - row "HDBank HDBank PGD Tây Sài Gòn Hồ Chí Minh Tiết kiệm 8.2% Hoàng bảo hân 26 20/4/2026" [ref=e203] [cursor=pointer]:
+            - cell "HDBank HDBank" [ref=e204]:
+              - generic [ref=e205]:
+                - img "HDBank" [ref=e206]
+                - generic [ref=e207]: HDBank
+            - cell "PGD Tây Sài Gòn" [ref=e208]
+            - cell "Hồ Chí Minh" [ref=e209]
+            - cell "Tiết kiệm" [ref=e210]
+            - cell "8.2%" [ref=e211]
+            - cell "Hoàng bảo hân" [ref=e212]
+            - cell "26" [ref=e213]
+            - cell "20/4/2026" [ref=e214]
+          - row "HDBank HDBank PGD Tây Sài Gòn Hồ Chí Minh Vay mua nhà 10.1% Hoàng bảo hân 13 17/4/2026" [ref=e215] [cursor=pointer]:
+            - cell "HDBank HDBank" [ref=e216]:
+              - generic [ref=e217]:
+                - img "HDBank" [ref=e218]
+                - generic [ref=e219]: HDBank
+            - cell "PGD Tây Sài Gòn" [ref=e220]
+            - cell "Hồ Chí Minh" [ref=e221]
+            - cell "Vay mua nhà" [ref=e222]
+            - cell "10.1%" [ref=e223]
+            - cell "Hoàng bảo hân" [ref=e224]
+            - cell "13" [ref=e225]
+            - cell "17/4/2026" [ref=e226]
+          - row "HDBank HDBank PGD Tây Sài Gòn Hồ Chí Minh Tiết kiệm 8.2% Hoàng bảo hân 20 17/4/2026" [ref=e227] [cursor=pointer]:
+            - cell "HDBank HDBank" [ref=e228]:
+              - generic [ref=e229]:
+                - img "HDBank" [ref=e230]
+                - generic [ref=e231]: HDBank
+            - cell "PGD Tây Sài Gòn" [ref=e232]
+            - cell "Hồ Chí Minh" [ref=e233]
+            - cell "Tiết kiệm" [ref=e234]
+            - cell "8.2%" [ref=e235]
+            - cell "Hoàng bảo hân" [ref=e236]
+            - cell "20" [ref=e237]
+            - cell "17/4/2026" [ref=e238]
+          - row "HDBank HDBank PGD TÂY SÀI GÒN Hồ Chí Minh Vay mua nhà 10.1% thanhktp1 7 17/4/2026" [ref=e239] [cursor=pointer]:
+            - cell "HDBank HDBank" [ref=e240]:
+              - generic [ref=e241]:
+                - img "HDBank" [ref=e242]
+                - generic [ref=e243]: HDBank
+            - cell "PGD TÂY SÀI GÒN" [ref=e244]
+            - cell "Hồ Chí Minh" [ref=e245]
+            - cell "Vay mua nhà" [ref=e246]
+            - cell "10.1%" [ref=e247]
+            - cell "thanhktp1" [ref=e248]
+            - cell "7" [ref=e249]
+            - cell "17/4/2026" [ref=e250]
+          - row "HDBank HDBank PGD Tây Sài Gòn Hồ Chí Minh Tiết kiệm 8.2% thanhktp1 12 17/4/2026" [ref=e251] [cursor=pointer]:
+            - cell "HDBank HDBank" [ref=e252]:
+              - generic [ref=e253]:
+                - img "HDBank" [ref=e254]
+                - generic [ref=e255]: HDBank
+            - cell "PGD Tây Sài Gòn" [ref=e256]
+            - cell "Hồ Chí Minh" [ref=e257]
+            - cell "Tiết kiệm" [ref=e258]
+            - cell "8.2%" [ref=e259]
+            - cell "thanhktp1" [ref=e260]
+            - cell "12" [ref=e261]
+            - cell "17/4/2026" [ref=e262]
+          - row "Vikki Vikki CN Quận 7 - PGD Nhà Bè Hồ Chí Minh Tiết kiệm 8.8% Huỳnh Thị Cẩm Tú 45 17/4/2026" [ref=e263] [cursor=pointer]:
+            - cell "Vikki Vikki" [ref=e264]:
+              - generic [ref=e265]:
+                - img "Vikki" [ref=e266]
+                - generic [ref=e267]: Vikki
+            - cell "CN Quận 7 - PGD Nhà Bè" [ref=e268]
+            - cell "Hồ Chí Minh" [ref=e269]
+            - cell "Tiết kiệm" [ref=e270]
+            - cell "8.8%" [ref=e271]
+            - cell "Huỳnh Thị Cẩm Tú" [ref=e272]
+            - cell "45" [ref=e273]
+            - cell "17/4/2026" [ref=e274]
+      - generic [ref=e275]:
+        - link "1" [ref=e276] [cursor=pointer]:
+          - /url: /san-pham-cong-dong?post_type=savings&page=1
+        - link "2" [ref=e277] [cursor=pointer]:
+          - /url: /san-pham-cong-dong?post_type=savings&page=2
+        - link "3" [ref=e278] [cursor=pointer]:
+          - /url: /san-pham-cong-dong?post_type=savings&page=3
+        - link "4" [ref=e279] [cursor=pointer]:
+          - /url: /san-pham-cong-dong?post_type=savings&page=4
+        - link "5" [ref=e280] [cursor=pointer]:
+          - /url: /san-pham-cong-dong?post_type=savings&page=5
+        - link "6" [ref=e281] [cursor=pointer]:
+          - /url: /san-pham-cong-dong?post_type=savings&page=6
+        - link "7" [ref=e282] [cursor=pointer]:
+          - /url: /san-pham-cong-dong?post_type=savings&page=7
+        - link "8" [ref=e283] [cursor=pointer]:
+          - /url: /san-pham-cong-dong?post_type=savings&page=8
+        - link "9" [ref=e284] [cursor=pointer]:
+          - /url: /san-pham-cong-dong?post_type=savings&page=9
+        - link "10" [ref=e285] [cursor=pointer]:
+          - /url: /san-pham-cong-dong?post_type=savings&page=10
+        - link "11" [ref=e286] [cursor=pointer]:
+          - /url: /san-pham-cong-dong?post_type=savings&page=11
+        - link "12" [ref=e287] [cursor=pointer]:
+          - /url: /san-pham-cong-dong?post_type=savings&page=12
+        - link "13" [ref=e288] [cursor=pointer]:
+          - /url: /san-pham-cong-dong?post_type=savings&page=13
+        - link "14" [ref=e289] [cursor=pointer]:
+          - /url: /san-pham-cong-dong?post_type=savings&page=14
+        - link "15" [ref=e290] [cursor=pointer]:
+          - /url: /san-pham-cong-dong?post_type=savings&page=15
+        - link "16" [ref=e291] [cursor=pointer]:
+          - /url: /san-pham-cong-dong?post_type=savings&page=16
+        - link "17" [ref=e292] [cursor=pointer]:
+          - /url: /san-pham-cong-dong?post_type=savings&page=17
+        - link "18" [ref=e293] [cursor=pointer]:
+          - /url: /san-pham-cong-dong?post_type=savings&page=18
+        - link "19" [ref=e294] [cursor=pointer]:
+          - /url: /san-pham-cong-dong?post_type=savings&page=19
+        - link "20" [ref=e295] [cursor=pointer]:
+          - /url: /san-pham-cong-dong?post_type=savings&page=20
+      - generic [ref=e296]:
+        - generic [ref=e297]:
+          - heading "Bài viết cộng đồng mới nhất" [level=2] [ref=e298]
+          - link "Xem tất cả →" [ref=e299] [cursor=pointer]:
+            - /url: /bai-viet-cong-dong
+        - generic [ref=e300]:
+          - link "PVcomBank Chi nhánh Hà Nội Tuyển Dụng Giao Dịch Viên 2026 Tuyển dụng PVcomBank Chi nhánh Hà Nội Tuyển Dụng Giao Dịch Viên 2026 Admin Nganhang.com · UB · 1 phút đọc" [ref=e301] [cursor=pointer]:
+            - /url: /bai-viet-cong-dong/hoanganhbcgv/pvcombank-chi-nhanh-ha-noi-tuyen-dung-giao-dich-vien-2026
+            - img "PVcomBank Chi nhánh Hà Nội Tuyển Dụng Giao Dịch Viên 2026" [ref=e302]
+            - generic [ref=e303]:
+              - generic [ref=e304]: Tuyển dụng
+              - heading "PVcomBank Chi nhánh Hà Nội Tuyển Dụng Giao Dịch Viên 2026" [level=3] [ref=e305]
+              - generic [ref=e306]:
+                - generic [ref=e307]: Admin Nganhang.com
+                - generic [ref=e308]: ·
+                - generic [ref=e309]: UB
+                - generic [ref=e310]: ·
+                - generic [ref=e311]: 1 phút đọc
+          - link "MB Quảng Ngãi Tuyển Dụng Chuyên Viên Chính Khách Hàng Cá Nhân Tuyển dụng MB Quảng Ngãi Tuyển Dụng Chuyên Viên Chính Khách Hàng Cá Nhân Admin Nganhang.com · UB · 1 phút đọc" [ref=e312] [cursor=pointer]:
+            - /url: /bai-viet-cong-dong/hoanganhbcgv/mb-quang-ngai-tuyen-dung-chuyen-vien-chinh-khach-hang-ca-nhan
+            - img "MB Quảng Ngãi Tuyển Dụng Chuyên Viên Chính Khách Hàng Cá Nhân" [ref=e313]
+            - generic [ref=e314]:
+              - generic [ref=e315]: Tuyển dụng
+              - heading "MB Quảng Ngãi Tuyển Dụng Chuyên Viên Chính Khách Hàng Cá Nhân" [level=3] [ref=e316]
+              - generic [ref=e317]:
+                - generic [ref=e318]: Admin Nganhang.com
+                - generic [ref=e319]: ·
+                - generic [ref=e320]: UB
+                - generic [ref=e321]: ·
+                - generic [ref=e322]: 1 phút đọc
+          - link "VPBank Hai Bà Trưng Tuyển Chuyên Viên Quan Hệ Khách Hàng Ưu Tiên (RM Diamond) Tuyển dụng VPBank Hai Bà Trưng Tuyển Chuyên Viên Quan Hệ Khách Hàng Ưu Tiên (RM Diamond) Admin Nganhang.com · UB · 2 phút đọc" [ref=e323] [cursor=pointer]:
+            - /url: /bai-viet-cong-dong/hoanganhbcgv/vpbank-hai-ba-trung-tuyen-chuyen-vien-quan-he-khach-hang-uu-tien-rm-diamond
+            - img "VPBank Hai Bà Trưng Tuyển Chuyên Viên Quan Hệ Khách Hàng Ưu Tiên (RM Diamond)" [ref=e324]
+            - generic [ref=e325]:
+              - generic [ref=e326]: Tuyển dụng
+              - heading "VPBank Hai Bà Trưng Tuyển Chuyên Viên Quan Hệ Khách Hàng Ưu Tiên (RM Diamond)" [level=3] [ref=e327]
+              - generic [ref=e328]:
+                - generic [ref=e329]: Admin Nganhang.com
+                - generic [ref=e330]: ·
+                - generic [ref=e331]: UB
+                - generic [ref=e332]: ·
+                - generic [ref=e333]: 2 phút đọc
+          - link "TPBank Tuyển Dụng Chuyên Viên KHCN và Thực Tập Sinh tại Khuất Duy Tiến Tuyển dụng TPBank Tuyển Dụng Chuyên Viên KHCN và Thực Tập Sinh tại Khuất Duy Tiến Admin Nganhang.com · UB · 1 phút đọc" [ref=e334] [cursor=pointer]:
+            - /url: /bai-viet-cong-dong/hoanganhbcgv/tpbank-tuyen-dung-chuyen-vien-khcn-va-thuc-tap-sinh-tai-khuat-duy-tien
+            - img "TPBank Tuyển Dụng Chuyên Viên KHCN và Thực Tập Sinh tại Khuất Duy Tiến" [ref=e335]
+            - generic [ref=e336]:
+              - generic [ref=e337]: Tuyển dụng
+              - heading "TPBank Tuyển Dụng Chuyên Viên KHCN và Thực Tập Sinh tại Khuất Duy Tiến" [level=3] [ref=e338]
+              - generic [ref=e339]:
+                - generic [ref=e340]: Admin Nganhang.com
+                - generic [ref=e341]: ·
+                - generic [ref=e342]: UB
+                - generic [ref=e343]: ·
+                - generic [ref=e344]: 1 phút đọc
+          - link "MSB Tuyển Dụng Nhân Viên/Chuyên Viên Khách Hàng Cá Nhân Tại Hà Nội Tuyển dụng MSB Tuyển Dụng Nhân Viên/Chuyên Viên Khách Hàng Cá Nhân Tại Hà Nội Admin Nganhang.com · UB · 2 phút đọc" [ref=e345] [cursor=pointer]:
+            - /url: /bai-viet-cong-dong/hoanganhbcgv/msb-tuyen-dung-nhan-vien-chuyen-vien-khach-hang-ca-nhan-tai-ha-noi
+            - img "MSB Tuyển Dụng Nhân Viên/Chuyên Viên Khách Hàng Cá Nhân Tại Hà Nội" [ref=e346]
+            - generic [ref=e347]:
+              - generic [ref=e348]: Tuyển dụng
+              - heading "MSB Tuyển Dụng Nhân Viên/Chuyên Viên Khách Hàng Cá Nhân Tại Hà Nội" [level=3] [ref=e349]
+              - generic [ref=e350]:
+                - generic [ref=e351]: Admin Nganhang.com
+                - generic [ref=e352]: ·
+                - generic [ref=e353]: UB
+                - generic [ref=e354]: ·
+                - generic [ref=e355]: 2 phút đọc
+          - link "VPBank Tuyển Dụng Chuyên Viên Khách Hàng Cá Nhân Tại 75 Phương Mai Tuyển dụng VPBank Tuyển Dụng Chuyên Viên Khách Hàng Cá Nhân Tại 75 Phương Mai Admin Nganhang.com · UB · 2 phút đọc" [ref=e356] [cursor=pointer]:
+            - /url: /bai-viet-cong-dong/hoanganhbcgv/vpbank-tuyen-dung-chuyen-vien-khach-hang-ca-nhan-tai-75-phuong-mai
+            - img "VPBank Tuyển Dụng Chuyên Viên Khách Hàng Cá Nhân Tại 75 Phương Mai" [ref=e357]
+            - generic [ref=e358]:
+              - generic [ref=e359]: Tuyển dụng
+              - heading "VPBank Tuyển Dụng Chuyên Viên Khách Hàng Cá Nhân Tại 75 Phương Mai" [level=3] [ref=e360]
+              - generic [ref=e361]:
+                - generic [ref=e362]: Admin Nganhang.com
+                - generic [ref=e363]: ·
+                - generic [ref=e364]: UB
+                - generic [ref=e365]: ·
+                - generic [ref=e366]: 2 phút đọc
+  - contentinfo [ref=e378]:
+    - generic [ref=e379]:
+      - generic [ref=e380]:
+        - generic [ref=e381]:
+          - img "logo" [ref=e383]
+          - paragraph [ref=e384]: Nền tảng so sánh sản phẩm ngân hàng, tư vấn tài chính ứng dụng AI phục vụ cộng đồng.
+          - generic [ref=e385]:
+            - paragraph [ref=e386]: CÔNG TY CỔ PHẦN TẬP ĐOÀN UB
+            - paragraph [ref=e387]: Thành viên Hiệp hội Ngân hàng Việt Nam
+            - paragraph [ref=e388]: Đăng ký kinh doanh số 0106080414 do Sở kế hoạch & Đầu tư TP. Hà Nội cấp ngày 09/01/2013.
+        - generic [ref=e389]:
+          - generic [ref=e390]:
+            - heading "Sản phẩm" [level=3] [ref=e391]
+            - generic [ref=e392]:
+              - link "Vay mua nhà" [ref=e393] [cursor=pointer]:
+                - /url: /danh-gia-nhanh/vay-mua-nha
+              - link "Vay mua xe" [ref=e394] [cursor=pointer]:
+                - /url: /danh-gia-nhanh/vay-mua-xe
+              - link "Vay tín chấp" [ref=e395] [cursor=pointer]:
+                - /url: /danh-gia-nhanh/vay-tin-chap
+              - link "Vay doanh nghiệp" [ref=e396] [cursor=pointer]:
+                - /url: /danh-gia-nhanh/vay-kinh-doanh
+              - link "Thẻ tín dụng" [ref=e397] [cursor=pointer]:
+                - /url: /danh-gia-nhanh/the-tin-dung
+              - link "Gửi tiết kiệm" [ref=e398] [cursor=pointer]:
+                - /url: /danh-gia-nhanh/tiet-kiem
+          - generic [ref=e399]:
+            - heading "Liên kết nhanh" [level=3] [ref=e400]
+            - generic [ref=e401]:
+              - link "Công cụ tính" [ref=e402] [cursor=pointer]:
+                - /url: /cong-cu-tinh
+              - link "Tin tức" [ref=e403] [cursor=pointer]:
+                - /url: /tin-tuc
+              - link "Sản phẩm cộng đồng" [ref=e404] [cursor=pointer]:
+                - /url: /lai-suat-cong-dong
+              - link "Thuật ngữ ngân hàng" [ref=e405] [cursor=pointer]:
+                - /url: /thuat-ngu
+              - link "Nhân viên Ngân hàng" [ref=e406] [cursor=pointer]:
+                - /url: /danh-sach-bankers
+              - link "📋 Khảo sát Banker" [ref=e407] [cursor=pointer]:
+                - /url: /banker/survey
+          - generic [ref=e408]:
+            - heading "Liên hệ" [level=3] [ref=e409]
+            - generic [ref=e410]:
+              - generic [ref=e411]:
+                - img [ref=e413]
+                - generic [ref=e415]: 16 Văn Cao, Phường Ngọc Hà, TP. Hà Nội
+              - generic [ref=e416]:
+                - img [ref=e418]
+                - generic [ref=e420]: 0988.291.512
+              - generic [ref=e421]:
+                - img [ref=e423]
+                - generic [ref=e425]: fintech@ubgroup.com
+              - generic [ref=e426]:
+                - img [ref=e428]
+                - link "https://www.ubgroup.com" [ref=e431] [cursor=pointer]:
+                  - /url: https://www.ubgroup.com
+      - generic [ref=e432]:
+        - paragraph [ref=e435]: Sản phẩm đang trong quá trình xây dựng, thử nghiệm, thông tin trên website chỉ mang tính chất tham khảo.
+        - paragraph [ref=e436]: Version 0.0.2 © 2025 nganhang.com. All Rights Reserved.
+  - button "Gửi góp ý" [ref=e437]:
+    - img [ref=e438]
+    - generic: Góp ý cho chúng tôi

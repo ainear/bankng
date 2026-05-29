@@ -1,0 +1,537 @@
+- generic [ref=e3]:
+  - banner [ref=e4]:
+    - generic [ref=e6]:
+      - link "logo" [ref=e8] [cursor=pointer]:
+        - /url: /
+        - img "logo" [ref=e9]
+      - navigation [ref=e10]:
+        - link "Trang chủ" [ref=e12] [cursor=pointer]:
+          - /url: /
+        - button "Cá nhân" [ref=e14]:
+          - text: Cá nhân
+          - img [ref=e15]
+        - button "Doanh nghiệp" [ref=e18]:
+          - text: Doanh nghiệp
+          - img [ref=e19]
+        - generic [ref=e22]:
+          - link "Công cụ" [ref=e23] [cursor=pointer]:
+            - /url: /cong-cu-tinh
+          - img [ref=e24]
+        - link "Tin tức" [ref=e27] [cursor=pointer]:
+          - /url: /tin-tuc
+        - generic [ref=e29]:
+          - link "Sản phẩm cộng đồng" [ref=e30] [cursor=pointer]:
+            - /url: /lai-suat-cong-dong
+          - img [ref=e31]
+        - link "Nhân viên Ngân hàng" [ref=e34] [cursor=pointer]:
+          - /url: /danh-sach-bankers
+      - button "🔐 Đăng nhập / Đăng ký" [ref=e37]:
+        - generic [ref=e38]: 🔐
+        - generic [ref=e39]: Đăng nhập / Đăng ký
+  - generic [ref=e41]:
+    - generic [ref=e43]:
+      - generic [ref=e45]: 
+      - generic [ref=e46]:
+        - heading "Danh sách Nhân viên Ngân hàng đã xác thực" [level=1] [ref=e47]
+        - paragraph [ref=e48]: Danh sách nhân viên Ngân hàng (Banker) uy tín, đã được xác thực là Nhân viên Ngân hàng, hiện đang công tác tại các Ngân hàng tại Việt Nam. Hãy lựa chọn Nhân viên Ngân hàng gần bạn để được hỗ trợ tốt nhất.
+    - generic [ref=e49]:
+      - generic [ref=e51]:
+        - generic [ref=e52]:
+          - heading " Tìm kiếm" [level=3] [ref=e53]:
+            - generic [ref=e54]: 
+            - text: Tìm kiếm
+          - textbox "Tìm theo tên hoặc ngân hàng..." [ref=e56]
+        - button " Tìm theo Ngân hàng " [ref=e58]:
+          - generic [ref=e59]:
+            - generic [ref=e60]: 
+            - text: Tìm theo Ngân hàng
+          - generic [ref=e61]: 
+        - button " Tìm theo Khu vực " [ref=e63]:
+          - generic [ref=e64]:
+            - generic [ref=e65]: 
+            - text: Tìm theo Khu vực
+          - generic [ref=e66]: 
+      - generic [ref=e67]:
+        - generic [ref=e68]:
+          - generic [ref=e71]:
+            - generic [ref=e72]:
+              - generic [ref=e73]:
+                - img "Lương Thành Long" [ref=e75]
+                - generic [ref=e77]: 
+              - generic [ref=e78]:
+                - heading "Lương Thành Long" [level=3] [ref=e79]
+                - generic [ref=e80]: VPBank
+            - generic [ref=e81]:
+              - generic [ref=e82]: 
+              - generic [ref=e83]: Ngân hàng TMCP Việt Nam Thịnh Vượng
+            - generic [ref=e84]:
+              - generic [ref=e85]:
+                - generic [ref=e86]: 
+                - generic [ref=e87]: Phó Giâm Đốc
+              - generic [ref=e88]:
+                - generic [ref=e89]: 
+                - generic [ref=e90]: Ninh Bình
+            - generic [ref=e91]:
+              - generic [ref=e92]: 
+              - generic [ref=e93]:
+                - text: 4.8/5
+                - generic [ref=e94]: (43 đánh giá)
+            - button "Xem hồ sơ" [ref=e96]
+          - generic [ref=e99]:
+            - generic [ref=e100]:
+              - generic [ref=e101]:
+                - img "Nguyễn Chí Toa f" [ref=e103]
+                - generic [ref=e105]: 
+              - generic [ref=e106]:
+                - heading "Nguyễn Chí Toa f" [level=3] [ref=e107]
+                - generic [ref=e108]: Techcombank
+            - generic [ref=e109]:
+              - generic [ref=e110]: 
+              - generic [ref=e111]: Ngân hàng TMCP Kỹ thương Việt Nam
+            - generic [ref=e112]:
+              - generic [ref=e113]:
+                - generic [ref=e114]: 
+                - generic [ref=e115]: Chuyên Viên Cao Cấp
+              - generic [ref=e116]:
+                - generic [ref=e117]: 
+                - generic [ref=e118]: Hồ Chí Minh
+            - generic [ref=e119]:
+              - generic [ref=e120]: 
+              - generic [ref=e121]:
+                - text: 4.6/5
+                - generic [ref=e122]: (129 đánh giá)
+            - button "Xem hồ sơ" [ref=e124]
+          - generic [ref=e127]:
+            - generic [ref=e128]:
+              - generic [ref=e129]:
+                - img "Nguyễn Quang Nam" [ref=e131]
+                - generic [ref=e133]: 
+              - generic [ref=e134]:
+                - heading "Nguyễn Quang Nam" [level=3] [ref=e135]
+                - generic [ref=e136]: NamABank
+            - generic [ref=e137]:
+              - generic [ref=e138]: 
+              - generic [ref=e139]: Ngân hàng TMCP Nam Á
+            - generic [ref=e140]:
+              - generic [ref=e141]:
+                - generic [ref=e142]: 
+                - generic [ref=e143]: Quỹ
+              - generic [ref=e144]:
+                - generic [ref=e145]: 
+                - generic [ref=e146]: Phú Thọ
+            - generic [ref=e147]:
+              - generic [ref=e148]: 
+              - generic [ref=e149]:
+                - text: 4.6/5
+                - generic [ref=e150]: (48 đánh giá)
+            - button "Xem hồ sơ" [ref=e152]
+          - generic [ref=e155]:
+            - generic [ref=e156]:
+              - generic [ref=e157]:
+                - img "Huynh Trong Phu" [ref=e159]
+                - generic [ref=e161]: 
+              - generic [ref=e162]:
+                - heading "Huynh Trong Phu" [level=3] [ref=e163]
+                - generic [ref=e164]: Woori
+            - generic [ref=e165]:
+              - generic [ref=e166]: 
+              - generic [ref=e167]: Ngân hàng TNHH MTV Woori Việt Nam
+            - generic [ref=e168]:
+              - generic [ref=e169]:
+                - generic [ref=e170]: 
+                - generic [ref=e171]: CV QHKH
+              - generic [ref=e172]:
+                - generic [ref=e173]: 
+                - generic [ref=e174]: Hồ Chí Minh
+            - generic [ref=e175]:
+              - generic [ref=e176]: 
+              - generic [ref=e177]:
+                - text: 4.4/5
+                - generic [ref=e178]: (84 đánh giá)
+            - button "Xem hồ sơ" [ref=e180]
+          - generic [ref=e183]:
+            - generic [ref=e184]:
+              - generic [ref=e185]:
+                - img "Vũ Nguyễn Hải Phương" [ref=e187]
+                - generic [ref=e189]: 
+              - generic [ref=e190]:
+                - heading "Vũ Nguyễn Hải Phương" [level=3] [ref=e191]
+                - generic [ref=e192]: GPBank
+            - generic [ref=e193]:
+              - generic [ref=e194]: 
+              - generic [ref=e195]: Ngân hàng TM TNHH MTV Kỷ Nguyên Thịnh Vượng
+            - generic [ref=e196]:
+              - generic [ref=e197]:
+                - generic [ref=e198]: 
+                - generic [ref=e199]: Chuyên viên Dịch Vụ Khách Hàng
+              - generic [ref=e200]:
+                - generic [ref=e201]: 
+                - generic [ref=e202]: Hà Nội
+            - generic [ref=e203]:
+              - generic [ref=e204]: 
+              - generic [ref=e205]:
+                - text: 4.8/5
+                - generic [ref=e206]: (134 đánh giá)
+            - button "Xem hồ sơ" [ref=e208]
+          - generic [ref=e211]:
+            - generic [ref=e212]:
+              - generic [ref=e213]:
+                - img "TRẦN THANH VÂN" [ref=e215]
+                - generic [ref=e217]: 
+              - generic [ref=e218]:
+                - heading "TRẦN THANH VÂN" [level=3] [ref=e219]
+                - generic [ref=e220]: MBV
+            - generic [ref=e221]:
+              - generic [ref=e222]: 
+              - generic [ref=e223]: Ngân hàng TNHH MTV Việt Nam Hiện Đại
+            - generic [ref=e224]:
+              - generic [ref=e225]:
+                - generic [ref=e226]: 
+                - generic [ref=e227]: GIAO DỊCH VIÊN
+              - generic [ref=e228]:
+                - generic [ref=e229]: 
+                - generic [ref=e230]: Đồng Nai
+            - generic [ref=e231]:
+              - generic [ref=e232]: 
+              - generic [ref=e233]:
+                - text: 4.3/5
+                - generic [ref=e234]: (88 đánh giá)
+            - button "Xem hồ sơ" [ref=e236]
+          - generic [ref=e239]:
+            - generic [ref=e240]:
+              - generic [ref=e241]:
+                - img "Lương Gia Bảo" [ref=e243]
+                - generic [ref=e245]: 
+              - generic [ref=e246]:
+                - heading "Lương Gia Bảo" [level=3] [ref=e247]
+                - generic [ref=e248]: ShinhanBank
+            - generic [ref=e249]:
+              - generic [ref=e250]: 
+              - generic [ref=e251]: Ngân hàng TNHH MTV Shinhan Việt Nam
+            - generic [ref=e252]:
+              - generic [ref=e253]:
+                - generic [ref=e254]: 
+                - generic [ref=e255]: Nhân viên ngân hàng
+              - generic [ref=e256]:
+                - generic [ref=e257]: 
+                - generic [ref=e258]: Hồ Chí Minh
+            - generic [ref=e259]:
+              - generic [ref=e260]: 
+              - generic [ref=e261]:
+                - text: 4.8/5
+                - generic [ref=e262]: (124 đánh giá)
+            - button "Xem hồ sơ" [ref=e264]
+          - generic [ref=e267]:
+            - generic [ref=e268]:
+              - generic [ref=e269]:
+                - img "Lê Nguyệt Tú" [ref=e271]
+                - generic [ref=e273]: 
+              - generic [ref=e274]:
+                - heading "Lê Nguyệt Tú" [level=3] [ref=e275]
+                - generic [ref=e276]: GPBank
+            - generic [ref=e277]:
+              - generic [ref=e278]: 
+              - generic [ref=e279]: Ngân hàng TM TNHH MTV Kỷ Nguyên Thịnh Vượng
+            - generic [ref=e280]:
+              - generic [ref=e281]:
+                - generic [ref=e282]: 
+                - generic [ref=e283]: PRM
+              - generic [ref=e284]:
+                - generic [ref=e285]: 
+                - generic [ref=e286]: Hà Nội
+            - generic [ref=e287]:
+              - generic [ref=e288]: 
+              - generic [ref=e289]:
+                - text: 4.3/5
+                - generic [ref=e290]: (49 đánh giá)
+            - button "Xem hồ sơ" [ref=e292]
+          - generic [ref=e295]:
+            - generic [ref=e296]:
+              - generic [ref=e297]:
+                - img "Huỳnh Kim Ngân" [ref=e299]
+                - generic [ref=e301]: 
+              - generic [ref=e302]:
+                - heading "Huỳnh Kim Ngân" [level=3] [ref=e303]
+                - generic [ref=e304]: ACB
+            - generic [ref=e305]:
+              - generic [ref=e306]: 
+              - generic [ref=e307]: Ngân hàng TMCP Á Châu
+            - generic [ref=e308]:
+              - generic [ref=e309]:
+                - generic [ref=e310]: 
+                - generic [ref=e311]: Chuyên viên QHKH
+              - generic [ref=e312]:
+                - generic [ref=e313]: 
+                - generic [ref=e314]: Hồ Chí Minh
+            - generic [ref=e315]:
+              - generic [ref=e316]: 
+              - generic [ref=e317]:
+                - text: 4.3/5
+                - generic [ref=e318]: (52 đánh giá)
+            - button "Xem hồ sơ" [ref=e320]
+          - generic [ref=e323]:
+            - generic [ref=e324]:
+              - generic [ref=e325]:
+                - img "Lê Thái Thanh" [ref=e327]
+                - generic [ref=e329]: 
+              - generic [ref=e330]:
+                - heading "Lê Thái Thanh" [level=3] [ref=e331]
+                - generic [ref=e332]: BVBank
+            - generic [ref=e333]:
+              - generic [ref=e334]: 
+              - generic [ref=e335]: Ngân hàng Bản Việt
+            - generic [ref=e336]:
+              - generic [ref=e337]:
+                - generic [ref=e338]: 
+                - generic [ref=e339]: Giám đốc Quan hệ khách hàng doanh nghiệp cao cấp
+              - generic [ref=e340]:
+                - generic [ref=e341]: 
+                - generic [ref=e342]: Tây Ninh
+            - generic [ref=e343]:
+              - generic [ref=e344]: 
+              - generic [ref=e345]:
+                - text: 4.5/5
+                - generic [ref=e346]: (54 đánh giá)
+            - button "Xem hồ sơ" [ref=e348]
+          - generic [ref=e351]:
+            - generic [ref=e352]:
+              - generic [ref=e353]:
+                - img "Trần Thế Kiệt" [ref=e355]
+                - generic [ref=e357]: 
+              - generic [ref=e358]:
+                - heading "Trần Thế Kiệt" [level=3] [ref=e359]
+                - generic [ref=e360]: SeABank
+            - generic [ref=e361]:
+              - generic [ref=e362]: 
+              - generic [ref=e363]: Ngân hàng TMCP Đông Nam Á
+            - generic [ref=e364]:
+              - generic [ref=e365]:
+                - generic [ref=e366]: 
+                - generic [ref=e367]: Chuyên Viên Quan hệ khách hàng cá nhân
+              - generic [ref=e368]:
+                - generic [ref=e369]: 
+                - generic [ref=e370]: Hồ Chí Minh
+            - generic [ref=e371]:
+              - generic [ref=e372]: 
+              - generic [ref=e373]:
+                - text: 4.6/5
+                - generic [ref=e374]: (98 đánh giá)
+            - button "Xem hồ sơ" [ref=e376]
+          - generic [ref=e379]:
+            - generic [ref=e380]:
+              - generic [ref=e381]:
+                - img "NGUYỄN HỮU PHƯỚC" [ref=e383]
+                - generic [ref=e385]: 
+              - generic [ref=e386]:
+                - heading "NGUYỄN HỮU PHƯỚC" [level=3] [ref=e387]
+                - generic [ref=e388]: Vikki
+            - generic [ref=e389]:
+              - generic [ref=e390]: 
+              - generic [ref=e391]: Ngân hàng TNHH MTV Số Vikki
+            - generic [ref=e392]:
+              - generic [ref=e393]:
+                - generic [ref=e394]: 
+                - generic [ref=e395]: Nhân viên ngân hàng
+              - generic [ref=e396]:
+                - generic [ref=e397]: 
+                - generic [ref=e398]: Hồ Chí Minh
+            - generic [ref=e399]:
+              - generic [ref=e400]: 
+              - generic [ref=e401]:
+                - text: 4.9/5
+                - generic [ref=e402]: (86 đánh giá)
+            - button "Xem hồ sơ" [ref=e404]
+        - generic [ref=e406]:
+          - button " Trước" [disabled] [ref=e407]:
+            - generic [ref=e408]: 
+            - generic [ref=e409]: Trước
+          - button "1" [ref=e410]
+          - button "2" [ref=e411]
+          - button "3" [ref=e412]
+          - generic [ref=e414]: 
+          - button "Sau " [ref=e415]:
+            - generic [ref=e416]: Sau
+            - generic [ref=e417]: 
+    - generic [ref=e418]:
+      - generic [ref=e419]:
+        - generic [ref=e420]:
+          - generic [ref=e421]: "1894"
+          - generic [ref=e422]: Nhân viên
+        - generic [ref=e424]:
+          - generic [ref=e425]: "52"
+          - generic [ref=e426]: Ngân hàng
+        - generic [ref=e428]:
+          - generic [ref=e429]: "34"
+          - generic [ref=e430]: Tỉnh/Thành
+      - paragraph [ref=e431]: Đội ngũ nhân viên ngân hàng được xác thực và sẵn sàng hỗ trợ bạn
+  - region [ref=e435]:
+    - generic [ref=e437]:
+      - group [ref=e438]:
+        - link "Logo Công ty Tài chính TNHH MTV Mirae Asset (Việt Nam)" [ref=e440] [cursor=pointer]:
+          - /url: https://mafc.com.vn
+          - img "Logo Công ty Tài chính TNHH MTV Mirae Asset (Việt Nam)" [ref=e441]
+      - group [ref=e442]:
+        - img "Logo Ngân hàng Bản Việt" [ref=e444]
+      - group [ref=e445]:
+        - img "Logo Ngân hàng Chính sách Xã hội" [ref=e447]
+      - group [ref=e448]:
+        - img "Logo Ngân hàng Đại chúng TNHH Kasikornbank" [ref=e450]
+      - group [ref=e451]:
+        - img "Logo Ngân hàng Hợp tác xã Việt Nam" [ref=e453]
+      - group [ref=e454]:
+        - img "Logo Ngân hàng Liên doanh Việt - Nga" [ref=e456]
+      - group [ref=e457]:
+        - img "Logo Ngân hàng Nông nghiệp và Phát triển Nông thôn Việt Nam" [ref=e459]
+      - group [ref=e460]:
+        - img "Logo Ngân hàng số Timo by Ban Viet Bank (Timo by Ban Viet Bank)" [ref=e462]
+      - group [ref=e463]:
+        - img "Logo Ngân hàng Thương mại TNHH MTV Ngoại thương Công nghệ số" [ref=e465]
+      - group [ref=e466]:
+        - img "Logo Ngân hàng TM TNHH MTV Kỷ Nguyên Thịnh Vượng" [ref=e468]
+      - group [ref=e469]:
+        - img "Logo Ngân hàng TMCP Á Châu" [ref=e471]
+      - group [ref=e472]:
+        - img "Logo Ngân hàng TMCP An Bình" [ref=e474]
+      - group [ref=e475]:
+        - img "Logo Ngân hàng TMCP Bắc Á" [ref=e477]
+      - group [ref=e478]:
+        - img "Logo Ngân hàng TMCP Bảo Việt" [ref=e480]
+      - group [ref=e481]:
+        - img "Logo Ngân hàng TMCP Công thương Việt Nam" [ref=e483]
+      - group [ref=e484]:
+        - img "Logo Ngân hàng TMCP Đại Chúng Việt Nam" [ref=e486]
+      - group [ref=e487]:
+        - img "Logo Ngân hàng TMCP Đầu tư và Phát triển Việt Nam" [ref=e489]
+      - group [ref=e490]:
+        - img "Logo Ngân hàng TMCP Đông Nam Á" [ref=e492]
+      - group [ref=e493]
+      - group [ref=e495]:
+        - img "Logo Ngân hàng TMCP Kiên Long" [ref=e497]
+      - group [ref=e498]:
+        - img "Logo Ngân hàng TMCP Kỹ thương Việt Nam" [ref=e500]
+      - group [ref=e501]:
+        - img "Logo Ngân hàng TMCP Lộc Phát Việt Nam" [ref=e503]
+      - group [ref=e504]:
+        - img "Logo Ngân hàng TMCP Nam Á" [ref=e506]
+      - group [ref=e507]:
+        - img "Logo Ngân hàng TMCP Ngoại Thương Việt Nam" [ref=e509]
+      - group [ref=e510]:
+        - img "Logo Ngân hàng TMCP Phát triển Thành phố Hồ Chí Minh" [ref=e512]
+      - group [ref=e513]:
+        - img "Logo Ngân hàng TMCP Phương Đông" [ref=e515]
+      - group [ref=e516]:
+        - img "Logo Ngân hàng TMCP Quân đội" [ref=e518]
+      - group [ref=e519]:
+        - img "Logo Ngân hàng TMCP Quốc Dân" [ref=e521]
+      - group [ref=e522]:
+        - img "Logo Ngân hàng TMCP Quốc tế Việt Nam" [ref=e524]
+      - group [ref=e525]:
+        - img "Logo Ngân hàng TMCP Sài Gòn" [ref=e527]
+      - group [ref=e528]:
+        - img "Logo Ngân hàng TMCP Sài Gòn - Hà Nội" [ref=e530]
+      - group [ref=e531]:
+        - img "Logo Ngân hàng TMCP Sài Gòn Công Thương" [ref=e533]
+      - group [ref=e534]:
+        - img "Logo Ngân hàng TMCP Sài Gòn Thương Tín" [ref=e536]
+      - group [ref=e537]:
+        - img "Logo Ngân hàng TMCP Thịnh vượng và Phát triển" [ref=e539]
+      - group [ref=e540]:
+        - img "Logo Ngân hàng TMCP Tiên Phong" [ref=e542]
+      - group [ref=e543]:
+        - img "Logo Ngân hàng TMCP Việt Á" [ref=e545]
+      - group [ref=e546]:
+        - img "Logo Ngân hàng TMCP Việt Nam Thịnh Vượng" [ref=e548]
+      - group [ref=e549]:
+        - img "Logo Ngân hàng TMCP Việt Nam Thương Tín" [ref=e551]
+      - group [ref=e552]:
+        - img "Logo Ngân hàng TMCP Xuất Nhập khẩu Việt Nam" [ref=e554]
+      - group [ref=e555]:
+        - img "Logo Ngân hàng TNHH Indovina" [ref=e557]
+      - group [ref=e558]:
+        - img "Logo Ngân hàng TNHH MTV CIMB Việt Nam" [ref=e560]
+      - group [ref=e561]:
+        - img "Logo Ngân hàng TNHH MTV Hong Leong Việt Nam" [ref=e563]
+      - group [ref=e564]:
+        - img "Logo Ngân hàng TNHH MTV HSBC (Việt Nam)" [ref=e566]
+      - group [ref=e567]:
+        - img "Logo Ngân hàng TNHH MTV Public Việt Nam" [ref=e569]
+      - group [ref=e570]:
+        - img "Logo Ngân hàng TNHH MTV Shinhan Việt Nam" [ref=e572]
+      - group [ref=e573]:
+        - img "Logo Ngân hàng TNHH MTV Số Vikki" [ref=e575]
+      - group [ref=e576]:
+        - img "Logo Ngân hàng TNHH MTV Standard Chartered Bank Việt Nam" [ref=e578]
+      - group [ref=e579]:
+        - link "Logo Ngân hàng TNHH MTV Việt Nam Hiện Đại" [ref=e581] [cursor=pointer]:
+          - /url: https://www.mbv.com.vn/ve-chung-toi
+          - img "Logo Ngân hàng TNHH MTV Việt Nam Hiện Đại" [ref=e582]
+      - group [ref=e583]:
+        - img "Logo Ngân hàng TNHH MTV Woori Việt Nam" [ref=e585]
+      - group [ref=e586]:
+        - link "Logo Ngân hàng UOB Việt Nam" [ref=e588] [cursor=pointer]:
+          - /url: https://uob.com.vn
+          - img "Logo Ngân hàng UOB Việt Nam" [ref=e589]
+      - group [ref=e590]:
+        - img "Logo TMCP Việt Nam Thịnh Vượng - Ngân hàng số CAKE by VPBank" [ref=e592]
+      - group [ref=e593]:
+        - img "Logo TMCP Việt Nam Thịnh Vượng - Ngân hàng số Ubank by VPBank" [ref=e595]
+  - contentinfo [ref=e596]:
+    - generic [ref=e597]:
+      - generic [ref=e598]:
+        - generic [ref=e599]:
+          - img "logo" [ref=e601]
+          - paragraph [ref=e602]: Nền tảng so sánh sản phẩm ngân hàng, tư vấn tài chính ứng dụng AI phục vụ cộng đồng.
+          - generic [ref=e603]:
+            - paragraph [ref=e604]: CÔNG TY CỔ PHẦN TẬP ĐOÀN UB
+            - paragraph [ref=e605]: Thành viên Hiệp hội Ngân hàng Việt Nam
+            - paragraph [ref=e606]: Đăng ký kinh doanh số 0106080414 do Sở kế hoạch & Đầu tư TP. Hà Nội cấp ngày 09/01/2013.
+        - generic [ref=e607]:
+          - generic [ref=e608]:
+            - heading "Sản phẩm" [level=3] [ref=e609]
+            - generic [ref=e610]:
+              - link "Vay mua nhà" [ref=e611] [cursor=pointer]:
+                - /url: /danh-gia-nhanh/vay-mua-nha
+              - link "Vay mua xe" [ref=e612] [cursor=pointer]:
+                - /url: /danh-gia-nhanh/vay-mua-xe
+              - link "Vay tín chấp" [ref=e613] [cursor=pointer]:
+                - /url: /danh-gia-nhanh/vay-tin-chap
+              - link "Vay doanh nghiệp" [ref=e614] [cursor=pointer]:
+                - /url: /danh-gia-nhanh/vay-kinh-doanh
+              - link "Thẻ tín dụng" [ref=e615] [cursor=pointer]:
+                - /url: /danh-gia-nhanh/the-tin-dung
+              - link "Gửi tiết kiệm" [ref=e616] [cursor=pointer]:
+                - /url: /danh-gia-nhanh/tiet-kiem
+          - generic [ref=e617]:
+            - heading "Liên kết nhanh" [level=3] [ref=e618]
+            - generic [ref=e619]:
+              - link "Công cụ tính" [ref=e620] [cursor=pointer]:
+                - /url: /cong-cu-tinh
+              - link "Tin tức" [ref=e621] [cursor=pointer]:
+                - /url: /tin-tuc
+              - link "Sản phẩm cộng đồng" [ref=e622] [cursor=pointer]:
+                - /url: /lai-suat-cong-dong
+              - link "Thuật ngữ ngân hàng" [ref=e623] [cursor=pointer]:
+                - /url: /thuat-ngu
+              - link "Nhân viên Ngân hàng" [ref=e624] [cursor=pointer]:
+                - /url: /danh-sach-bankers
+              - link "📋 Khảo sát Banker" [ref=e625] [cursor=pointer]:
+                - /url: /banker/survey
+          - generic [ref=e626]:
+            - heading "Liên hệ" [level=3] [ref=e627]
+            - generic [ref=e628]:
+              - generic [ref=e629]:
+                - img [ref=e631]
+                - generic [ref=e633]: 16 Văn Cao, Phường Ngọc Hà, TP. Hà Nội
+              - generic [ref=e634]:
+                - img [ref=e636]
+                - generic [ref=e638]: 0988.291.512
+              - generic [ref=e639]:
+                - img [ref=e641]
+                - generic [ref=e643]: fintech@ubgroup.com
+              - generic [ref=e644]:
+                - img [ref=e646]
+                - link "https://www.ubgroup.com" [ref=e649] [cursor=pointer]:
+                  - /url: https://www.ubgroup.com/?_xid=ca1227e3-ed22-44f1-8e8c-a75ffa1746e7
+      - generic [ref=e650]:
+        - paragraph [ref=e653]: Sản phẩm đang trong quá trình xây dựng, thử nghiệm, thông tin trên website chỉ mang tính chất tham khảo.
+        - paragraph [ref=e654]: Version 0.0.2 © 2025 nganhang.com. All Rights Reserved.

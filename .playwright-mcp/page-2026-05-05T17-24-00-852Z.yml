@@ -1,0 +1,140 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "Bankng" [ref=e4] [cursor=pointer]:
+        - /url: /
+        - img [ref=e5]:
+          - generic [ref=e7]: B
+        - text: Bankng
+      - navigation [ref=e8]:
+        - link "Trang chủ" [ref=e9] [cursor=pointer]:
+          - /url: /
+        - button "Cá nhân" [ref=e11]:
+          - text: Cá nhân
+          - img [ref=e12]
+        - button "Doanh nghiep" [ref=e15]:
+          - text: Doanh nghiep
+          - img [ref=e16]
+        - link "Cong cu" [ref=e18] [cursor=pointer]:
+          - /url: /cong-cu-tinh
+        - link "Tin tuc" [ref=e19] [cursor=pointer]:
+          - /url: /tin-tuc
+        - link "San pham cong dong" [ref=e20] [cursor=pointer]:
+          - /url: /san-pham-cong-dong
+        - link "Nhan vien Ngan hang" [ref=e21] [cursor=pointer]:
+          - /url: /danh-sach-bankers
+        - link "Dang ky NV" [ref=e22] [cursor=pointer]:
+          - /url: /banker/dang-ky
+      - link "Dang nhap / Dang ky" [ref=e24] [cursor=pointer]:
+        - /url: /auth/login
+  - main [ref=e25]:
+    - main [ref=e26]:
+      - generic [ref=e27]:
+        - generic [ref=e28]:
+          - heading "Dang ky tai khoan nhan vien tu van" [level=1] [ref=e29]
+          - paragraph [ref=e30]: Dien thong tin de dang ky lam nhan vien tu van tren Bankng.
+        - generic [ref=e31]:
+          - generic [ref=e32]:
+            - generic [ref=e33]: Ho ten *
+            - textbox "Nhap ho ten day du" [ref=e34]
+          - generic [ref=e35]:
+            - generic [ref=e36]: Email *
+            - textbox "email@nganhang.com" [ref=e37]
+          - generic [ref=e38]:
+            - generic [ref=e39]: So dien thoai *
+            - textbox "0912345678" [ref=e40]
+          - generic [ref=e41]:
+            - generic [ref=e42]: Ngan hang lam viec *
+            - combobox [ref=e43]:
+              - option "Chon ngan hang" [selected]
+              - option "Demo Bank"
+          - generic [ref=e44]:
+            - text: Chuc danh
+            - 'textbox "VD: Chuyen Vien Tu Van" [ref=e45]'
+          - generic [ref=e46]:
+            - text: Tinh/Thanh
+            - combobox [ref=e47]:
+              - option "Chon tinh/thanh" [selected]
+              - option "Ha Noi"
+              - option "Ho Chi Minh"
+              - option "Da Nang"
+              - option "Can Tho"
+              - option "Hai Phong"
+              - option "Binh Duong"
+              - option "Dong Nai"
+          - button "Dang ky ngay" [ref=e48]
+          - paragraph [ref=e49]:
+            - text: Bang cach dang ky, ban dong y voi
+            - link "dieu khoan su dung" [ref=e50] [cursor=pointer]:
+              - /url: /dieu-khoan
+            - text: cua chung toi.
+        - generic [ref=e51]:
+          - text: Da co tai khoan?
+          - link "Xem danh sach nhan vien" [ref=e52] [cursor=pointer]:
+            - /url: /danh-sach-bankers
+  - contentinfo [ref=e53]:
+    - generic [ref=e54]:
+      - generic [ref=e55]:
+        - generic [ref=e56]:
+          - generic [ref=e57]:
+            - img [ref=e58]:
+              - generic [ref=e60]: B
+            - text: Bankng
+          - paragraph [ref=e61]: Nen tang so sanh san pham ngan hang, tu van tai chinh ung dung AI phuc vu cong dong.
+          - paragraph [ref=e62]: Cong ty Cong nghe Tai chinh Bankng
+          - paragraph [ref=e63]: Thanh vien Hiep hoi Ngan hang Viet Nam
+        - generic [ref=e64]:
+          - heading "San pham" [level=3] [ref=e65]
+          - list [ref=e66]:
+            - listitem [ref=e67]:
+              - link "Vay mua nha" [ref=e68] [cursor=pointer]:
+                - /url: /danh-gia-nhanh/vay-mua-nha
+            - listitem [ref=e69]:
+              - link "Vay mua xe" [ref=e70] [cursor=pointer]:
+                - /url: /danh-gia-nhanh/vay-mua-xe
+            - listitem [ref=e71]:
+              - link "Vay tin chap" [ref=e72] [cursor=pointer]:
+                - /url: /danh-gia-nhanh/vay-tin-chap
+            - listitem [ref=e73]:
+              - link "Vay doanh nghiep" [ref=e74] [cursor=pointer]:
+                - /url: /danh-gia-nhanh/vay-kinh-doanh
+            - listitem [ref=e75]:
+              - link "The tin dung" [ref=e76] [cursor=pointer]:
+                - /url: /danh-gia-nhanh/the-tin-dung
+            - listitem [ref=e77]:
+              - link "Gui tiet kiem" [ref=e78] [cursor=pointer]:
+                - /url: /danh-gia-nhanh/tiet-kiem
+        - generic [ref=e79]:
+          - heading "Lien ket nhanh" [level=3] [ref=e80]
+          - list [ref=e81]:
+            - listitem [ref=e82]:
+              - link "Cong cu tinh" [ref=e83] [cursor=pointer]:
+                - /url: /cong-cu-tinh
+            - listitem [ref=e84]:
+              - link "Tin tuc" [ref=e85] [cursor=pointer]:
+                - /url: /tin-tuc
+            - listitem [ref=e86]:
+              - link "San pham cong dong" [ref=e87] [cursor=pointer]:
+                - /url: /san-pham-cong-dong
+            - listitem [ref=e88]:
+              - link "Thuật ngữ ngân hàng" [ref=e89] [cursor=pointer]:
+                - /url: /thuat-ngu
+            - listitem [ref=e90]:
+              - link "Nhan vien Ngan hang" [ref=e91] [cursor=pointer]:
+                - /url: /danh-sach-bankers
+            - listitem [ref=e92]:
+              - link "Khao sat Banker" [ref=e93] [cursor=pointer]:
+                - /url: /banker/survey
+        - generic [ref=e94]:
+          - heading "Lien he" [level=3] [ref=e95]
+          - list [ref=e96]:
+            - listitem [ref=e97]:
+              - img [ref=e98]
+              - text: 16 Van Cao, Phuong Ngoc Ha, TP. Ha Noi
+            - listitem [ref=e101]:
+              - img [ref=e102]
+              - text: 0988.291.512
+            - listitem [ref=e104]:
+              - img [ref=e105]
+              - text: fintech@bankng.com
+      - paragraph [ref=e109]: © 2025 Bankng. Thong tin chi mang tinh chat tham khao. Khong thay the tu van tai chinh ca nhan.

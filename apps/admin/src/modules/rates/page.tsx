@@ -100,11 +100,11 @@ export default async function RatesPage({
   return (
     <AdminPage
       badge="Catalog / Rates"
-      description="Quan ly rate sources va interest rate snapshots. Moi mutation deu ghi audit log."
+      description="Quản lý nguồn dữ liệu lãi suất và các bản ghi lãi suất. Mội thay đổi đều ghi audit log."
       feedback={resolveFeedback(params?.feedback)}
       title="Rates CRUD"
     >
-      <SectionCard title="Tao rate source">
+      <SectionCard title="Tạo nguồn dữ liệu">
         <form action={createRateSourceAction} className="grid gap-4">
           <FieldGrid>
             <Input label="Source type" name="sourceType" required />
@@ -112,11 +112,11 @@ export default async function RatesPage({
             <Input label="Source URL" name="sourceUrl" type="url" />
             <Input defaultValue="50" label="Reliability score" name="reliabilityScore" type="number" />
           </FieldGrid>
-          <FormActions primaryLabel="Tao source" />
+          <FormActions primaryLabel="Tạo nguồn" />
         </form>
       </SectionCard>
 
-      <SectionCard title="Tao rate snapshot">
+      <SectionCard title="Tạo bản ghi lãi suất">
         <form action={createRateAction} className="grid gap-4">
           <FieldGrid>
             <SelectField label="Variant" name="productVariantId" options={variantOptions} />
@@ -134,13 +134,13 @@ export default async function RatesPage({
             <Input defaultValue={new Date().toISOString().slice(0, 10)} label="Effective from" name="effectiveFrom" type="date" />
             <Input label="Effective to" name="effectiveTo" type="date" />
           </FieldGrid>
-          <FormActions primaryLabel="Tao rate" />
+          <FormActions primaryLabel="Tạo lãi suất" />
         </form>
       </SectionCard>
 
       <SectionCard title="Rate sources">
         <DataTable
-          headers={["Source", "Reliability", "Lien ket", "Thao tac"]}
+          headers={["Nguồn", "Độ tin cậy", "Liên kết", "Thao tác"]}
           rows={sources.map((source) => (
             <tr key={source.id}>
               <TableCell>
@@ -162,7 +162,7 @@ export default async function RatesPage({
                     type="number"
                   />
                   <FormActions
-                    primaryLabel="Luu source"
+                    primaryLabel="Lưu nguồn"
                     secondary={
                       source._count.rates === 0 ? (
                         <button
@@ -170,11 +170,11 @@ export default async function RatesPage({
                           formAction={deleteRateSourceAction}
                           type="submit"
                         >
-                          Xoa source
+                          Xóa nguồn
                         </button>
                       ) : (
                         <span className="text-xs text-[var(--bankng-text-secondary)]">
-                          Con rates lien ket.
+                          Còn rates liên kết.
                         </span>
                       )
                     }
@@ -188,7 +188,7 @@ export default async function RatesPage({
 
       <SectionCard title="Rate snapshots">
         <DataTable
-          headers={["Variant", "Rate", "Nguon/Freshness", "Hieu luc", "Thao tac"]}
+          headers={["Biến thể", "Lãi suất", "Nguồn / Độ mới", "Hiệu lực", "Thao tác"]}
           rows={rates.map((rate) => {
             const freshness = getFreshnessIndicator({
               status: rate.status,
@@ -236,7 +236,7 @@ export default async function RatesPage({
                     Last review: {latestVerification.verdict} by {latestVerification.verifier.email}
                   </div>
                 ) : (
-                  <div className="mt-1 text-xs text-[var(--bankng-text-secondary)]">Chua co verification log.</div>
+                  <div className="mt-1 text-xs text-[var(--bankng-text-secondary)]">Chưa có nhật ký xác minh.</div>
                 )}
               </TableCell>
               <TableCell>
@@ -288,7 +288,7 @@ export default async function RatesPage({
                     name="verificationNote"
                   />
                   <FormActions
-                    primaryLabel="Luu rate"
+                    primaryLabel="Lưu lãi suất"
                     secondary={
                       <div className="flex flex-wrap gap-2">
                         <button
@@ -317,7 +317,7 @@ export default async function RatesPage({
                           formAction={deleteRateAction}
                           type="submit"
                         >
-                          Xoa rate
+                          Xóa lãi suất
                         </button>
                       </div>
                     }

@@ -1,13 +1,22 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Button, Card } from "@bankng/ui";
-import { getCompareCategory } from "@/modules/public/data";
+import { getCompareCategory, getCompareCategories } from "@/modules/public/data";
 import { EmptyState } from "@/modules/public/components/empty-state";
 import { ProductCard } from "@/modules/public/components/product-card";
 import { PublicBadge } from "@/modules/public/components/public-badge";
 import { LeadCtaForm } from "@/modules/public/components/lead-cta-form";
-import { filterCompareProducts } from "@/modules/public/filter-products";
 import { getPublicFreshness } from "@/modules/public/freshness";
+import { Breadcrumb } from "@/components/breadcrumb";
+
+export async function generateStaticParams() {
+  try {
+    const categories = await getCompareCategories();
+    return categories.map((cat) => ({ category: cat.slug }));
+  } catch {
+    return [];
+  }
+}
 
 export async function generateMetadata({
   params
@@ -17,9 +26,22 @@ export async function generateMetadata({
   const { category } = await params;
   const categoryData = await getCompareCategory(category);
 
+  if (!categoryData) {
+    return {
+      title: "So sánh sản phẩm tài chính | Bankng",
+      description: "So sánh sản phẩm tài chính giữa các ngân hàng lớn nhất Việt Nam. Cập nhật mới nhất, chính xác và minh bạch tại Bankng.vn."
+    };
+  }
+
   return {
-    title: categoryData ? `${categoryData.name} | Bankng Compare` : "Bankng Compare",
-    description: categoryData?.description ?? "So sanh san pham ngan hang tu du lieu public hien tai."
+    title: `So sánh ${categoryData.name} các Ngân hàng tốt nhất 2026 | Bankng`,
+    description: `Bảng so sánh chi tiết ${categoryData.name} giữa 30+ ngân hàng Việt Nam. Cập nhật lãi suất mới nhất, kỳ hạn linh hoạt, điều kiện làm thủ tục hồ sơ nhanh chóng tại Bankng.vn.`,
+    keywords: `so sánh ${categoryData.name}, lãi suất ${categoryData.name}, vay vốn, gửi tiết kiệm, ngân hàng tốt nhất Việt Nam`,
+    openGraph: {
+      title: `So sánh ${categoryData.name} các Ngân hàng | Bankng`,
+      description: `Bảng so sánh chi tiết ${categoryData.name} giữa các ngân hàng. Cập nhật lãi suất và ưu đãi mới nhất tại Bankng.`,
+      type: "website"
+    }
   };
 }
 
@@ -38,24 +60,31 @@ export default async function CompareCategoryPage({
     notFound();
   }
 
-  const products = filterCompareProducts({
-    products: category.products,
-    bank: filters?.bank,
-    term: filters?.term,
-    status: filters?.status
-  }).sort((left, right) => {
-    if (filters?.sort === "rate_desc") {
-      const leftRate = Number(left.variants.flatMap((variant) => variant.rates)[0]?.rateValue ?? 0);
-      const rightRate = Number(right.variants.flatMap((variant) => variant.rates)[0]?.rateValue ?? 0);
-      return rightRate - leftRate;
-    }
+  type Product = (typeof category.products)[number];
 
-    if (filters?.sort === "bank_asc") {
-      return left.bank.name.localeCompare(right.bank.name);
-    }
+  const products = category.products
+    .filter((product) => {
+      const bankPass = !filters?.bank || product.bank.slug === filters.bank;
+      const termPass =
+        !filters?.term ||
+        product.variants.some((v) => String(v.minTermMonth ?? "") === filters.term);
+      const statusPass =
+        !filters?.status ||
+        product.variants.some((v) => v.rates.some((r) => r.status === filters.status));
+      return bankPass && termPass && statusPass;
+    })
+    .sort((left: Product, right: Product) => {
+      if (filters?.sort === "rate_desc") {
+        const leftRate = Number(left.variants.flatMap((v) => v.rates)[0]?.rateValue ?? 0);
+        const rightRate = Number(right.variants.flatMap((v) => v.rates)[0]?.rateValue ?? 0);
+        return rightRate - leftRate;
+      }
+      if (filters?.sort === "bank_asc") {
+        return left.bank.name.localeCompare(right.bank.name);
+      }
+      return left.name.localeCompare(right.name);
+    });
 
-    return left.name.localeCompare(right.name);
-  });
   const bankOptions = Array.from(
     new Set(category.products.map((product) => product.bank.slug)),
   ).map((bankSlug) => {
@@ -70,31 +99,35 @@ export default async function CompareCategoryPage({
           .filter((value): value is number => typeof value === "number"),
       ),
     ),
-  ).sort((left, right) => left - right);
+  ).sort((a: number, b: number) => a - b);
 
   return (
     <main className="min-h-screen bg-[var(--bankng-background)] text-[var(--bankng-text-primary)]">
       <section className="mx-auto flex max-w-6xl flex-col gap-6 px-6 py-10">
         <div>
-          <Link className="text-sm text-[var(--bankng-primary)]" href="/">
-            Trang chu
-          </Link>
-          <h1 className="mt-3 text-3xl font-semibold">{category.name}</h1>
+          <Breadcrumb
+            items={[
+              { label: "Trang chủ", href: "/" },
+              { label: "So sánh", href: "/compare" },
+              { label: category.name }
+            ]}
+          />
+          <h1 className="mt-4 text-3xl font-semibold">{category.name}</h1>
           <p className="mt-2 max-w-3xl text-sm text-[var(--bankng-text-secondary)]">
-            {category.description ?? "Compare page dang su dung du lieu public tu catalog hien tai."}
+            {category.description ?? "So sánh sản phẩm ngân hàng từ dữ liệu công khai hiện tại."}
           </p>
         </div>
 
-        <Card className="sticky top-4 z-10" title="Bo loc compare">
+        <Card className="sticky top-4 z-10" title="Bộ lọc">
           <form className="grid gap-4 md:grid-cols-5">
             <label className="grid gap-1 text-sm">
-              <span>Bank</span>
+              <span>Ngân hàng</span>
               <select
                 className="min-h-10 rounded-md border border-[var(--bankng-border)] bg-white px-3 py-2"
                 defaultValue={filters?.bank ?? ""}
                 name="bank"
               >
-                <option value="">Tat ca bank</option>
+                <option value="">Tất cả ngân hàng</option>
                 {bankOptions.map((bank) => (
                   <option key={bank.slug} value={bank.slug}>
                     {bank.name}
@@ -103,49 +136,49 @@ export default async function CompareCategoryPage({
               </select>
             </label>
             <label className="grid gap-1 text-sm">
-              <span>Term</span>
+              <span>Kỳ hạn</span>
               <select
                 className="min-h-10 rounded-md border border-[var(--bankng-border)] bg-white px-3 py-2"
                 defaultValue={filters?.term ?? ""}
                 name="term"
               >
-                <option value="">Tat ca ky han</option>
+                <option value="">Tất cả kỳ hạn</option>
                 {termOptions.map((term) => (
                   <option key={term} value={term}>
-                    {term} thang
+                    {term} tháng
                   </option>
                 ))}
               </select>
             </label>
             <label className="grid gap-1 text-sm">
-              <span>Status</span>
+              <span>Trạng thái</span>
               <select
                 className="min-h-10 rounded-md border border-[var(--bankng-border)] bg-white px-3 py-2"
                 defaultValue={filters?.status ?? ""}
                 name="status"
               >
-                <option value="">Tat ca</option>
-                <option value="verified">verified</option>
-                <option value="pending">pending</option>
+                <option value="">Tất cả</option>
+                <option value="verified">Đã xác minh</option>
+                <option value="pending">Chờ xác minh</option>
               </select>
             </label>
             <label className="grid gap-1 text-sm">
-              <span>Sap xep</span>
+              <span>Sắp xếp</span>
               <select
-                aria-label="Sap xep"
+                aria-label="Sắp xếp"
                 className="min-h-10 rounded-md border border-[var(--bankng-border)] bg-white px-3 py-2"
                 defaultValue={filters?.sort ?? ""}
                 name="sort"
               >
-                <option value="">Mac dinh</option>
-                <option value="bank_asc">Bank A-Z</option>
-                <option value="rate_desc">Rate cao {"->"} thap</option>
+                <option value="">Mặc định</option>
+                <option value="bank_asc">Ngân hàng A-Z</option>
+                <option value="rate_desc">Lãi suất cao → thấp</option>
               </select>
             </label>
             <div className="flex items-end gap-3">
-              <Button type="submit">Loc</Button>
+              <Button type="submit">Lọc</Button>
               <Link className="text-sm text-[var(--bankng-primary)]" href={`/compare/${slug}`}>
-                Reset
+                Đặt lại
               </Link>
             </div>
           </form>
@@ -153,37 +186,37 @@ export default async function CompareCategoryPage({
 
         {filters?.feedback === "lead_created" ? (
           <div className="rounded-lg border border-[var(--bankng-border)] bg-white px-4 py-3">
-            <div className="font-semibold">Da ghi nhan lead</div>
+            <div className="font-semibold">Đã ghi nhận yêu cầu</div>
             <div className="mt-1 text-sm text-[var(--bankng-text-secondary)]">
-              Yeu cau cua ban da duoc luu. Lead flow chi tiet se duoc mo rong o phase sau.
+              Yêu cầu của bạn đã được lưu. Đội ngũ sẽ liên hệ sớm nhất có thể.
             </div>
           </div>
         ) : filters?.feedback === "lead_duplicate" ? (
           <div className="rounded-lg border border-[var(--bankng-border)] bg-white px-4 py-3">
-            <div className="font-semibold">Lead da ton tai</div>
+            <div className="font-semibold">Yêu cầu đã tồn tại</div>
             <div className="mt-1 text-sm text-[var(--bankng-text-secondary)]">
-              Ban da gui yeu cau cho context nay trong 24h gan day.
+              Bạn đã gửi yêu cầu cho danh mục này trong vòng 24 giờ qua.
             </div>
           </div>
         ) : null}
 
-        <Card className="hidden md:block" title="Bang so sanh">
+        <Card className="hidden md:block" title="Bảng so sánh">
           {products.length === 0 ? (
             <EmptyState
-              description="Khong co san pham public khop bo loc hien tai."
-              title="Khong co ket qua"
+              description="Không có sản phẩm nào khớp với bộ lọc hiện tại."
+              title="Không có kết quả"
             />
           ) : (
             <div className="overflow-x-auto">
               <table className="min-w-full text-left text-sm">
                 <thead className="bg-[var(--bankng-surface-muted)]">
                   <tr>
-                    <th className="px-4 py-3">San pham</th>
-                    <th className="px-4 py-3">Bank</th>
-                    <th className="px-4 py-3">Variant</th>
-                    <th className="px-4 py-3">Top rate</th>
-                    <th className="px-4 py-3">Freshness</th>
-                    <th className="px-4 py-3">Chi tiet</th>
+                    <th className="px-4 py-3">Sản phẩm</th>
+                    <th className="px-4 py-3">Ngân hàng</th>
+                    <th className="px-4 py-3">Gói</th>
+                    <th className="px-4 py-3">Lãi suất tốt nhất</th>
+                    <th className="px-4 py-3">Độ mới</th>
+                    <th className="px-4 py-3">Chi tiết</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -205,24 +238,29 @@ export default async function CompareCategoryPage({
                           {product.name}
                         </td>
                         <td className="border-t border-[var(--bankng-border)] px-4 py-3">
-                          {product.bank.name}
+                          <Link
+                            className="hover:text-[var(--bankng-primary)] hover:underline"
+                            href={`/bank/${product.bank.slug}`}
+                          >
+                            {product.bank.name}
+                          </Link>
                         </td>
                         <td className="border-t border-[var(--bankng-border)] px-4 py-3">
                           {product.variants.map((variant) => variant.variantName).join(", ")}
                         </td>
-                        <td className="border-t border-[var(--bankng-border)] px-4 py-3">
-                          {topRate ? `${topRate.rateValue.toString()} ${topRate.rateUnit}` : "No rate"}
+                        <td className="border-t border-[var(--bankng-border)] px-4 py-3 font-semibold text-[var(--bankng-rate-highlight)]">
+                          {topRate ? `${topRate.rateValue.toString()} ${topRate.rateUnit}` : "—"}
                         </td>
                         <td className="border-t border-[var(--bankng-border)] px-4 py-3">
                           {freshness ? (
-                            <PublicBadge tone={freshness.tone}>{freshness.label}</PublicBadge>
+                            <PublicBadge tone={freshness.tone}>{String(freshness.label)}</PublicBadge>
                           ) : (
-                            "No data"
+                            "—"
                           )}
                         </td>
                         <td className="border-t border-[var(--bankng-border)] px-4 py-3">
-                          <Link className="text-[var(--bankng-primary)]" href={`/product/${product.slug}`}>
-                            Xem product
+                          <Link className="text-[var(--bankng-primary)] hover:underline" href={`/product/${product.slug}`}>
+                            Xem chi tiết
                           </Link>
                         </td>
                       </tr>
@@ -234,7 +272,7 @@ export default async function CompareCategoryPage({
           )}
         </Card>
 
-        <Card className="md:hidden" title="Cards mobile">
+        <Card className="md:hidden" title="Danh sách sản phẩm (mobile)">
           <div className="grid gap-4">
             {products.map((product) => (
               <ProductCard
@@ -256,28 +294,28 @@ export default async function CompareCategoryPage({
           </div>
         </Card>
 
-        <Card title="Nguon du lieu & canh bao">
+        <Card title="Nguồn dữ liệu & cảnh báo">
           <div className="grid gap-2 text-sm text-[var(--bankng-text-secondary)]">
-            <p>Du lieu duoc lay tu catalog/rates hien co trong he thong va khong thay cho tu van tai chinh ca nhan.</p>
-            <p>Rate public can duoc doi chieu voi nguon chinh thuc truoc khi ra quyet dinh.</p>
-            <p>Trang nay uu tien hien thi source, freshness va verification status de tang trust.</p>
+            <p>Dữ liệu được lấy từ catalog/rates hiện có trong hệ thống và không thay thế tư vấn tài chính cá nhân.</p>
+            <p>Lãi suất công khai cần được đối chiếu với nguồn chính thức trước khi ra quyết định.</p>
+            <p>Trang này ưu tiên hiển thị nguồn, độ mới và trạng thái xác minh để tăng độ tin cậy.</p>
           </div>
         </Card>
 
         <LeadCtaForm
           contextSlug={slug}
           contextType="category"
-          description="Can duoc tu van nhanh ve danh muc nay? De lai thong tin de doi ngu tiep nhan lead."
+          description="Cần được tư vấn nhanh về danh mục này? Để lại thông tin để đội ngũ tiếp nhận."
           sourcePage={`/compare/${slug}`}
-          title="Lead CTA"
+          title="Nhận tư vấn miễn phí"
         />
 
-        <Card title="Danh sach san pham">
+        <Card title="Tất cả sản phẩm">
           <div className="grid gap-4 md:grid-cols-2">
             {products.length === 0 ? (
               <EmptyState
-                description="Danh muc nay chua co san pham public khop bo loc hien tai."
-                title="Khong co san pham public"
+                description="Danh mục này chưa có sản phẩm công khai khớp bộ lọc hiện tại."
+                title="Không có sản phẩm"
               />
             ) : (
               products.map((product) => (

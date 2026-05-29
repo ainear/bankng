@@ -21,28 +21,28 @@ export default async function CategoriesPage({
   return (
     <AdminPage
       badge="Catalog / Categories"
-      description="Quan ly product categories cho compare pages va catalog."
+      description="Quản lý danh mục sản phẩm cho compare pages và catalog."
       feedback={resolveFeedback(params?.feedback)}
       title="Categories CRUD"
     >
-      <SectionCard title="Tao category moi">
+      <SectionCard title="Tạo danh mục mới">
         <form action={createCategoryAction} className="grid gap-4">
           <FieldGrid>
-            <Input label="Ten category" name="name" required />
+            <Input label="Tên danh mục" name="name" required />
             <Input label="Slug (optional)" name="slug" />
           </FieldGrid>
-          <TextAreaField label="Mo ta" name="description" />
+          <TextAreaField label="Mô tả" name="description" />
           <div className="flex flex-wrap gap-3">
             <CheckboxField defaultChecked label="Compare enabled" name="compareEnabled" />
-            <CheckboxField defaultChecked label="Dang hoat dong" name="isActive" />
+            <CheckboxField defaultChecked label="Đang hoạt động" name="isActive" />
           </div>
-          <FormActions primaryLabel="Tao category" />
+          <FormActions primaryLabel="Tạo danh mục" />
         </form>
       </SectionCard>
 
-      <SectionCard title="Danh sach categories">
+      <SectionCard title="Danh sách danh mục">
         <DataTable
-          headers={["Category", "So san pham", "Flags", "Cap nhat", "Thao tac"]}
+          headers={["Danh mục", "Số sản phẩm", "Flags", "Cập nhật", "Thao tác"]}
           rows={categories.map((category) => (
             <tr key={category.id}>
               <TableCell>
@@ -58,19 +58,19 @@ export default async function CategoriesPage({
               <TableCell>
                 <form action={updateCategoryAction} className="grid gap-2">
                   <input name="id" type="hidden" value={category.id} />
-                  <Input defaultValue={category.name} label="Ten" name="name" required />
+                  <Input defaultValue={category.name} label="Tên" name="name" required />
                   <Input defaultValue={category.slug} label="Slug" name="slug" />
-                  <TextAreaField defaultValue={category.description} label="Mo ta" name="description" rows={3} />
+                  <TextAreaField defaultValue={category.description} label="Mô tả" name="description" rows={3} />
                   <div className="flex flex-wrap gap-3">
                     <CheckboxField
                       defaultChecked={category.compareEnabled}
                       label="Compare enabled"
                       name="compareEnabled"
                     />
-                    <CheckboxField defaultChecked={category.isActive} label="Dang hoat dong" name="isActive" />
+                    <CheckboxField defaultChecked={category.isActive} label="Đang hoạt động" name="isActive" />
                   </div>
                   <FormActions
-                    primaryLabel="Luu"
+                    primaryLabel="Lưu"
                     secondary={
                       category._count.products === 0 ? (
                         <button
@@ -78,11 +78,11 @@ export default async function CategoriesPage({
                           formAction={deleteCategoryAction}
                           type="submit"
                         >
-                          Xoa
+                          Xóa
                         </button>
                       ) : (
                         <span className="text-xs text-[var(--bankng-text-secondary)]">
-                          Con san pham lien ket.
+                          Còn sản phẩm liên kết.
                         </span>
                       )
                     }

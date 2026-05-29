@@ -24,6 +24,7 @@ export async function submitLeadAction(formData: FormData) {
     phone: formData.get("phone"),
     email: formData.get("email"),
     message: formData.get("message"),
+    provinceCode: formData.get("provinceCode"),
     sourcePage: formData.get("sourcePage"),
     contextType: formData.get("contextType"),
     contextSlug: formData.get("contextSlug")
@@ -74,6 +75,7 @@ export async function submitLeadAction(formData: FormData) {
           phoneNormalized: normalizedPhone,
           email: parsed.email || null,
           message: parsed.message || null,
+          provinceCode: parsed.provinceCode || null,
           sourcePage: parsed.sourcePage,
           contextType: parsed.contextType,
           contextSlug: parsed.contextSlug

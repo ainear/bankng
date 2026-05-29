@@ -1,0 +1,195 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "Bankng" [ref=e4] [cursor=pointer]:
+        - /url: /
+        - img [ref=e5]:
+          - generic [ref=e7]: B
+        - text: Bankng
+      - navigation [ref=e8]:
+        - link "Trang chủ" [ref=e9] [cursor=pointer]:
+          - /url: /
+        - button "Cá nhân" [ref=e11]:
+          - text: Cá nhân
+          - img [ref=e12]
+        - button "Doanh nghiep" [ref=e15]:
+          - text: Doanh nghiep
+          - img [ref=e16]
+        - link "Cong cu" [ref=e18] [cursor=pointer]:
+          - /url: /cong-cu-tinh
+        - link "Tin tuc" [ref=e19] [cursor=pointer]:
+          - /url: /tin-tuc
+        - link "San pham cong dong" [ref=e20] [cursor=pointer]:
+          - /url: /san-pham-cong-dong
+        - link "Nhan vien Ngan hang" [ref=e21] [cursor=pointer]:
+          - /url: /danh-sach-bankers
+        - link "Dang ky NV" [ref=e22] [cursor=pointer]:
+          - /url: /banker/dang-ky
+      - link "Dang nhap / Dang ky" [ref=e24] [cursor=pointer]:
+        - /url: /auth/login
+  - main [ref=e25]:
+    - main [ref=e26]:
+      - generic [ref=e27]:
+        - generic [ref=e28]:
+          - heading "Danh sach nhan vien tu van" [level=1] [ref=e29]
+          - paragraph [ref=e30]: Lien he truc tiep voi nhan vien ngan hang de duoc tu van san pham va dich vu.
+        - generic [ref=e31]:
+          - generic [ref=e32]:
+            - textbox "Tim kiem nhan vien..." [ref=e34]
+            - combobox [ref=e35]:
+              - option "Tat ca tinh/thanh" [selected]
+              - option "Ha Noi"
+              - option "Ho Chi Minh"
+              - option "Da Nang"
+              - option "Can Tho"
+              - option "Hai Phong"
+              - option "Binh Duong"
+              - option "Dong Nai"
+          - generic [ref=e36]:
+            - generic [ref=e37]: 5 nhan vien
+            - text: •
+            - generic [ref=e38]: 1 ngan hang
+            - text: •
+            - generic [ref=e39]: 2 tinh/thanh
+          - generic [ref=e40]:
+            - link "HV Hoang Van E Da xac thuc Chuyen Vien Tu Van Demo Bank 4.4 (30 danh gia) 📍 Ho Chi Minh Co 5 nam kinh nghiem tu van tai chinh, chuyen mon ve cac san pham ngan hang." [ref=e41] [cursor=pointer]:
+              - /url: /banker/hoang.van.e
+              - generic [ref=e42]:
+                - generic [ref=e43]: HV
+                - generic [ref=e44]:
+                  - generic [ref=e45]:
+                    - heading "Hoang Van E" [level=3] [ref=e46]
+                    - text: Da xac thuc
+                  - paragraph [ref=e47]: Chuyen Vien Tu Van
+                  - paragraph [ref=e48]: Demo Bank
+              - generic [ref=e49]:
+                - generic [ref=e50]: "4.4"
+                - generic [ref=e51]: (30 danh gia)
+              - paragraph [ref=e52]: 📍 Ho Chi Minh
+              - paragraph [ref=e53]: Co 5 nam kinh nghiem tu van tai chinh, chuyen mon ve cac san pham ngan hang.
+            - link "PT Pham Thi D Da xac thuc Chuyen Vien Tu Van Demo Bank 4.3 (25 danh gia) 📍 Ha Noi Co 5 nam kinh nghiem tu van tai chinh, chuyen mon ve cac san pham ngan hang." [ref=e54] [cursor=pointer]:
+              - /url: /banker/pham.thi.d
+              - generic [ref=e55]:
+                - generic [ref=e56]: PT
+                - generic [ref=e57]:
+                  - generic [ref=e58]:
+                    - heading "Pham Thi D" [level=3] [ref=e59]
+                    - text: Da xac thuc
+                  - paragraph [ref=e60]: Chuyen Vien Tu Van
+                  - paragraph [ref=e61]: Demo Bank
+              - generic [ref=e62]:
+                - generic [ref=e63]: "4.3"
+                - generic [ref=e64]: (25 danh gia)
+              - paragraph [ref=e65]: 📍 Ha Noi
+              - paragraph [ref=e66]: Co 5 nam kinh nghiem tu van tai chinh, chuyen mon ve cac san pham ngan hang.
+            - link "LV Le Van C Da xac thuc Chuyen Vien Tu Van Demo Bank 4.2 (20 danh gia) 📍 Ho Chi Minh Co 5 nam kinh nghiem tu van tai chinh, chuyen mon ve cac san pham ngan hang." [ref=e67] [cursor=pointer]:
+              - /url: /banker/le.van.c
+              - generic [ref=e68]:
+                - generic [ref=e69]: LV
+                - generic [ref=e70]:
+                  - generic [ref=e71]:
+                    - heading "Le Van C" [level=3] [ref=e72]
+                    - text: Da xac thuc
+                  - paragraph [ref=e73]: Chuyen Vien Tu Van
+                  - paragraph [ref=e74]: Demo Bank
+              - generic [ref=e75]:
+                - generic [ref=e76]: "4.2"
+                - generic [ref=e77]: (20 danh gia)
+              - paragraph [ref=e78]: 📍 Ho Chi Minh
+              - paragraph [ref=e79]: Co 5 nam kinh nghiem tu van tai chinh, chuyen mon ve cac san pham ngan hang.
+            - link "TT Tran Thi B Da xac thuc Chuyen Vien Tu Van Demo Bank 4.1 (15 danh gia) 📍 Ha Noi Co 5 nam kinh nghiem tu van tai chinh, chuyen mon ve cac san pham ngan hang." [ref=e80] [cursor=pointer]:
+              - /url: /banker/tran.thi.b
+              - generic [ref=e81]:
+                - generic [ref=e82]: TT
+                - generic [ref=e83]:
+                  - generic [ref=e84]:
+                    - heading "Tran Thi B" [level=3] [ref=e85]
+                    - text: Da xac thuc
+                  - paragraph [ref=e86]: Chuyen Vien Tu Van
+                  - paragraph [ref=e87]: Demo Bank
+              - generic [ref=e88]:
+                - generic [ref=e89]: "4.1"
+                - generic [ref=e90]: (15 danh gia)
+              - paragraph [ref=e91]: 📍 Ha Noi
+              - paragraph [ref=e92]: Co 5 nam kinh nghiem tu van tai chinh, chuyen mon ve cac san pham ngan hang.
+            - link "NV Nguyen Van A Da xac thuc Chuyen Vien Tu Van Demo Bank 4.0 (10 danh gia) 📍 Ho Chi Minh Co 5 nam kinh nghiem tu van tai chinh, chuyen mon ve cac san pham ngan hang." [ref=e93] [cursor=pointer]:
+              - /url: /banker/nguyen.van.a
+              - generic [ref=e94]:
+                - generic [ref=e95]: NV
+                - generic [ref=e96]:
+                  - generic [ref=e97]:
+                    - heading "Nguyen Van A" [level=3] [ref=e98]
+                    - text: Da xac thuc
+                  - paragraph [ref=e99]: Chuyen Vien Tu Van
+                  - paragraph [ref=e100]: Demo Bank
+              - generic [ref=e101]:
+                - generic [ref=e102]: "4.0"
+                - generic [ref=e103]: (10 danh gia)
+              - paragraph [ref=e104]: 📍 Ho Chi Minh
+              - paragraph [ref=e105]: Co 5 nam kinh nghiem tu van tai chinh, chuyen mon ve cac san pham ngan hang.
+  - contentinfo [ref=e106]:
+    - generic [ref=e107]:
+      - generic [ref=e108]:
+        - generic [ref=e109]:
+          - generic [ref=e110]:
+            - img [ref=e111]:
+              - generic [ref=e113]: B
+            - text: Bankng
+          - paragraph [ref=e114]: Nen tang so sanh san pham ngan hang, tu van tai chinh ung dung AI phuc vu cong dong.
+          - paragraph [ref=e115]: Cong ty Cong nghe Tai chinh Bankng
+          - paragraph [ref=e116]: Thanh vien Hiep hoi Ngan hang Viet Nam
+        - generic [ref=e117]:
+          - heading "San pham" [level=3] [ref=e118]
+          - list [ref=e119]:
+            - listitem [ref=e120]:
+              - link "Vay mua nha" [ref=e121] [cursor=pointer]:
+                - /url: /danh-gia-nhanh/vay-mua-nha
+            - listitem [ref=e122]:
+              - link "Vay mua xe" [ref=e123] [cursor=pointer]:
+                - /url: /danh-gia-nhanh/vay-mua-xe
+            - listitem [ref=e124]:
+              - link "Vay tin chap" [ref=e125] [cursor=pointer]:
+                - /url: /danh-gia-nhanh/vay-tin-chap
+            - listitem [ref=e126]:
+              - link "Vay doanh nghiep" [ref=e127] [cursor=pointer]:
+                - /url: /danh-gia-nhanh/vay-kinh-doanh
+            - listitem [ref=e128]:
+              - link "The tin dung" [ref=e129] [cursor=pointer]:
+                - /url: /danh-gia-nhanh/the-tin-dung
+            - listitem [ref=e130]:
+              - link "Gui tiet kiem" [ref=e131] [cursor=pointer]:
+                - /url: /danh-gia-nhanh/tiet-kiem
+        - generic [ref=e132]:
+          - heading "Lien ket nhanh" [level=3] [ref=e133]
+          - list [ref=e134]:
+            - listitem [ref=e135]:
+              - link "Cong cu tinh" [ref=e136] [cursor=pointer]:
+                - /url: /cong-cu-tinh
+            - listitem [ref=e137]:
+              - link "Tin tuc" [ref=e138] [cursor=pointer]:
+                - /url: /tin-tuc
+            - listitem [ref=e139]:
+              - link "San pham cong dong" [ref=e140] [cursor=pointer]:
+                - /url: /san-pham-cong-dong
+            - listitem [ref=e141]:
+              - link "Thuật ngữ ngân hàng" [ref=e142] [cursor=pointer]:
+                - /url: /thuat-ngu
+            - listitem [ref=e143]:
+              - link "Nhan vien Ngan hang" [ref=e144] [cursor=pointer]:
+                - /url: /danh-sach-bankers
+            - listitem [ref=e145]:
+              - link "Khao sat Banker" [ref=e146] [cursor=pointer]:
+                - /url: /banker/survey
+        - generic [ref=e147]:
+          - heading "Lien he" [level=3] [ref=e148]
+          - list [ref=e149]:
+            - listitem [ref=e150]:
+              - img [ref=e151]
+              - text: 16 Van Cao, Phuong Ngoc Ha, TP. Ha Noi
+            - listitem [ref=e154]:
+              - img [ref=e155]
+              - text: 0988.291.512
+            - listitem [ref=e157]:
+              - img [ref=e158]
+              - text: fintech@bankng.com
+      - paragraph [ref=e162]: © 2025 Bankng. Thong tin chi mang tinh chat tham khao. Khong thay the tu van tai chinh ca nhan.

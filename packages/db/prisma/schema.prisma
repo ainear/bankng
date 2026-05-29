@@ -1,5 +1,6 @@
 generator client {
-  provider = "prisma-client-js"
+  provider      = "prisma-client-js"
+  binaryTargets = ["native", "rhel-openssl-3.0.x"]
 }
 
 datasource db {
@@ -46,6 +47,7 @@ model User {
   assignedLeads Lead[] @relation("LeadAssignee")
   leadStatusEvents LeadStatusHistory[] @relation("LeadStatusActor")
   reviewedStagingRates CrawlStagingRate[] @relation("CrawlStagingReviewer")
+  bankerProfile Banker?
 }
 
 model UserProfile {
@@ -109,6 +111,8 @@ model Bank {
 
   branches BankBranch[]
   products FinancialProduct[]
+  bankers   Banker[]
+  bankerRegistrations BankerRegistration[]
 }
 
 model BankBranch {
@@ -274,12 +278,14 @@ model Lead {
   contextType String
   contextSlug String
   status      String   @default("new")
+  provinceCode String?
   assignedToId String? @db.Uuid
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
 
   assignedTo User? @relation("LeadAssignee", fields: [assignedToId], references: [id])
   history   LeadStatusHistory[]
+  bankerReviews BankerReview[]
 
   @@index([contextType, contextSlug])
   @@index([status, createdAt])
@@ -352,4 +358,81 @@ model CrawlStagingRate {
   @@index([crawlJobId])
   @@index([status, createdAt])
   @@index([bankSlug, rateType])
+}
+
+model ArticleCategory {
+  id       String    @id @default(uuid()) @db.Uuid
+  slug     String    @unique
+  name     String
+  sortOrder Int      @default(0)
+  articles Article[]
+}
+
+model Article {
+  id           String          @id @default(uuid()) @db.Uuid
+  slug         String          @unique
+  title        String
+  excerpt      String?
+  content      String
+  categoryId   String          @db.Uuid
+  authorName   String?
+  readTimeMin  Int?
+  coverImage   String?
+  status       PublishStatus   @default(draft)
+  isFeatured   Boolean         @default(false)
+  createdAt    DateTime        @default(now())
+  updatedAt    DateTime        @updatedAt
+
+  category ArticleCategory @relation(fields: [categoryId], references: [id])
+}
+
+model Banker {
+  id           String   @id @default(uuid()) @db.Uuid
+  slug         String   @unique
+  userId       String   @db.Uuid
+  bankId       String?  @db.Uuid
+  title        String?
+  bio          String?
+  provinceCode String?
+  cityName     String?
+  rating       Decimal  @default(0)
+  reviewCount  Int      @default(0)
+  isVerified   Boolean  @default(false)
+  isActive     Boolean  @default(true)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  user   User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  bank   Bank?         @relation(fields: [bankId], references: [id])
+  reviews BankerReview[]
+
+  @@unique([userId])
+}
+
+model BankerReview {
+  id        String   @id @default(uuid()) @db.Uuid
+  bankerId  String   @db.Uuid
+  leadId    String?  @db.Uuid
+  rating    Int
+  comment   String?
+  createdAt DateTime @default(now())
+
+  banker Banker @relation(fields: [bankerId], references: [id], onDelete: Cascade)
+  lead   Lead?  @relation(fields: [leadId], references: [id])
+}
+
+model BankerRegistration {
+  id           String   @id @default(uuid()) @db.Uuid
+  email        String
+  phone        String
+  fullName     String
+  bankId       String   @db.Uuid
+  title        String?
+  provinceCode String?
+  status       String   @default("pending")
+  reviewedById String?  @db.Uuid
+  reviewedAt   DateTime?
+  createdAt    DateTime @default(now())
+
+  bank    Bank @relation(fields: [bankId], references: [id])
 }

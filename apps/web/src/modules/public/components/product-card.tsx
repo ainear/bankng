@@ -20,18 +20,18 @@ export function ProductCard({
       <div className="flex flex-wrap gap-2">
         <PublicBadge>{product.bank.name}</PublicBadge>
         {topRate ? (
-          <PublicBadge tone="success">{`${topRate.rateValue.toString()}%/nam`}</PublicBadge>
+          <PublicBadge tone="success">{`${topRate.rateValue.toString()}%/năm`}</PublicBadge>
         ) : null}
       </div>
       <p className="mt-3 text-sm text-[var(--bankng-text-secondary)]">
-        {product.shortDescription ?? "Chua co mo ta ngan cho san pham nay."}
+        {product.shortDescription ?? "Chưa có mô tả ngắn cho sản phẩm này."}
       </p>
       <div className="mt-4 flex flex-wrap gap-3 text-sm">
         <Link className="font-medium text-[var(--bankng-primary)]" href={`/product/${product.slug}`}>
-          Xem chi tiet
+          Xem chi tiết
         </Link>
         <Link className="font-medium text-[var(--bankng-primary)]" href={`/bank/${product.bank.slug}`}>
-          Xem ngan hang
+          Xem ngân hàng
         </Link>
       </div>
     </Card>

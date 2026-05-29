@@ -1,0 +1,219 @@
+- generic [ref=e2]:
+  - banner [ref=e3]:
+    - generic [ref=e5]:
+      - link "logo" [ref=e7] [cursor=pointer]:
+        - /url: /
+        - img "logo" [ref=e8]
+      - navigation [ref=e9]:
+        - link "Trang chủ" [ref=e11] [cursor=pointer]:
+          - /url: /
+        - button "Cá nhân" [ref=e13]:
+          - text: Cá nhân
+          - img [ref=e14]
+        - button "Doanh nghiệp" [ref=e17]:
+          - text: Doanh nghiệp
+          - img [ref=e18]
+        - generic [ref=e21]:
+          - link "Công cụ" [ref=e22] [cursor=pointer]:
+            - /url: /cong-cu-tinh
+          - img [ref=e23]
+        - link "Tin tức" [ref=e26] [cursor=pointer]:
+          - /url: /tin-tuc
+        - generic [ref=e28]:
+          - link "Sản phẩm cộng đồng" [ref=e29] [cursor=pointer]:
+            - /url: /lai-suat-cong-dong
+          - img [ref=e30]
+        - link "Nhân viên Ngân hàng" [ref=e33] [cursor=pointer]:
+          - /url: /danh-sach-bankers
+      - button "🔐 Đăng nhập / Đăng ký" [ref=e36]:
+        - generic [ref=e37]: 🔐
+        - generic [ref=e38]: Đăng nhập / Đăng ký
+  - main [ref=e40]:
+    - generic [ref=e41]:
+      - generic [ref=e42]:
+        - img "Mesh background"
+      - generic [ref=e44]:
+        - generic [ref=e45]:
+          - heading "So sánh lãi suất, chấm điểm tín dụng mô phỏng và hỗ trợ kết nối giữa khách hàng & nhân viên ngân hàng" [level=1] [ref=e46]:
+            - text: So sánh lãi suất, chấm điểm tín dụng mô phỏng
+            - text: và hỗ trợ kết nối giữa khách hàng & nhân viên ngân hàng
+          - paragraph [ref=e47]: Nền tảng cộng đồng hỗ trợ so sánh sản phẩm, chấm điểm tín dụng cá nhân, doanh nghiệp mô phỏng và kết nối trực tiếp với các chuyên gia, nhân viên Ngân hàng đã được xác thực
+        - generic [ref=e48]:
+          - generic [ref=e49] [cursor=pointer]:
+            - img [ref=e50]
+            - generic [ref=e52]: Vay mua nhà
+          - generic [ref=e53] [cursor=pointer]:
+            - img [ref=e54]
+            - generic [ref=e56]: Vay mua xe
+          - generic [ref=e57] [cursor=pointer]:
+            - img [ref=e58]
+            - generic [ref=e62]: Vay tín chấp
+          - generic [ref=e63] [cursor=pointer]:
+            - img [ref=e64]
+            - generic [ref=e69]: Vay doanh nghiệp
+          - generic [ref=e70] [cursor=pointer]:
+            - img [ref=e71]
+            - generic [ref=e74]: Thẻ tín dụng
+          - generic [ref=e75] [cursor=pointer]:
+            - img [ref=e76]
+            - generic [ref=e79]: Gửi tiết kiệm
+    - generic [ref=e81]:
+      - generic [ref=e82]:
+        - heading "Gói sản phẩm ngân hàng" [level=2] [ref=e83]
+        - paragraph [ref=e84]:
+          - text: Khám phá các sản phẩm ngân hàng ưu đãi từ các ngân hàng hàng đầu Việt Nam
+          - text: với lãi suất cạnh tranh nhất.
+      - generic [ref=e86]:
+        - button "Gửi tiết kiệm" [ref=e87]
+        - button "Vay tín chấp" [ref=e88]
+        - button "Thẻ tín dụng" [ref=e89]
+        - button "Vay mua nhà" [ref=e90]
+        - button "Vay mua xe" [ref=e91]
+        - button "Vay doanh nghiệp" [ref=e92]
+      - generic [ref=e94]:
+        - link "Tính toán lãi tiết kiệm" [ref=e95] [cursor=pointer]:
+          - /url: /danh-gia-nhanh/tiet-kiem
+          - img [ref=e96]
+          - text: Tính toán lãi tiết kiệm
+        - generic [ref=e98]:
+          - combobox [ref=e99]:
+            - option "Tất cả" [selected]
+            - option "Big 4"
+            - option "Ngân hàng Tư nhân"
+            - option "Ngân hàng Ngoại"
+          - combobox [ref=e100]:
+            - option "Lãi suất Online" [selected]
+            - option "Lãi suất Quầy"
+          - generic [ref=e101]:
+            - img [ref=e102]
+            - textbox "Tìm kiếm ngân hàng" [ref=e104]
+    - generic [ref=e205]:
+      - heading "Công cụ tính của nganhang.com" [level=2] [ref=e206]:
+        - text: Công cụ tính
+        - generic [ref=e207]: của nganhang.com
+      - paragraph [ref=e208]:
+        - text: Hỗ trợ khách hàng nhanh chóng ước tính giá trị tài sản có thể mua, tính lãi vay/ lãi tiền gửi
+        - text: và số tiền có thể vay
+      - region [ref=e210]:
+        - generic [ref=e212]:
+          - group [ref=e213]:
+            - generic [ref=e214]:
+              - img "Tính tiền lãi gửi" [ref=e217]
+              - generic [ref=e218]:
+                - heading "Tính tiền lãi gửi" [level=3] [ref=e219]:
+                  - link "Tính tiền lãi gửi" [ref=e220] [cursor=pointer]:
+                    - /url: /cong-cu-tinh/tinh-lai-tiet-kiem
+                - paragraph [ref=e221]: Dựa vào thông tin của tài khoản tiết kiệm chúng tôi giúp bạn tính toán số tiền lãi bạn có thể nhận được
+                - link "Sử dụng" [ref=e222] [cursor=pointer]:
+                  - /url: /cong-cu-tinh/tinh-lai-tiet-kiem
+                  - text: Sử dụng
+                  - img [ref=e223]
+          - group [ref=e225]:
+            - generic [ref=e226]:
+              - img "Tính giá trị nhà/đất" [ref=e229]
+              - generic [ref=e230]:
+                - heading "Tính giá trị nhà/đất" [level=3] [ref=e231]:
+                  - link "Tính giá trị nhà/đất" [ref=e232] [cursor=pointer]:
+                    - /url: /cong-cu-tinh/tinh-gia-tri-tai-san
+                - paragraph [ref=e233]: Dựa vào thông tin của tài khoản tiết kiệm chúng tôi giúp bạn tính toán số tiền lãi bạn có thể nhận được
+                - link "Sử dụng" [ref=e234] [cursor=pointer]:
+                  - /url: /cong-cu-tinh/tinh-gia-tri-tai-san
+                  - text: Sử dụng
+                  - img [ref=e235]
+          - group [ref=e237]:
+            - generic [ref=e238]:
+              - img "Tính khoản vay tối đa" [ref=e241]
+              - generic [ref=e242]:
+                - heading "Tính khoản vay tối đa" [level=3] [ref=e243]:
+                  - link "Tính khoản vay tối đa" [ref=e244] [cursor=pointer]:
+                    - /url: /cong-cu-tinh/tinh-khoan-vay-toi-da
+                - paragraph [ref=e245]: Dựa vào thông tin của tài khoản tiết kiệm chúng tôi giúp bạn tính toán số tiền lãi bạn có thể nhận được
+                - link "Sử dụng" [ref=e246] [cursor=pointer]:
+                  - /url: /cong-cu-tinh/tinh-khoan-vay-toi-da
+                  - text: Sử dụng
+                  - img [ref=e247]
+          - group [ref=e249]:
+            - generic [ref=e250]:
+              - img "Tính khoản vay tối đa" [ref=e253]
+              - generic [ref=e254]:
+                - heading "Tính khoản vay tối đa" [level=3] [ref=e255]:
+                  - link "Tính khoản vay tối đa" [ref=e256] [cursor=pointer]:
+                    - /url: /cong-cu-tinh/tinh-khoan-vay-toi-da
+                - paragraph [ref=e257]: Dựa vào thông tin của tài khoản tiết kiệm chúng tôi giúp bạn tính toán số tiền lãi bạn có thể nhận được
+                - link "Sử dụng" [ref=e258] [cursor=pointer]:
+                  - /url: /cong-cu-tinh/tinh-khoan-vay-toi-da
+                  - text: Sử dụng
+                  - img [ref=e259]
+        - button "Previous slide" [disabled]:
+          - img
+          - generic: Previous slide
+        - button "Next slide" [ref=e261]:
+          - img
+          - generic [ref=e262]: Next slide
+      - link "Xem tất cả" [ref=e264] [cursor=pointer]:
+        - /url: /cong-cu-tinh
+    - heading "Tin tức & Cẩm nang" [level=2] [ref=e267]
+  - contentinfo [ref=e282]:
+    - generic [ref=e283]:
+      - generic [ref=e284]:
+        - generic [ref=e285]:
+          - generic:
+            - img "logo"
+          - paragraph [ref=e286]: Nền tảng so sánh sản phẩm ngân hàng, tư vấn tài chính ứng dụng AI phục vụ cộng đồng.
+          - generic [ref=e287]:
+            - paragraph [ref=e288]: CÔNG TY CỔ PHẦN TẬP ĐOÀN UB
+            - paragraph [ref=e289]: Thành viên Hiệp hội Ngân hàng Việt Nam
+            - paragraph [ref=e290]: Đăng ký kinh doanh số 0106080414 do Sở kế hoạch & Đầu tư TP. Hà Nội cấp ngày 09/01/2013.
+        - generic [ref=e291]:
+          - generic [ref=e292]:
+            - heading "Sản phẩm" [level=3] [ref=e293]
+            - generic [ref=e294]:
+              - link "Vay mua nhà" [ref=e295] [cursor=pointer]:
+                - /url: /danh-gia-nhanh/vay-mua-nha
+              - link "Vay mua xe" [ref=e296] [cursor=pointer]:
+                - /url: /danh-gia-nhanh/vay-mua-xe
+              - link "Vay tín chấp" [ref=e297] [cursor=pointer]:
+                - /url: /danh-gia-nhanh/vay-tin-chap
+              - link "Vay doanh nghiệp" [ref=e298] [cursor=pointer]:
+                - /url: /danh-gia-nhanh/vay-kinh-doanh
+              - link "Thẻ tín dụng" [ref=e299] [cursor=pointer]:
+                - /url: /danh-gia-nhanh/the-tin-dung
+              - link "Gửi tiết kiệm" [ref=e300] [cursor=pointer]:
+                - /url: /danh-gia-nhanh/tiet-kiem
+          - generic [ref=e301]:
+            - heading "Liên kết nhanh" [level=3] [ref=e302]
+            - generic [ref=e303]:
+              - link "Công cụ tính" [ref=e304] [cursor=pointer]:
+                - /url: /cong-cu-tinh
+              - link "Tin tức" [ref=e305] [cursor=pointer]:
+                - /url: /tin-tuc
+              - link "Sản phẩm cộng đồng" [ref=e306] [cursor=pointer]:
+                - /url: /lai-suat-cong-dong
+              - link "Thuật ngữ ngân hàng" [ref=e307] [cursor=pointer]:
+                - /url: /thuat-ngu
+              - link "Nhân viên Ngân hàng" [ref=e308] [cursor=pointer]:
+                - /url: /danh-sach-bankers
+              - link "📋 Khảo sát Banker" [ref=e309] [cursor=pointer]:
+                - /url: /banker/survey
+          - generic [ref=e310]:
+            - heading "Liên hệ" [level=3] [ref=e311]
+            - generic [ref=e312]:
+              - generic [ref=e313]:
+                - img [ref=e315]
+                - generic [ref=e317]: 16 Văn Cao, Phường Ngọc Hà, TP. Hà Nội
+              - generic [ref=e318]:
+                - img [ref=e320]
+                - generic [ref=e322]: 0988.291.512
+              - generic [ref=e323]:
+                - img [ref=e325]
+                - generic [ref=e327]: fintech@ubgroup.com
+              - generic [ref=e328]:
+                - img [ref=e330]
+                - link "https://www.ubgroup.com" [ref=e333] [cursor=pointer]:
+                  - /url: https://www.ubgroup.com
+      - generic [ref=e334]:
+        - paragraph [ref=e337]: Sản phẩm đang trong quá trình xây dựng, thử nghiệm, thông tin trên website chỉ mang tính chất tham khảo.
+        - paragraph [ref=e338]: Version 0.0.2 © 2025 nganhang.com. All Rights Reserved.
+  - button "Gửi góp ý" [ref=e339]:
+    - img [ref=e340]
+    - generic: Góp ý cho chúng tôi

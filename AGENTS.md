@@ -44,6 +44,37 @@ Keep runtime marker contracts stable and non-destructive when overlays are appli
 <!-- OMX:GUIDANCE:OPERATING:END -->
 </operating_principles>
 
+<karpathy_principles>
+## Karpathy Guidelines — LLM Coding Principles
+
+Adapted from Andrej Karpathy's observations on common LLM coding mistakes.
+
+### Think Before Coding
+- State assumptions explicitly before acting.
+- Surface tradeoffs rather than hiding confusion.
+- Ask questions **before** implementation when intent or boundaries are unclear.
+- Push back when warranted rather than making silent assumptions.
+
+### Simplicity First
+- Write the **minimum code** that solves the problem.
+- Avoid speculative features, unnecessary abstractions, or "flexibility" not requested.
+- If code is overcomplicated, simplify it.
+- Prefer deletion over addition.
+
+### Surgical Changes
+- Touch **only what must be changed**.
+- Match existing style; don't "improve" unrelated code.
+- Remove only what your own changes made unused.
+- Keep diffs small, reviewable, and reversible.
+
+### Goal-Driven Execution
+- Transform tasks into verifiable goals with clear success criteria.
+- For multi-step tasks, state a brief plan and verify each step.
+- Verify before claiming completion; collect evidence.
+
+**Success indicators**: These principles are working when you see fewer unnecessary changes in diffs, fewer rewrites due to overcomplication, and clarifying questions come *before* implementation rather than after mistakes.
+</karpathy_principles>
+
 ## Working agreements
 - Write a cleanup plan before modifying code for cleanup/refactor/deslop work.
 - Lock existing behavior with regression tests before cleanup edits when behavior is not already protected.
@@ -423,3 +454,56 @@ Mode lifecycle requirements:
 ## Setup
 
 Run `omx setup` to install all components. Run `omx doctor` to verify installation.
+
+<!-- gitnexus:start -->
+# GitNexus — Code Intelligence
+
+This project is indexed by GitNexus as **bankng** (1196 symbols, 2111 relationships, 81 execution flows). Use the GitNexus MCP tools to understand code, assess impact, and navigate safely.
+
+> If any GitNexus tool warns the index is stale, run `npx gitnexus analyze` in terminal first.
+
+## Always Do
+
+- **MUST run impact analysis before editing any symbol.** Before modifying a function, class, or method, run `gitnexus_impact({target: "symbolName", direction: "upstream"})` and report the blast radius (direct callers, affected processes, risk level) to the user.
+- **MUST run `gitnexus_detect_changes()` before committing** to verify your changes only affect expected symbols and execution flows.
+- **MUST warn the user** if impact analysis returns HIGH or CRITICAL risk before proceeding with edits.
+- When exploring unfamiliar code, use `gitnexus_query({query: "concept"})` to find execution flows instead of grepping. It returns process-grouped results ranked by relevance.
+- When you need full context on a specific symbol — callers, callees, which execution flows it participates in — use `gitnexus_context({name: "symbolName"})`.
+
+## Never Do
+
+- NEVER edit a function, class, or method without first running `gitnexus_impact` on it.
+- NEVER ignore HIGH or CRITICAL risk warnings from impact analysis.
+- NEVER rename symbols with find-and-replace — use `gitnexus_rename` which understands the call graph.
+- NEVER commit changes without running `gitnexus_detect_changes()` to check affected scope.
+
+## Resources
+
+| Resource | Use for |
+|----------|---------|
+| `gitnexus://repo/bankng/context` | Codebase overview, check index freshness |
+| `gitnexus://repo/bankng/clusters` | All functional areas |
+| `gitnexus://repo/bankng/processes` | All execution flows |
+| `gitnexus://repo/bankng/process/{name}` | Step-by-step execution trace |
+
+## CLI
+
+| Task | Read this skill file |
+|------|---------------------|
+| Understand architecture / "How does X work?" | `.claude/skills/gitnexus/gitnexus-exploring/SKILL.md` |
+| Blast radius / "What breaks if I change X?" | `.claude/skills/gitnexus/gitnexus-impact-analysis/SKILL.md` |
+| Trace bugs / "Why is X failing?" | `.claude/skills/gitnexus/gitnexus-debugging/SKILL.md` |
+| Rename / extract / split / refactor | `.claude/skills/gitnexus/gitnexus-refactoring/SKILL.md` |
+| Tools, resources, schema reference | `.claude/skills/gitnexus/gitnexus-guide/SKILL.md` |
+| Index, status, clean, wiki CLI commands | `.claude/skills/gitnexus/gitnexus-cli/SKILL.md` |
+| Work in the Products area (19 symbols) | `.claude/skills/generated/products/SKILL.md` |
+| Work in the Rates area (18 symbols) | `.claude/skills/generated/rates/SKILL.md` |
+| Work in the Staging area (14 symbols) | `.claude/skills/generated/staging/SKILL.md` |
+| Work in the Server area (13 symbols) | `.claude/skills/generated/server/SKILL.md` |
+| Work in the Leads area (11 symbols) | `.claude/skills/generated/leads/SKILL.md` |
+| Work in the Cluster_7 area (7 symbols) | `.claude/skills/generated/cluster-7/SKILL.md` |
+| Work in the Public area (6 symbols) | `.claude/skills/generated/public/SKILL.md` |
+| Work in the [slug] area (6 symbols) | `.claude/skills/generated/slug/SKILL.md` |
+| Work in the Branches area (4 symbols) | `.claude/skills/generated/branches/SKILL.md` |
+
+<!-- gitnexus:end -->

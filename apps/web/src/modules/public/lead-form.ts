@@ -7,7 +7,9 @@ export const leadFormSchema = z.object({
   phone: z.string().min(8, "Invalid phone number").max(15, "Phone number too long").regex(/^0\d{7,14}$/, "Invalid Vietnamese phone format"),
   email: z.string().email("Invalid email format").max(255).optional().or(z.literal("")),
   message: z.string().max(500, "Message too long").optional().or(z.literal("")),
+  provinceCode: z.string().min(2, "Vui lòng chọn Tỉnh/Thành phố").max(10).optional().or(z.literal("")),
   sourcePage: z.string().min(2, "Invalid source").max(500).refine((val) => val.startsWith("/"), "Must be a relative path"),
   contextType: contextTypeEnum,
   contextSlug: z.string().min(2, "Invalid slug").max(100).regex(/^[a-z0-9-]+$/, "Invalid slug format")
 });
+

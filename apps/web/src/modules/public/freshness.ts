@@ -9,17 +9,17 @@ type PublicFreshnessInput = {
 export function getPublicFreshness(input: PublicFreshnessInput) {
   if (input.status === "rejected" || input.status === "expired") {
     return {
-      label: "Khong kha dung",
+      label: "Không khả dụng",
       tone: "danger" as const,
-      description: "Khong nen dung de ra quyet dinh."
+      description: "Không nên dùng để ra quyết định."
     };
   }
 
   if (input.status === "pending") {
     return {
-      label: "Dang xac minh",
+      label: "Đang xác minh",
       tone: "warning" as const,
-      description: "Du lieu chua duoc xac minh chinh thuc."
+      description: "Dữ liệu chưa được xác minh chính thức."
     };
   }
 
@@ -28,9 +28,9 @@ export function getPublicFreshness(input: PublicFreshnessInput) {
 
   if (!Number.isFinite(updatedAtMs) || !Number.isFinite(nowMs)) {
     return {
-      label: "Khong ro",
+      label: "Không rõ",
       tone: "warning" as const,
-      description: "Khong the xac dinh do tuoi du lieu."
+      description: "Không thể xác định độ tuổi dữ liệu."
     };
   }
 
@@ -42,23 +42,23 @@ export function getPublicFreshness(input: PublicFreshnessInput) {
 
   if (ageInDays <= 7 && score >= 70) {
     return {
-      label: "Moi cap nhat",
+      label: "Mới cập nhật",
       tone: "success" as const,
-      description: "Du lieu moi va nguon co do tin cay tot."
+      description: "Dữ liệu mới và nguồn có độ tin cậy tốt."
     };
   }
 
   if (ageInDays <= 30 && score >= 50) {
     return {
-      label: "Can xem lai som",
+      label: "Cần xem lại sớm",
       tone: "warning" as const,
-      description: "Du lieu van dung duoc, nhung nen doi chieu them."
+      description: "Dữ liệu vẫn dùng được, nhưng nên đối chiếu thêm."
     };
   }
 
   return {
-    label: "Da cu",
+    label: "Đã cũ",
     tone: "danger" as const,
-    description: "Ban nen xac nhan lai voi nguon chinh thuc."
+    description: "Bạn nên xác nhận lại với nguồn chính thức."
   };
 }

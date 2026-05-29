@@ -1,0 +1,178 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "Bankng" [ref=e4] [cursor=pointer]:
+        - /url: /
+        - img [ref=e5]:
+          - generic [ref=e7]: B
+        - text: Bankng
+      - navigation [ref=e8]:
+        - link "Trang chủ" [ref=e9] [cursor=pointer]:
+          - /url: /
+        - button "Cá nhân" [ref=e11]:
+          - text: Cá nhân
+          - img [ref=e12]
+        - button "Doanh nghiep" [ref=e15]:
+          - text: Doanh nghiep
+          - img [ref=e16]
+        - link "Cong cu" [ref=e18] [cursor=pointer]:
+          - /url: /cong-cu-tinh
+        - link "Tin tuc" [ref=e19] [cursor=pointer]:
+          - /url: /tin-tuc
+        - link "San pham cong dong" [ref=e20] [cursor=pointer]:
+          - /url: /san-pham-cong-dong
+        - link "Nhan vien Ngan hang" [ref=e21] [cursor=pointer]:
+          - /url: /danh-sach-bankers
+        - link "Dang ky NV" [ref=e22] [cursor=pointer]:
+          - /url: /banker/dang-ky
+      - link "Dang nhap / Dang ky" [ref=e24] [cursor=pointer]:
+        - /url: /auth/login
+  - main [ref=e25]:
+    - main [ref=e26]:
+      - generic [ref=e28]:
+        - heading "So sanh lai suat, chap dap tai chinh" [level=1] [ref=e29]
+        - paragraph [ref=e30]: Cong cu so sanh lai suat tiet kiem va vay ngan hang tot nhat Viet Nam. Du lieu duoc cap nhat hang ngay, nguon chinh thuc, chi tiet.
+        - generic [ref=e31]:
+          - link "🏠Vay mua nha" [ref=e32] [cursor=pointer]:
+            - /url: /danh-gia-nhanh/vay-mua-nha
+          - link "🚗Vay mua xe" [ref=e33] [cursor=pointer]:
+            - /url: /danh-gia-nhanh/vay-mua-xe
+          - link "💳Vay tin chap" [ref=e34] [cursor=pointer]:
+            - /url: /danh-gia-nhanh/vay-tin-chap
+          - link "🏢Vay kinh doanh" [ref=e35] [cursor=pointer]:
+            - /url: /danh-gia-nhanh/vay-kinh-doanh
+          - link "💳The tin dung" [ref=e36] [cursor=pointer]:
+            - /url: /danh-gia-nhanh/the-tin-dung
+          - link "💰Gui tiet kiem" [ref=e37] [cursor=pointer]:
+            - /url: /danh-gia-nhanh/tiet-kiem
+      - generic [ref=e38]:
+        - generic [ref=e39]:
+          - generic [ref=e40]:
+            - heading "Bang lai suat tiet kiem" [level=2] [ref=e41]
+            - paragraph [ref=e42]: "1 ngan hang | Cap nhat: hom nay"
+          - link "Cong cu tinh lai" [ref=e43] [cursor=pointer]:
+            - /url: /danh-gia-nhanh/tiet-kiem
+            - button "Cong cu tinh lai" [ref=e44]
+        - generic [ref=e45]:
+          - generic [ref=e46]:
+            - generic [ref=e47]:
+              - button "Lai suat Online" [ref=e48]
+              - button "Lai suat Quay" [ref=e49]
+            - combobox [ref=e50]:
+              - option "Tat ca" [selected]
+              - option "Big 4"
+              - option "Ngan hang Tu nhan"
+              - option "Ngan hang Nuoc ngoai"
+          - table [ref=e52]:
+            - rowgroup [ref=e53]:
+              - row "# Ngan hang 1 thang 3 thang 6 thang 9 thang 12 thang 24 thang 36 thang" [ref=e54]:
+                - columnheader "#" [ref=e55]
+                - columnheader "Ngan hang" [ref=e56]
+                - columnheader "1 thang" [ref=e57]:
+                  - generic [ref=e58]: 1 thang
+                - columnheader "3 thang" [ref=e59]:
+                  - generic [ref=e60]: 3 thang
+                - columnheader "6 thang" [ref=e61]:
+                  - generic [ref=e62]: 6 thang
+                - columnheader "9 thang" [ref=e63]:
+                  - generic [ref=e64]: 9 thang
+                - columnheader "12 thang" [ref=e65]:
+                  - generic [ref=e66]: 12 thang
+                - columnheader "24 thang" [ref=e67]:
+                  - generic [ref=e68]: 24 thang
+                - columnheader "36 thang" [ref=e69]:
+                  - generic [ref=e70]: 36 thang
+            - rowgroup [ref=e71]:
+              - row "1 D DEMO — — 6.00%Cu — — — —" [ref=e72]:
+                - cell "1" [ref=e73]
+                - cell "D DEMO" [ref=e74]:
+                  - link "D DEMO" [ref=e75] [cursor=pointer]:
+                    - /url: /bank/demo-bank
+                    - generic [ref=e76]: D
+                    - text: DEMO
+                - cell "—" [ref=e77]
+                - cell "—" [ref=e78]
+                - cell "6.00%Cu" [ref=e79]:
+                  - generic [ref=e80]:
+                    - generic [ref=e81]: 6.00%
+                    - text: Cu
+                - cell "—" [ref=e82]
+                - cell "—" [ref=e83]
+                - cell "—" [ref=e84]
+                - cell "—" [ref=e85]
+      - generic [ref=e87]:
+        - heading "Can tu van nhanh?" [level=3] [ref=e88]
+        - paragraph [ref=e89]: De lai thong tin, nhan vien ngan hang se lien he ban trong 24h.
+        - generic [ref=e90]:
+          - link "Xem danh sach nhan vien" [ref=e91] [cursor=pointer]:
+            - /url: /danh-sach-bankers
+            - button "Xem danh sach nhan vien" [ref=e92]
+          - link "Doc bai viet" [ref=e93] [cursor=pointer]:
+            - /url: /tin-tuc
+            - button "Doc bai viet" [ref=e94]
+  - contentinfo [ref=e95]:
+    - generic [ref=e96]:
+      - generic [ref=e97]:
+        - generic [ref=e98]:
+          - generic [ref=e99]:
+            - img [ref=e100]:
+              - generic [ref=e102]: B
+            - text: Bankng
+          - paragraph [ref=e103]: Nen tang so sanh san pham ngan hang, tu van tai chinh ung dung AI phuc vu cong dong.
+          - paragraph [ref=e104]: Cong ty Cong nghe Tai chinh Bankng
+          - paragraph [ref=e105]: Thanh vien Hiep hoi Ngan hang Viet Nam
+        - generic [ref=e106]:
+          - heading "San pham" [level=3] [ref=e107]
+          - list [ref=e108]:
+            - listitem [ref=e109]:
+              - link "Vay mua nha" [ref=e110] [cursor=pointer]:
+                - /url: /danh-gia-nhanh/vay-mua-nha
+            - listitem [ref=e111]:
+              - link "Vay mua xe" [ref=e112] [cursor=pointer]:
+                - /url: /danh-gia-nhanh/vay-mua-xe
+            - listitem [ref=e113]:
+              - link "Vay tin chap" [ref=e114] [cursor=pointer]:
+                - /url: /danh-gia-nhanh/vay-tin-chap
+            - listitem [ref=e115]:
+              - link "Vay doanh nghiep" [ref=e116] [cursor=pointer]:
+                - /url: /danh-gia-nhanh/vay-kinh-doanh
+            - listitem [ref=e117]:
+              - link "The tin dung" [ref=e118] [cursor=pointer]:
+                - /url: /danh-gia-nhanh/the-tin-dung
+            - listitem [ref=e119]:
+              - link "Gui tiet kiem" [ref=e120] [cursor=pointer]:
+                - /url: /danh-gia-nhanh/tiet-kiem
+        - generic [ref=e121]:
+          - heading "Lien ket nhanh" [level=3] [ref=e122]
+          - list [ref=e123]:
+            - listitem [ref=e124]:
+              - link "Cong cu tinh" [ref=e125] [cursor=pointer]:
+                - /url: /cong-cu-tinh
+            - listitem [ref=e126]:
+              - link "Tin tuc" [ref=e127] [cursor=pointer]:
+                - /url: /tin-tuc
+            - listitem [ref=e128]:
+              - link "San pham cong dong" [ref=e129] [cursor=pointer]:
+                - /url: /san-pham-cong-dong
+            - listitem [ref=e130]:
+              - link "Thuật ngữ ngân hàng" [ref=e131] [cursor=pointer]:
+                - /url: /thuat-ngu
+            - listitem [ref=e132]:
+              - link "Nhan vien Ngan hang" [ref=e133] [cursor=pointer]:
+                - /url: /danh-sach-bankers
+            - listitem [ref=e134]:
+              - link "Khao sat Banker" [ref=e135] [cursor=pointer]:
+                - /url: /banker/survey
+        - generic [ref=e136]:
+          - heading "Lien he" [level=3] [ref=e137]
+          - list [ref=e138]:
+            - listitem [ref=e139]:
+              - img [ref=e140]
+              - text: 16 Van Cao, Phuong Ngoc Ha, TP. Ha Noi
+            - listitem [ref=e143]:
+              - img [ref=e144]
+              - text: 0988.291.512
+            - listitem [ref=e146]:
+              - img [ref=e147]
+              - text: fintech@bankng.com
+      - paragraph [ref=e151]: © 2025 Bankng. Thong tin chi mang tinh chat tham khao. Khong thay the tu van tai chinh ca nhan.

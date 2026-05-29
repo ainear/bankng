@@ -1,0 +1,217 @@
+- generic [ref=e2]:
+  - banner [ref=e3]:
+    - generic [ref=e5]:
+      - link "logo" [ref=e7] [cursor=pointer]:
+        - /url: /
+        - img "logo" [ref=e8]
+      - navigation [ref=e9]:
+        - link "Trang chủ" [ref=e11] [cursor=pointer]:
+          - /url: /
+        - button "Cá nhân" [ref=e13]:
+          - text: Cá nhân
+          - img [ref=e14]
+        - button "Doanh nghiệp" [ref=e17]:
+          - text: Doanh nghiệp
+          - img [ref=e18]
+        - generic [ref=e21]:
+          - link "Công cụ" [ref=e22] [cursor=pointer]:
+            - /url: /cong-cu-tinh
+          - img [ref=e23]
+        - link "Tin tức" [ref=e26] [cursor=pointer]:
+          - /url: /tin-tuc
+        - generic [ref=e28]:
+          - link "Sản phẩm cộng đồng" [ref=e29] [cursor=pointer]:
+            - /url: /lai-suat-cong-dong
+          - img [ref=e30]
+        - link "Nhân viên Ngân hàng" [ref=e33] [cursor=pointer]:
+          - /url: /danh-sach-bankers
+      - button "🔐 Đăng nhập / Đăng ký" [ref=e36]:
+        - generic [ref=e37]: 🔐
+        - generic [ref=e38]: Đăng nhập / Đăng ký
+  - main [ref=e40]:
+    - generic [ref=e42]:
+      - navigation [ref=e43]:
+        - link "Trang chủ" [ref=e44] [cursor=pointer]:
+          - /url: /
+        - generic [ref=e45]: /
+        - generic [ref=e46]: Công cụ tính
+      - generic [ref=e47]:
+        - heading "Công cụ tính tài chính" [level=1] [ref=e48]
+        - paragraph [ref=e49]: Các công cụ miễn phí giúp bạn tính toán và lập kế hoạch tài chính cá nhân hiệu quả
+      - generic [ref=e50]:
+        - link " Tính tiền lãi gửi  Tính lãi tiết kiệm ngân hàng với lãi đơn hoặc lãi kép" [ref=e51] [cursor=pointer]:
+          - /url: /cong-cu-tinh/tinh-lai-tiet-kiem
+          - generic [ref=e52]:
+            - generic [ref=e54]: 
+            - generic [ref=e55]:
+              - heading "Tính tiền lãi gửi " [level=2] [ref=e56]:
+                - text: Tính tiền lãi gửi
+                - generic [ref=e57]: 
+              - paragraph [ref=e58]: Tính lãi tiết kiệm ngân hàng với lãi đơn hoặc lãi kép
+        - link " Tính giá trị nhà/đất  Tính giá trị tài sản dựa trên thu nhập và khả năng vay" [ref=e59] [cursor=pointer]:
+          - /url: /cong-cu-tinh/tinh-gia-tri-tai-san
+          - generic [ref=e60]:
+            - generic [ref=e62]: 
+            - generic [ref=e63]:
+              - heading "Tính giá trị nhà/đất " [level=2] [ref=e64]:
+                - text: Tính giá trị nhà/đất
+                - generic [ref=e65]: 
+              - paragraph [ref=e66]: Tính giá trị tài sản dựa trên thu nhập và khả năng vay
+        - link " Tính khoản vay tối đa  Ước tính số tiền vay tối đa dựa trên thu nhập hàng tháng" [ref=e67] [cursor=pointer]:
+          - /url: /cong-cu-tinh/tinh-khoan-vay-toi-da
+          - generic [ref=e68]:
+            - generic [ref=e70]: 
+            - generic [ref=e71]:
+              - heading "Tính khoản vay tối đa " [level=2] [ref=e72]:
+                - text: Tính khoản vay tối đa
+                - generic [ref=e73]: 
+              - paragraph [ref=e74]: Ước tính số tiền vay tối đa dựa trên thu nhập hàng tháng
+        - link " Tính lãi vay thả nổi  Tính lãi suất vay với lãi suất thay đổi theo kỳ" [ref=e75] [cursor=pointer]:
+          - /url: /cong-cu-tinh/tinh-lai-vay-tha-noi
+          - generic [ref=e76]:
+            - generic [ref=e78]: 
+            - generic [ref=e79]:
+              - heading "Tính lãi vay thả nổi " [level=2] [ref=e80]:
+                - text: Tính lãi vay thả nổi
+                - generic [ref=e81]: 
+              - paragraph [ref=e82]: Tính lãi suất vay với lãi suất thay đổi theo kỳ
+        - link " Tính lãi vay trả góp đều  Tính số tiền trả góp hàng tháng cố định trong suốt kỳ vay" [ref=e83] [cursor=pointer]:
+          - /url: /cong-cu-tinh/tinh-lai-vay-tra-gop-deu
+          - generic [ref=e84]:
+            - generic [ref=e86]: 
+            - generic [ref=e87]:
+              - heading "Tính lãi vay trả góp đều " [level=2] [ref=e88]:
+                - text: Tính lãi vay trả góp đều
+                - generic [ref=e89]: 
+              - paragraph [ref=e90]: Tính số tiền trả góp hàng tháng cố định trong suốt kỳ vay
+        - link " Tính lãi vay trên dư nợ ban đầu  Tính lãi theo phương pháp dư nợ giảm dần" [ref=e91] [cursor=pointer]:
+          - /url: /cong-cu-tinh/tinh-lai-vay-du-no-ban-dau
+          - generic [ref=e92]:
+            - generic [ref=e94]: 
+            - generic [ref=e95]:
+              - heading "Tính lãi vay trên dư nợ ban đầu " [level=2] [ref=e96]:
+                - text: Tính lãi vay trên dư nợ ban đầu
+                - generic [ref=e97]: 
+              - paragraph [ref=e98]: Tính lãi theo phương pháp dư nợ giảm dần
+        - link " Ước tính vay mua ô tô  Tính toán khoản vay và chi phí khi mua xe ô tô" [ref=e99] [cursor=pointer]:
+          - /url: /cong-cu-tinh/uoc-tinh-vay-mua-oto
+          - generic [ref=e100]:
+            - generic [ref=e102]: 
+            - generic [ref=e103]:
+              - heading "Ước tính vay mua ô tô " [level=2] [ref=e104]:
+                - text: Ước tính vay mua ô tô
+                - generic [ref=e105]: 
+              - paragraph [ref=e106]: Tính toán khoản vay và chi phí khi mua xe ô tô
+        - link " Kiểm tra điều kiện nhà ở xã hội  Kiểm tra xem bạn có đủ điều kiện mua nhà ở xã hội không" [ref=e107] [cursor=pointer]:
+          - /url: /cong-cu-tinh/kiem-tra-dieu-kien-nha-o-xa-hoi
+          - generic [ref=e108]:
+            - generic [ref=e110]: 
+            - generic [ref=e111]:
+              - heading "Kiểm tra điều kiện nhà ở xã hội " [level=2] [ref=e112]:
+                - text: Kiểm tra điều kiện nhà ở xã hội
+                - generic [ref=e113]: 
+              - paragraph [ref=e114]: Kiểm tra xem bạn có đủ điều kiện mua nhà ở xã hội không
+        - link " Tính thuế TNCN  So sánh thuế TNCN theo biểu thuế KQT 2025 (7 bậc) và KQT 2026 (5 bậc). Tính khấu trừ BHXH, giảm trừ gia cảnh tự động theo Nghị quyết 110/2025." [ref=e115] [cursor=pointer]:
+          - /url: /cong-cu-tinh/tinh-thue-tncn
+          - generic [ref=e116]:
+            - generic [ref=e118]: 
+            - generic [ref=e119]:
+              - heading "Tính thuế TNCN " [level=2] [ref=e120]:
+                - text: Tính thuế TNCN
+                - generic [ref=e121]: 
+              - paragraph [ref=e122]: So sánh thuế TNCN theo biểu thuế KQT 2025 (7 bậc) và KQT 2026 (5 bậc). Tính khấu trừ BHXH, giảm trừ gia cảnh tự động theo Nghị quyết 110/2025.
+        - link " Tính lương Gross-Net  Công cụ quy đổi lương Gross sang Net và ngược lại. Tính tự động BHXH, BHYT, BHTN, thuế TNCN theo vùng lương tối thiểu." [ref=e123] [cursor=pointer]:
+          - /url: /cong-cu-tinh/luong-gross-net
+          - generic [ref=e124]:
+            - generic [ref=e126]: 
+            - generic [ref=e127]:
+              - heading "Tính lương Gross-Net " [level=2] [ref=e128]:
+                - text: Tính lương Gross-Net
+                - generic [ref=e129]: 
+              - paragraph [ref=e130]: Công cụ quy đổi lương Gross sang Net và ngược lại. Tính tự động BHXH, BHYT, BHTN, thuế TNCN theo vùng lương tối thiểu.
+        - link " Phân tích sao kê  Công cụ phân tích sao kê ngân hàng, giúp bạn hiểu rõ chi tiêu và quản lý tài chính hiệu quả." [ref=e131] [cursor=pointer]:
+          - /url: /tool/sao-ke-the-tin-dung
+          - generic [ref=e132]:
+            - generic [ref=e134]: 
+            - generic [ref=e135]:
+              - heading "Phân tích sao kê " [level=2] [ref=e136]:
+                - text: Phân tích sao kê
+                - generic [ref=e137]: 
+              - paragraph [ref=e138]: Công cụ phân tích sao kê ngân hàng, giúp bạn hiểu rõ chi tiêu và quản lý tài chính hiệu quả.
+        - link " Lịch trả nợ nhà dự án  Tính lịch trả nợ vay mua nhà dự án với nhiều đợt giải ngân, lãi suất ưu đãi và stress test DTI." [ref=e139] [cursor=pointer]:
+          - /url: /cong-cu-tinh/lich-tra-no-nha-du-an
+          - generic [ref=e140]:
+            - generic [ref=e142]: 
+            - generic [ref=e143]:
+              - heading "Lịch trả nợ nhà dự án " [level=2] [ref=e144]:
+                - text: Lịch trả nợ nhà dự án
+                - generic [ref=e145]: 
+              - paragraph [ref=e146]: Tính lịch trả nợ vay mua nhà dự án với nhiều đợt giải ngân, lãi suất ưu đãi và stress test DTI.
+      - generic [ref=e148]:
+        - generic [ref=e150]: 
+        - generic [ref=e151]:
+          - heading "Về các công cụ tính" [level=3] [ref=e152]
+          - paragraph [ref=e153]: Các công cụ tính tài chính được thiết kế để giúp bạn ra quyết định tài chính thông minh hơn. Tất cả các công cụ đều miễn phí. Kết quả chỉ mang tính tham khảo, vui lòng liên hệ ngân hàng để được tư vấn chi tiết.
+  - contentinfo [ref=e165]:
+    - generic [ref=e166]:
+      - generic [ref=e167]:
+        - generic [ref=e168]:
+          - img "logo" [ref=e170]
+          - paragraph [ref=e171]: Nền tảng so sánh sản phẩm ngân hàng, tư vấn tài chính ứng dụng AI phục vụ cộng đồng.
+          - generic [ref=e172]:
+            - paragraph [ref=e173]: CÔNG TY CỔ PHẦN TẬP ĐOÀN UB
+            - paragraph [ref=e174]: Thành viên Hiệp hội Ngân hàng Việt Nam
+            - paragraph [ref=e175]: Đăng ký kinh doanh số 0106080414 do Sở kế hoạch & Đầu tư TP. Hà Nội cấp ngày 09/01/2013.
+        - generic [ref=e176]:
+          - generic [ref=e177]:
+            - heading "Sản phẩm" [level=3] [ref=e178]
+            - generic [ref=e179]:
+              - link "Vay mua nhà" [ref=e180] [cursor=pointer]:
+                - /url: /danh-gia-nhanh/vay-mua-nha
+              - link "Vay mua xe" [ref=e181] [cursor=pointer]:
+                - /url: /danh-gia-nhanh/vay-mua-xe
+              - link "Vay tín chấp" [ref=e182] [cursor=pointer]:
+                - /url: /danh-gia-nhanh/vay-tin-chap
+              - link "Vay doanh nghiệp" [ref=e183] [cursor=pointer]:
+                - /url: /danh-gia-nhanh/vay-kinh-doanh
+              - link "Thẻ tín dụng" [ref=e184] [cursor=pointer]:
+                - /url: /danh-gia-nhanh/the-tin-dung
+              - link "Gửi tiết kiệm" [ref=e185] [cursor=pointer]:
+                - /url: /danh-gia-nhanh/tiet-kiem
+          - generic [ref=e186]:
+            - heading "Liên kết nhanh" [level=3] [ref=e187]
+            - generic [ref=e188]:
+              - link "Công cụ tính" [ref=e189] [cursor=pointer]:
+                - /url: /cong-cu-tinh
+              - link "Tin tức" [ref=e190] [cursor=pointer]:
+                - /url: /tin-tuc
+              - link "Sản phẩm cộng đồng" [ref=e191] [cursor=pointer]:
+                - /url: /lai-suat-cong-dong
+              - link "Thuật ngữ ngân hàng" [ref=e192] [cursor=pointer]:
+                - /url: /thuat-ngu
+              - link "Nhân viên Ngân hàng" [ref=e193] [cursor=pointer]:
+                - /url: /danh-sach-bankers
+              - link "📋 Khảo sát Banker" [ref=e194] [cursor=pointer]:
+                - /url: /banker/survey
+          - generic [ref=e195]:
+            - heading "Liên hệ" [level=3] [ref=e196]
+            - generic [ref=e197]:
+              - generic [ref=e198]:
+                - img [ref=e200]
+                - generic [ref=e202]: 16 Văn Cao, Phường Ngọc Hà, TP. Hà Nội
+              - generic [ref=e203]:
+                - img [ref=e205]
+                - generic [ref=e207]: 0988.291.512
+              - generic [ref=e208]:
+                - img [ref=e210]
+                - generic [ref=e212]: fintech@ubgroup.com
+              - generic [ref=e213]:
+                - img [ref=e215]
+                - link "https://www.ubgroup.com" [ref=e218] [cursor=pointer]:
+                  - /url: https://www.ubgroup.com
+      - generic [ref=e219]:
+        - paragraph [ref=e222]: Sản phẩm đang trong quá trình xây dựng, thử nghiệm, thông tin trên website chỉ mang tính chất tham khảo.
+        - paragraph [ref=e223]: Version 0.0.2 © 2025 nganhang.com. All Rights Reserved.
+  - button "Gửi góp ý" [ref=e224]:
+    - img [ref=e225]
+    - generic: Góp ý cho chúng tôi

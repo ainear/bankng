@@ -1,0 +1,451 @@
+- generic [ref=e2]:
+  - banner [ref=e3]:
+    - generic [ref=e5]:
+      - link "logo" [ref=e7] [cursor=pointer]:
+        - /url: /
+        - img "logo" [ref=e8]
+      - navigation [ref=e9]:
+        - link "Trang chủ" [ref=e11] [cursor=pointer]:
+          - /url: /
+        - button "Cá nhân" [ref=e13]:
+          - text: Cá nhân
+          - img [ref=e14]
+        - button "Doanh nghiệp" [ref=e17]:
+          - text: Doanh nghiệp
+          - img [ref=e18]
+        - generic [ref=e21]:
+          - link "Công cụ" [ref=e22] [cursor=pointer]:
+            - /url: /cong-cu-tinh
+          - img [ref=e23]
+        - link "Tin tức" [ref=e26] [cursor=pointer]:
+          - /url: /tin-tuc
+        - generic [ref=e28]:
+          - link "Sản phẩm cộng đồng" [ref=e29] [cursor=pointer]:
+            - /url: /lai-suat-cong-dong
+          - img [ref=e30]
+        - link "Nhân viên Ngân hàng" [ref=e33] [cursor=pointer]:
+          - /url: /danh-sach-bankers
+      - button "🔐 Đăng nhập / Đăng ký" [ref=e36]:
+        - generic [ref=e37]: 🔐
+        - generic [ref=e38]: Đăng nhập / Đăng ký
+  - main [ref=e40]:
+    - generic [ref=e42]:
+      - generic [ref=e43]:
+        - heading "Tin tức & Cẩm nang" [level=1] [ref=e44]
+        - paragraph [ref=e45]: Cập nhật thông tin tài chính mới nhất, cẩm nang hướng dẫn và phân tích chuyên sâu về thị trường ngân hàng Việt Nam
+      - generic [ref=e47]:
+        - 'link "Toàn cảnh lãi suất tiết kiệm tháng 3/2026: Ai đang trả lãi cao nhất — và vì sao bạn nên quan tâm Phân tích thị trường Toàn cảnh lãi suất tiết kiệm tháng 3/2026: Ai đang trả lãi cao nhất — và vì sao bạn nên quan tâm Bức tranh lãi suất tiết kiệm tháng 3/2026 đang thay đổi nhanh chóng. Từ mức đáy lịch sử năm 2024, cuộc đua tăng lãi suất đã chính thức bắt đầu. Bài phân tích này tổng hợp dữ liệu từ 35+ ngân hàng, so sánh chi tiết từng kỳ hạn, chỉ ra ai đang trả cao nhất và giúp bạn đưa ra quyết định đúng cho đồng tiền của mình. • 24 phút đọc • 254" [ref=e48] [cursor=pointer]':
+          - /url: /tin-tuc/toan-canh-lai-suat-tiet-kiem-thang-3-2026
+          - 'img "Toàn cảnh lãi suất tiết kiệm tháng 3/2026: Ai đang trả lãi cao nhất — và vì sao bạn nên quan tâm" [ref=e50]'
+          - generic [ref=e52]:
+            - generic [ref=e53]: Phân tích thị trường
+            - 'heading "Toàn cảnh lãi suất tiết kiệm tháng 3/2026: Ai đang trả lãi cao nhất — và vì sao bạn nên quan tâm" [level=2] [ref=e54]'
+            - paragraph [ref=e55]: Bức tranh lãi suất tiết kiệm tháng 3/2026 đang thay đổi nhanh chóng. Từ mức đáy lịch sử năm 2024, cuộc đua tăng lãi suất đã chính thức bắt đầu. Bài phân tích này tổng hợp dữ liệu từ 35+ ngân hàng, so sánh chi tiết từng kỳ hạn, chỉ ra ai đang trả cao nhất và giúp bạn đưa ra quyết định đúng cho đồng tiền của mình.
+            - generic [ref=e56]:
+              - generic [ref=e57]: •
+              - generic [ref=e58]: 24 phút đọc
+              - generic [ref=e59]: •
+              - generic [ref=e60]:
+                - img [ref=e61]
+                - text: "254"
+        - link "Đăng ký tài khoản BankerID dành riêng cho Nhân viên Ngân hàng Sản phẩm dịch vụ Đăng ký tài khoản BankerID dành riêng cho Nhân viên Ngân hàng • 5 phút đọc" [ref=e65] [cursor=pointer]:
+          - /url: /tin-tuc/dang-ky-tai-khoan-banker-tren-nganhang
+          - img "Đăng ký tài khoản BankerID dành riêng cho Nhân viên Ngân hàng" [ref=e67]
+          - generic [ref=e68]:
+            - generic [ref=e69]: Sản phẩm dịch vụ
+            - heading "Đăng ký tài khoản BankerID dành riêng cho Nhân viên Ngân hàng" [level=3] [ref=e70]
+            - generic [ref=e71]:
+              - generic [ref=e72]: •
+              - generic [ref=e73]: 5 phút đọc
+      - generic [ref=e75]:
+        - button " Tất cả 19" [ref=e76]:
+          - generic [ref=e77]: 
+          - generic [ref=e78]: Tất cả
+          - generic [ref=e79]: "19"
+        - button " Tin tức" [ref=e80]:
+          - generic [ref=e81]: 
+          - generic [ref=e82]: Tin tức
+        - button " Cẩm nang tài chính 13" [ref=e83]:
+          - generic [ref=e84]: 
+          - generic [ref=e85]: Cẩm nang tài chính
+          - generic [ref=e86]: "13"
+        - button " Sản phẩm dịch vụ 5" [ref=e87]:
+          - generic [ref=e88]: 
+          - generic [ref=e89]: Sản phẩm dịch vụ
+          - generic [ref=e90]: "5"
+        - button " Khuyến mãi" [ref=e91]:
+          - generic [ref=e92]: 
+          - generic [ref=e93]: Khuyến mãi
+        - button " Phân tích thị trường 1" [ref=e94]:
+          - generic [ref=e95]: 
+          - generic [ref=e96]: Phân tích thị trường
+          - generic [ref=e97]: "1"
+      - generic [ref=e98]:
+        - article [ref=e99]:
+          - 'link "Toàn cảnh lãi suất tiết kiệm tháng 3/2026: Ai đang trả lãi cao nhất — và vì sao bạn nên quan tâm" [ref=e100] [cursor=pointer]':
+            - /url: /tin-tuc/toan-canh-lai-suat-tiet-kiem-thang-3-2026
+            - 'img "Toàn cảnh lãi suất tiết kiệm tháng 3/2026: Ai đang trả lãi cao nhất — và vì sao bạn nên quan tâm" [ref=e102]'
+          - generic [ref=e103]:
+            - generic [ref=e104]:
+              - generic [ref=e105]: Phân tích thị trường
+              - generic [ref=e106]: 24 phút đọc
+            - 'heading "Toàn cảnh lãi suất tiết kiệm tháng 3/2026: Ai đang trả lãi cao nhất — và vì sao bạn nên quan tâm" [level=3] [ref=e107]':
+              - 'link "Toàn cảnh lãi suất tiết kiệm tháng 3/2026: Ai đang trả lãi cao nhất — và vì sao bạn nên quan tâm" [ref=e108] [cursor=pointer]':
+                - /url: /tin-tuc/toan-canh-lai-suat-tiet-kiem-thang-3-2026
+            - paragraph [ref=e109]: Bức tranh lãi suất tiết kiệm tháng 3/2026 đang thay đổi nhanh chóng. Từ mức đáy lịch sử năm 2024, cuộc đua tăng lãi suất đã chính thức bắt đầu. Bài phân tích này tổng hợp dữ liệu từ 35+ ngân hàng, so sánh chi tiết từng kỳ hạn, chỉ ra ai đang trả cao nhất và giúp bạn đưa ra quyết định đúng cho đồng tiền của mình.
+            - generic [ref=e111]:
+              - img [ref=e112]
+              - text: "254"
+        - article [ref=e115]:
+          - link "Đăng ký tài khoản BankerID dành riêng cho Nhân viên Ngân hàng" [ref=e116] [cursor=pointer]:
+            - /url: /tin-tuc/dang-ky-tai-khoan-banker-tren-nganhang
+            - img "Đăng ký tài khoản BankerID dành riêng cho Nhân viên Ngân hàng" [ref=e118]
+          - generic [ref=e119]:
+            - generic [ref=e120]:
+              - generic [ref=e121]: Sản phẩm dịch vụ
+              - generic [ref=e122]: 5 phút đọc
+            - heading "Đăng ký tài khoản BankerID dành riêng cho Nhân viên Ngân hàng" [level=3] [ref=e123]:
+              - link "Đăng ký tài khoản BankerID dành riêng cho Nhân viên Ngân hàng" [ref=e124] [cursor=pointer]:
+                - /url: /tin-tuc/dang-ky-tai-khoan-banker-tren-nganhang
+            - paragraph [ref=e125]: Khám phá cách đăng ký tài khoản Banker trên nganhang.com để tạo hồ sơ chuyên nghiệp, sở hữu linkbio cá nhân giúp gia tăng uy tín, kết nối khách hàng thụ động và tối ưu cơ hội đầu tư tài chính.
+            - generic [ref=e127]:
+              - img [ref=e128]
+              - text: 1.2K
+        - article [ref=e131]:
+          - 'link "Bí Mật Hồ Sơ Vay Vốn: Góc Nhìn Từ Nhân Viên Thẩm Định" [ref=e132] [cursor=pointer]':
+            - /url: /tin-tuc/tieu-de-bi-mat-ho-so-vay-von-goc-nhin-tu-nhan-vien-tham-dinh
+            - 'img "Bí Mật Hồ Sơ Vay Vốn: Góc Nhìn Từ Nhân Viên Thẩm Định" [ref=e134]'
+          - generic [ref=e135]:
+            - generic [ref=e136]:
+              - generic [ref=e137]: Cẩm nang tài chính
+              - generic [ref=e138]: 6 phút đọc
+            - 'heading "Bí Mật Hồ Sơ Vay Vốn: Góc Nhìn Từ Nhân Viên Thẩm Định" [level=3] [ref=e139]':
+              - 'link "Bí Mật Hồ Sơ Vay Vốn: Góc Nhìn Từ Nhân Viên Thẩm Định" [ref=e140] [cursor=pointer]':
+                - /url: /tin-tuc/tieu-de-bi-mat-ho-so-vay-von-goc-nhin-tu-nhan-vien-tham-dinh
+            - paragraph [ref=e141]: Một bộ hồ sơ vay vốn "đẹp" không chỉ là đầy đủ giấy tờ. Khám phá những tiêu chí vàng và các "điểm cộng" giúp hồ sơ của bạn tỏa sáng, chinh phục mọi nhân viên thẩm định.
+            - generic [ref=e143]:
+              - img [ref=e144]
+              - text: "106"
+        - article [ref=e147]:
+          - 'link "Thẻ Tín Dụng vs. Vay Tín Chấp: \"Trận So Găng\" Tài Chính và Những Lầm Tưởng Chết Người" [ref=e148] [cursor=pointer]':
+            - /url: /tin-tuc/the-tin-dung-vs-vay-tin-chap-tran-so-gang-tai-chinh-va-nhung-lam-tuong-chet-nguoi
+            - 'img "Thẻ Tín Dụng vs. Vay Tín Chấp: \"Trận So Găng\" Tài Chính và Những Lầm Tưởng Chết Người" [ref=e150]'
+          - generic [ref=e151]:
+            - generic [ref=e152]:
+              - generic [ref=e153]: Cẩm nang tài chính
+              - generic [ref=e154]: 7 phút đọc
+            - 'heading "Thẻ Tín Dụng vs. Vay Tín Chấp: \"Trận So Găng\" Tài Chính và Những Lầm Tưởng Chết Người" [level=3] [ref=e155]':
+              - 'link "Thẻ Tín Dụng vs. Vay Tín Chấp: \"Trận So Găng\" Tài Chính và Những Lầm Tưởng Chết Người" [ref=e156] [cursor=pointer]':
+                - /url: /tin-tuc/the-tin-dung-vs-vay-tin-chap-tran-so-gang-tai-chinh-va-nhung-lam-tuong-chet-nguoi
+            - paragraph [ref=e157]: Đừng để nhầm lẫn giữa thẻ tín dụng và vay tín chấp khiến bạn trả giá đắt. Nganhang.com sẽ lật tẩy 4 lầm tưởng phổ biến và chỉ rõ khi nào bạn nên dùng thẻ, khi nào nên chọn khoản vay.
+            - generic [ref=e159]:
+              - img [ref=e160]
+              - text: "99"
+        - article [ref=e163]:
+          - 'link "Phá Bỏ Rào Cản Tâm Lý Với Ngân Hàng: Biến \"Nơi Xa Lạ\" Thành \"Đối Tác Tin Cậy\"" [ref=e164] [cursor=pointer]':
+            - /url: /tin-tuc/pha-bo-rao-can-tam-ly-voi-ngan-hang-bien-noi-xa-la-thanh-doi-tac-tin-cay
+            - 'img "Phá Bỏ Rào Cản Tâm Lý Với Ngân Hàng: Biến \"Nơi Xa Lạ\" Thành \"Đối Tác Tin Cậy\"" [ref=e166]'
+          - generic [ref=e167]:
+            - generic [ref=e168]:
+              - generic [ref=e169]: Cẩm nang tài chính
+              - generic [ref=e170]: 7 phút đọc
+            - 'heading "Phá Bỏ Rào Cản Tâm Lý Với Ngân Hàng: Biến \"Nơi Xa Lạ\" Thành \"Đối Tác Tin Cậy\"" [level=3] [ref=e171]':
+              - 'link "Phá Bỏ Rào Cản Tâm Lý Với Ngân Hàng: Biến \"Nơi Xa Lạ\" Thành \"Đối Tác Tin Cậy\"" [ref=e172] [cursor=pointer]':
+                - /url: /tin-tuc/pha-bo-rao-can-tam-ly-voi-ngan-hang-bien-noi-xa-la-thanh-doi-tac-tin-cay
+            - paragraph [ref=e173]: Bạn cảm thấy e ngại, thiếu tự tin, hay thậm chí là sợ hãi khi phải đến ngân hàng? Khám phá nguyên nhân sâu xa và lộ trình 4 bước thực tế để bạn biến ngân hàng thành một đối tác tài chính hữu ích.
+            - generic [ref=e175]:
+              - img [ref=e176]
+              - text: "71"
+        - article [ref=e179]:
+          - 'link "Tài Chính Tuổi Trung Niên: Hóa Giải 5 \"Nỗi Đau Đáu\" Lớn Nhất Để An Vui Tuổi Xế Chiều" [ref=e180] [cursor=pointer]':
+            - /url: /tin-tuc/tieu-de-tai-chinh-tuoi-trung-nien-hoa-giai-5-noi-dau-dau-lon-nhat-de-an-vui-tuoi-xe-chieu
+            - 'img "Tài Chính Tuổi Trung Niên: Hóa Giải 5 \"Nỗi Đau Đáu\" Lớn Nhất Để An Vui Tuổi Xế Chiều" [ref=e182]'
+          - generic [ref=e183]:
+            - generic [ref=e184]:
+              - generic [ref=e185]: Cẩm nang tài chính
+              - generic [ref=e186]: 8 phút đọc
+            - 'heading "Tài Chính Tuổi Trung Niên: Hóa Giải 5 \"Nỗi Đau Đáu\" Lớn Nhất Để An Vui Tuổi Xế Chiều" [level=3] [ref=e187]':
+              - 'link "Tài Chính Tuổi Trung Niên: Hóa Giải 5 \"Nỗi Đau Đáu\" Lớn Nhất Để An Vui Tuổi Xế Chiều" [ref=e188] [cursor=pointer]':
+                - /url: /tin-tuc/tieu-de-tai-chinh-tuoi-trung-nien-hoa-giai-5-noi-dau-dau-lon-nhat-de-an-vui-tuoi-xe-chieu
+            - paragraph [ref=e189]: Tuổi trung niên - đỉnh cao sự nghiệp nhưng cũng là đỉnh điểm của những lo toan tài chính. Khám phá 5 nỗi trăn trở lớn nhất và các giải pháp thực tế để bạn vững vàng làm chủ tương lai.
+            - generic [ref=e191]:
+              - img [ref=e192]
+              - text: "106"
+        - article [ref=e195]:
+          - 'link "Tài Chính Tuổi 30: 5 Lời Khuyên \"Vàng\" Giúp Dân Văn Phòng Xây Dựng Tự Do Tài Chính" [ref=e196] [cursor=pointer]':
+            - /url: /tin-tuc/tai-chinh-tuoi-30-5-loi-khuyen-vang-giup-dan-van-phong-xay-dung-tu-do-tai-chinh
+            - 'img "Tài Chính Tuổi 30: 5 Lời Khuyên \"Vàng\" Giúp Dân Văn Phòng Xây Dựng Tự Do Tài Chính" [ref=e198]'
+          - generic [ref=e199]:
+            - generic [ref=e200]:
+              - generic [ref=e201]: Cẩm nang tài chính
+              - generic [ref=e202]: 7 phút đọc
+            - 'heading "Tài Chính Tuổi 30: 5 Lời Khuyên \"Vàng\" Giúp Dân Văn Phòng Xây Dựng Tự Do Tài Chính" [level=3] [ref=e203]':
+              - 'link "Tài Chính Tuổi 30: 5 Lời Khuyên \"Vàng\" Giúp Dân Văn Phòng Xây Dựng Tự Do Tài Chính" [ref=e204] [cursor=pointer]':
+                - /url: /tin-tuc/tai-chinh-tuoi-30-5-loi-khuyen-vang-giup-dan-van-phong-xay-dung-tu-do-tai-chinh
+            - paragraph [ref=e205]: Dành cho những người có thu nhập ổn định nhưng tiền bạc vẫn "không cánh mà bay". Khám phá 5 lời khuyên tài chính cốt lõi giúp dân văn phòng thoát khỏi vòng lặp paycheck-to-paycheck và xây dựng sự thịnh vượng bền vững.
+            - generic [ref=e207]:
+              - img [ref=e208]
+              - text: "45"
+        - article [ref=e211]:
+          - link "Gửi Tiết Kiệm Hay Đầu Tư? \"Bàn Cân\" Tài Chính Giúp Bạn Quyết Định Sáng Suốt" [ref=e212] [cursor=pointer]:
+            - /url: /tin-tuc/gui-tiet-kiem-hay-dau-tu-ban-can-tai-chinh-giup-ban-quyet-dinh-sang-suot
+            - img "Gửi Tiết Kiệm Hay Đầu Tư? \"Bàn Cân\" Tài Chính Giúp Bạn Quyết Định Sáng Suốt" [ref=e214]
+          - generic [ref=e215]:
+            - generic [ref=e216]:
+              - generic [ref=e217]: Cẩm nang tài chính
+              - generic [ref=e218]: 7 phút đọc
+            - heading "Gửi Tiết Kiệm Hay Đầu Tư? \"Bàn Cân\" Tài Chính Giúp Bạn Quyết Định Sáng Suốt" [level=3] [ref=e219]:
+              - link "Gửi Tiết Kiệm Hay Đầu Tư? \"Bàn Cân\" Tài Chính Giúp Bạn Quyết Định Sáng Suốt" [ref=e220] [cursor=pointer]:
+                - /url: /tin-tuc/gui-tiet-kiem-hay-dau-tu-ban-can-tai-chinh-giup-ban-quyet-dinh-sang-suot
+            - paragraph [ref=e221]: Bạn có tiền nhàn rỗi và đang phân vân giữa gửi tiết kiệm an toàn và đầu tư sinh lời cao? Nganhang.com sẽ đặt hai lựa chọn này lên "bàn cân" và cung cấp một chiến lược rõ ràng để bạn xây dựng một kế hoạch tài chính toàn diện.
+            - generic [ref=e223]:
+              - img [ref=e224]
+              - text: "28"
+        - article [ref=e227]:
+          - 'link "Ma Trận Lãi Suất: Khi Nào \"Thấp\" Là Tốt và Khi Nào \"Cao\" Mới Là Hay?" [ref=e228] [cursor=pointer]':
+            - /url: /tin-tuc/ma-tran-lai-suat-khi-nao-thap-la-tot-va-khi-nao-cao-moi-la-hay
+            - 'img "Ma Trận Lãi Suất: Khi Nào \"Thấp\" Là Tốt và Khi Nào \"Cao\" Mới Là Hay?" [ref=e230]'
+          - generic [ref=e231]:
+            - generic [ref=e232]:
+              - generic [ref=e233]: Cẩm nang tài chính
+              - generic [ref=e234]: 7 phút đọc
+            - 'heading "Ma Trận Lãi Suất: Khi Nào \"Thấp\" Là Tốt và Khi Nào \"Cao\" Mới Là Hay?" [level=3] [ref=e235]':
+              - 'link "Ma Trận Lãi Suất: Khi Nào \"Thấp\" Là Tốt và Khi Nào \"Cao\" Mới Là Hay?" [ref=e236] [cursor=pointer]':
+                - /url: /tin-tuc/ma-tran-lai-suat-khi-nao-thap-la-tot-va-khi-nao-cao-moi-la-hay
+            - paragraph [ref=e237]: "Lãi suất thấp có thực sự luôn tốt? Khám phá sự thật đằng sau các con số lãi suất từ hai góc nhìn: người đi vay và người gửi tiết kiệm, để đưa ra quyết định tài chính thông minh nhất."
+            - generic [ref=e239]:
+              - img [ref=e240]
+              - text: "31"
+        - article [ref=e243]:
+          - 'link "Lịch Sử Trả Nợ: \"Tấm Căn Cước\" Tài Chính Của Bạn Trong Mắt Ngân Hàng" [ref=e244] [cursor=pointer]':
+            - /url: /tin-tuc/tieu-de-lich-su-tra-no-tam-can-cuoc-tai-chinh-cua-ban-trong-mat-ngan-hang
+            - 'img "Lịch Sử Trả Nợ: \"Tấm Căn Cước\" Tài Chính Của Bạn Trong Mắt Ngân Hàng" [ref=e246]'
+          - generic [ref=e247]:
+            - generic [ref=e248]:
+              - generic [ref=e249]: Cẩm nang tài chính
+              - generic [ref=e250]: 7 phút đọc
+            - 'heading "Lịch Sử Trả Nợ: \"Tấm Căn Cước\" Tài Chính Của Bạn Trong Mắt Ngân Hàng" [level=3] [ref=e251]':
+              - 'link "Lịch Sử Trả Nợ: \"Tấm Căn Cước\" Tài Chính Của Bạn Trong Mắt Ngân Hàng" [ref=e252] [cursor=pointer]':
+                - /url: /tin-tuc/tieu-de-lich-su-tra-no-tam-can-cuoc-tai-chinh-cua-ban-trong-mat-ngan-hang
+            - paragraph [ref=e253]: Khám phá cách ngân hàng đánh giá bạn qua lịch sử trả nợ và những hậu quả nặng nề của nợ xấu. Nganhang.com sẽ cung cấp lộ trình 4 bước để bạn xây dựng kỷ luật thanh toán và duy trì một hồ sơ tín dụng hoàn hảo.
+            - generic [ref=e255]:
+              - img [ref=e256]
+              - text: "25"
+        - article [ref=e259]:
+          - 'link "Xây Dựng \"Hồ Sơ Vàng\" Vay Vốn: Bí Quyết Tối Ưu Nguồn Thu Nhập và Khả Năng Trả Nợ" [ref=e260] [cursor=pointer]':
+            - /url: /tin-tuc/xay-dung-ho-so-vang-vay-von-bi-quyet-toi-uu-nguon-thu-nhap-va-kha-nang-tra-no
+            - 'img "Xây Dựng \"Hồ Sơ Vàng\" Vay Vốn: Bí Quyết Tối Ưu Nguồn Thu Nhập và Khả Năng Trả Nợ" [ref=e262]'
+          - generic [ref=e263]:
+            - generic [ref=e264]:
+              - generic [ref=e265]: Cẩm nang tài chính
+              - generic [ref=e266]: 7 phút đọc
+            - 'heading "Xây Dựng \"Hồ Sơ Vàng\" Vay Vốn: Bí Quyết Tối Ưu Nguồn Thu Nhập và Khả Năng Trả Nợ" [level=3] [ref=e267]':
+              - 'link "Xây Dựng \"Hồ Sơ Vàng\" Vay Vốn: Bí Quyết Tối Ưu Nguồn Thu Nhập và Khả Năng Trả Nợ" [ref=e268] [cursor=pointer]':
+                - /url: /tin-tuc/xay-dung-ho-so-vang-vay-von-bi-quyet-toi-uu-nguon-thu-nhap-va-kha-nang-tra-no
+            - paragraph [ref=e269]: Khám phá cách các ngân hàng đánh giá nguồn thu nhập và khả năng trả nợ của bạn. Nganhang.com sẽ hướng dẫn bạn cách tối ưu hóa các tỷ lệ tài chính để xây dựng một hồ sơ vay vốn "vàng".
+            - generic [ref=e271]:
+              - img [ref=e272]
+              - text: "27"
+        - article [ref=e275]:
+          - 'link "Vay Mua Nhà A-Z: Lộ Trình 4 Bước Thông Minh Để Giảm Gánh Nặng Lãi Suất" [ref=e276] [cursor=pointer]':
+            - /url: /tin-tuc/vay-mua-nha-a-z-lo-trinh-4-buoc-thong-minh-de-giam-ganh-nang-lai-suat
+            - 'img "Vay Mua Nhà A-Z: Lộ Trình 4 Bước Thông Minh Để Giảm Gánh Nặng Lãi Suất" [ref=e278]'
+          - generic [ref=e279]:
+            - generic [ref=e280]:
+              - generic [ref=e281]: Cẩm nang tài chính
+              - generic [ref=e282]: 7 phút đọc
+            - 'heading "Vay Mua Nhà A-Z: Lộ Trình 4 Bước Thông Minh Để Giảm Gánh Nặng Lãi Suất" [level=3] [ref=e283]':
+              - 'link "Vay Mua Nhà A-Z: Lộ Trình 4 Bước Thông Minh Để Giảm Gánh Nặng Lãi Suất" [ref=e284] [cursor=pointer]':
+                - /url: /tin-tuc/vay-mua-nha-a-z-lo-trinh-4-buoc-thong-minh-de-giam-ganh-nang-lai-suat
+            - paragraph [ref=e285]: Khám phá lộ trình vay mua nhà chi tiết từ A-Z. Nganhang.com sẽ hướng dẫn bạn cách đánh giá tài chính, so sánh gói vay, và các chiến lược giảm lãi suất hiệu quả nhất.
+            - generic [ref=e287]:
+              - img [ref=e288]
+              - text: "17"
+      - generic [ref=e291]:
+        - paragraph [ref=e292]: Hiển thị 1 - 12 trong tổng số 19 tin tức
+        - navigation [ref=e293]:
+          - button "Trang đầu" [disabled] [ref=e294]:
+            - img [ref=e295]
+          - button "Trang trước" [disabled] [ref=e297]:
+            - img [ref=e298]
+          - generic [ref=e300]:
+            - button "1" [ref=e301]
+            - button "2" [ref=e302]
+          - button "Trang sau" [ref=e303]:
+            - img [ref=e304]
+          - button "Trang cuối" [ref=e306]:
+            - img [ref=e307]
+  - region [ref=e312]:
+    - generic [ref=e314]:
+      - group [ref=e315]:
+        - link "Logo Công ty Tài chính TNHH MTV Mirae Asset (Việt Nam)" [ref=e317] [cursor=pointer]:
+          - /url: https://mafc.com.vn
+          - img "Logo Công ty Tài chính TNHH MTV Mirae Asset (Việt Nam)" [ref=e318]
+      - group [ref=e319]:
+        - img "Logo Ngân hàng Bản Việt" [ref=e321]
+      - group [ref=e322]:
+        - img "Logo Ngân hàng Chính sách Xã hội" [ref=e324]
+      - group [ref=e325]:
+        - img "Logo Ngân hàng Đại chúng TNHH Kasikornbank" [ref=e327]
+      - group [ref=e328]:
+        - img "Logo Ngân hàng Hợp tác xã Việt Nam" [ref=e330]
+      - group [ref=e331]:
+        - img "Logo Ngân hàng Liên doanh Việt - Nga" [ref=e333]
+      - group [ref=e334]:
+        - img "Logo Ngân hàng Nông nghiệp và Phát triển Nông thôn Việt Nam" [ref=e336]
+      - group [ref=e337]:
+        - img "Logo Ngân hàng số Timo by Ban Viet Bank (Timo by Ban Viet Bank)" [ref=e339]
+      - group [ref=e340]:
+        - img "Logo Ngân hàng Thương mại TNHH MTV Ngoại thương Công nghệ số" [ref=e342]
+      - group [ref=e343]:
+        - img "Logo Ngân hàng TM TNHH MTV Kỷ Nguyên Thịnh Vượng" [ref=e345]
+      - group [ref=e346]:
+        - img "Logo Ngân hàng TMCP Á Châu" [ref=e348]
+      - group [ref=e349]:
+        - img "Logo Ngân hàng TMCP An Bình" [ref=e351]
+      - group [ref=e352]:
+        - img "Logo Ngân hàng TMCP Bắc Á" [ref=e354]
+      - group [ref=e355]:
+        - img "Logo Ngân hàng TMCP Bảo Việt" [ref=e357]
+      - group [ref=e358]:
+        - img "Logo Ngân hàng TMCP Công thương Việt Nam" [ref=e360]
+      - group [ref=e361]:
+        - img "Logo Ngân hàng TMCP Đại Chúng Việt Nam" [ref=e363]
+      - group [ref=e364]:
+        - img "Logo Ngân hàng TMCP Đầu tư và Phát triển Việt Nam" [ref=e366]
+      - group [ref=e367]:
+        - img "Logo Ngân hàng TMCP Đông Nam Á" [ref=e369]
+      - group [ref=e370]
+      - group [ref=e372]:
+        - img "Logo Ngân hàng TMCP Kiên Long" [ref=e374]
+      - group [ref=e375]:
+        - img "Logo Ngân hàng TMCP Kỹ thương Việt Nam" [ref=e377]
+      - group [ref=e378]:
+        - img "Logo Ngân hàng TMCP Lộc Phát Việt Nam" [ref=e380]
+      - group [ref=e381]:
+        - img "Logo Ngân hàng TMCP Nam Á" [ref=e383]
+      - group [ref=e384]:
+        - img "Logo Ngân hàng TMCP Ngoại Thương Việt Nam" [ref=e386]
+      - group [ref=e387]:
+        - img "Logo Ngân hàng TMCP Phát triển Thành phố Hồ Chí Minh" [ref=e389]
+      - group [ref=e390]:
+        - img "Logo Ngân hàng TMCP Phương Đông" [ref=e392]
+      - group [ref=e393]:
+        - img "Logo Ngân hàng TMCP Quân đội" [ref=e395]
+      - group [ref=e396]:
+        - img "Logo Ngân hàng TMCP Quốc Dân" [ref=e398]
+      - group [ref=e399]:
+        - img "Logo Ngân hàng TMCP Quốc tế Việt Nam" [ref=e401]
+      - group [ref=e402]:
+        - img "Logo Ngân hàng TMCP Sài Gòn" [ref=e404]
+      - group [ref=e405]:
+        - img "Logo Ngân hàng TMCP Sài Gòn - Hà Nội" [ref=e407]
+      - group [ref=e408]:
+        - img "Logo Ngân hàng TMCP Sài Gòn Công Thương" [ref=e410]
+      - group [ref=e411]:
+        - img "Logo Ngân hàng TMCP Sài Gòn Thương Tín" [ref=e413]
+      - group [ref=e414]:
+        - img "Logo Ngân hàng TMCP Thịnh vượng và Phát triển" [ref=e416]
+      - group [ref=e417]:
+        - img "Logo Ngân hàng TMCP Tiên Phong" [ref=e419]
+      - group [ref=e420]:
+        - img "Logo Ngân hàng TMCP Việt Á" [ref=e422]
+      - group [ref=e423]:
+        - img "Logo Ngân hàng TMCP Việt Nam Thịnh Vượng" [ref=e425]
+      - group [ref=e426]:
+        - img "Logo Ngân hàng TMCP Việt Nam Thương Tín" [ref=e428]
+      - group [ref=e429]:
+        - img "Logo Ngân hàng TMCP Xuất Nhập khẩu Việt Nam" [ref=e431]
+      - group [ref=e432]:
+        - img "Logo Ngân hàng TNHH Indovina" [ref=e434]
+      - group [ref=e435]:
+        - img "Logo Ngân hàng TNHH MTV CIMB Việt Nam" [ref=e437]
+      - group [ref=e438]:
+        - img "Logo Ngân hàng TNHH MTV Hong Leong Việt Nam" [ref=e440]
+      - group [ref=e441]:
+        - img "Logo Ngân hàng TNHH MTV HSBC (Việt Nam)" [ref=e443]
+      - group [ref=e444]:
+        - img "Logo Ngân hàng TNHH MTV Public Việt Nam" [ref=e446]
+      - group [ref=e447]:
+        - img "Logo Ngân hàng TNHH MTV Shinhan Việt Nam" [ref=e449]
+      - group [ref=e450]:
+        - img "Logo Ngân hàng TNHH MTV Số Vikki" [ref=e452]
+      - group [ref=e453]:
+        - img "Logo Ngân hàng TNHH MTV Standard Chartered Bank Việt Nam" [ref=e455]
+      - group [ref=e456]:
+        - link "Logo Ngân hàng TNHH MTV Việt Nam Hiện Đại" [ref=e458] [cursor=pointer]:
+          - /url: https://www.mbv.com.vn/ve-chung-toi
+          - img "Logo Ngân hàng TNHH MTV Việt Nam Hiện Đại" [ref=e459]
+      - group [ref=e460]:
+        - img "Logo Ngân hàng TNHH MTV Woori Việt Nam" [ref=e462]
+      - group [ref=e463]:
+        - link "Logo Ngân hàng UOB Việt Nam" [ref=e465] [cursor=pointer]:
+          - /url: https://uob.com.vn
+          - img "Logo Ngân hàng UOB Việt Nam" [ref=e466]
+      - group [ref=e467]:
+        - img "Logo TMCP Việt Nam Thịnh Vượng - Ngân hàng số CAKE by VPBank" [ref=e469]
+      - group [ref=e470]:
+        - img "Logo TMCP Việt Nam Thịnh Vượng - Ngân hàng số Ubank by VPBank" [ref=e472]
+  - contentinfo [ref=e473]:
+    - generic [ref=e474]:
+      - generic [ref=e475]:
+        - generic [ref=e476]:
+          - img "logo" [ref=e478]
+          - paragraph [ref=e479]: Nền tảng so sánh sản phẩm ngân hàng, tư vấn tài chính ứng dụng AI phục vụ cộng đồng.
+          - generic [ref=e480]:
+            - paragraph [ref=e481]: CÔNG TY CỔ PHẦN TẬP ĐOÀN UB
+            - paragraph [ref=e482]: Thành viên Hiệp hội Ngân hàng Việt Nam
+            - paragraph [ref=e483]: Đăng ký kinh doanh số 0106080414 do Sở kế hoạch & Đầu tư TP. Hà Nội cấp ngày 09/01/2013.
+        - generic [ref=e484]:
+          - generic [ref=e485]:
+            - heading "Sản phẩm" [level=3] [ref=e486]
+            - generic [ref=e487]:
+              - link "Vay mua nhà" [ref=e488] [cursor=pointer]:
+                - /url: /danh-gia-nhanh/vay-mua-nha
+              - link "Vay mua xe" [ref=e489] [cursor=pointer]:
+                - /url: /danh-gia-nhanh/vay-mua-xe
+              - link "Vay tín chấp" [ref=e490] [cursor=pointer]:
+                - /url: /danh-gia-nhanh/vay-tin-chap
+              - link "Vay doanh nghiệp" [ref=e491] [cursor=pointer]:
+                - /url: /danh-gia-nhanh/vay-kinh-doanh
+              - link "Thẻ tín dụng" [ref=e492] [cursor=pointer]:
+                - /url: /danh-gia-nhanh/the-tin-dung
+              - link "Gửi tiết kiệm" [ref=e493] [cursor=pointer]:
+                - /url: /danh-gia-nhanh/tiet-kiem
+          - generic [ref=e494]:
+            - heading "Liên kết nhanh" [level=3] [ref=e495]
+            - generic [ref=e496]:
+              - link "Công cụ tính" [ref=e497] [cursor=pointer]:
+                - /url: /cong-cu-tinh
+              - link "Tin tức" [ref=e498] [cursor=pointer]:
+                - /url: /tin-tuc
+              - link "Sản phẩm cộng đồng" [ref=e499] [cursor=pointer]:
+                - /url: /lai-suat-cong-dong
+              - link "Thuật ngữ ngân hàng" [ref=e500] [cursor=pointer]:
+                - /url: /thuat-ngu
+              - link "Nhân viên Ngân hàng" [ref=e501] [cursor=pointer]:
+                - /url: /danh-sach-bankers
+              - link "📋 Khảo sát Banker" [ref=e502] [cursor=pointer]:
+                - /url: /banker/survey
+          - generic [ref=e503]:
+            - heading "Liên hệ" [level=3] [ref=e504]
+            - generic [ref=e505]:
+              - generic [ref=e506]:
+                - img [ref=e508]
+                - generic [ref=e510]: 16 Văn Cao, Phường Ngọc Hà, TP. Hà Nội
+              - generic [ref=e511]:
+                - img [ref=e513]
+                - generic [ref=e515]: 0988.291.512
+              - generic [ref=e516]:
+                - img [ref=e518]
+                - generic [ref=e520]: fintech@ubgroup.com
+              - generic [ref=e521]:
+                - img [ref=e523]
+                - link "https://www.ubgroup.com" [ref=e526] [cursor=pointer]:
+                  - /url: https://www.ubgroup.com/?_xid=ca1227e3-ed22-44f1-8e8c-a75ffa1746e7
+      - generic [ref=e527]:
+        - paragraph [ref=e530]: Sản phẩm đang trong quá trình xây dựng, thử nghiệm, thông tin trên website chỉ mang tính chất tham khảo.
+        - paragraph [ref=e531]: Version 0.0.2 © 2025 nganhang.com. All Rights Reserved.
+  - button "Gửi góp ý" [ref=e532]:
+    - img [ref=e533]
+    - generic: Góp ý cho chúng tôi

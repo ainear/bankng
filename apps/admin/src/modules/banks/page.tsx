@@ -20,32 +20,32 @@ export default async function BanksPage({
 
   return (
     <AdminPage
-      badge="Catalog / Banks"
-      description="Quan ly danh muc ngan hang. Mutation tai day se tao audit log."
+      badge="Catalog / Ngân hàng"
+      description="Quản lý danh mục ngân hàng. Thảo tác tại đây sẽ tạo audit log."
       feedback={resolveFeedback(params?.feedback)}
-      title="Banks CRUD"
+      title="Quản lý Ngân hàng"
     >
       <SectionCard
-        description="Tao bank moi de dung cho products, variants va rates."
-        title="Tao ngan hang"
+        description="Tạo ngân hàng mới để gán cho sản phẩm, biến thể và lãi suất."
+        title="Tạo ngân hàng mới"
       >
         <form action={createBankAction} className="grid gap-4">
           <FieldGrid>
-            <Input label="Ten ngan hang" name="name" required />
-            <Input label="Short name" name="shortName" />
+            <Input label="Tên ngân hàng" name="name" required />
+            <Input label="Tên viết tắt" name="shortName" />
             <Input label="Website" name="websiteUrl" type="url" />
             <Input label="Hotline" name="hotline" />
-            <Input label="Logo URL" name="logoUrl" type="url" />
+            <Input label="URL Logo" name="logoUrl" type="url" />
           </FieldGrid>
-          <TextAreaField label="Mo ta" name="description" />
-          <CheckboxField defaultChecked label="Dang hoat dong" name="isActive" />
-          <FormActions primaryLabel="Tao bank" />
+          <TextAreaField label="Mô tả" name="description" />
+          <CheckboxField defaultChecked label="Đang hoạt động" name="isActive" />
+          <FormActions primaryLabel="Tạo ngân hàng" />
         </form>
       </SectionCard>
 
-      <SectionCard title="Danh sach ngan hang">
+      <SectionCard title="Danh sách ngân hàng">
         <DataTable
-          headers={["Bank", "Thong tin", "Trang thai", "Cap nhat", "Thao tac"]}
+          headers={["Ngân hàng", "Thông tin", "Trạng thái", "Cập nhật", "Thảo tác"]}
           rows={banks.map((bank) => (
             <tr key={bank.id}>
               <TableCell>
@@ -53,26 +53,26 @@ export default async function BanksPage({
                 <div className="text-xs text-[var(--bankng-text-secondary)]">{bank.slug}</div>
               </TableCell>
               <TableCell>
-                <div>Products: {bank._count.products}</div>
-                <div>Branches: {bank._count.branches}</div>
+                <div>Sản phẩm: {bank._count.products}</div>
+                <div>Chi nhánh: {bank._count.branches}</div>
                 <div className="text-xs text-[var(--bankng-text-secondary)]">
-                  {bank.websiteUrl ?? "No website"}
+                  {bank.websiteUrl ?? "Chưa có website"}
                 </div>
               </TableCell>
-              <TableCell>{bank.isActive ? "Active" : "Inactive"}</TableCell>
+              <TableCell>{bank.isActive ? "Đang hoạt động" : "Tạm ngưng"}</TableCell>
               <TableCell>{bank.updatedAt.toISOString().slice(0, 10)}</TableCell>
               <TableCell>
                 <form action={updateBankAction} className="grid gap-2">
                   <input name="id" type="hidden" value={bank.id} />
-                  <Input defaultValue={bank.name} label="Ten" name="name" required />
-                  <Input defaultValue={bank.shortName ?? ""} label="Short" name="shortName" />
+                  <Input defaultValue={bank.name} label="Tên" name="name" required />
+                  <Input defaultValue={bank.shortName ?? ""} label="Viết tắt" name="shortName" />
                   <Input defaultValue={bank.websiteUrl ?? ""} label="Website" name="websiteUrl" />
                   <Input defaultValue={bank.hotline ?? ""} label="Hotline" name="hotline" />
-                  <Input defaultValue={bank.logoUrl ?? ""} label="Logo" name="logoUrl" />
-                  <TextAreaField defaultValue={bank.description} label="Mo ta" name="description" rows={3} />
-                  <CheckboxField defaultChecked={bank.isActive} label="Dang hoat dong" name="isActive" />
+                  <Input defaultValue={bank.logoUrl ?? ""} label="Logo URL" name="logoUrl" />
+                  <TextAreaField defaultValue={bank.description} label="Mô tả" name="description" rows={3} />
+                  <CheckboxField defaultChecked={bank.isActive} label="Đang hoạt động" name="isActive" />
                   <FormActions
-                    primaryLabel="Luu"
+                    primaryLabel="Lưu"
                     secondary={
                       bank._count.products === 0 && bank._count.branches === 0 ? (
                         <button
@@ -80,11 +80,11 @@ export default async function BanksPage({
                           formAction={deleteBankAction}
                           type="submit"
                         >
-                          Xoa
+                          Xóa
                         </button>
                       ) : (
                         <span className="text-xs text-[var(--bankng-text-secondary)]">
-                          Khong xoa duoc khi con lien ket.
+                          Không thể xóa khi còn liên kết.
                         </span>
                       )
                     }
