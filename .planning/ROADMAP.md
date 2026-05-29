@@ -15,7 +15,7 @@ The remaining phases expand the public experience, banker workflows, leads, cont
 - [x] **Phase 5: Public Compare Experience** - Build public compare/category/product/bank flows from live catalog and rates.
 - [x] **Phase 6: Banker Portal Core** - Expand banker-facing profile and workflow surfaces beyond the shell.
 - [x] **Phase 7: Lead CRM & Routing** - Add lead capture lifecycle and admin/banker lead handling workflows.
-- [ ] **Phase 8: Content & SEO Engine** - Add content, glossary, FAQ, and SEO landing infrastructure.
+- [x] **Phase 8: Content & SEO Engine** - Add content, glossary, FAQ, and SEO landing infrastructure.
 - [ ] **Phase 9: Moderation, Trust & Audit Expansion** - Extend moderation, trust controls, and operational review tooling.
 - [ ] **Phase 10: Hardening & Release Readiness** - Tighten performance, security, deployment, and production readiness.
 
@@ -118,8 +118,8 @@ Plans:
 **Plans**: TBD
 
 Plans:
-- [ ] 08-01: Build content management and rendering
-- [ ] 08-02: Build SEO-oriented public surfaces
+- [x] 08-01: Build content management and rendering
+- [x] 08-02: Build SEO-oriented public surfaces
 
 ### Phase 9: Moderation, Trust & Audit Expansion
 **Goal**: Extend moderation, trust controls, and operational review tooling.
@@ -159,6 +159,6 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8 →
 | 5. Public Compare Experience | 2/2 | Complete | 2026-05-29 |
 | 6. Banker Portal Core | 2/2 | Complete | 2026-05-29 |
 | 7. Lead CRM & Routing | 2/2 | Complete | 2026-05-29 |
-| 8. Content & SEO Engine | 0/2 | Not started | - |
+| 8. Content & SEO Engine | 2/2 | Complete | 2026-05-29 |
 | 9. Moderation, Trust & Audit Expansion | 0/1 | Not started | - |
 | 10. Hardening & Release Readiness | 0/1 | Not started | - |
