@@ -167,10 +167,12 @@ export default function FinancialToolsPage() {
         {/* Tools Directory */}
         <div className="space-y-10">
           {TOOL_GROUPS.map((group) => (
-            <div key={group.categoryName} className="rounded-2xl border border-[var(--bankng-border)] bg-white/60 p-6 shadow-sm backdrop-blur-md">
-              <div className="mb-5 flex items-center gap-3">
-                <span className="text-2xl">{group.icon}</span>
-                <h2 className="text-xl font-bold text-[var(--bankng-text-primary)]">
+            <div key={group.categoryName} className="glass-panel rounded-3xl p-8 shadow-sm">
+              <div className="mb-6 flex items-center gap-3 border-b border-emerald-500/10 pb-4">
+                <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-50 text-2xl shadow-xs">
+                  {group.icon}
+                </span>
+                <h2 className="text-lg font-black text-[var(--bankng-text-primary)] tracking-tight">
                   {group.categoryName}
                 </h2>
               </div>
@@ -180,28 +182,28 @@ export default function FinancialToolsPage() {
                   <Link
                     key={tool.href}
                     href={tool.href}
-                    className="group relative flex flex-col justify-between rounded-xl border border-[var(--bankng-border)] bg-white p-5 shadow-xs transition-all duration-300 hover:-translate-y-0.5 hover:border-[var(--bankng-primary)]/40 hover:shadow-md"
+                    className="group relative flex flex-col justify-between rounded-2xl border border-slate-200 bg-white p-5 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-emerald-500 hover:shadow-md hover:shadow-emerald-500/5"
                   >
                     <div className="flex items-start gap-4">
-                      <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[var(--bankng-surface-muted)] text-2xl transition-transform group-hover:scale-110">
+                      <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-emerald-50 text-2xl transition-transform group-hover:scale-110">
                         {tool.emoji}
                       </span>
                       <div>
                         <div className="flex items-center gap-2">
-                          <h3 className="font-bold text-[var(--bankng-text-primary)] group-hover:text-[var(--bankng-primary)] transition-colors">
+                          <h3 className="font-bold text-[var(--bankng-text-primary)] group-hover:text-emerald-700 transition-colors">
                             {tool.title}
                           </h3>
                           {tool.isReady ? (
-                            <span className="rounded-full bg-emerald-50 px-2 py-0.5 text-xxs font-extrabold tracking-wider text-emerald-700 uppercase">
+                            <span className="rounded-full bg-emerald-100 px-2.5 py-0.5 text-[9px] font-black tracking-wider text-emerald-800 uppercase">
                               Mới ✨
                             </span>
                           ) : (
-                            <span className="rounded-full bg-slate-50 px-2 py-0.5 text-xxs font-bold text-slate-500 uppercase">
+                            <span className="rounded-full bg-slate-100 px-2.5 py-0.5 text-[9px] font-bold text-slate-600 uppercase">
                               Chuẩn
                             </span>
                           )}
                         </div>
-                        <p className="mt-2 text-xs leading-relaxed text-[var(--bankng-text-secondary)]">
+                        <p className="mt-2 text-xs leading-relaxed text-[var(--bankng-text-secondary)] font-medium">
                           {tool.description}
                         </p>
                       </div>
