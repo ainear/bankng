@@ -114,7 +114,7 @@ export default async function CommunityProductsPage() {
                     </div>
 
                     {/* Logo */}
-                    {product.bank.logoUrl ? (
+                    {cleanLogoUrl(product.bank.logoUrl) ? (
                       <img
                         src={cleanLogoUrl(product.bank.logoUrl)}
                         alt={product.bank.name}

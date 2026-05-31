@@ -126,7 +126,7 @@ export default async function NationalRatesPage() {
                         <tr key={rate.id} className="hover:bg-slate-50/50 transition-colors">
                           <td className="py-3.5">
                             <div className="flex items-center gap-2">
-                              {rate.productVariant.product.bank.logoUrl ? (
+                              {cleanLogoUrl(rate.productVariant.product.bank.logoUrl) ? (
                                 <img
                                   src={cleanLogoUrl(rate.productVariant.product.bank.logoUrl)}
                                   alt={rate.productVariant.product.bank.shortName || "Bank"}

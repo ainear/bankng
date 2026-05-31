@@ -1,5 +1,5 @@
 export function cleanLogoUrl(url: string | null | undefined): string {
-  if (!url) return "https://vietqr.net/portal-assets/img/logo-vietqr.png";
+  if (!url) return "";
   
   let cleaned = url;
   
@@ -11,7 +11,8 @@ export function cleanLogoUrl(url: string | null | undefined): string {
     cleaned = cleaned.replace("/PVCOMBANK.png", "/PVCB.png");
   }
   if (cleaned.includes("/VIETQR.png")) {
-    cleaned = "https://vietqr.net/portal-assets/img/logo-vietqr.png";
+    // Trả về chuỗi rỗng để kích hoạt hiển thị fallback badge chữ viết tắt chuyên nghiệp
+    return "";
   }
   
   return cleaned;

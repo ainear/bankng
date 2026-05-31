@@ -146,7 +146,7 @@ export function RateTable({ rows: initialRows, terms }: Props) {
                     href={`/bank/${row.bankSlug}`}
                     className="flex items-center gap-2 font-medium text-[var(--bankng-text-primary)] hover:text-[var(--bankng-primary)]"
                   >
-                    {row.bankLogoUrl ? (
+                    {cleanLogoUrl(row.bankLogoUrl) ? (
                       <img
                         src={cleanLogoUrl(row.bankLogoUrl)}
                         alt={row.bankName}
