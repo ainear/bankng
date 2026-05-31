@@ -7,6 +7,32 @@ test("web homepage renders foundation shell", async ({ page }) => {
   await expect(page.getByRole("button", { name: "So sanh san pham" })).toBeVisible();
 });
 
+test("homepage interactive lead form submit flow", async ({ page }) => {
+  await page.goto("http://localhost:3000", { waitUntil: "networkidle" });
+
+  // Kiểm tra xem Form có xuất hiện không
+  const formSection = page.locator("#consultation-form");
+  await expect(formSection).toBeVisible();
+
+  // Điền thông tin giả lập
+  await page.locator("#fullname").fill("Nguyễn Văn A");
+  await page.locator("#phone").fill("0912345678");
+  await page.locator("#email").fill("test.lead@example.com");
+  await page.locator("#province").selectOption("HN"); // Hà Nội
+  
+  // Chọn ngân hàng đầu tiên có sẵn trong dropdown
+  await page.locator("#bank").selectOption({ index: 1 });
+  
+  await page.locator("#message").fill("Tôi cần tư vấn gói vay mua nhà lãi suất thấp nhất.");
+
+  // Nhấn nút gửi
+  await page.getByRole("button", { name: /Gửi thông tin đăng ký nhanh/i }).click();
+
+  // Chờ hiển thị thông báo thành công
+  const statusAlert = page.locator("#consultation-form").locator(".transition-all");
+  await expect(statusAlert).toBeVisible();
+});
+
 test("public compare and detail routes render seeded public catalog", async ({ page }) => {
   await page.goto("http://localhost:3000/compare/gui-tiet-kiem");
   await expect(page.getByRole("heading", { name: "Gui tiet kiem" })).toBeVisible();

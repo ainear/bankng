@@ -41,7 +41,7 @@ export function ArticleCard({ article, featured = false }: Props) {
               {article.readTimeMin && (
                 <>
                   <span>•</span>
-                  <span>{article.readTimeMin} phut doc</span>
+                  <span>{article.readTimeMin} phút đọc</span>
                 </>
               )}
             </div>
@@ -78,6 +78,12 @@ export function ArticleCard({ article, featured = false }: Props) {
           </span>
           <span>•</span>
           <span>{formatDate(article.createdAt)}</span>
+          {article.readTimeMin && (
+            <>
+              <span>•</span>
+              <span>{article.readTimeMin} phút đọc</span>
+            </>
+          )}
         </div>
         <h3 className="mt-2 font-semibold text-[var(--bankng-text-primary)] group-hover:text-[var(--bankng-primary)]">
           {article.title}

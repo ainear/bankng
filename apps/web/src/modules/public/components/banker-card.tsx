@@ -16,7 +16,7 @@ export function BankerCard({ banker }: Props) {
       <div className="flex items-start gap-3">
         <div className="relative shrink-0">
           <Avatar
-            src={undefined}
+            src={banker.avatarUrl ?? undefined}
             alt={banker.userName ?? "Banker"}
             size="md"
           />
@@ -84,7 +84,7 @@ export function BankerCard({ banker }: Props) {
         ) : (
           <span />
         )}
-        <span className="text-xs font-medium text-[var(--bankng-primary)] opacity-0 group-hover:opacity-100 transition-opacity">
+        <span className="text-xs font-medium text-[var(--bankng-primary)] opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity">
           Xem hồ sơ →
         </span>
       </div>

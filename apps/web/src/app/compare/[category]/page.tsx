@@ -310,34 +310,7 @@ export default async function CompareCategoryPage({
           title="Nhận tư vấn miễn phí"
         />
 
-        <Card title="Tất cả sản phẩm">
-          <div className="grid gap-4 md:grid-cols-2">
-            {products.length === 0 ? (
-              <EmptyState
-                description="Danh mục này chưa có sản phẩm công khai khớp bộ lọc hiện tại."
-                title="Không có sản phẩm"
-              />
-            ) : (
-              products.map((product) => (
-                <ProductCard
-                  key={product.id}
-                  product={{
-                    slug: product.slug,
-                    name: product.name,
-                    shortDescription: product.shortDescription,
-                    bank: {
-                      slug: product.bank.slug,
-                      name: product.bank.name
-                    },
-                    variants: product.variants.map((variant) => ({
-                      rates: variant.rates
-                    }))
-                  }}
-                />
-              ))
-            )}
-          </div>
-        </Card>
+
       </section>
     </main>
   );

@@ -1,8 +1,10 @@
 import Link from "next/link";
 import { Button } from "@bankng/ui";
+import { prisma } from "@bankng/db";
 import { getRateMatrix } from "@/modules/public/rate-matrix";
 import { RateTable } from "@/modules/public/components/rate-table";
 import { BankTicker } from "@/components/bank-ticker";
+import { HomepageLeadForm } from "@/modules/public/components/homepage-lead-form";
 
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
@@ -42,6 +44,16 @@ const PRODUCT_CATEGORIES = [
 
 export default async function HomePage() {
   const { rows, terms } = await getRateMatrix();
+  const banks = await prisma.bank.findMany({
+    select: {
+      id: true,
+      name: true,
+      slug: true,
+      shortName: true,
+    },
+    where: { isActive: true },
+    orderBy: { name: "asc" },
+  });
 
   return (
     <main className="min-h-screen bg-[var(--bankng-background)] text-[var(--bankng-text-primary)]">
@@ -107,23 +119,8 @@ export default async function HomePage() {
         <RateTable rows={rows} terms={terms} />
       </section>
 
-      {/* Bottom CTA */}
-      <section className="mx-auto max-w-6xl px-6 py-8">
-        <div className="rounded-lg border border-[var(--bankng-border)] bg-[var(--bankng-surface)] p-6 text-center">
-          <h3 className="text-lg font-semibold">Cần tư vấn nhanh?</h3>
-          <p className="mt-2 text-sm text-[var(--bankng-text-secondary)]">
-            Để lại thông tin, nhân viên ngân hàng sẽ liên hệ bạn trong 24 giờ.
-          </p>
-          <div className="mt-4 flex justify-center gap-3">
-            <Link href="/danh-sach-bankers">
-              <Button>Xem danh sách nhân viên</Button>
-            </Link>
-            <Link href="/tin-tuc">
-              <Button variant="ghost">Đọc bài viết</Button>
-            </Link>
-          </div>
-        </div>
-      </section>
+      {/* Bottom CTA — Lead form tư vấn nhanh tương tác trực tiếp */}
+      <HomepageLeadForm banks={banks} />
     </main>
   );
 }
