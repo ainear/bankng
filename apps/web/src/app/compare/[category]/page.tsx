@@ -61,8 +61,6 @@ export default async function CompareCategoryPage({
     notFound();
   }
 
-  type Product = (typeof category.products)[number];
-
   const products = category.products
     .filter((product: any) => {
       const bankPass = !filters?.bank || product.bank.slug === filters.bank;
