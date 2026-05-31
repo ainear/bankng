@@ -8,11 +8,12 @@ import { PublicBadge } from "@/modules/public/components/public-badge";
 import { LeadCtaForm } from "@/modules/public/components/lead-cta-form";
 import { getPublicFreshness } from "@/modules/public/freshness";
 import { Breadcrumb } from "@/components/breadcrumb";
+import { DynamicCompareMatrix } from "@/components/dynamic-compare-matrix";
 
 export async function generateStaticParams() {
   try {
     const categories = await getCompareCategories();
-    return categories.map((cat) => ({ category: cat.slug }));
+    return categories.map((cat: any) => ({ category: cat.slug }));
   } catch {
     return [];
   }
@@ -63,20 +64,20 @@ export default async function CompareCategoryPage({
   type Product = (typeof category.products)[number];
 
   const products = category.products
-    .filter((product) => {
+    .filter((product: any) => {
       const bankPass = !filters?.bank || product.bank.slug === filters.bank;
       const termPass =
-        !filters?.term ||
-        product.variants.some((v) => String(v.minTermMonth ?? "") === filters.term);
+         !filters?.term ||
+        product.variants.some((v: any) => String(v.minTermMonth ?? "") === filters.term);
       const statusPass =
         !filters?.status ||
-        product.variants.some((v) => v.rates.some((r) => r.status === filters.status));
+        product.variants.some((v: any) => v.rates.some((r: any) => r.status === filters.status));
       return bankPass && termPass && statusPass;
     })
-    .sort((left: Product, right: Product) => {
+    .sort((left: any, right: any) => {
       if (filters?.sort === "rate_desc") {
-        const leftRate = Number(left.variants.flatMap((v) => v.rates)[0]?.rateValue ?? 0);
-        const rightRate = Number(right.variants.flatMap((v) => v.rates)[0]?.rateValue ?? 0);
+        const leftRate = Number(left.variants.flatMap((v: any) => v.rates)[0]?.rateValue ?? 0);
+        const rightRate = Number(right.variants.flatMap((v: any) => v.rates)[0]?.rateValue ?? 0);
         return rightRate - leftRate;
       }
       if (filters?.sort === "bank_asc") {
@@ -86,20 +87,49 @@ export default async function CompareCategoryPage({
     });
 
   const bankOptions = Array.from(
-    new Set(category.products.map((product) => product.bank.slug)),
-  ).map((bankSlug) => {
-    const bank = category.products.find((product) => product.bank.slug === bankSlug)?.bank;
+    new Set(category.products.map((product: any) => product.bank.slug)),
+  ).map((bankSlug: any) => {
+    const bank = category.products.find((product: any) => product.bank.slug === bankSlug)?.bank;
     return { slug: bankSlug, name: bank?.name ?? bankSlug };
   });
   const termOptions = Array.from(
     new Set(
-      category.products.flatMap((product) =>
+      category.products.flatMap((product: any) =>
         product.variants
-          .map((variant) => variant.minTermMonth)
-          .filter((value): value is number => typeof value === "number"),
+          .map((variant: any) => variant.minTermMonth)
+          .filter((value: any): value is number => typeof value === "number"),
       ),
     ),
-  ).sort((a: number, b: number) => a - b);
+  ).sort((a: any, b: any) => a - b);
+
+  const banksForMatrix: any[] = Array.from(
+    new Map(
+      category.products.map((p: any) => [
+        p.bank.id,
+        {
+          id: p.bank.id,
+          name: p.bank.name,
+          shortName: p.bank.shortName,
+          slug: p.bank.slug,
+          logoUrl: p.bank.logoUrl,
+          products: category.products
+            .filter((prod: any) => prod.bank.id === p.bank.id)
+            .map((prod: any) => ({
+              name: prod.name,
+              categorySlug: slug,
+              variants: prod.variants.map((v: any) => ({
+                minAmount: v.minAmount ? Number(v.minAmount) : null,
+                maxTermMonth: v.maxTermMonth,
+                rates: v.rates.map((r: any) => ({
+                  rateValue: Number(r.rateValue),
+                  termValue: r.termValue
+                }))
+              }))
+            }))
+        }
+      ])
+    ).values()
+  );
 
   return (
     <main className="min-h-screen bg-[var(--bankng-background)] text-[var(--bankng-text-primary)]">
@@ -128,7 +158,7 @@ export default async function CompareCategoryPage({
                 name="bank"
               >
                 <option value="">Tất cả ngân hàng</option>
-                {bankOptions.map((bank) => (
+                {bankOptions.map((bank: any) => (
                   <option key={bank.slug} value={bank.slug}>
                     {bank.name}
                   </option>
@@ -143,7 +173,7 @@ export default async function CompareCategoryPage({
                 name="term"
               >
                 <option value="">Tất cả kỳ hạn</option>
-                {termOptions.map((term) => (
+                {termOptions.map((term: any) => (
                   <option key={term} value={term}>
                     {term} tháng
                   </option>
@@ -220,8 +250,8 @@ export default async function CompareCategoryPage({
                   </tr>
                 </thead>
                 <tbody>
-                  {products.map((product) => {
-                    const topRate = product.variants.flatMap((variant) => variant.rates)[0];
+                  {products.map((product: any) => {
+                    const topRate = product.variants.flatMap((variant: any) => variant.rates)[0];
                     const freshness = topRate
                       ? getPublicFreshness({
                           status: topRate.status,
@@ -246,7 +276,7 @@ export default async function CompareCategoryPage({
                           </Link>
                         </td>
                         <td className="border-t border-[var(--bankng-border)] px-4 py-3">
-                          {product.variants.map((variant) => variant.variantName).join(", ")}
+                          {product.variants.map((variant: any) => variant.variantName).join(", ")}
                         </td>
                         <td className="border-t border-[var(--bankng-border)] px-4 py-3 font-semibold text-[var(--bankng-rate-highlight)]">
                           {topRate ? `${topRate.rateValue.toString()} ${topRate.rateUnit}` : "—"}
@@ -272,9 +302,12 @@ export default async function CompareCategoryPage({
           )}
         </Card>
 
+        {/* Dynamic side-by-side comparison matrix */}
+        <DynamicCompareMatrix banks={banksForMatrix} />
+
         <Card className="md:hidden" title="Danh sách sản phẩm (mobile)">
           <div className="grid gap-4">
-            {products.map((product) => (
+            {products.map((product: any) => (
               <ProductCard
                 key={product.id}
                 product={{
@@ -285,7 +318,7 @@ export default async function CompareCategoryPage({
                     slug: product.bank.slug,
                     name: product.bank.name
                   },
-                  variants: product.variants.map((variant) => ({
+                  variants: product.variants.map((variant: any) => ({
                     rates: variant.rates
                   }))
                 }}

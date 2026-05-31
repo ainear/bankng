@@ -1,0 +1,2054 @@
+{
+  "errors": {},
+  "name": "Nganhang.com",
+  "auth": {
+    "user": null,
+    "banker": null
+  },
+  "ziggy": {
+    "url": "https://nganhang.com",
+    "port": null,
+    "defaults": [],
+    "routes": {
+      "filament.exports.download": {
+        "uri": "filament/exports/{export}/download",
+        "methods": [
+          "GET",
+          "HEAD"
+        ],
+        "parameters": [
+          "export"
+        ],
+        "bindings": {
+          "export": "id"
+        }
+      },
+      "filament.imports.failed-rows.download": {
+        "uri": "filament/imports/{import}/failed-rows/download",
+        "methods": [
+          "GET",
+          "HEAD"
+        ],
+        "parameters": [
+          "import"
+        ],
+        "bindings": {
+          "import": "id"
+        }
+      },
+      "boost.browser-logs": {
+        "uri": "_boost/browser-logs",
+        "methods": [
+          "POST"
+        ]
+      },
+      "default.livewire.update": {
+        "uri": "livewire/update",
+        "methods": [
+          "POST"
+        ]
+      },
+      "livewire.upload-file": {
+        "uri": "livewire/upload-file",
+        "methods": [
+          "POST"
+        ]
+      },
+      "livewire.preview-file": {
+        "uri": "livewire/preview-file/{filename}",
+        "methods": [
+          "GET",
+          "HEAD"
+        ],
+        "parameters": [
+          "filename"
+        ]
+      },
+      "api.report-landing.submit": {
+        "uri": "api/report-landing/submit",
+        "methods": [
+          "POST"
+        ]
+      },
+      "home": {
+        "uri": "/",
+        "methods": [
+          "GET",
+          "HEAD"
+        ]
+      },
+      "san-pham-ngan-hang": {
+        "uri": "san-pham-ngan-hang/{type?}",
+        "methods": [
+          "GET",
+          "HEAD"
+        ],
+        "parameters": [
+          "type"
+        ]
+      },
+      "banker.index": {
+        "uri": "banker",
+        "methods": [
+          "GET",
+          "HEAD"
+        ]
+      },
+      "banker.baocao": {
+        "uri": "baocao",
+        "methods": [
+          "GET",
+          "HEAD"
+        ]
+      },
+      "public": {
+        "uri": "p/{slug}",
+        "methods": [
+          "GET",
+          "HEAD"
+        ],
+        "parameters": [
+          "slug"
+        ]
+      },
+      "bio.public": {
+        "uri": "bio/{slug}",
+        "methods": [
+          "GET",
+          "HEAD"
+        ],
+        "parameters": [
+          "slug"
+        ]
+      },
+      "banker-list": {
+        "uri": "danh-sach-bankers",
+        "methods": [
+          "GET",
+          "HEAD"
+        ]
+      },
+      "news.index": {
+        "uri": "tin-tuc",
+        "methods": [
+          "GET",
+          "HEAD"
+        ]
+      },
+      "news.show": {
+        "uri": "tin-tuc/{slug}",
+        "methods": [
+          "GET",
+          "HEAD"
+        ],
+        "parameters": [
+          "slug"
+        ]
+      },
+      "community-rates.index": {
+        "uri": "san-pham-cong-dong",
+        "methods": [
+          "GET",
+          "HEAD"
+        ]
+      },
+      "community-rates.leaderboard": {
+        "uri": "san-pham-cong-dong/bang-xep-hang",
+        "methods": [
+          "GET",
+          "HEAD"
+        ]
+      },
+      "community-rates.lucky-draw": {
+        "uri": "san-pham-cong-dong/quay-so",
+        "methods": [
+          "GET",
+          "HEAD"
+        ]
+      },
+      "community-rates.home-loan": {
+        "uri": "san-pham-cong-dong/vay-mua-nha",
+        "methods": [
+          "GET",
+          "HEAD"
+        ]
+      },
+      "community-rates.car-loan": {
+        "uri": "san-pham-cong-dong/vay-mua-xe",
+        "methods": [
+          "GET",
+          "HEAD"
+        ]
+      },
+      "community-rates.unsecured-loan": {
+        "uri": "san-pham-cong-dong/vay-tin-chap",
+        "methods": [
+          "GET",
+          "HEAD"
+        ]
+      },
+      "community-rates.business-loan": {
+        "uri": "san-pham-cong-dong/vay-doanh-nghiep",
+        "methods": [
+          "GET",
+          "HEAD"
+        ]
+      },
+      "community-rates.show": {
+        "uri": "san-pham-cong-dong/{slug}",
+        "methods": [
+          "GET",
+          "HEAD"
+        ],
+        "parameters": [
+          "slug"
+        ]
+      },
+      "community-rates.lucky-draw.spin": {
+        "uri": "api/community-lucky-draw/spin",
+        "methods": [
+          "POST"
+        ]
+      },
+      "community-blog.index": {
+        "uri": "bai-viet-cong-dong",
+        "methods": [
+          "GET",
+          "HEAD"
+        ]
+      },
+      "community-blog.show": {
+        "uri": "bai-viet-cong-dong/{bankerSlug}/{slug}",
+        "methods": [
+          "GET",
+          "HEAD"
+        ],
+        "parameters": [
+          "bankerSlug",
+          "slug"
+        ]
+      },
+      "community-blog.show-legacy": {
+        "uri": "bai-viet-cong-dong/{slug}",
+        "methods": [
+          "GET",
+          "HEAD"
+        ],
+        "parameters": [
+          "slug"
+        ]
+      },
+      "community-rates.reveal-phone": {
+        "uri": "api/community-rates/{slug}/reveal-phone",
+        "methods": [
+          "POST"
+        ],
+        "parameters": [
+          "slug"
+        ]
+      },
+      "community-rates.province": {
+        "uri": "lai-suat/{province}",
+        "methods": [
+          "GET",
+          "HEAD"
+        ],
+        "parameters": [
+          "province"
+        ],
+        "bindings": {
+          "province": "slug"
+        }
+      },
+      "sitemap.index": {
+        "uri": "sitemap.xml",
+        "methods": [
+          "GET",
+          "HEAD"
+        ]
+      },
+      "sitemap.community-rates": {
+        "uri": "sitemap-community-rates.xml",
+        "methods": [
+          "GET",
+          "HEAD"
+        ]
+      },
+      "sitemap.banker-profiles": {
+        "uri": "sitemap-banker-profiles.xml",
+        "methods": [
+          "GET",
+          "HEAD"
+        ]
+      },
+      "sitemap.news": {
+        "uri": "sitemap-tin-tuc.xml",
+        "methods": [
+          "GET",
+          "HEAD"
+        ]
+      },
+      "nganhang.auth.login": {
+        "uri": "auth/login",
+        "methods": [
+          "GET",
+          "HEAD"
+        ]
+      },
+      "nganhang.auth.register": {
+        "uri": "auth/register",
+        "methods": [
+          "GET",
+          "HEAD"
+        ]
+      },
+      "nganhang.auth.forgot-password": {
+        "uri": "auth/forgot-password",
+        "methods": [
+          "GET",
+          "HEAD"
+        ]
+      },
+      "nganhang.auth.forgot-password.store": {
+        "uri": "auth/forgot-password",
+        "methods": [
+          "POST"
+        ]
+      },
+      "nganhang.auth.reset-password": {
+        "uri": "auth/reset-password/{token}",
+        "methods": [
+          "GET",
+          "HEAD"
+        ],
+        "parameters": [
+          "token"
+        ]
+      },
+      "nganhang.auth.reset-password.store": {
+        "uri": "auth/reset-password",
+        "methods": [
+          "POST"
+        ]
+      },
+      "nganhang.auth.google": {
+        "uri": "auth/google",
+        "methods": [
+          "GET",
+          "HEAD"
+        ]
+      },
+      "nganhang.auth.google.callback": {
+        "uri": "auth/google/callback",
+        "methods": [
+          "GET",
+          "HEAD"
+        ]
+      },
+      "cds.index": {
+        "uri": "chuyen-doi-so",
+        "methods": [
+          "GET",
+          "HEAD"
+        ]
+      },
+      "cds.preview-access": {
+        "uri": "chuyen-doi-so/preview-access",
+        "methods": [
+          "POST"
+        ]
+      },
+      "cds.register": {
+        "uri": "chuyen-doi-so/dang-ky",
+        "methods": [
+          "GET",
+          "HEAD"
+        ]
+      },
+      "cds.quiz": {
+        "uri": "chuyen-doi-so/thi",
+        "methods": [
+          "GET",
+          "HEAD"
+        ]
+      },
+      "cds.result": {
+        "uri": "chuyen-doi-so/ket-qua/{session}",
+        "methods": [
+          "GET",
+          "HEAD"
+        ],
+        "parameters": [
+          "session"
+        ],
+        "bindings": {
+          "session": "id"
+        }
+      },
+      "cds.leaderboard": {
+        "uri": "chuyen-doi-so/bang-xep-hang",
+        "methods": [
+          "GET",
+          "HEAD"
+        ]
+      },
+      "cds.history": {
+        "uri": "chuyen-doi-so/lich-su",
+        "methods": [
+          "GET",
+          "HEAD"
+        ]
+      },
+      "session.sync": {
+        "uri": "session-sync",
+        "methods": [
+          "GET",
+          "HEAD"
+        ]
+      },
+      "sso.probe": {
+        "uri": "sso/probe",
+        "methods": [
+          "GET",
+          "HEAD"
+        ]
+      },
+      "sso.sync": {
+        "uri": "sso/sync",
+        "methods": [
+          "GET",
+          "HEAD"
+        ]
+      },
+      "sso.logout": {
+        "uri": "sso/logout",
+        "methods": [
+          "GET",
+          "HEAD"
+        ]
+      },
+      "sso.token": {
+        "uri": "api/sso/token",
+        "methods": [
+          "POST"
+        ]
+      },
+      "api.cds.register": {
+        "uri": "api/cds/register",
+        "methods": [
+          "POST"
+        ]
+      },
+      "api.cds.verify-otp": {
+        "uri": "api/cds/verify-otp",
+        "methods": [
+          "POST"
+        ]
+      },
+      "api.cds.check-email": {
+        "uri": "api/cds/check-email",
+        "methods": [
+          "POST"
+        ]
+      },
+      "api.cds.start-quiz": {
+        "uri": "api/cds/start-quiz",
+        "methods": [
+          "POST"
+        ]
+      },
+      "api.cds.submit-quiz": {
+        "uri": "api/cds/quiz/{session}/submit",
+        "methods": [
+          "POST"
+        ],
+        "parameters": [
+          "session"
+        ],
+        "bindings": {
+          "session": "id"
+        }
+      },
+      "api.cds.leaderboard": {
+        "uri": "api/cds/leaderboard",
+        "methods": [
+          "GET",
+          "HEAD"
+        ]
+      },
+      "api.cds.stats": {
+        "uri": "api/cds/stats",
+        "methods": [
+          "GET",
+          "HEAD"
+        ]
+      },
+      "api.cds.logout": {
+        "uri": "api/cds/logout",
+        "methods": [
+          "POST"
+        ]
+      },
+      "assessment.home-loan": {
+        "uri": "danh-gia-nhanh/vay-mua-nha",
+        "methods": [
+          "GET",
+          "HEAD"
+        ]
+      },
+      "assessment.car-loan": {
+        "uri": "danh-gia-nhanh/vay-mua-xe",
+        "methods": [
+          "GET",
+          "HEAD"
+        ]
+      },
+      "assessment.unsecured-loan": {
+        "uri": "danh-gia-nhanh/vay-tin-chap",
+        "methods": [
+          "GET",
+          "HEAD"
+        ]
+      },
+      "assessment.business-loan": {
+        "uri": "danh-gia-nhanh/vay-kinh-doanh",
+        "methods": [
+          "GET",
+          "HEAD"
+        ]
+      },
+      "assessment.credit-card": {
+        "uri": "danh-gia-nhanh/the-tin-dung",
+        "methods": [
+          "GET",
+          "HEAD"
+        ]
+      },
+      "assessment.savings": {
+        "uri": "danh-gia-nhanh/tiet-kiem",
+        "methods": [
+          "GET",
+          "HEAD"
+        ]
+      },
+      "detailed-assessment.home-loan": {
+        "uri": "danh-gia-chi-tiet-ho-so/vay-mua-nha",
+        "methods": [
+          "GET",
+          "HEAD"
+        ]
+      },
+      "detailed-assessment.car-loan": {
+        "uri": "danh-gia-chi-tiet-ho-so/vay-mua-xe",
+        "methods": [
+          "GET",
+          "HEAD"
+        ]
+      },
+      "detailed-assessment.unsecured-loan": {
+        "uri": "danh-gia-chi-tiet-ho-so/vay-tin-chap",
+        "methods": [
+          "GET",
+          "HEAD"
+        ]
+      },
+      "detailed-assessment.business-loan": {
+        "uri": "danh-gia-chi-tiet-ho-so/vay-kinh-doanh",
+        "methods": [
+          "GET",
+          "HEAD"
+        ]
+      },
+      "customer-profile": {
+        "uri": "chi-tiet-ho-so-khach-hang",
+        "methods": [
+          "GET",
+          "HEAD"
+        ]
+      },
+      "customer-profile.store": {
+        "uri": "chi-tiet-ho-so-khach-hang",
+        "methods": [
+          "POST"
+        ]
+      },
+      "calculator": {
+        "uri": "cong-cu-tinh",
+        "methods": [
+          "GET",
+          "HEAD"
+        ]
+      },
+      "calculator.detail": {
+        "uri": "cong-cu-tinh/{slug}",
+        "methods": [
+          "GET",
+          "HEAD"
+        ],
+        "parameters": [
+          "slug"
+        ]
+      },
+      "tool.credit-card-statement": {
+        "uri": "tool/sao-ke-the-tin-dung",
+        "methods": [
+          "GET",
+          "HEAD"
+        ]
+      },
+      "tool.luong-gross-net": {
+        "uri": "tool/luong-gross-net",
+        "methods": [
+          "GET",
+          "HEAD"
+        ]
+      },
+      "tool.tom-tat-van-ban": {
+        "uri": "tool/tom-tat-van-ban",
+        "methods": [
+          "GET",
+          "HEAD"
+        ]
+      },
+      "tool.check-chinh-ta": {
+        "uri": "tool/check-chinh-ta",
+        "methods": [
+          "GET",
+          "HEAD"
+        ]
+      },
+      "thuat-ngu.index": {
+        "uri": "thuat-ngu",
+        "methods": [
+          "GET",
+          "HEAD"
+        ]
+      },
+      "thuat-ngu.show": {
+        "uri": "thuat-ngu/{slug}",
+        "methods": [
+          "GET",
+          "HEAD"
+        ],
+        "parameters": [
+          "slug"
+        ]
+      },
+      "terms-of-service": {
+        "uri": "dieu-khoan-su-dung",
+        "methods": [
+          "GET",
+          "HEAD"
+        ]
+      },
+      "privacy-policy": {
+        "uri": "chinh-sach-bao-mat",
+        "methods": [
+          "GET",
+          "HEAD"
+        ]
+      },
+      "dashboard": {
+        "uri": "dashboard",
+        "methods": [
+          "GET",
+          "HEAD"
+        ]
+      },
+      "dashboard.applications": {
+        "uri": "dashboard/applications",
+        "methods": [
+          "GET",
+          "HEAD"
+        ]
+      },
+      "dashboard.applications.detail": {
+        "uri": "dashboard/applications/{application}",
+        "methods": [
+          "GET",
+          "HEAD"
+        ],
+        "parameters": [
+          "application"
+        ],
+        "bindings": {
+          "application": "id"
+        }
+      },
+      "dashboard.applications.edit": {
+        "uri": "dashboard/applications/{application}/edit",
+        "methods": [
+          "GET",
+          "HEAD"
+        ],
+        "parameters": [
+          "application"
+        ],
+        "bindings": {
+          "application": "id"
+        }
+      },
+      "chat.index": {
+        "uri": "chat",
+        "methods": [
+          "GET",
+          "HEAD"
+        ]
+      },
+      "chat.show": {
+        "uri": "chat/{conversation}",
+        "methods": [
+          "GET",
+          "HEAD"
+        ],
+        "parameters": [
+          "conversation"
+        ]
+      },
+      "profile.edit": {
+        "uri": "settings/profile",
+        "methods": [
+          "GET",
+          "HEAD"
+        ]
+      },
+      "profile.update": {
+        "uri": "settings/profile",
+        "methods": [
+          "PATCH"
+        ]
+      },
+      "profile.destroy": {
+        "uri": "settings/profile",
+        "methods": [
+          "DELETE"
+        ]
+      },
+      "password.edit": {
+        "uri": "settings/password",
+        "methods": [
+          "GET",
+          "HEAD"
+        ]
+      },
+      "password.update": {
+        "uri": "settings/password",
+        "methods": [
+          "PUT"
+        ]
+      },
+      "appearance": {
+        "uri": "settings/appearance",
+        "methods": [
+          "GET",
+          "HEAD"
+        ]
+      },
+      "register": {
+        "uri": "register",
+        "methods": [
+          "GET",
+          "HEAD"
+        ]
+      },
+      "login": {
+        "uri": "login",
+        "methods": [
+          "GET",
+          "HEAD"
+        ]
+      },
+      "password.request": {
+        "uri": "forgot-password",
+        "methods": [
+          "GET",
+          "HEAD"
+        ]
+      },
+      "password.email": {
+        "uri": "forgot-password",
+        "methods": [
+          "POST"
+        ]
+      },
+      "password.reset": {
+        "uri": "reset-password/{token}",
+        "methods": [
+          "GET",
+          "HEAD"
+        ],
+        "parameters": [
+          "token"
+        ]
+      },
+      "password.store": {
+        "uri": "reset-password",
+        "methods": [
+          "POST"
+        ]
+      },
+      "verification.notice": {
+        "uri": "verify-email",
+        "methods": [
+          "GET",
+          "HEAD"
+        ]
+      },
+      "verification.verify": {
+        "uri": "verify-email/{id}/{hash}",
+        "methods": [
+          "GET",
+          "HEAD"
+        ],
+        "parameters": [
+          "id",
+          "hash"
+        ]
+      },
+      "verification.send": {
+        "uri": "email/verification-notification",
+        "methods": [
+          "POST"
+        ]
+      },
+      "password.confirm": {
+        "uri": "confirm-password",
+        "methods": [
+          "GET",
+          "HEAD"
+        ]
+      },
+      "logout": {
+        "uri": "logout",
+        "methods": [
+          "POST"
+        ]
+      },
+      "report-landing": {
+        "uri": "bao-cao-luong-thuong-2025",
+        "methods": [
+          "GET",
+          "HEAD"
+        ]
+      },
+      "banker.banker.intro": {
+        "uri": "banker/intro",
+        "methods": [
+          "GET",
+          "HEAD"
+        ]
+      },
+      "banker.banker.verify-corporate": {
+        "uri": "banker/verify-corporate/{banker}",
+        "methods": [
+          "GET",
+          "HEAD"
+        ],
+        "parameters": [
+          "banker"
+        ],
+        "bindings": {
+          "banker": "id"
+        }
+      },
+      "banker.login": {
+        "uri": "banker/login",
+        "methods": [
+          "GET",
+          "HEAD"
+        ]
+      },
+      "banker.send.otp": {
+        "uri": "banker/send-otp",
+        "methods": [
+          "POST"
+        ]
+      },
+      "banker.verify.form": {
+        "uri": "banker/verify",
+        "methods": [
+          "GET",
+          "HEAD"
+        ]
+      },
+      "banker.verify": {
+        "uri": "banker/verify",
+        "methods": [
+          "POST"
+        ]
+      },
+      "banker.verify.form.ldp-banker": {
+        "uri": "banker/verify-ldp-banker",
+        "methods": [
+          "GET",
+          "HEAD"
+        ]
+      },
+      "banker.register": {
+        "uri": "banker/register",
+        "methods": [
+          "GET",
+          "HEAD"
+        ]
+      },
+      "banker.register.store": {
+        "uri": "banker/register",
+        "methods": [
+          "POST"
+        ]
+      },
+      "banker.verify-email": {
+        "uri": "banker/verify-email",
+        "methods": [
+          "GET",
+          "HEAD"
+        ]
+      },
+      "banker.verify-email.verify": {
+        "uri": "banker/verify-email",
+        "methods": [
+          "POST"
+        ]
+      },
+      "banker.resend-otp": {
+        "uri": "banker/resend-otp",
+        "methods": [
+          "POST"
+        ]
+      },
+      "banker.check-username": {
+        "uri": "banker/check-username",
+        "methods": [
+          "POST"
+        ]
+      },
+      "banker.check-email": {
+        "uri": "banker/check-email",
+        "methods": [
+          "POST"
+        ]
+      },
+      "banker.login.password": {
+        "uri": "banker/login-password",
+        "methods": [
+          "POST"
+        ]
+      },
+      "banker.recovery": {
+        "uri": "banker/recovery",
+        "methods": [
+          "GET",
+          "HEAD"
+        ]
+      },
+      "banker.recovery.send-otp": {
+        "uri": "banker/recovery/send-otp",
+        "methods": [
+          "POST"
+        ]
+      },
+      "banker.recovery.verify": {
+        "uri": "banker/recovery/verify",
+        "methods": [
+          "POST"
+        ]
+      },
+      "banker.banker.workplace-update": {
+        "uri": "banker/workplace-update",
+        "methods": [
+          "GET",
+          "HEAD"
+        ]
+      },
+      "banker.banker.workplace-update.send-otp": {
+        "uri": "banker/workplace-update/send-otp",
+        "methods": [
+          "POST"
+        ]
+      },
+      "banker.banker.workplace-update.verify": {
+        "uri": "banker/workplace-update/verify",
+        "methods": [
+          "POST"
+        ]
+      },
+      "banker.banker.profile.password": {
+        "uri": "banker/profile/password",
+        "methods": [
+          "GET",
+          "HEAD"
+        ]
+      },
+      "banker.banker.profile.password.store": {
+        "uri": "banker/profile/password",
+        "methods": [
+          "POST"
+        ]
+      },
+      "banker.profile.edit": {
+        "uri": "banker/profile/edit",
+        "methods": [
+          "GET",
+          "HEAD"
+        ]
+      },
+      "banker.profile.update": {
+        "uri": "banker/profile",
+        "methods": [
+          "PATCH"
+        ]
+      },
+      "banker.profile.personal-information.update": {
+        "uri": "banker/profile/personal-information",
+        "methods": [
+          "PATCH"
+        ]
+      },
+      "banker.profile.skills.update": {
+        "uri": "banker/profile/skills",
+        "methods": [
+          "PATCH"
+        ]
+      },
+      "banker.profile.expertises.update": {
+        "uri": "banker/profile/expertises",
+        "methods": [
+          "PATCH"
+        ]
+      },
+      "banker.profile.username.update": {
+        "uri": "banker/profile/username",
+        "methods": [
+          "POST"
+        ]
+      },
+      "banker.profile.username.check": {
+        "uri": "banker/profile/username/check",
+        "methods": [
+          "POST"
+        ]
+      },
+      "banker.profile.avatar.update": {
+        "uri": "banker/profile/avatar",
+        "methods": [
+          "POST"
+        ]
+      },
+      "banker.profile.cover.update": {
+        "uri": "banker/profile/cover",
+        "methods": [
+          "POST"
+        ]
+      },
+      "banker.profile.reasons-to-choose.store": {
+        "uri": "banker/profile/reasons-to-choose",
+        "methods": [
+          "POST"
+        ]
+      },
+      "banker.profile.reasons-to-choose.update": {
+        "uri": "banker/profile/reasons-to-choose/{reason}",
+        "methods": [
+          "PUT"
+        ],
+        "parameters": [
+          "reason"
+        ],
+        "bindings": {
+          "reason": "id"
+        }
+      },
+      "banker.profile.reasons-to-choose.destroy": {
+        "uri": "banker/profile/reasons-to-choose/{reason}",
+        "methods": [
+          "DELETE"
+        ],
+        "parameters": [
+          "reason"
+        ],
+        "bindings": {
+          "reason": "id"
+        }
+      },
+      "banker.profile.reasons-to-choose.update-order": {
+        "uri": "banker/profile/reasons-to-choose/order",
+        "methods": [
+          "PATCH"
+        ]
+      },
+      "banker.profile.testimonials.store": {
+        "uri": "banker/profile/testimonials",
+        "methods": [
+          "POST"
+        ]
+      },
+      "banker.profile.testimonials.update": {
+        "uri": "banker/profile/testimonials/{testimonial}",
+        "methods": [
+          "PUT"
+        ],
+        "parameters": [
+          "testimonial"
+        ],
+        "bindings": {
+          "testimonial": "id"
+        }
+      },
+      "banker.profile.testimonials.destroy": {
+        "uri": "banker/profile/testimonials/{testimonial}",
+        "methods": [
+          "DELETE"
+        ],
+        "parameters": [
+          "testimonial"
+        ],
+        "bindings": {
+          "testimonial": "id"
+        }
+      },
+      "banker.profile.work-experiences.index": {
+        "uri": "banker/profile/work-experiences",
+        "methods": [
+          "GET",
+          "HEAD"
+        ]
+      },
+      "banker.profile.work-experiences.store": {
+        "uri": "banker/profile/work-experiences",
+        "methods": [
+          "POST"
+        ]
+      },
+      "banker.profile.work-experiences.show": {
+        "uri": "banker/profile/work-experiences/{work_experience}",
+        "methods": [
+          "GET",
+          "HEAD"
+        ],
+        "parameters": [
+          "work_experience"
+        ]
+      },
+      "banker.profile.work-experiences.update": {
+        "uri": "banker/profile/work-experiences/{work_experience}",
+        "methods": [
+          "PUT",
+          "PATCH"
+        ],
+        "parameters": [
+          "work_experience"
+        ]
+      },
+      "banker.profile.work-experiences.destroy": {
+        "uri": "banker/profile/work-experiences/{work_experience}",
+        "methods": [
+          "DELETE"
+        ],
+        "parameters": [
+          "work_experience"
+        ]
+      },
+      "banker.profile.public": {
+        "uri": "banker/profile/{banker}",
+        "methods": [
+          "GET",
+          "HEAD"
+        ],
+        "parameters": [
+          "banker"
+        ],
+        "bindings": {
+          "banker": "username"
+        }
+      },
+      "banker.logout": {
+        "uri": "banker/logout",
+        "methods": [
+          "POST"
+        ]
+      },
+      "banker.dashboard": {
+        "uri": "banker/dashboard",
+        "methods": [
+          "GET",
+          "HEAD"
+        ]
+      },
+      "banker.dashboard.new": {
+        "uri": "banker/dashboard/new",
+        "methods": [
+          "GET",
+          "HEAD"
+        ]
+      },
+      "banker.dashboard.new.calculation-tools": {
+        "uri": "banker/dashboard/new/calculation-tools",
+        "methods": [
+          "GET",
+          "HEAD"
+        ]
+      },
+      "banker.dashboard.new.report-library": {
+        "uri": "banker/dashboard/new/report-library",
+        "methods": [
+          "GET",
+          "HEAD"
+        ]
+      },
+      "banker.dashboard.new.report-library.salary": {
+        "uri": "banker/dashboard/new/report-library/salary",
+        "methods": [
+          "GET",
+          "HEAD"
+        ]
+      },
+      "banker.dashboard.new.calculation-tools.compound-interest": {
+        "uri": "banker/dashboard/new/calculation-tools/compound-interest",
+        "methods": [
+          "GET",
+          "HEAD"
+        ]
+      },
+      "banker.dashboard.new.calculation-tools.loan-amortization": {
+        "uri": "banker/dashboard/new/calculation-tools/loan-amortization",
+        "methods": [
+          "GET",
+          "HEAD"
+        ]
+      },
+      "banker.dashboard.new.calculation-tools.loan-affordability": {
+        "uri": "banker/dashboard/new/calculation-tools/loan-affordability",
+        "methods": [
+          "GET",
+          "HEAD"
+        ]
+      },
+      "banker.dashboard.new.calculation-tools.dti-ratio": {
+        "uri": "banker/dashboard/new/calculation-tools/dti-ratio",
+        "methods": [
+          "GET",
+          "HEAD"
+        ]
+      },
+      "banker.dashboard.new.calculation-tools.home-loan": {
+        "uri": "banker/dashboard/new/calculation-tools/home-loan",
+        "methods": [
+          "GET",
+          "HEAD"
+        ]
+      },
+      "banker.dashboard.new.calculation-tools.car-loan": {
+        "uri": "banker/dashboard/new/calculation-tools/car-loan",
+        "methods": [
+          "GET",
+          "HEAD"
+        ]
+      },
+      "banker.dashboard.new.calculation-tools.savings-goal": {
+        "uri": "banker/dashboard/new/calculation-tools/savings-goal",
+        "methods": [
+          "GET",
+          "HEAD"
+        ]
+      },
+      "banker.dashboard.new.calculation-tools.prepayment-fee": {
+        "uri": "banker/dashboard/new/calculation-tools/prepayment-fee",
+        "methods": [
+          "GET",
+          "HEAD"
+        ]
+      },
+      "banker.dashboard.new.calculation-tools.credit-card-debt": {
+        "uri": "banker/dashboard/new/calculation-tools/credit-card-debt",
+        "methods": [
+          "GET",
+          "HEAD"
+        ]
+      },
+      "banker.dashboard.new.calculation-tools.future-value": {
+        "uri": "banker/dashboard/new/calculation-tools/future-value",
+        "methods": [
+          "GET",
+          "HEAD"
+        ]
+      },
+      "banker.dashboard.new.calculation-tools.loan-comparison": {
+        "uri": "banker/dashboard/new/calculation-tools/loan-comparison",
+        "methods": [
+          "GET",
+          "HEAD"
+        ]
+      },
+      "banker.dashboard.new.calculation-tools.collateral-loan": {
+        "uri": "banker/dashboard/new/calculation-tools/collateral-loan",
+        "methods": [
+          "GET",
+          "HEAD"
+        ]
+      },
+      "banker.chat.index": {
+        "uri": "banker/chat",
+        "methods": [
+          "GET",
+          "HEAD"
+        ]
+      },
+      "banker.chat.show": {
+        "uri": "banker/chat/{conversation}",
+        "methods": [
+          "GET",
+          "HEAD"
+        ],
+        "parameters": [
+          "conversation"
+        ]
+      },
+      "banker.personal-branding": {
+        "uri": "banker/personal-branding",
+        "methods": [
+          "GET",
+          "HEAD"
+        ]
+      },
+      "banker.personal-branding.intro": {
+        "uri": "banker/personal-branding/intro",
+        "methods": [
+          "GET",
+          "HEAD"
+        ]
+      },
+      "banker.api.shop.cart.contents": {
+        "uri": "banker/api/shop/cart",
+        "methods": [
+          "GET",
+          "HEAD"
+        ]
+      },
+      "banker.customer-management.dashboard": {
+        "uri": "banker/customer-management/dashboard",
+        "methods": [
+          "GET",
+          "HEAD"
+        ]
+      },
+      "banker.customer-management.index": {
+        "uri": "banker/customer-management",
+        "methods": [
+          "GET",
+          "HEAD"
+        ]
+      },
+      "banker.customer-management.store": {
+        "uri": "banker/customer-management",
+        "methods": [
+          "POST"
+        ]
+      },
+      "banker.customer-management.show": {
+        "uri": "banker/customer-management/{customer}",
+        "methods": [
+          "GET",
+          "HEAD"
+        ],
+        "parameters": [
+          "customer"
+        ],
+        "bindings": {
+          "customer": "id"
+        }
+      },
+      "banker.customer-management.update": {
+        "uri": "banker/customer-management/{customer}",
+        "methods": [
+          "PUT"
+        ],
+        "parameters": [
+          "customer"
+        ],
+        "bindings": {
+          "customer": "id"
+        }
+      },
+      "banker.customer-management.destroy": {
+        "uri": "banker/customer-management/{customer}",
+        "methods": [
+          "DELETE"
+        ],
+        "parameters": [
+          "customer"
+        ],
+        "bindings": {
+          "customer": "id"
+        }
+      },
+      "banker.customer-management.products.store": {
+        "uri": "banker/customer-management/{customer}/products",
+        "methods": [
+          "POST"
+        ],
+        "parameters": [
+          "customer"
+        ],
+        "bindings": {
+          "customer": "id"
+        }
+      },
+      "banker.customer-management.notes.store": {
+        "uri": "banker/customer-management/{customer}/notes",
+        "methods": [
+          "POST"
+        ],
+        "parameters": [
+          "customer"
+        ],
+        "bindings": {
+          "customer": "id"
+        }
+      },
+      "banker.customer-management.interactions.store": {
+        "uri": "banker/customer-management/{customer}/interactions",
+        "methods": [
+          "POST"
+        ],
+        "parameters": [
+          "customer"
+        ],
+        "bindings": {
+          "customer": "id"
+        }
+      },
+      "banker.referral.index": {
+        "uri": "banker/referral",
+        "methods": [
+          "GET",
+          "HEAD"
+        ]
+      },
+      "banker.shop.index": {
+        "uri": "banker/shop",
+        "methods": [
+          "GET",
+          "HEAD"
+        ]
+      },
+      "banker.shop.products.show": {
+        "uri": "banker/shop/products/{product}",
+        "methods": [
+          "GET",
+          "HEAD"
+        ],
+        "parameters": [
+          "product"
+        ],
+        "bindings": {
+          "product": "slug"
+        }
+      },
+      "banker.shop.cart.index": {
+        "uri": "banker/shop/cart",
+        "methods": [
+          "GET",
+          "HEAD"
+        ]
+      },
+      "banker.shop.cart.store": {
+        "uri": "banker/shop/cart",
+        "methods": [
+          "POST"
+        ]
+      },
+      "banker.shop.cart.update": {
+        "uri": "banker/shop/cart/{cart}",
+        "methods": [
+          "PUT",
+          "PATCH"
+        ],
+        "parameters": [
+          "cart"
+        ]
+      },
+      "banker.shop.cart.destroy": {
+        "uri": "banker/shop/cart/{cart}",
+        "methods": [
+          "DELETE"
+        ],
+        "parameters": [
+          "cart"
+        ]
+      },
+      "banker.shop.gift-code.apply": {
+        "uri": "banker/shop/gift-code/apply",
+        "methods": [
+          "POST"
+        ]
+      },
+      "banker.shop.orders.index": {
+        "uri": "banker/shop/orders",
+        "methods": [
+          "GET",
+          "HEAD"
+        ]
+      },
+      "banker.shop.orders.store": {
+        "uri": "banker/shop/orders",
+        "methods": [
+          "POST"
+        ]
+      },
+      "banker.shop.orders.show": {
+        "uri": "banker/shop/orders/{order}",
+        "methods": [
+          "GET",
+          "HEAD"
+        ],
+        "parameters": [
+          "order"
+        ],
+        "bindings": {
+          "order": "id"
+        }
+      },
+      "banker.shop.products.comments.store": {
+        "uri": "banker/shop/products/{product}/comments",
+        "methods": [
+          "POST"
+        ],
+        "parameters": [
+          "product"
+        ],
+        "bindings": {
+          "product": "id"
+        }
+      },
+      "banker.shop.products.ratings.store": {
+        "uri": "banker/shop/products/{product}/ratings",
+        "methods": [
+          "POST"
+        ],
+        "parameters": [
+          "product"
+        ],
+        "bindings": {
+          "product": "id"
+        }
+      },
+      "banker.loan-applications": {
+        "uri": "banker/loan-applications",
+        "methods": [
+          "GET",
+          "HEAD"
+        ]
+      },
+      "banker.habit-tracking": {
+        "uri": "banker/habit-tracking",
+        "methods": [
+          "GET",
+          "HEAD"
+        ]
+      },
+      "banker.personal-finance": {
+        "uri": "banker/personal-finance",
+        "methods": [
+          "GET",
+          "HEAD"
+        ]
+      },
+      "banker.calculation-tools.index": {
+        "uri": "banker/calculation-tools",
+        "methods": [
+          "GET",
+          "HEAD"
+        ]
+      },
+      "banker.calculation-tools.compound-interest": {
+        "uri": "banker/calculation-tools/compound-interest",
+        "methods": [
+          "GET",
+          "HEAD"
+        ]
+      },
+      "banker.calculation-tools.loan-amortization": {
+        "uri": "banker/calculation-tools/loan-amortization",
+        "methods": [
+          "GET",
+          "HEAD"
+        ]
+      },
+      "banker.calculation-tools.loan-affordability": {
+        "uri": "banker/calculation-tools/loan-affordability",
+        "methods": [
+          "GET",
+          "HEAD"
+        ]
+      },
+      "banker.calculation-tools.dti-ratio": {
+        "uri": "banker/calculation-tools/dti-ratio",
+        "methods": [
+          "GET",
+          "HEAD"
+        ]
+      },
+      "banker.calculation-tools.home-loan": {
+        "uri": "banker/calculation-tools/home-loan",
+        "methods": [
+          "GET",
+          "HEAD"
+        ]
+      },
+      "banker.calculation-tools.car-loan": {
+        "uri": "banker/calculation-tools/car-loan",
+        "methods": [
+          "GET",
+          "HEAD"
+        ]
+      },
+      "banker.calculation-tools.savings-goal": {
+        "uri": "banker/calculation-tools/savings-goal",
+        "methods": [
+          "GET",
+          "HEAD"
+        ]
+      },
+      "banker.calculation-tools.prepayment-fee": {
+        "uri": "banker/calculation-tools/prepayment-fee",
+        "methods": [
+          "GET",
+          "HEAD"
+        ]
+      },
+      "banker.calculation-tools.credit-card-debt": {
+        "uri": "banker/calculation-tools/credit-card-debt",
+        "methods": [
+          "GET",
+          "HEAD"
+        ]
+      },
+      "banker.calculation-tools.future-value": {
+        "uri": "banker/calculation-tools/future-value",
+        "methods": [
+          "GET",
+          "HEAD"
+        ]
+      },
+      "banker.calculation-tools.loan-comparison": {
+        "uri": "banker/calculation-tools/loan-comparison",
+        "methods": [
+          "GET",
+          "HEAD"
+        ]
+      },
+      "banker.calculation-tools.collateral-loan": {
+        "uri": "banker/calculation-tools/collateral-loan",
+        "methods": [
+          "GET",
+          "HEAD"
+        ]
+      },
+      "banker.api.product-submissions.index": {
+        "uri": "banker/api/product-submissions",
+        "methods": [
+          "GET",
+          "HEAD"
+        ]
+      },
+      "banker.api.product-submissions.store": {
+        "uri": "banker/api/product-submissions",
+        "methods": [
+          "POST"
+        ]
+      },
+      "banker.api.product-submissions.show": {
+        "uri": "banker/api/product-submissions/{submission}",
+        "methods": [
+          "GET",
+          "HEAD"
+        ],
+        "parameters": [
+          "submission"
+        ],
+        "bindings": {
+          "submission": "id"
+        }
+      },
+      "banker.api.product-submissions.update": {
+        "uri": "banker/api/product-submissions/{submission}",
+        "methods": [
+          "PUT"
+        ],
+        "parameters": [
+          "submission"
+        ],
+        "bindings": {
+          "submission": "id"
+        }
+      },
+      "banker.api.product-submissions.destroy": {
+        "uri": "banker/api/product-submissions/{submission}",
+        "methods": [
+          "DELETE"
+        ],
+        "parameters": [
+          "submission"
+        ],
+        "bindings": {
+          "submission": "id"
+        }
+      },
+      "banker.api.upload-attachments": {
+        "uri": "banker/api/upload-attachments",
+        "methods": [
+          "POST"
+        ]
+      },
+      "banker.api.product-fields.index": {
+        "uri": "banker/api/product-fields/{productType}",
+        "methods": [
+          "GET",
+          "HEAD"
+        ],
+        "parameters": [
+          "productType"
+        ]
+      },
+      "banker.api.my-bank-products.index": {
+        "uri": "banker/api/my-bank-products",
+        "methods": [
+          "GET",
+          "HEAD"
+        ]
+      },
+      "banker.api.my-bank-products.by-type": {
+        "uri": "banker/api/my-bank-products/{type}",
+        "methods": [
+          "GET",
+          "HEAD"
+        ],
+        "parameters": [
+          "type"
+        ]
+      },
+      "banker.api.submission-stats": {
+        "uri": "banker/api/submission-stats",
+        "methods": [
+          "GET",
+          "HEAD"
+        ]
+      },
+      "banker.contribute": {
+        "uri": "banker/contribute-product-info",
+        "methods": [
+          "GET",
+          "HEAD"
+        ]
+      },
+      "banker.submissions": {
+        "uri": "banker/my-submissions",
+        "methods": [
+          "GET",
+          "HEAD"
+        ]
+      },
+      "banker.submissions.show": {
+        "uri": "banker/my-submissions/{submission}",
+        "methods": [
+          "GET",
+          "HEAD"
+        ],
+        "parameters": [
+          "submission"
+        ],
+        "bindings": {
+          "submission": "id"
+        }
+      },
+      "banker.api.track-activity": {
+        "uri": "banker/api/track-activity",
+        "methods": [
+          "POST"
+        ]
+      },
+      "banker.api.track-duration": {
+        "uri": "banker/api/track-duration",
+        "methods": [
+          "POST"
+        ]
+      },
+      "banker.survey": {
+        "uri": "banker/survey",
+        "methods": [
+          "GET",
+          "HEAD"
+        ]
+      },
+      "banker.survey.store": {
+        "uri": "banker/survey",
+        "methods": [
+          "POST"
+        ]
+      },
+      "banker.blog-posts.index": {
+        "uri": "banker/blog-posts",
+        "methods": [
+          "GET",
+          "HEAD"
+        ]
+      },
+      "banker.blog-posts.create": {
+        "uri": "banker/blog-posts/create",
+        "methods": [
+          "GET",
+          "HEAD"
+        ]
+      },
+      "banker.blog-posts.store": {
+        "uri": "banker/blog-posts",
+        "methods": [
+          "POST"
+        ]
+      },
+      "banker.blog-posts.edit": {
+        "uri": "banker/blog-posts/{post}/edit",
+        "methods": [
+          "GET",
+          "HEAD"
+        ],
+        "parameters": [
+          "post"
+        ],
+        "bindings": {
+          "post": "slug"
+        }
+      },
+      "banker.blog-posts.update": {
+        "uri": "banker/blog-posts/{post}",
+        "methods": [
+          "PUT"
+        ],
+        "parameters": [
+          "post"
+        ],
+        "bindings": {
+          "post": "slug"
+        }
+      },
+      "banker.blog-posts.destroy": {
+        "uri": "banker/blog-posts/{post}",
+        "methods": [
+          "DELETE"
+        ],
+        "parameters": [
+          "post"
+        ],
+        "bindings": {
+          "post": "slug"
+        }
+      },
+      "banker.blog-posts.upload-image": {
+        "uri": "banker/blog-posts/upload-image",
+        "methods": [
+          "POST"
+        ]
+      },
+      "banker.rate-posts.index": {
+        "uri": "banker/rate-posts",
+        "methods": [
+          "GET",
+          "HEAD"
+        ]
+      },
+      "banker.rate-posts.create": {
+        "uri": "banker/rate-posts/create",
+        "methods": [
+          "GET",
+          "HEAD"
+        ]
+      },
+      "banker.rate-posts.store": {
+        "uri": "banker/rate-posts",
+        "methods": [
+          "POST"
+        ]
+      },
+      "banker.rate-posts.edit": {
+        "uri": "banker/rate-posts/{post}/edit",
+        "methods": [
+          "GET",
+          "HEAD"
+        ],
+        "parameters": [
+          "post"
+        ],
+        "bindings": {
+          "post": "slug"
+        }
+      },
+      "banker.rate-posts.update": {
+        "uri": "banker/rate-posts/{post}",
+        "methods": [
+          "PUT"
+        ],
+        "parameters": [
+          "post"
+        ],
+        "bindings": {
+          "post": "slug"
+        }
+      },
+      "banker.rate-posts.destroy": {
+        "uri": "banker/rate-posts/{post}",
+        "methods": [
+          "DELETE"
+        ],
+        "parameters": [
+          "post"
+        ],
+        "bindings": {
+          "post": "slug"
+        }
+      },
+      "banker.rate-posts.upload-image": {
+        "uri": "banker/rate-posts/upload-image",
+        "methods": [
+          "POST"
+        ]
+      },
+      "oauth.well-known": {
+        "uri": ".well-known/oauth-authorization-server",
+        "methods": [
+          "GET",
+          "HEAD"
+        ]
+      },
+      "oauth.authorize": {
+        "uri": "oauth/authorize",
+        "methods": [
+          "GET",
+          "HEAD"
+        ]
+      },
+      "oauth.authorize.send-otp": {
+        "uri": "oauth/authorize/send-otp",
+        "methods": [
+          "POST"
+        ]
+      },
+      "oauth.authorize.verify-otp": {
+        "uri": "oauth/authorize/verify-otp",
+        "methods": [
+          "POST"
+        ]
+      },
+      "oauth.authorize.deny": {
+        "uri": "oauth/authorize/deny",
+        "methods": [
+          "POST"
+        ]
+      },
+      "oauth.authorize.consent": {
+        "uri": "oauth/authorize/consent",
+        "methods": [
+          "GET",
+          "HEAD"
+        ]
+      },
+      "oauth.callback.popup": {
+        "uri": "oauth/callback/popup",
+        "methods": [
+          "GET",
+          "HEAD"
+        ]
+      },
+      "oauth.token": {
+        "uri": "oauth/token",
+        "methods": [
+          "POST"
+        ]
+      },
+      "oauth.revoke": {
+        "uri": "oauth/revoke",
+        "methods": [
+          "POST"
+        ]
+      },
+      "oauth.introspect": {
+        "uri": "oauth/introspect",
+        "methods": [
+          "POST"
+        ]
+      },
+      "oauth.verify-profile": {
+        "uri": "oauth/verify-profile",
+        "methods": [
+          "POST"
+        ]
+      },
+      "oauth.userinfo": {
+        "uri": "oauth/userinfo",
+        "methods": [
+          "GET",
+          "HEAD"
+        ]
+      },
+      "oauth.logout": {
+        "uri": "oauth/logout",
+        "methods": [
+          "POST"
+        ]
+      },
+      "storage.local": {
+        "uri": "storage/{path}",
+        "methods": [
+          "GET",
+          "HEAD"
+        ],
+        "wheres": {
+          "path": ".*"
+        },
+        "parameters": [
+          "path"
+        ]
+      },
+      "storage.local.upload": {
+        "uri": "storage/{path}",
+        "methods": [
+          "PUT"
+        ],
+        "wheres": {
+          "path": ".*"
+        },
+        "parameters": [
+          "path"
+        ]
+      },
+      "banker.": {
+        "uri": "banker/{fallbackPlaceholder}",
+        "methods": [
+          "GET",
+          "HEAD"
+        ],
+        "wheres": {
+          "fallbackPlaceholder": ".*"
+        },
+        "parameters": [
+          "fallbackPlaceholder"
+        ]
+      }
+    },
+    "location": "https://nganhang.com"
+  },
+  "sidebarOpen": true,
+  "csrf_token": "FfAugYaOvNviXiDAfjKtX3xRnaubXneTL3rLuOuI",
+  "seo": {
+    "title": "So Sánh Lãi Suất Ngân Hàng 2025 | Vay Mua Nhà, Xe, Tín Chấp Ưu Đãi",
+    "description": "Nền tảng so sánh sản phẩm ngân hàng, tư vấn tài chính ứng dụng AI phục vụ cộng đồng. Tìm gói vay tốt nhất: mua nhà từ 6.5%/năm, mua xe từ 7.2%/năm, tín chấp từ 9.8%/năm. Công cụ tính toán chính xác, tư vấn miễn phí 24/7.",
+    "keywords": "so sánh lãi suất ngân hàng 2025, vay mua nhà lãi suất thấp, vay mua xe ưu đãi, vay tín chấp nhanh, ngân hàng online, tính toán vay, tư vấn tài chính",
+    "canonical": "https://nganhang.com",
+    "type": "website",
+    "robots": "index,follow,max-image-preview:large",
+    "author": "NganHang.com",
+    "locale": "vi_VN",
+    "og_image": "https://nganhang.com/images/og-default.png"
+  },
+  "productTab": null,
+  "scrollToProducts": false
+}

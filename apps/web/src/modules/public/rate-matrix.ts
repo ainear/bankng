@@ -1,4 +1,5 @@
 import { prisma } from "@bankng/db";
+import { MOCK_RATE_MATRIX_ROWS } from "./mock-data";
 
 export type RateMatrixRow = {
   bankSlug: string;
@@ -28,26 +29,36 @@ export async function getRateMatrix(opts?: {
   bankType?: "all" | "big4" | "private" | "foreign";
   rateType?: "online" | "counter";
 }) {
-  // Fetch all verified savings rates with bank info
-  const rates = await prisma.interestRateSnapshot.findMany({
-    where: {
-      rateType: { in: ["deposit", "savings"] },
-      status: "verified",
-    },
-    orderBy: { effectiveFrom: "desc" },
-    include: {
-      productVariant: {
-        include: {
-          product: {
-            include: {
-              bank: true,
+  let rates = [];
+  try {
+    // Fetch all verified savings rates with bank info
+    rates = await prisma.interestRateSnapshot.findMany({
+      where: {
+        rateType: { in: ["deposit", "savings"] },
+        status: "verified",
+      },
+      orderBy: { effectiveFrom: "desc" },
+      include: {
+        productVariant: {
+          include: {
+            product: {
+              include: {
+                bank: true,
+              },
             },
           },
         },
+        source: true,
       },
-      source: true,
-    },
-  });
+    });
+  } catch (err) {
+    console.warn("getRateMatrix query failed, falling back to MOCK_RATE_MATRIX_ROWS:", err);
+    return {
+      rows: MOCK_RATE_MATRIX_ROWS,
+      terms: SAVINGS_TERMS,
+      lastUpdated: new Date(),
+    };
+  }
 
   // Group by bank and term, pick the latest/best rate per bank-term
   const bankRatesMap = new Map<

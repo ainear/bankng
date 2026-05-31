@@ -21,7 +21,7 @@ const CATEGORY_ICONS: Record<string, string> = {
 };
 
 export default async function CompareIndexPage() {
-  let categories: Awaited<ReturnType<typeof getCompareCategories>> = [];
+  let categories: any = [];
   try {
     categories = await getCompareCategories();
   } catch {
@@ -53,7 +53,7 @@ export default async function CompareIndexPage() {
           </div>
         ) : (
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {categories.map((category) => (
+            {categories.map((category: any) => (
               <Link
                 key={category.id}
                 href={`/compare/${category.slug}`}

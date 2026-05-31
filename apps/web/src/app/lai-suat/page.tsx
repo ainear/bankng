@@ -19,47 +19,57 @@ export const metadata = {
 
 export default async function NationalRatesPage() {
   // 1. Fetch Top 3 National Verified Bankers
-  const topBankers = await prisma.banker.findMany({
-    where: {
-      isActive: true,
-      isVerified: true,
-    },
-    include: {
-      user: {
-        include: {
-          profile: true,
-        },
+  let topBankers: any[] = [];
+  try {
+    topBankers = await prisma.banker.findMany({
+      where: {
+        isActive: true,
+        isVerified: true,
       },
-      bank: true,
-    },
-    orderBy: {
-      rating: "desc",
-    },
-    take: 6,
-  });
+      include: {
+        user: {
+          include: {
+            profile: true,
+          },
+        },
+        bank: true,
+      },
+      orderBy: {
+        rating: "desc",
+      },
+      take: 6,
+    });
+  } catch (err) {
+    console.warn("NationalRatesPage topBankers query failed, using empty list:", err);
+  }
 
   // 2. Fetch Top 10 National Verified Interest Rates
-  const rateSnapshots = await prisma.interestRateSnapshot.findMany({
-    where: {
-      status: "verified",
-    },
-    include: {
-      productVariant: {
-        include: {
-          product: {
-            include: {
-              bank: true,
+  let rateSnapshots: any[] = [];
+  try {
+    rateSnapshots = await prisma.interestRateSnapshot.findMany({
+      where: {
+        status: "verified",
+      },
+      include: {
+        productVariant: {
+          include: {
+            product: {
+              include: {
+                bank: true,
+              },
             },
           },
         },
       },
-    },
-    orderBy: [
-      { rateValue: "desc" },
-      { updatedAt: "desc" },
-    ],
-    take: 10,
-  });
+      orderBy: [
+        { rateValue: "desc" },
+        { updatedAt: "desc" },
+      ],
+      take: 10,
+    });
+  } catch (err) {
+    console.warn("NationalRatesPage rateSnapshots query failed, using empty list:", err);
+  }
 
   return (
     <main className="min-h-screen bg-[var(--bankng-background)] text-[var(--bankng-text-primary)]">

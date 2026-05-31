@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { RepaymentPieChart, RepaymentBarChart } from "@/components/chart-components";
 
 interface LoanMaxResult {
   monthlyNetIncome: number;
@@ -10,6 +11,8 @@ interface LoanMaxResult {
   dtiPercentage: number;
   termMonths: number;
   annualRate: number;
+  totalInterest: number;
+  monthlyData: any[];
 }
 
 export default function MaxLoanCalculatorPage() {
@@ -43,7 +46,6 @@ export default function MaxLoanCalculatorPage() {
     const maxMonthlyPayment = Math.min(netCashflow, dtiPaymentLimit);
 
     // 4. Tính ngược khoản vay tối đa P từ số tiền trả hàng tháng cố định EMI (Annuity)
-    // EMI = P * [r(1+r)^n] / [(1+r)^n - 1] -> P = EMI * [(1+r)^n - 1] / [r(1+r)^n]
     const termMonths = loanTermYears * 12;
     const monthlyRate = annualRate / 100 / 12;
 
@@ -55,6 +57,24 @@ export default function MaxLoanCalculatorPage() {
       maxLoanAmount = maxMonthlyPayment * termMonths;
     }
 
+    const totalPaid = maxMonthlyPayment * termMonths;
+    const totalInterest = Math.max(0, totalPaid - maxLoanAmount);
+
+    // Generate monthly schedule for first 12 months
+    const monthlyData: any[] = [];
+    let remaining = maxLoanAmount;
+    for (let m = 1; m <= Math.min(termMonths, 12); m++) {
+      const interestPaid = remaining * monthlyRate;
+      const principalPaid = maxMonthlyPayment - interestPaid;
+      remaining = Math.max(0, remaining - principalPaid);
+      monthlyData.push({
+        monthIndex: m,
+        principalPaid,
+        interestPaid,
+        remainingBalance: remaining
+      });
+    }
+
     setResult({
       monthlyNetIncome: income - livingExpenses - otherDebts,
       maxMonthlyPayment,
@@ -62,6 +82,8 @@ export default function MaxLoanCalculatorPage() {
       dtiPercentage: ((maxMonthlyPayment + otherDebts) / income) * 100,
       termMonths,
       annualRate,
+      totalInterest,
+      monthlyData
     });
   };
 
@@ -269,6 +291,20 @@ export default function MaxLoanCalculatorPage() {
                         style={{ width: `${Math.min(100, result.dtiPercentage)}%` }}
                       />
                     </div>
+                  </div>
+                </div>
+                {/* Visual repayment analysis - Charts */}
+                <div className="grid gap-6 md:grid-cols-5">
+                  <div className="md:col-span-2">
+                    <RepaymentPieChart
+                      principal={result.maxLoanAmount}
+                      interest={result.totalInterest}
+                    />
+                  </div>
+                  <div className="md:col-span-3">
+                    <RepaymentBarChart
+                      monthlyData={result.monthlyData}
+                    />
                   </div>
                 </div>
 

@@ -57,6 +57,12 @@ const navItems: NavItem[] = [
         emoji: "🧮",
         desc: "Công cụ tính lãi vay & tiết kiệm",
       },
+      {
+        label: "Chấm điểm tín dụng",
+        href: "/cham-diem-tin-dung",
+        emoji: "🛡️",
+        desc: "Mô phỏng chấm điểm CIC cá nhân & gợi ý vay",
+      },
     ],
   },
   {

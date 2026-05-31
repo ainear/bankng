@@ -458,7 +458,7 @@ Run `omx setup` to install all components. Run `omx doctor` to verify installati
 <!-- gitnexus:start -->
 # GitNexus — Code Intelligence
 
-This project is indexed by GitNexus as **bankng** (1196 symbols, 2111 relationships, 81 execution flows). Use the GitNexus MCP tools to understand code, assess impact, and navigate safely.
+This project is indexed by GitNexus as **bankng** (2110 symbols, 3509 relationships, 109 execution flows). Use the GitNexus MCP tools to understand code, assess impact, and navigate safely.
 
 > If any GitNexus tool warns the index is stale, run `npx gitnexus analyze` in terminal first.
 
@@ -496,14 +496,5 @@ This project is indexed by GitNexus as **bankng** (1196 symbols, 2111 relationsh
 | Rename / extract / split / refactor | `.claude/skills/gitnexus/gitnexus-refactoring/SKILL.md` |
 | Tools, resources, schema reference | `.claude/skills/gitnexus/gitnexus-guide/SKILL.md` |
 | Index, status, clean, wiki CLI commands | `.claude/skills/gitnexus/gitnexus-cli/SKILL.md` |
-| Work in the Products area (19 symbols) | `.claude/skills/generated/products/SKILL.md` |
-| Work in the Rates area (18 symbols) | `.claude/skills/generated/rates/SKILL.md` |
-| Work in the Staging area (14 symbols) | `.claude/skills/generated/staging/SKILL.md` |
-| Work in the Server area (13 symbols) | `.claude/skills/generated/server/SKILL.md` |
-| Work in the Leads area (11 symbols) | `.claude/skills/generated/leads/SKILL.md` |
-| Work in the Cluster_7 area (7 symbols) | `.claude/skills/generated/cluster-7/SKILL.md` |
-| Work in the Public area (6 symbols) | `.claude/skills/generated/public/SKILL.md` |
-| Work in the [slug] area (6 symbols) | `.claude/skills/generated/slug/SKILL.md` |
-| Work in the Branches area (4 symbols) | `.claude/skills/generated/branches/SKILL.md` |
 
 <!-- gitnexus:end -->

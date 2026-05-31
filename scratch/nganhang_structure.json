@@ -1,0 +1,112 @@
+{
+  "homepage": {
+    "navLinks": [
+      {
+        "text": "Trang chủ",
+        "href": "https://nganhang.com/"
+      },
+      {
+        "text": "Công cụ",
+        "href": "https://nganhang.com/cong-cu-tinh"
+      },
+      {
+        "text": "Tin tức",
+        "href": "https://nganhang.com/tin-tuc"
+      },
+      {
+        "text": "Sản phẩm cộng đồng",
+        "href": "https://nganhang.com/lai-suat-cong-dong"
+      },
+      {
+        "text": "Nhân viên Ngân hàng",
+        "href": "https://nganhang.com/danh-sach-bankers"
+      }
+    ],
+    "hero": {
+      "h1": "So sánh lãi suất, chấm điểm tín dụng mô phỏngvà hỗ trợ kết nối giữa khách hàng & nhân viên ngân hàng",
+      "p": "Nền tảng cộng đồng hỗ trợ so sánh sản phẩm, chấm điểm tín dụng cá nhân, doanh nghiệp mô phỏng và kết nối trực tiếp với các chuyên gia, nhân viên Ngân hàng đã được xác thực",
+      "formFields": []
+    },
+    "ratesSection": {
+      "tabTexts": [
+        "Gửi tiết kiệm"
+      ],
+      "headers": [
+        "#",
+        "Ngân hàng",
+        "Tên ngân hàng",
+        "1 tháng",
+        "3 tháng",
+        "6 tháng",
+        "9 tháng",
+        "12 tháng",
+        "24 tháng",
+        "36 tháng"
+      ],
+      "rowCount": 44
+    },
+    "bankersSection": {
+      "cardCount": 0,
+      "sampleText": "N/A"
+    }
+  },
+  "tools": {
+    "title": "Công cụ tính tài chính | Ngân Hàng - Nganhang.com",
+    "toolsList": [
+      {
+        "text": "Công cụ",
+        "href": "https://nganhang.com/cong-cu-tinh"
+      },
+      {
+        "text": "Tính tiền lãi gửiTính lãi tiết kiệm ngân hàng với lãi đơn hoặc lãi kép",
+        "href": "https://nganhang.com/cong-cu-tinh/tinh-lai-tiet-kiem"
+      },
+      {
+        "text": "Tính giá trị nhà/đấtTính giá trị tài sản dựa trên thu nhập và khả năng vay",
+        "href": "https://nganhang.com/cong-cu-tinh/tinh-gia-tri-tai-san"
+      },
+      {
+        "text": "Tính khoản vay tối đaƯớc tính số tiền vay tối đa dựa trên thu nhập hàng tháng",
+        "href": "https://nganhang.com/cong-cu-tinh/tinh-khoan-vay-toi-da"
+      },
+      {
+        "text": "Tính lãi vay thả nổiTính lãi suất vay với lãi suất thay đổi theo kỳ",
+        "href": "https://nganhang.com/cong-cu-tinh/tinh-lai-vay-tha-noi"
+      },
+      {
+        "text": "Tính lãi vay trả góp đềuTính số tiền trả góp hàng tháng cố định trong suốt kỳ vay",
+        "href": "https://nganhang.com/cong-cu-tinh/tinh-lai-vay-tra-gop-deu"
+      },
+      {
+        "text": "Tính lãi vay trên dư nợ ban đầuTính lãi theo phương pháp dư nợ giảm dần",
+        "href": "https://nganhang.com/cong-cu-tinh/tinh-lai-vay-du-no-ban-dau"
+      },
+      {
+        "text": "Ước tính vay mua ô tôTính toán khoản vay và chi phí khi mua xe ô tô",
+        "href": "https://nganhang.com/cong-cu-tinh/uoc-tinh-vay-mua-oto"
+      },
+      {
+        "text": "Kiểm tra điều kiện nhà ở xã hộiKiểm tra xem bạn có đủ điều kiện mua nhà ở xã hội không",
+        "href": "https://nganhang.com/cong-cu-tinh/kiem-tra-dieu-kien-nha-o-xa-hoi"
+      },
+      {
+        "text": "Tính thuế TNCNSo sánh thuế TNCN theo biểu thuế KQT 2025 (7 bậc) và KQT 2026 (5 bậc). Tính khấu trừ BHXH, giảm trừ gia cảnh tự động theo Nghị quyết 110/2025.",
+        "href": "https://nganhang.com/cong-cu-tinh/tinh-thue-tncn"
+      },
+      {
+        "text": "Tính lương Gross-NetCông cụ quy đổi lương Gross sang Net và ngược lại. Tính tự động BHXH, BHYT, BHTN, thuế TNCN theo vùng lương tối thiểu.",
+        "href": "https://nganhang.com/cong-cu-tinh/luong-gross-net"
+      },
+      {
+        "text": "Lịch trả nợ nhà dự ánTính lịch trả nợ vay mua nhà dự án với nhiều đợt giải ngân, lãi suất ưu đãi và stress test DTI.",
+        "href": "https://nganhang.com/cong-cu-tinh/lich-tra-no-nha-du-an"
+      },
+      {
+        "text": "Công cụ tính",
+        "href": "https://nganhang.com/cong-cu-tinh"
+      }
+    ]
+  },
+  "compare": {},
+  "terminology": {}
+}

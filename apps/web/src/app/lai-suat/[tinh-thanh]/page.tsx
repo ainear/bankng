@@ -43,28 +43,35 @@ export default async function LocalProvincePage({ params }: Props) {
   }
 
   // 1. Fetch Bankers in this province
-  const localBankers = await prisma.banker.findMany({
-    where: {
-      provinceCode: province.code,
-      isActive: true,
-    },
-    include: {
-      user: {
-        include: {
-          profile: true,
-        },
+  let localBankers: any[] = [];
+  try {
+    localBankers = await prisma.banker.findMany({
+      where: {
+        provinceCode: province.code,
+        isActive: true,
       },
-      bank: true,
-    },
-    orderBy: {
-      rating: "desc",
-    },
-    take: 6,
-  });
+      include: {
+        user: {
+          include: {
+            profile: true,
+          },
+        },
+        bank: true,
+      },
+      orderBy: {
+        rating: "desc",
+      },
+      take: 6,
+    });
+  } catch (err) {
+    console.warn(`LocalProvincePage localBankers query failed for ${province.name}, using empty list:`, err);
+  }
 
   // 2. Fetch default national bankers if no local bankers found to avoid empty state
-  const fallbackBankers = localBankers.length === 0 
-    ? await prisma.banker.findMany({
+  let fallbackBankers: any[] = [];
+  try {
+    if (localBankers.length === 0) {
+      fallbackBankers = await prisma.banker.findMany({
         where: {
           isActive: true,
           isVerified: true,
@@ -81,35 +88,43 @@ export default async function LocalProvincePage({ params }: Props) {
           rating: "desc",
         },
         take: 3,
-      })
-    : [];
+      });
+    }
+  } catch (err) {
+    console.warn("LocalProvincePage fallbackBankers query failed, using empty list:", err);
+  }
 
   // 3. Fetch interest rates snapshots for this province (or national defaults)
-  const rateSnapshots = await prisma.interestRateSnapshot.findMany({
-    where: {
-      OR: [
-        { provinceCode: province.code },
-        { provinceCode: null },
-      ],
-      status: "verified",
-    },
-    include: {
-      productVariant: {
-        include: {
-          product: {
-            include: {
-              bank: true,
+  let rateSnapshots: any[] = [];
+  try {
+    rateSnapshots = await prisma.interestRateSnapshot.findMany({
+      where: {
+        OR: [
+          { provinceCode: province.code },
+          { provinceCode: null },
+        ],
+        status: "verified",
+      },
+      include: {
+        productVariant: {
+          include: {
+            product: {
+              include: {
+                bank: true,
+              },
             },
           },
         },
       },
-    },
-    orderBy: [
-      { rateValue: "desc" },
-      { updatedAt: "desc" },
-    ],
-    take: 10,
-  });
+      orderBy: [
+        { rateValue: "desc" },
+        { updatedAt: "desc" },
+      ],
+      take: 10,
+    });
+  } catch (err) {
+    console.warn(`LocalProvincePage rateSnapshots query failed for ${province.name}, using empty list:`, err);
+  }
 
   return (
     <main className="min-h-screen bg-[var(--bankng-background)] text-[var(--bankng-text-primary)]">

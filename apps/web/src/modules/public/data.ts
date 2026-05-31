@@ -1,22 +1,30 @@
 import { prisma } from "@bankng/db";
+import { MOCK_CATEGORIES, getMockCompareCategory } from "./mock-data";
 
 export async function getCompareCategories() {
-  return prisma.productCategory.findMany({
-    where: {
-      isActive: true,
-      compareEnabled: true
-    },
-    orderBy: { name: "asc" },
-    include: {
-      _count: {
-        select: {
-          products: {
-            where: { isPublic: true, status: "active" }
+  try {
+    const categories = await prisma.productCategory.findMany({
+      where: {
+        isActive: true,
+        compareEnabled: true
+      },
+      orderBy: { name: "asc" },
+      include: {
+        _count: {
+          select: {
+            products: {
+              where: { isPublic: true, status: "active" }
+            }
           }
         }
       }
-    }
-  });
+    });
+    if (categories.length === 0) return MOCK_CATEGORIES as any;
+    return categories;
+  } catch (err) {
+    console.warn("getCompareCategories offline, falling back to MOCK_CATEGORIES:", err);
+    return MOCK_CATEGORIES as any;
+  }
 }
 
 export async function getPublicBankSlugs() {
@@ -77,39 +85,46 @@ export async function getPublicHomeData() {
 }
 
 export async function getCompareCategory(slug: string) {
-  return prisma.productCategory.findUnique({
-    where: { slug },
-    include: {
-      products: {
-        where: {
-          isPublic: true,
-          status: "active"
-        },
-        orderBy: [{ featuredRank: "asc" }, { updatedAt: "desc" }],
-        include: {
-          bank: true,
-          variants: {
-            where: {
-              status: "active"
-            },
-            include: {
-              rates: {
-                where: {
-                  status: {
-                    in: ["pending", "verified"]
+  try {
+    const category = await prisma.productCategory.findUnique({
+      where: { slug },
+      include: {
+        products: {
+          where: {
+            isPublic: true,
+            status: "active"
+          },
+          orderBy: [{ featuredRank: "asc" }, { updatedAt: "desc" }],
+          include: {
+            bank: true,
+            variants: {
+              where: {
+                status: "active"
+              },
+              include: {
+                rates: {
+                  where: {
+                    status: {
+                      in: ["pending", "verified"]
+                    }
+                  },
+                  orderBy: { effectiveFrom: "desc" },
+                  include: {
+                    source: true
                   }
-                },
-                orderBy: { effectiveFrom: "desc" },
-                include: {
-                  source: true
                 }
               }
             }
           }
         }
       }
-    }
-  });
+    });
+    if (!category) return getMockCompareCategory(slug) as any;
+    return category;
+  } catch (err) {
+    console.warn(`getCompareCategory(${slug}) offline, falling back to mock:`, err);
+    return getMockCompareCategory(slug) as any;
+  }
 }
 
 export async function getPublicProduct(slug: string) {
