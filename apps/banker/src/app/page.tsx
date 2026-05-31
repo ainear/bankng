@@ -71,6 +71,17 @@ function formatDate(date: Date) {
 export default async function BankerHomePage() {
   const { user, banker, leadStats, recentLeads } = await getDashboardData();
 
+  // Calculate dynamic verification checklist progress
+  const checklist = {
+    profile: !!(banker?.title && banker?.bio && banker?.phonePublic && banker?.specialties),
+    bank: !!banker?.bankId,
+    id: !!(banker?.idCardFront && banker?.idCardBack),
+    badge: !!banker?.workBadge,
+  };
+  const completedCount = Object.values(checklist).filter(Boolean).length;
+  const totalCount = 4;
+  const progressPct = Math.round((completedCount / totalCount) * 100);
+
   return (
     <div className="p-6 lg:p-8">
       {/* Header */}
@@ -80,25 +91,37 @@ export default async function BankerHomePage() {
         </h1>
         <p className="mt-1 text-sm text-[var(--bankng-text-secondary)]">
           {banker
-            ? `${banker.title ?? "Nhân viên tư vấn"} tại ${banker.bank?.name ?? "Ngân hàng"}`
+            ? `${banker.title ?? "Nhân viên tư vấn"} tại ${banker.bank?.name ?? "Ngân hàng chưa liên kết"}`
             : "Chưa có hồ sơ banker. Hãy cập nhật hồ sơ để bắt đầu."}
         </p>
       </div>
 
-      {/* Status banner if not verified */}
-      {banker && !banker.isVerified && (
-        <div className="mb-6 flex items-start gap-3 rounded-xl border border-yellow-200 bg-yellow-50 p-4">
-          <svg className="mt-0.5 h-5 w-5 shrink-0 text-yellow-600" viewBox="0 0 20 20" fill="currentColor">
-            <path fillRule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
-          </svg>
-          <div>
-            <p className="font-medium text-yellow-800">Tài khoản chưa được xác minh</p>
-            <p className="mt-0.5 text-sm text-yellow-700">
-              Hồ sơ của bạn đang chờ xét duyệt. Leads sẽ được phân phối sau khi xác minh.{" "}
-              <Link href="/verification" className="underline">Xem trạng thái xác minh</Link>
-            </p>
+      {/* Status banner */}
+      {banker && (
+        banker.isVerified ? (
+          <div className="mb-6 flex items-start gap-3 rounded-xl border border-green-200 bg-green-50 p-4 transition-all duration-300">
+            <span className="text-xl">🛡️</span>
+            <div>
+              <p className="font-bold text-green-800">Tài khoản đã được xác thực</p>
+              <p className="mt-0.5 text-sm text-green-700">
+                Hồ sơ của bạn đã hoạt động công khai. Leads từ khách hàng có nhu cầu so sánh gói tài chính đang được phân phối tự động tới bạn.
+              </p>
+            </div>
           </div>
-        </div>
+        ) : (
+          <div className="mb-6 flex items-start gap-3 rounded-xl border border-yellow-200 bg-yellow-50 p-4 transition-all duration-300">
+            <svg className="mt-0.5 h-5 w-5 shrink-0 text-yellow-600" viewBox="0 0 20 20" fill="currentColor">
+              <path fillRule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
+            </svg>
+            <div className="flex-1">
+              <p className="font-bold text-yellow-800">Tài khoản chưa được xác minh</p>
+              <p className="mt-0.5 text-sm text-yellow-700">
+                Hồ sơ của bạn đang chờ phê duyệt ({completedCount}/{totalCount} bước hoàn tất). Hãy hoàn thành các bước tải lên tài liệu để kích hoạt tài khoản.{" "}
+                <Link href="/verification" className="underline font-semibold text-yellow-800 hover:text-yellow-900">Xem tiến trình xác minh ({progressPct}%) →</Link>
+              </p>
+            </div>
+          </div>
+        )
       )}
 
       {/* Stats */}
@@ -136,13 +159,13 @@ export default async function BankerHomePage() {
         {[
           { label: "Cập nhật hồ sơ", href: "/profile", emoji: "👤", desc: "Ảnh, bio, chuyên môn" },
           { label: "Lead inbox", href: "/leads", emoji: "📬", desc: `${leadStats?.newLeads ?? 0} leads mới` },
-          { label: "Xác minh", href: "/verification", emoji: "✅", desc: banker?.isVerified ? "Đã xác minh" : "Chờ duyệt" },
+          { label: "Xác minh", href: "/verification", emoji: "✅", desc: banker?.isVerified ? "Đã xác minh" : `Hoàn tất ${progressPct}%` },
           { label: "Đánh giá", href: "/reviews", emoji: "⭐", desc: `${banker?.reviewCount ?? 0} đánh giá` },
         ].map((action) => (
           <Link
             key={action.href}
             href={action.href}
-            className="flex items-center gap-3 rounded-xl border border-[var(--bankng-border)] bg-white p-4 transition-shadow hover:shadow-md"
+            className="flex items-center gap-3 rounded-xl border border-[var(--bankng-border)] bg-white p-4 transition-all hover:shadow-md hover:border-[var(--bankng-primary)]/50"
           >
             <span className="text-2xl">{action.emoji}</span>
             <div>
@@ -166,7 +189,7 @@ export default async function BankerHomePage() {
           <div className="rounded-xl border border-[var(--bankng-border)] bg-white p-8 text-center">
             <div className="text-3xl">📭</div>
             <p className="mt-2 text-sm text-[var(--bankng-text-secondary)]">
-              Chưa có lead nào được phân công. Sau khi xác minh, leads sẽ xuất hiện tại đây.
+              Chưa có lead nào được phân công. Sau khi xác minh tài khoản thành công, leads từ khách hàng sẽ xuất hiện tại đây.
             </p>
           </div>
         ) : (

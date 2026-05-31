@@ -395,6 +395,11 @@ model Banker {
   bio          String?
   provinceCode String?
   cityName     String?
+  phonePublic  String?
+  specialties  String?
+  idCardFront  String?
+  idCardBack   String?
+  workBadge    String?
   rating       Decimal  @default(0)
   reviewCount  Int      @default(0)
   isVerified   Boolean  @default(false)

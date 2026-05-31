@@ -1,5 +1,6 @@
 import { prisma } from "@bankng/db";
 import Link from "next/link";
+import { cleanLogoUrl } from "@/components/bank-logo-helper";
 
 export const dynamic = "force-dynamic";
 
@@ -115,7 +116,7 @@ export default async function CommunityProductsPage() {
                     {/* Logo */}
                     {product.bank.logoUrl ? (
                       <img
-                        src={product.bank.logoUrl}
+                        src={cleanLogoUrl(product.bank.logoUrl)}
                         alt={product.bank.name}
                         className="h-10 w-10 shrink-0 rounded-md object-contain"
                       />

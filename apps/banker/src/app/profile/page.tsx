@@ -23,6 +23,18 @@ async function getBankerProfile() {
   }
 }
 
+async function getActiveBanks() {
+  try {
+    return await prisma.bank.findMany({
+      where: { isActive: true },
+      select: { id: true, name: true, shortName: true },
+      orderBy: { shortName: "asc" },
+    });
+  } catch {
+    return [];
+  }
+}
+
 const PROVINCES = [
   { value: "", label: "Chọn tỉnh/thành" },
   { value: "HN", label: "Hà Nội" },
@@ -34,9 +46,20 @@ const PROVINCES = [
   { value: "DNI", label: "Đồng Nai" },
 ];
 
+const SPECIALTY_LABELS: Record<string, string> = {
+  "tiet-kiem": "Tiết kiệm",
+  "vay-mua-nha": "Vay mua nhà",
+  "vay-mua-xe": "Vay mua xe",
+  "vay-tieu-dung": "Vay tiêu dùng",
+  "the-tin-dung": "Thẻ tín dụng",
+  "vay-kinh-doanh": "Vay kinh doanh",
+  "vay-tin-chap": "Vay tín chấp",
+};
+
 export default async function ProfilePage() {
   const user = await getBankerProfile();
   const banker = user?.bankerProfile;
+  const banks = await getActiveBanks();
 
   return (
     <div className="p-6 lg:p-8">
@@ -86,7 +109,7 @@ export default async function ProfilePage() {
             </div>
 
             {/* Stats */}
-            <div className="mt-4 grid grid-cols-2 gap-3 text-center">
+            <div className="mt-4 grid grid-cols-2 gap-3 text-center pb-4 border-b border-[var(--bankng-border)]">
               <div>
                 <div className="text-lg font-bold text-[var(--bankng-text-primary)]">
                   {banker?.rating ? Number(banker.rating).toFixed(1) : "—"}
@@ -106,6 +129,38 @@ export default async function ProfilePage() {
                 {banker.bio}
               </p>
             )}
+
+            {/* Public Phone and Specialties */}
+            {(banker?.phonePublic || banker?.specialties) && (
+              <div className="mt-4 space-y-3 border-t border-[var(--bankng-border)] pt-4 text-left">
+                {banker.phonePublic && (
+                  <div className="flex items-center gap-2 text-sm text-[var(--bankng-text-primary)]">
+                    <span className="text-base">📞</span>
+                    <span className="font-medium">{banker.phonePublic}</span>
+                  </div>
+                )}
+                {banker.specialties && (
+                  <div className="space-y-1">
+                    <div className="text-xs font-semibold text-[var(--bankng-text-secondary)] uppercase tracking-wide">
+                      Lĩnh vực tư vấn:
+                    </div>
+                    <div className="flex flex-wrap gap-1.5">
+                      {banker.specialties.split(",").map((s) => {
+                        const label = SPECIALTY_LABELS[s] ?? s;
+                        return (
+                          <span
+                            key={s}
+                            className="rounded-lg bg-[var(--bankng-primary)]/10 px-2 py-0.5 text-xs font-medium text-[var(--bankng-primary)]"
+                          >
+                            {label}
+                          </span>
+                        );
+                      })}
+                    </div>
+                  </div>
+                )}
+              </div>
+            )}
           </div>
         </div>
 
@@ -120,8 +175,12 @@ export default async function ProfilePage() {
               bio: banker?.bio ?? "",
               cityName: banker?.cityName ?? "",
               provinceCode: banker?.provinceCode ?? "",
+              bankId: banker?.bankId ?? "",
+              phonePublic: banker?.phonePublic ?? "",
+              specialties: banker?.specialties ?? "",
             }}
             provinces={PROVINCES}
+            banks={banks}
           />
         </div>
       </div>

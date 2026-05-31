@@ -10,6 +10,9 @@ export async function updateProfileAction(formData: FormData) {
   const bio = formData.get("bio") as string;
   const cityName = formData.get("cityName") as string;
   const provinceCode = formData.get("provinceCode") as string;
+  const bankId = formData.get("bankId") as string;
+  const phonePublic = formData.get("phonePublic") as string;
+  const specialties = formData.get("specialties") as string;
 
   try {
     const user = await prisma.user.findUnique({ where: { email: bankerEmail } });
@@ -22,6 +25,9 @@ export async function updateProfileAction(formData: FormData) {
         bio: bio || null,
         cityName: cityName || null,
         provinceCode: provinceCode || null,
+        bankId: bankId || null,
+        phonePublic: phonePublic || null,
+        specialties: specialties || null,
       },
     });
 

@@ -101,6 +101,9 @@ importers:
       '@bankng/auth':
         specifier: workspace:*
         version: link:../../packages/auth
+      '@bankng/shared-utils':
+        specifier: workspace:*
+        version: link:../../packages/shared-utils
       '@bankng/ui':
         specifier: workspace:*
         version: link:../../packages/ui
@@ -125,6 +128,9 @@ importers:
       '@bankng/shared-types':
         specifier: workspace:*
         version: link:../../packages/shared-types
+      '@bankng/shared-utils':
+        specifier: workspace:*
+        version: link:../../packages/shared-utils
       '@bankng/ui':
         specifier: workspace:*
         version: link:../../packages/ui

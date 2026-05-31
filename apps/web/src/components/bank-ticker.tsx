@@ -28,7 +28,7 @@ const BANKS = [
 
 const VIETQR_LOGO_MAP: Record<string, string> = {
   vietcombank: "VCB",
-  vietinbank: "CTG",
+  vietinbank: "ICB",
   bidv: "BIDV",
   agribank: "VBA",
   techcombank: "TCB",
@@ -46,7 +46,7 @@ const VIETQR_LOGO_MAP: Record<string, string> = {
   ocb: "OCB",
   lpbank: "LPB",
   namabank: "NAB",
-  pvcombank: "PVCOMBANK",
+  pvcombank: "PVCB",
 };
 
 // Duplicate list for seamless loop

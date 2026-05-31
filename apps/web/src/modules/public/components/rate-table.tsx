@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { PublicBadge } from "./public-badge";
 import type { RateMatrixRow } from "../rate-matrix";
+import { cleanLogoUrl } from "../../../components/bank-logo-helper";
 
 type Props = {
   rows: RateMatrixRow[];
@@ -147,7 +148,7 @@ export function RateTable({ rows: initialRows, terms }: Props) {
                   >
                     {row.bankLogoUrl ? (
                       <img
-                        src={row.bankLogoUrl}
+                        src={cleanLogoUrl(row.bankLogoUrl)}
                         alt={row.bankName}
                         className="h-6 w-6 rounded-sm object-contain"
                       />

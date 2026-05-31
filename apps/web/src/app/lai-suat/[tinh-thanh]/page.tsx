@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { prisma } from "@bankng/db";
 import { getProvinceBySlug } from "@/modules/public/province-map";
 import { LeadForm } from "@/modules/public/components/lead-form";
+import { cleanLogoUrl } from "@/components/bank-logo-helper";
 
 export const revalidate = 3600; // Cache 1 hour for performance
 
@@ -178,7 +179,7 @@ export default async function LocalProvincePage({ params }: Props) {
                             <div className="flex items-center gap-2">
                               {rate.productVariant.product.bank.logoUrl ? (
                                 <img
-                                  src={rate.productVariant.product.bank.logoUrl}
+                                  src={cleanLogoUrl(rate.productVariant.product.bank.logoUrl)}
                                   alt={rate.productVariant.product.bank.shortName || "Bank"}
                                   className="h-6 w-6 rounded-full object-contain bg-slate-100 p-0.5"
                                 />
