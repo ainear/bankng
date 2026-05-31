@@ -92,6 +92,7 @@ const navItems: NavItem[] = [
   { label: "Tin tức", href: "/tin-tuc" },
   { label: "Sản phẩm cộng đồng", href: "/san-pham-cong-dong" },
   { label: "Nhân viên Ngân hàng", href: "/danh-sach-bankers" },
+  { label: "Thuật ngữ", href: "/thuat-ngu" },
 ];
 
 // ─── component ────────────────────────────────────────────────────────────────
@@ -126,7 +127,7 @@ export function Navbar() {
   return (
     <header
       ref={navRef}
-      className="sticky top-0 z-50 border-b border-[var(--bankng-border)] bg-white/95 backdrop-blur-sm shadow-sm"
+      className="sticky top-0 z-50 border-b border-emerald-500/10 bg-white/80 backdrop-blur-md shadow-xs"
     >
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 lg:px-6">
         {/* Logo */}
