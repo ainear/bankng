@@ -20,7 +20,7 @@ const quickLinks = [
 
 export function Footer() {
   return (
-    <footer className="border-t border-[var(--bankng-border)] bg-white/70 backdrop-blur-md shadow-[0_-4px_20px_rgba(0,0,0,0.01)]">
+    <footer className="glass-panel border-t border-emerald-500/15 shadow-[0_-8px_30px_rgba(16,185,129,0.02)]">
       <div className="mx-auto max-w-6xl px-6 py-14">
         <div className="grid gap-8 md:grid-cols-4">
           <div>

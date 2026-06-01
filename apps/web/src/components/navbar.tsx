@@ -133,7 +133,7 @@ export function Navbar() {
   return (
     <header
       ref={navRef}
-      className="sticky top-0 z-50 border-b border-emerald-500/10 bg-white/70 backdrop-blur-xl shadow-xs"
+      className="sticky top-0 z-50 glass-panel shadow-[0_2px_15px_rgba(16,185,129,0.05)] border-b border-emerald-500/15"
     >
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3.5 lg:px-6">
         {/* Logo */}
@@ -193,7 +193,7 @@ export function Navbar() {
                     onMouseEnter={() => handleMouseEnter(item.label)}
                     onMouseLeave={handleMouseLeave}
                   >
-                    <div className="rounded-2xl border border-emerald-500/10 bg-white/95 backdrop-blur-xl p-3 shadow-2xl min-w-[440px]">
+                    <div className="rounded-2xl glass-panel-premium p-3 shadow-[0_20px_50px_rgba(5,150,105,0.15)] min-w-[440px]">
                       <div className="grid grid-cols-2 gap-1.5">
                         {item.children.map((child) => (
                           <Link
