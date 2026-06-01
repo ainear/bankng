@@ -61,8 +61,45 @@ export default async function ProductDetailPage({
     notFound();
   }
 
+  // Calculate lowest and highest rates for JSON-LD schema
+  const allRates = (product.variants || [])
+    .flatMap((v: any) => v.rates || [])
+    .map((r: any) => Number(r.rateValue))
+    .filter((v: number) => !isNaN(v));
+
+  const lowestRate = allRates.length > 0 ? Math.min(...allRates) : null;
+  const highestRate = allRates.length > 0 ? Math.max(...allRates) : null;
+  const rateCount = allRates.length;
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FinancialProduct",
+    "name": product.name,
+    "description": product.shortDescription ?? product.longDescription ?? `Sản phẩm ${product.name} của ngân hàng ${product.bank.name}`,
+    "provider": {
+      "@type": "BankOrCreditUnion",
+      "name": product.bank.name,
+      "logo": product.bank.logoUrl ?? undefined,
+      "url": `https://bankng.vn/bank/${product.bank.slug}`
+    },
+    "category": product.category.name,
+    ...(lowestRate !== null && highestRate !== null ? {
+      "offers": {
+        "@type": "AggregateOffer",
+        "priceCurrency": "%",
+        "lowPrice": lowestRate,
+        "highPrice": highestRate,
+        "offerCount": rateCount
+      }
+    } : {})
+  };
+
   return (
     <main className="min-h-screen bg-[var(--bankng-background)] text-[var(--bankng-text-primary)]">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <section className="mx-auto flex max-w-6xl flex-col gap-6 px-6 py-10">
         <div>
           <Breadcrumb
@@ -123,7 +160,7 @@ export default async function ProductDetailPage({
         />
 
         <div className="grid gap-4 md:grid-cols-2">
-          {product.variants.map((variant) => (
+          {product.variants.map((variant: any) => (
             <Card key={variant.id} title={variant.variantName}>
               <p className="text-sm text-[var(--bankng-text-secondary)]">
                 {variant.targetSegment ? `Đối tượng: ${variant.targetSegment}` : "Đối tượng: Phổ thông"}
@@ -137,7 +174,7 @@ export default async function ProductDetailPage({
                     Chưa có lãi suất công khai cho gói này.
                   </p>
                 ) : (
-                  variant.rates.map((rate) => <RateCard key={rate.id} rate={rate} />)
+                  variant.rates.map((rate: any) => <RateCard key={rate.id} rate={rate} />)
                 )}
               </div>
             </Card>

@@ -146,22 +146,28 @@ const TOOL_GROUPS: ToolGroup[] = [
 
 export default function FinancialToolsPage() {
   return (
-    <main className="min-h-screen bg-[var(--bankng-background)] text-[var(--bankng-text-primary)]">
+    <main className="min-h-screen bg-[var(--bankng-background)] text-[var(--bankng-text-primary)] pb-16">
       {/* Decorative gradients */}
-      <div className="absolute inset-0 -z-10 overflow-hidden">
+      <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none">
         <div className="absolute -top-[30%] -left-[10%] h-[70%] w-[50%] rounded-full bg-[var(--bankng-primary)]/5 blur-[120px]" />
         <div className="absolute top-[30%] -right-[15%] h-[60%] w-[55%] rounded-full bg-[var(--bankng-primary)]/5 blur-[120px]" />
       </div>
 
       <section className="mx-auto max-w-5xl px-6 py-12">
-        {/* Header */}
-        <div className="mb-10 text-center md:text-left">
-          <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight text-[var(--bankng-text-primary)]">
-            Công cụ Tính Tài chính Chuyên sâu
-          </h1>
-          <p className="mt-3 text-lg text-[var(--bankng-text-secondary)] max-w-2xl leading-relaxed">
-            Hỗ trợ sếp và người dùng tự động tính toán tiền lương, thuế, lãi suất tiết kiệm và lập lịch trả nợ vay ngân hàng chuẩn xác 100%.
-          </p>
+        {/* Header - Glassmorphic Banner */}
+        <div className="relative overflow-hidden rounded-3xl border border-emerald-500/10 bg-white/70 backdrop-blur-xl p-8 md:p-12 shadow-sm mb-10">
+          <div className="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-emerald-500/10 blur-2xl pointer-events-none" />
+          <div className="relative max-w-3xl text-center md:text-left">
+            <span className="rounded-full bg-emerald-100/80 px-3.5 py-1.5 text-xs font-black uppercase tracking-wider text-emerald-800 border border-emerald-200/50">
+              🧮 Máy tính tài chính AI
+            </span>
+            <h1 className="mt-5 text-3xl md:text-4xl font-black tracking-tight text-[var(--bankng-text-primary)] leading-tight">
+              Công cụ Tính Tài chính Chuyên sâu
+            </h1>
+            <p className="mt-3 text-sm md:text-base font-semibold text-slate-600 leading-relaxed max-w-2xl">
+              Hỗ trợ sếp và người dùng tự động tính toán tiền lương, thuế, lãi suất tiết kiệm và lập lịch trả nợ vay ngân hàng chuẩn xác 100%.
+            </p>
+          </div>
         </div>
 
         {/* Tools Directory */}
@@ -169,7 +175,7 @@ export default function FinancialToolsPage() {
           {TOOL_GROUPS.map((group) => (
             <div key={group.categoryName} className="glass-panel rounded-3xl p-8 shadow-sm">
               <div className="mb-6 flex items-center gap-3 border-b border-emerald-500/10 pb-4">
-                <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-50 text-2xl shadow-xs">
+                <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-50 text-2xl shadow-xs border border-emerald-200/30">
                   {group.icon}
                 </span>
                 <h2 className="text-lg font-black text-[var(--bankng-text-primary)] tracking-tight">
@@ -182,28 +188,28 @@ export default function FinancialToolsPage() {
                   <Link
                     key={tool.href}
                     href={tool.href}
-                    className="group relative flex flex-col justify-between rounded-2xl border border-slate-200 bg-white p-5 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-emerald-500 hover:shadow-md hover:shadow-emerald-500/5"
+                    className="group relative flex flex-col justify-between rounded-2xl border border-emerald-500/10 bg-white/80 backdrop-blur-md p-5 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-emerald-500 hover:shadow-lg hover:shadow-emerald-500/5 active:scale-[0.99]"
                   >
                     <div className="flex items-start gap-4">
-                      <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-emerald-50 text-2xl transition-transform group-hover:scale-110">
+                      <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-emerald-50 text-2xl border border-emerald-200/20 transition-transform group-hover:scale-110 duration-300">
                         {tool.emoji}
                       </span>
                       <div>
-                        <div className="flex items-center gap-2">
-                          <h3 className="font-bold text-[var(--bankng-text-primary)] group-hover:text-emerald-700 transition-colors">
+                        <div className="flex flex-wrap items-center gap-2">
+                          <h3 className="font-extrabold text-[var(--bankng-text-primary)] group-hover:text-emerald-700 transition-colors leading-snug">
                             {tool.title}
                           </h3>
                           {tool.isReady ? (
-                            <span className="rounded-full bg-emerald-100 px-2.5 py-0.5 text-[9px] font-black tracking-wider text-emerald-800 uppercase">
+                            <span className="rounded-full bg-emerald-100 px-2.5 py-0.5 text-[9px] font-black tracking-wider text-emerald-800 uppercase border border-emerald-200/50">
                               Mới ✨
                             </span>
                           ) : (
-                            <span className="rounded-full bg-slate-100 px-2.5 py-0.5 text-[9px] font-bold text-slate-600 uppercase">
+                            <span className="rounded-full bg-slate-100 px-2.5 py-0.5 text-[9px] font-bold text-slate-500 uppercase border border-slate-200/50">
                               Chuẩn
                             </span>
                           )}
                         </div>
-                        <p className="mt-2 text-xs leading-relaxed text-[var(--bankng-text-secondary)] font-medium">
+                        <p className="mt-2 text-xs leading-relaxed text-[var(--bankng-text-secondary)] font-semibold">
                           {tool.description}
                         </p>
                       </div>
@@ -216,21 +222,20 @@ export default function FinancialToolsPage() {
         </div>
 
         {/* Support Banner Card */}
-        <div className="mt-12 rounded-2xl border border-[var(--bankng-border)] bg-[var(--bankng-surface)] p-8 text-center md:text-left">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+        <div className="mt-12 rounded-2xl border border-emerald-500/10 bg-white/70 backdrop-blur-xl p-8 text-center md:text-left shadow-xs relative overflow-hidden">
+          <div className="absolute -right-20 -bottom-20 h-40 w-40 rounded-full bg-emerald-500/5 blur-3xl pointer-events-none" />
+          <div className="relative flex flex-col md:flex-row items-center justify-between gap-6">
             <div>
-              <h3 className="text-lg font-bold">Cần hỗ trợ phân tích hồ sơ tín dụng?</h3>
-              <p className="mt-2 text-sm text-[var(--bankng-text-secondary)] max-w-xl">
+              <h3 className="text-lg font-black tracking-tight">Cần hỗ trợ phân tích hồ sơ tín dụng?</h3>
+              <p className="mt-2 text-sm text-[var(--bankng-text-secondary)] max-w-xl font-semibold leading-relaxed">
                 Bên cạnh các công cụ tính tự động, mạng lưới nhân viên ngân hàng của Bankng luôn sẵn sàng tư vấn trực tiếp 1-1 miễn phí cho bạn.
               </p>
             </div>
-            <Link href="/danh-sach-bankers shrink-0">
-              <Link
-                href="/danh-sach-bankers"
-                className="inline-flex h-11 items-center justify-center rounded-xl bg-[var(--bankng-primary)] px-6 text-sm font-bold text-white shadow-md shadow-[var(--bankng-primary)]/10 hover:bg-[var(--bankng-primary)]/90 transition-transform active:scale-95"
-              >
-                Kết nối với Banker ngay →
-              </Link>
+            <Link
+              href="/danh-sach-bankers"
+              className="inline-flex h-11 items-center justify-center rounded-xl bg-[var(--bankng-primary)] px-6 text-sm font-black text-white shadow-md shadow-emerald-500/10 hover:bg-[var(--bankng-primary-hover)] hover:shadow-lg hover:shadow-emerald-500/15 transition-all active:scale-95 cursor-pointer"
+            >
+              Kết nối với Banker ngay →
             </Link>
           </div>
         </div>

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { prisma } from "@bankng/db";
 import { PROVINCES } from "@/modules/public/province-map";
 import { LeadForm } from "@/modules/public/components/lead-form";
@@ -137,9 +138,11 @@ export default async function NationalRatesPage() {
                           <td className="py-3.5">
                             <div className="flex items-center gap-2">
                               {cleanLogoUrl(rate.productVariant.product.bank.logoUrl) ? (
-                                <img
+                                <Image
                                   src={cleanLogoUrl(rate.productVariant.product.bank.logoUrl)}
                                   alt={rate.productVariant.product.bank.shortName || "Bank"}
+                                  width={24}
+                                  height={24}
                                   className="h-6 w-6 rounded-full object-contain bg-slate-100 p-0.5"
                                 />
                               ) : (
@@ -212,11 +215,13 @@ export default async function NationalRatesPage() {
                       key={banker.id}
                       className="rounded-xl border border-[var(--bankng-border)] bg-white p-4 shadow-xs transition-all hover:shadow-md flex items-start gap-4"
                     >
-                      <div className="h-12 w-12 shrink-0 rounded-full bg-slate-100 overflow-hidden border border-slate-200">
+                      <div className="h-12 w-12 shrink-0 rounded-full bg-slate-100 overflow-hidden border border-slate-200 relative">
                         {banker.user.profile?.avatarUrl ? (
-                          <img
+                          <Image
                             src={banker.user.profile.avatarUrl}
                             alt={banker.user.profile.fullName}
+                            width={48}
+                            height={48}
                             className="h-full w-full object-cover"
                           />
                         ) : (

@@ -1,10 +1,42 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import Image from "next/image";
+import type { Metadata } from "next";
 import { Avatar, Rating } from "@bankng/ui";
 import { getBanker } from "@/modules/public/data-bankers";
 import { LeadFormClient } from "./lead-form-client";
 
 export const dynamic = "force-dynamic";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const banker = await getBanker(slug);
+
+  if (!banker) {
+    return {
+      title: "Chuyên viên ngân hàng không tồn tại | Bankng",
+      description: "Hồ sơ chuyên viên ngân hàng bạn đang tìm kiếm hiện không tồn tại hoặc đã được di chuyển."
+    };
+  }
+
+  const title = `${banker.userName} - ${banker.title ?? "Chuyên viên tư vấn"} tại ${banker.bankName ?? "Ngân hàng"} | Bankng`;
+  const description = `Liên hệ trực tiếp với chuyên viên ${banker.userName} hỗ trợ tại ${banker.cityName ?? "Việt Nam"} để được tư vấn miễn phí các sản phẩm tài chính thế mạnh: ${banker.bio ? banker.bio.slice(0, 80) : ""}. Cập nhật hồ sơ xác thực và đánh giá của khách hàng.`;
+
+  return {
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      type: "profile",
+      ...(banker.avatarUrl ? { images: [banker.avatarUrl] } : {}),
+    },
+  };
+}
 
 function formatDate(date: Date) {
   return date.toLocaleDateString("vi-VN", {
@@ -26,8 +58,53 @@ export default async function BankerProfilePage({
     notFound();
   }
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": `https://bankng.vn/banker/${slug}#person`,
+        "name": banker.userName,
+        "jobTitle": banker.title ?? "Chuyên viên tư vấn tài chính",
+        "worksFor": {
+          "@type": "Organization",
+          "name": banker.bankName ?? "Ngân hàng"
+        },
+        "image": banker.avatarUrl,
+        "email": banker.userEmail
+      },
+      {
+        "@type": "ProfessionalService",
+        "@id": `https://bankng.vn/banker/${slug}#service`,
+        "name": `Tư vấn tài chính - ${banker.userName}`,
+        "image": banker.avatarUrl,
+        "priceRange": "$$",
+        "telephone": "0988.291.512",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": banker.cityName ?? "Việt Nam",
+          "addressRegion": banker.cityName ?? "Việt Nam",
+          "addressCountry": "VN"
+        },
+        ...(banker.rating > 0 ? {
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": banker.rating.toString(),
+            "reviewCount": banker.reviewCount.toString(),
+            "bestRating": "5",
+            "worstRating": "1"
+          }
+        } : {})
+      }
+    ]
+  };
+
   return (
     <main className="min-h-screen bg-[var(--bankng-background)] text-[var(--bankng-text-primary)]">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <section className="mx-auto max-w-4xl px-6 py-10">
         <div className="mb-6">
           <Link className="text-sm text-[var(--bankng-primary)]" href="/danh-sach-bankers">
@@ -42,6 +119,16 @@ export default async function BankerProfilePage({
               src={banker.avatarUrl ?? undefined}
               alt={banker.userName ?? "Banker"}
               size="lg"
+              renderImage={(props) => (
+                <Image
+                  src={props.src}
+                  alt={props.alt}
+                  width={56}
+                  height={56}
+                  className={props.className}
+                  priority={true}
+                />
+              )}
             />
             <div className="flex-1">
               <div className="flex items-center gap-2">

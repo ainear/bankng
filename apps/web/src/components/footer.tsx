@@ -20,24 +20,24 @@ const quickLinks = [
 
 export function Footer() {
   return (
-    <footer className="border-t border-[var(--bankng-border)] bg-[var(--bankng-surface)]">
-      <div className="mx-auto max-w-6xl px-6 py-12">
+    <footer className="border-t border-[var(--bankng-border)] bg-white/70 backdrop-blur-md shadow-[0_-4px_20px_rgba(0,0,0,0.01)]">
+      <div className="mx-auto max-w-6xl px-6 py-14">
         <div className="grid gap-8 md:grid-cols-4">
           <div>
-            <div className="mb-4 flex items-center gap-2">
-              <svg height="32" width="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect width="32" height="32" rx="6" fill="var(--bankng-primary)" />
-                <text x="16" y="22" textAnchor="middle" fill="white" fontSize="16" fontWeight="bold">B</text>
+            <div className="mb-4 flex items-center gap-2.5">
+              <svg height="34" width="34" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="32" height="32" rx="8" fill="var(--bankng-primary)" />
+                <text x="16" y="22" textAnchor="middle" fill="white" fontSize="16" fontWeight="black">B</text>
               </svg>
-              <span className="text-lg font-semibold text-[var(--bankng-text-primary)]">Bankng</span>
+              <span className="text-xl font-black text-[var(--bankng-text-primary)] tracking-tight">Bankng</span>
             </div>
-            <p className="text-sm text-[var(--bankng-text-secondary)]">
+            <p className="text-sm font-semibold text-[var(--bankng-text-secondary)] leading-relaxed">
               Nền tảng so sánh sản phẩm ngân hàng, tư vấn tài chính ứng dụng AI phục vụ cộng đồng.
             </p>
-            <p className="mt-3 text-sm text-[var(--bankng-text-secondary)]">
+            <p className="mt-4 text-sm font-bold text-[var(--bankng-text-secondary)]">
               Công ty Công nghệ Tài chính Bankng
             </p>
-            <p className="text-sm text-[var(--bankng-text-secondary)]">
+            <p className="text-xs font-semibold text-slate-500">
               Thành viên Hiệp hội Ngân hàng Việt Nam
             </p>
           </div>
@@ -49,6 +49,7 @@ export function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
+                    prefetch={false}
                     className="text-sm text-[var(--bankng-text-secondary)] hover:text-[var(--bankng-primary)]"
                   >
                     {link.label}
@@ -65,6 +66,7 @@ export function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
+                    prefetch={false}
                     className="text-sm text-[var(--bankng-text-secondary)] hover:text-[var(--bankng-primary)]"
                   >
                     {link.label}
@@ -109,10 +111,10 @@ export function Footer() {
             <div className="flex flex-wrap items-center gap-4">
               {/* Legal links */}
               <div className="flex gap-4 text-sm">
-                <Link href="/chinh-sach-bao-mat" className="text-[var(--bankng-text-secondary)] hover:text-[var(--bankng-primary)]">
+                <Link href="/chinh-sach-bao-mat" prefetch={false} className="text-[var(--bankng-text-secondary)] hover:text-[var(--bankng-primary)]">
                   Chính sách bảo mật
                 </Link>
-                <Link href="/dieu-khoan" className="text-[var(--bankng-text-secondary)] hover:text-[var(--bankng-primary)]">
+                <Link href="/dieu-khoan" prefetch={false} className="text-[var(--bankng-text-secondary)] hover:text-[var(--bankng-primary)]">
                   Điều khoản
                 </Link>
               </div>

@@ -5,6 +5,7 @@ type AvatarProps = {
   alt?: string;
   size?: "sm" | "md" | "lg";
   className?: string;
+  renderImage?: (props: { src: string; alt: string; className: string }) => React.ReactNode;
 };
 
 const sizeClasses = {
@@ -13,7 +14,7 @@ const sizeClasses = {
   lg: "h-14 w-14 text-base",
 };
 
-export function Avatar({ src, alt = "", size = "md", className }: AvatarProps) {
+export function Avatar({ src, alt = "", size = "md", className, renderImage }: AvatarProps) {
   const initials = alt
     ? alt
         .split(" ")
@@ -24,6 +25,13 @@ export function Avatar({ src, alt = "", size = "md", className }: AvatarProps) {
     : "?";
 
   if (src) {
+    if (renderImage) {
+      return renderImage({
+        src,
+        alt,
+        className: clsx("rounded-full object-cover", sizeClasses[size], className),
+      });
+    }
     return (
       <img
         src={src}

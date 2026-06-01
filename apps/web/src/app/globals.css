@@ -20,21 +20,28 @@ body {
 }
 
 .glass-panel {
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(16, 185, 129, 0.1);
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(16, 185, 129, 0.08);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.015);
+}
+
+.emerald-glow {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .emerald-glow:hover {
-  border-color: rgba(16, 185, 129, 0.3);
-  box-shadow: 0 10px 25px -5px rgba(16, 185, 129, 0.05), 0 8px 10px -6px rgba(16, 185, 129, 0.05);
+  border-color: rgba(5, 150, 105, 0.25);
+  box-shadow: 0 12px 30px -10px rgba(5, 150, 105, 0.08), 
+              0 4px 12px -5px rgba(5, 150, 105, 0.03);
+  transform: translateY(-2px) scale(1.005);
 }
 
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(4px);
+    transform: translateY(6px);
   }
   to {
     opacity: 1;
@@ -43,6 +50,7 @@ body {
 }
 
 .animate-fadeIn {
-  animation: fadeIn 0.25s ease-out forwards;
+  animation: fadeIn 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
+
 

@@ -133,30 +133,30 @@ export function Navbar() {
   return (
     <header
       ref={navRef}
-      className="sticky top-0 z-50 border-b border-emerald-500/10 bg-white/80 backdrop-blur-md shadow-xs"
+      className="sticky top-0 z-50 border-b border-emerald-500/10 bg-white/70 backdrop-blur-xl shadow-xs"
     >
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 lg:px-6">
+      <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3.5 lg:px-6">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2 shrink-0">
-          <svg height="32" width="32" viewBox="0 0 32 32" fill="none">
-            <rect width="32" height="32" rx="6" fill="var(--bankng-primary)" />
+        <Link href="/" className="flex items-center gap-2.5 shrink-0 transition-transform active:scale-95">
+          <svg height="34" width="34" viewBox="0 0 32 32" fill="none">
+            <rect width="32" height="32" rx="8" fill="var(--bankng-primary)" />
             <text
               x="16" y="22"
               textAnchor="middle"
               fill="white"
               fontSize="16"
-              fontWeight="bold"
+              fontWeight="black"
             >
               B
             </text>
           </svg>
-          <span className="text-lg font-bold text-[var(--bankng-text-primary)]">
+          <span className="text-xl font-black tracking-tight text-[var(--bankng-text-primary)] bg-gradient-to-r from-slate-900 to-slate-700 bg-clip-text text-transparent">
             Bankng
           </span>
         </Link>
 
         {/* Desktop Nav */}
-        <nav className="hidden items-center gap-0.5 lg:flex">
+        <nav className="hidden items-center gap-1.5 lg:flex">
           {navItems.map((item) =>
             item.children ? (
               <div
@@ -166,21 +166,21 @@ export function Navbar() {
                 onMouseLeave={handleMouseLeave}
               >
                 <button
-                  className={`flex items-center gap-1 rounded-md px-3 py-2 text-sm font-medium transition-colors ${
+                  className={`flex items-center gap-1 rounded-lg px-3 py-1.5 text-sm font-semibold transition-all ${
                     openDropdown === item.label
-                      ? "bg-[var(--bankng-primary)]/8 text-[var(--bankng-primary)]"
-                      : "text-[var(--bankng-text-primary)] hover:bg-[var(--bankng-surface-muted)]"
+                      ? "bg-[var(--bankng-primary)]/10 text-[var(--bankng-primary)]"
+                      : "text-[var(--bankng-text-primary)] hover:bg-slate-100/80"
                   }`}
                 >
                   {item.label}
                   <svg
-                    className={`h-3.5 w-3.5 transition-transform duration-200 ${
+                    className={`h-3.5 w-3.5 transition-transform duration-300 ${
                       openDropdown === item.label ? "rotate-180" : ""
                     }`}
                     viewBox="0 0 12 12"
                     fill="none"
                     stroke="currentColor"
-                    strokeWidth="1.5"
+                    strokeWidth="1.8"
                   >
                     <path d="M2.5 4.5L6 8L9.5 4.5" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
@@ -189,26 +189,26 @@ export function Navbar() {
                 {/* Dropdown panel */}
                 {openDropdown === item.label && (
                   <div
-                    className="absolute left-0 top-full pt-1"
+                    className="absolute left-0 top-full pt-2 animate-fadeIn"
                     onMouseEnter={() => handleMouseEnter(item.label)}
                     onMouseLeave={handleMouseLeave}
                   >
-                    <div className="rounded-xl border border-[var(--bankng-border)] bg-white p-2 shadow-xl min-w-[420px]">
-                      <div className="grid grid-cols-2 gap-1">
+                    <div className="rounded-2xl border border-emerald-500/10 bg-white/95 backdrop-blur-xl p-3 shadow-2xl min-w-[440px]">
+                      <div className="grid grid-cols-2 gap-1.5">
                         {item.children.map((child) => (
                           <Link
                             key={child.href}
                             href={child.href}
                             onClick={() => setOpenDropdown(null)}
-                            className="group flex items-start gap-3 rounded-lg p-3 transition-colors hover:bg-[var(--bankng-surface-muted)]"
+                            className="group flex items-start gap-3 rounded-xl p-3 transition-all hover:bg-emerald-50/50"
                           >
-                            <span className="mt-0.5 text-xl leading-none">{child.emoji}</span>
+                            <span className="mt-0.5 text-2xl leading-none transition-transform group-hover:scale-110">{child.emoji}</span>
                             <div className="flex-1 min-w-0">
-                              <div className="text-sm font-medium text-[var(--bankng-text-primary)] group-hover:text-[var(--bankng-primary)]">
+                              <div className="text-sm font-bold text-[var(--bankng-text-primary)] group-hover:text-[var(--bankng-primary)] transition-colors">
                                 {child.label}
                               </div>
                               {child.desc && (
-                                <div className="mt-0.5 text-xs text-[var(--bankng-text-secondary)] leading-snug">
+                                <div className="mt-1 text-xs text-[var(--bankng-text-secondary)] leading-snug font-medium">
                                   {child.desc}
                                 </div>
                               )}
@@ -224,7 +224,7 @@ export function Navbar() {
               <Link
                 key={item.href}
                 href={item.href ?? "/"}
-                className="rounded-md px-3 py-2 text-sm font-medium text-[var(--bankng-text-primary)] hover:bg-[var(--bankng-surface-muted)] transition-colors"
+                className="rounded-lg px-3 py-1.5 text-sm font-semibold text-[var(--bankng-text-primary)] hover:bg-slate-100/80 transition-all"
               >
                 {item.label}
               </Link>
@@ -233,16 +233,16 @@ export function Navbar() {
         </nav>
 
         {/* Desktop CTA */}
-        <div className="hidden items-center gap-2 lg:flex">
+        <div className="hidden items-center gap-2.5 lg:flex">
           <Link
             href="/banker/dang-ky"
-            className="rounded-md border border-[var(--bankng-border)] px-3 py-1.5 text-xs font-medium text-[var(--bankng-text-secondary)] hover:border-[var(--bankng-primary)] hover:text-[var(--bankng-primary)] transition-colors"
+            className="rounded-lg border border-[var(--bankng-border)] px-3.5 py-1.5 text-xs font-bold text-[var(--bankng-text-secondary)] hover:border-[var(--bankng-primary)] hover:text-[var(--bankng-primary)] transition-all active:scale-95"
           >
             Đăng ký NV tư vấn
           </Link>
           <Link
             href="/auth/login"
-            className="rounded-md bg-[var(--bankng-primary)] px-4 py-1.5 text-sm font-medium text-white hover:bg-[var(--bankng-primary)]/90 transition-colors"
+            className="rounded-lg bg-[var(--bankng-primary)] px-4.5 py-1.5 text-sm font-bold text-white shadow-md shadow-emerald-500/10 hover:bg-[var(--bankng-primary-hover)] hover:shadow-lg hover:shadow-emerald-500/15 transition-all active:scale-95"
           >
             Đăng nhập
           </Link>

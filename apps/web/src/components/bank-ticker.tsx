@@ -1,7 +1,6 @@
 "use client";
 
-// Bank logo ticker — infinite auto-scrolling marquee giống nganhang.com
-// Sử dụng CSS animation, không cần thư viện ngoài
+import Image from "next/image";
 
 const BANKS = [
   { name: "Vietcombank", short: "VCB", color: "#006633", slug: "vietcombank" },
@@ -59,9 +58,11 @@ function BankLogo({ name, short, color, slug }: { name: string; short: string; c
   return (
     <div className="flex shrink-0 items-center gap-2.5 rounded-lg border border-[var(--bankng-border)] bg-white px-4 py-2.5 shadow-sm transition-shadow hover:shadow-md">
       {/* Real image logo */}
-      <img
+      <Image
         src={logoUrl}
         alt={name}
+        width={32}
+        height={32}
         className="h-8 w-8 shrink-0 object-contain"
         onError={(e) => {
           (e.target as HTMLElement).style.display = "none";

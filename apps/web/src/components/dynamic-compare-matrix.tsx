@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { cleanLogoUrl } from "@/components/bank-logo-helper";
 
 interface BankData {
@@ -113,9 +114,11 @@ export function DynamicCompareMatrix({ banks }: Props) {
                 }`}
               >
                 {b.logoUrl && (
-                  <img
+                  <Image
                     src={cleanLogoUrl(b.logoUrl) || "https://vietqr.net/portal-assets/img/logo-vietqr.png"}
                     alt={b.name}
+                    width={16}
+                    height={16}
                     className="h-4 w-4 rounded-sm object-contain"
                   />
                 )}
@@ -145,7 +148,13 @@ export function DynamicCompareMatrix({ banks }: Props) {
                     <th key={i} className="px-4 py-3.5 font-bold text-center border-l border-slate-100">
                       <div className="flex flex-col items-center gap-1.5">
                         {r.logoUrl && (
-                          <img src={r.logoUrl} alt={r.name} className="h-8 w-8 object-contain" />
+                          <Image
+                            src={r.logoUrl}
+                            alt={r.name}
+                            width={32}
+                            height={32}
+                            className="h-8 w-8 object-contain"
+                          />
                         )}
                         <span className="font-extrabold text-slate-900 text-sm">{r.name}</span>
                       </div>

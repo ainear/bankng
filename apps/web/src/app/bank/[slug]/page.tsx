@@ -60,8 +60,45 @@ export default async function BankDetailPage({
     notFound();
   }
 
+  // Generate Bank Schema & Branch Schemas for SEO structured data
+  const bankSchema = {
+    "@context": "https://schema.org",
+    "@type": "BankOrCreditUnion",
+    "name": bank.name,
+    "alternateName": bank.shortName ?? undefined,
+    "logo": bank.logoUrl ?? undefined,
+    "url": bank.websiteUrl ?? `https://bankng.vn/bank/${bank.slug}`,
+    "description": bank.description ?? `Thông tin ngân hàng ${bank.name}`
+  };
+
+  const jsonLd = bank.branches && bank.branches.length > 0
+    ? [
+        bankSchema,
+        ...bank.branches.map((branch: any) => ({
+          "@context": "https://schema.org",
+          "@type": "FinancialService",
+          "name": `${branch.branchName} - ${bank.name}`,
+          "parentOrganization": {
+            "@type": "BankOrCreditUnion",
+            "name": bank.name,
+            "logo": bank.logoUrl ?? undefined
+          },
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": branch.address ?? undefined,
+            "addressLocality": branch.provinceCode ?? undefined,
+            "addressCountry": "VN"
+          }
+        }))
+      ]
+    : bankSchema;
+
   return (
     <main className="min-h-screen bg-[var(--bankng-background)] text-[var(--bankng-text-primary)]">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <section className="mx-auto flex max-w-6xl flex-col gap-6 px-6 py-10">
         <div>
           <Breadcrumb
@@ -117,7 +154,7 @@ export default async function BankDetailPage({
             <EmptyState description="Chưa có dữ liệu chi nhánh cho ngân hàng này." title="Không có chi nhánh" />
           ) : (
             <div className="grid gap-3">
-              {bank.branches.map((branch) => (
+              {bank.branches.map((branch: any) => (
                 <div className="rounded-md border border-[var(--bankng-border)] p-3" key={branch.id}>
                   <div className="font-medium">{branch.branchName}</div>
                   <div className="text-sm text-[var(--bankng-text-secondary)]">
@@ -138,7 +175,7 @@ export default async function BankDetailPage({
             <EmptyState description="Ngân hàng này chưa có sản phẩm công khai." title="Không có sản phẩm" />
           ) : (
             <div className="grid gap-3">
-              {bank.products.map((product) => (
+              {bank.products.map((product: any) => (
                 <div className="rounded-md border border-[var(--bankng-border)] p-4" key={product.id}>
                   <div className="flex flex-wrap gap-2">
                     <PublicBadge>{product.category.name}</PublicBadge>

@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { PublicBadge } from "./public-badge";
 import type { RateMatrixRow } from "../rate-matrix";
 import { cleanLogoUrl } from "../../../components/bank-logo-helper";
@@ -87,28 +88,28 @@ export function RateTable({ rows: initialRows, terms }: Props) {
         <select
           value={bankType}
           onChange={(e) => setBankType(e.target.value)}
-          className="min-h-9 rounded-md border border-[var(--bankng-border)] bg-white px-3 text-sm"
+          className="min-h-10 rounded-xl border border-emerald-500/10 bg-white/80 backdrop-blur-md px-4 text-sm font-bold text-slate-700 outline-none shadow-xs transition-all focus:border-emerald-500 cursor-pointer"
         >
           {BANK_TYPE_OPTIONS.map((opt) => (
             <option key={opt.value} value={opt.value}>
-              {opt.label}
+              🏦 Phân loại: {opt.label}
             </option>
           ))}
         </select>
       </div>
 
-      <div className="overflow-x-auto rounded-lg border border-[var(--bankng-border)]">
-        <table className="min-w-full text-sm">
+      <div className="overflow-x-auto rounded-2xl border border-emerald-500/10 bg-white/80 backdrop-blur-md shadow-sm">
+        <table className="min-w-full text-sm border-collapse">
           <thead>
-            <tr className="bg-[var(--bankng-surface-muted)]">
-              <th className="px-4 py-3 text-left font-semibold text-[var(--bankng-text-primary)]">#</th>
-              <th className="px-4 py-3 text-left font-semibold text-[var(--bankng-text-primary)]">Ngân hàng</th>
+            <tr className="bg-slate-50 text-[var(--bankng-text-primary)] border-b border-[var(--bankng-border)]">
+              <th className="px-4 py-3.5 text-left font-black text-[var(--bankng-text-primary)]">#</th>
+              <th className="px-4 py-3.5 text-left font-black text-[var(--bankng-text-primary)]">Ngân hàng</th>
               {terms.map((term) => (
                 <th
                   key={term}
-                  className={`cursor-pointer px-3 py-3 text-right font-medium transition-colors hover:text-[var(--bankng-primary)] ${
+                  className={`cursor-pointer px-3 py-3.5 text-right font-black transition-colors hover:text-[var(--bankng-primary)] ${
                     sortTerm === term
-                      ? "bg-[var(--bankng-primary)]/5 text-[var(--bankng-primary)]"
+                      ? "bg-emerald-500/5 text-[var(--bankng-primary)]"
                       : "text-[var(--bankng-text-secondary)]"
                   }`}
                   onClick={() => {
@@ -122,38 +123,42 @@ export function RateTable({ rows: initialRows, terms }: Props) {
                   }}
                 >
                   <div className="flex flex-col items-end gap-1">
-                    <span>{TERM_LABELS[term]}</span>
-                    {sortTerm === term && (
-                      <span className="text-xs">{sortDir === "desc" ? "▼" : "▲"}</span>
-                    )}
-                    {sortTerm !== term && (
-                      <span className="text-xs opacity-30">⇅</span>
-                    )}
+                    <span className="whitespace-nowrap">{TERM_LABELS[term]}</span>
+                    <div className="flex items-center gap-0.5 text-[10px]">
+                      {sortTerm === term && (
+                        <span className="font-bold text-emerald-600">{sortDir === "desc" ? "▼ giảm" : "▲ tăng"}</span>
+                      )}
+                      {sortTerm !== term && (
+                        <span className="opacity-30">⇅ lọc</span>
+                      )}
+                    </div>
                   </div>
                 </th>
               ))}
             </tr>
           </thead>
-          <tbody>
+          <tbody className="divide-y divide-slate-100 text-slate-800">
             {sortedRows.map((row, idx) => (
               <tr
                 key={row.bankSlug}
-                className="border-t border-[var(--bankng-border)] hover:bg-[var(--bankng-surface)]"
+                className="hover:bg-emerald-50/30 hover:scale-[1.002] transition-all duration-200"
               >
-                <td className="px-4 py-3 text-[var(--bankng-text-secondary)]">{idx + 1}</td>
-                <td className="px-4 py-3">
+                <td className="px-4 py-4 text-slate-500 font-semibold">{idx + 1}</td>
+                <td className="px-4 py-4">
                   <Link
                     href={`/bank/${row.bankSlug}`}
-                    className="flex items-center gap-2 font-medium text-[var(--bankng-text-primary)] hover:text-[var(--bankng-primary)]"
+                    className="flex items-center gap-2.5 font-bold text-[var(--bankng-text-primary)] hover:text-[var(--bankng-primary)] transition-colors"
                   >
                     {cleanLogoUrl(row.bankLogoUrl) ? (
-                      <img
-                        src={cleanLogoUrl(row.bankLogoUrl)}
+                      <Image
+                        src={cleanLogoUrl(row.bankLogoUrl)!}
                         alt={row.bankName}
-                        className="h-6 w-6 rounded-sm object-contain"
+                        width={26}
+                        height={26}
+                        className="h-6.5 w-6.5 rounded-md object-contain border border-slate-100"
                       />
                     ) : (
-                      <div className="flex h-6 w-6 items-center justify-center rounded-sm bg-[var(--bankng-surface-muted)] text-xs font-bold">
+                      <div className="flex h-6.5 w-6.5 items-center justify-center rounded-md bg-emerald-50 text-emerald-700 font-black text-[10px]">
                         {row.bankShortName?.[0] ?? row.bankName[0]}
                       </div>
                     )}
@@ -164,7 +169,7 @@ export function RateTable({ rows: initialRows, terms }: Props) {
                   const rate = row.rates[term];
                   if (!rate) {
                     return (
-                      <td key={term} className="px-3 py-3 text-center text-[var(--bankng-text-secondary)]">
+                      <td key={term} className="px-3 py-4 text-center text-slate-400 font-semibold">
                         —
                       </td>
                     );
@@ -172,19 +177,27 @@ export function RateTable({ rows: initialRows, terms }: Props) {
                   const isBest = rate.rateValue === bestRatePerTerm[term] && rate.rateValue > 0;
                   const freshness = getFreshnessLabel(rate.effectiveFrom, now);
                   return (
-                    <td key={term} className={`px-3 py-3 text-right ${isBest ? "bg-emerald-50" : ""}`}>
-                      <div className="flex flex-col items-end gap-0.5">
+                    <td key={term} className={`px-3 py-4 text-right transition-colors ${isBest ? "bg-emerald-50/40" : ""}`}>
+                      <div className="flex flex-col items-end gap-1">
                         <div className="flex items-center gap-1">
                           {isBest && (
-                            <span className="rounded-sm bg-emerald-500 px-1 py-0.5 text-[9px] font-bold text-white">TOP</span>
+                            <span className="rounded-md bg-emerald-600 px-1.5 py-0.5 text-[8px] font-black tracking-wider text-white uppercase shadow-xs">TOP</span>
                           )}
-                          <span className={`font-semibold ${
-                            isBest ? "text-emerald-600" : "text-[var(--bankng-rate-highlight)]"
+                          <span className={`font-black text-base ${
+                            isBest ? "text-emerald-600" : "text-slate-800"
                           }`}>
                             {rate.rateValue.toFixed(2)}%
                           </span>
                         </div>
-                        <PublicBadge tone={freshness.tone}>{freshness.label}</PublicBadge>
+                        <span className={`rounded-full px-2 py-0.5 text-[9px] font-bold border ${
+                          freshness.tone === "success"
+                            ? "bg-emerald-50 text-emerald-700 border-emerald-200"
+                            : freshness.tone === "warning"
+                            ? "bg-amber-50 text-amber-700 border-amber-200"
+                            : "bg-rose-50 text-rose-700 border-rose-200"
+                        }`}>
+                          {freshness.label}
+                        </span>
                       </div>
                     </td>
                   );

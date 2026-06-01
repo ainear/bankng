@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
+import Image from "next/image";
 import { getArticle, getArticles } from "@/modules/public/data-articles";
 import { ArticleCard } from "@/modules/public/components/article-card";
 
@@ -67,8 +68,34 @@ export default async function ArticleDetailPage({
     .filter((a) => a.slug !== slug && a.categorySlug === article.categorySlug)
     .slice(0, 3);
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "NewsArticle",
+    "headline": article.title,
+    "description": article.excerpt || article.title,
+    "image": article.coverImage ? [article.coverImage] : [],
+    "datePublished": article.createdAt instanceof Date ? article.createdAt.toISOString() : new Date(article.createdAt).toISOString(),
+    "dateModified": article.updatedAt instanceof Date ? article.updatedAt.toISOString() : new Date(article.updatedAt).toISOString(),
+    "author": article.authorName ? [{
+      "@type": "Person",
+      "name": article.authorName
+    }] : [],
+    "publisher": {
+      "@type": "Organization",
+      "name": "Bankng",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://bankng.vn/logo.png"
+      }
+    }
+  };
+
   return (
     <main className="min-h-screen bg-[var(--bankng-background)] text-[var(--bankng-text-primary)]">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <section className="mx-auto max-w-4xl px-6 py-10">
         <div className="mb-6">
           <Link className="text-sm text-[var(--bankng-primary)]" href="/tin-tuc">
@@ -105,9 +132,13 @@ export default async function ArticleDetailPage({
           </header>
 
           {article.coverImage && (
-            <img
+            <Image
               src={article.coverImage}
               alt={article.title}
+              width={800}
+              height={450}
+              priority={true}
+              fetchPriority="high"
               className="mb-8 w-full rounded-lg object-cover"
             />
           )}

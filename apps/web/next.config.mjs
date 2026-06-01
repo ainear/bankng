@@ -7,9 +7,7 @@ const __dirname = path.dirname(__filename);
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   transpilePackages: ["@bankng/ui", "@bankng/analytics", "@bankng/shared-types"],
-  experimental: {
-    outputFileTracingRoot: path.join(__dirname, '../../'),
-  },
+  outputFileTracingRoot: path.join(__dirname, '../../'),
   // Fix: Copy Prisma Query Engine binary vào Vercel serverless output
   // See: https://pris.ly/d/engine-not-found-nextjs
   outputFileTracingIncludes: {
@@ -22,6 +20,18 @@ const nextConfig = {
   serverExternalPackages: ["@prisma/client", "prisma"],
   eslint: {
     ignoreDuringBuilds: true,
+  },
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'images.unsplash.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'cdn.vietqr.io',
+      },
+    ],
   },
 };
 

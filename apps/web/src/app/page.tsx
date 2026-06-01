@@ -6,6 +6,7 @@ import { HomepageLeadForm } from "@/modules/public/components/homepage-lead-form
 import { HeroSearchWidget } from "@/components/hero-search-widget";
 import { HomepageRatesTabs } from "@/components/homepage-rates-tabs";
 import { MOCK_LOAN_PRODUCTS, MOCK_BANKS } from "@/modules/public/mock-data";
+import { OfflineAlert } from "@/components/offline-alert";
 
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
@@ -93,25 +94,30 @@ async function getTopLoanProducts() {
     }).filter(p => p.rateValue !== null).sort((a, b) => (a.rateValue ?? 0) - (b.rateValue ?? 0));
 
     if (result.length === 0) {
-      return MOCK_LOAN_PRODUCTS;
+      return { products: MOCK_LOAN_PRODUCTS, isOffline: false };
     }
-    return result;
+    return { products: result, isOffline: false };
   } catch (err) {
     console.warn("Prisma offline, falling back to MOCK_LOAN_PRODUCTS:", err);
-    return MOCK_LOAN_PRODUCTS;
+    return { products: MOCK_LOAN_PRODUCTS, isOffline: true };
   }
 }
 
 export default async function HomePage() {
+  let isOffline = false;
   let rateMatrix: any = { rows: [], terms: [] };
   try {
     rateMatrix = await getRateMatrix();
   } catch (err) {
     console.warn("getRateMatrix offline, using fallback rate matrix:", err);
+    isOffline = true;
   }
 
   const { rows, terms } = rateMatrix;
-  const loanProducts = await getTopLoanProducts();
+  const { products: loanProducts, isOffline: productsOffline } = await getTopLoanProducts();
+  if (productsOffline) {
+    isOffline = true;
+  }
 
   let banks: any[] = [];
   try {
@@ -130,11 +136,13 @@ export default async function HomePage() {
     }
   } catch (err) {
     console.warn("Prisma offline, falling back to MOCK_BANKS:", err);
+    isOffline = true;
     banks = MOCK_BANKS;
   }
 
   return (
     <main className="min-h-screen bg-[var(--bankng-background)] text-[var(--bankng-text-primary)]">
+      {isOffline && <OfflineAlert />}
       {/* Hero Banner Section */}
       <section className="bg-gradient-to-b from-emerald-500/10 via-transparent to-transparent relative overflow-hidden">
         <div className="absolute top-0 right-0 h-[300px] w-[300px] bg-emerald-500/5 rounded-full blur-3xl -z-10" />
@@ -161,20 +169,20 @@ export default async function HomePage() {
               <Link
                 key={cat.href}
                 href={cat.href}
-                className="group flex flex-col items-center gap-3 rounded-2xl border border-[var(--bankng-border)] bg-white p-5 text-center shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-emerald-500 hover:shadow-md hover:shadow-emerald-500/5"
+                className="group flex flex-col items-center gap-3 rounded-2xl border border-emerald-500/10 bg-white/80 backdrop-blur-md p-5 text-center shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-emerald-500 hover:shadow-lg hover:shadow-emerald-500/5 active:scale-[0.98]"
               >
-                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-emerald-50 text-2.5xl transition-colors group-hover:bg-emerald-100">
+                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-emerald-50/50 text-2.5xl transition-all group-hover:bg-emerald-100 group-hover:scale-105 duration-300 border border-emerald-200/10">
                   {cat.emoji}
                 </div>
-                <span className="text-xs font-bold text-slate-700 transition-colors group-hover:text-emerald-700">{cat.label}</span>
+                <span className="text-xs font-black text-slate-700 transition-colors group-hover:text-emerald-700">{cat.label}</span>
               </Link>
             ))}
           </div>
 
-          <div className="mt-4 text-center md:text-left">
+          <div className="mt-6 text-center md:text-left">
             <Link
               href="/compare"
-              className="text-sm font-medium text-[var(--bankng-primary)] hover:underline"
+              className="text-sm font-black text-[var(--bankng-primary)] hover:underline flex items-center gap-1 w-max"
             >
               Xem tất cả danh mục so sánh →
             </Link>

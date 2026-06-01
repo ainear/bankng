@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import type { ArticleWithCategory } from "../data-articles";
 
 type Props = {
@@ -24,9 +25,11 @@ export function ArticleCard({ article, featured = false }: Props) {
         <div className="flex gap-6">
           {article.coverImage && (
             <div className="w-48 flex-shrink-0">
-              <img
+              <Image
                 src={article.coverImage}
                 alt={article.title}
+                width={192}
+                height={128}
                 className="h-32 w-full rounded-md object-cover"
               />
             </div>
@@ -65,9 +68,11 @@ export function ArticleCard({ article, featured = false }: Props) {
       className="group block rounded-lg border border-[var(--bankng-border)] bg-white shadow-sm transition-shadow hover:shadow-md"
     >
       {article.coverImage && (
-        <img
+        <Image
           src={article.coverImage}
           alt={article.title}
+          width={320}
+          height={160}
           className="h-40 w-full rounded-t-lg object-cover"
         />
       )}
